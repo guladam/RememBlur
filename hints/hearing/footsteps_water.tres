@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="Sense" load_steps=2 format=3 uid="uid://ct156hkkys0me"]
+
+[ext_resource type="Script" path="res://hints/sense.gd" id="1_3x62h"]
+
+[resource]
+script = ExtResource("1_3x62h")
+type = 0
+text = ""
