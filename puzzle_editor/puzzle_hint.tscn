@@ -1,0 +1,48 @@
+[gd_scene load_steps=2 format=3 uid="uid://mg8tnfjuwejp"]
+
+[ext_resource type="Script" path="res://puzzle_editor/puzzle_hint.gd" id="1_c2241"]
+
+[node name="PuzzleHint" type="HBoxContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 10
+script = ExtResource("1_c2241")
+
+[node name="Name" type="Label" parent="."]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Hint Name"
+vertical_alignment = 1
+
+[node name="Type" type="Label" parent="."]
+unique_name_in_owner = true
+layout_mode = 2
+text = "(Hint Type)"
+vertical_alignment = 1
+
+[node name="ColorRect" type="ColorRect" parent="."]
+custom_minimum_size = Vector2(10, 0)
+layout_mode = 2
+color = Color(0, 0, 0, 1)
+
+[node name="HelpfulnessLabel" type="Label" parent="."]
+layout_mode = 2
+text = "Helpfulness"
+vertical_alignment = 1
+
+[node name="Helpfulness" type="SpinBox" parent="."]
+unique_name_in_owner = true
+layout_mode = 2
+min_value = 1.0
+max_value = 3.0
+value = 1.0
+alignment = 1
+
+[node name="Delete" type="Button" parent="."]
+layout_mode = 2
+text = "delete"
+
+[connection signal="pressed" from="Delete" to="." method="queue_free"]

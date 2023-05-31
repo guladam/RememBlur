@@ -2,8 +2,8 @@ extends Resource
 class_name Puzzle
 
 
-@export var hints: Array[Sense] : set = set_hints
-@export var category: String
+@export var hints: Array[Hint] : set = set_hints
+@export var category: Categories.CATEGORIES
 @export var helpfulness_values: Array[int]
 
 

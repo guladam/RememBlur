@@ -1,0 +1,145 @@
+[gd_scene load_steps=2 format=3 uid="uid://bymejytk20tdi"]
+
+[ext_resource type="Script" path="res://puzzle_editor/puzzle_editor.gd" id="1_28hih"]
+
+[node name="PuzzleEditor" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_28hih")
+
+[node name="Top" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -100.0
+offset_right = 100.0
+offset_bottom = 61.0
+grow_horizontal = 2
+theme_override_constants/margin_top = 10
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Top"]
+layout_mode = 2
+alignment = 1
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="Top/VBoxContainer"]
+layout_mode = 2
+
+[node name="Title" type="Label" parent="Top/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+text = "puzzle:"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="PuzzleName" type="Label" parent="Top/VBoxContainer/HBoxContainer2"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+text = "<none>"
+horizontal_alignment = 1
+vertical_alignment = 1
+text_overrun_behavior = 3
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="Top/VBoxContainer"]
+layout_mode = 2
+
+[node name="Title" type="Label" parent="Top/VBoxContainer/HBoxContainer3"]
+layout_mode = 2
+text = "category:"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="PuzzleCategory" type="Label" parent="Top/VBoxContainer/HBoxContainer3"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+text = "<none>"
+horizontal_alignment = 1
+vertical_alignment = 1
+text_overrun_behavior = 3
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Top/VBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="Load" type="Button" parent="Top/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "Load puzzle"
+
+[node name="Bottom" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -49.0
+offset_top = -41.0
+offset_right = 49.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_constants/margin_top = 0
+theme_override_constants/margin_bottom = 10
+
+[node name="Save" type="Button" parent="Bottom"]
+layout_mode = 2
+text = "Save puzzle"
+
+[node name="Middle" type="ScrollContainer" parent="."]
+custom_minimum_size = Vector2(400, 400)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -204.0
+offset_top = -20.0
+offset_right = 204.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+horizontal_scroll_mode = 0
+vertical_scroll_mode = 2
+
+[node name="VBox" type="VBoxContainer" parent="Middle"]
+custom_minimum_size = Vector2(400, 0)
+layout_mode = 2
+alignment = 1
+
+[node name="Hints" type="VBoxContainer" parent="Middle/VBox"]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="AddHint" type="Button" parent="Middle/VBox"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Add hint"
+
+[node name="PuzzleFileDialog" type="FileDialog" parent="."]
+unique_name_in_owner = true
+initial_position = 2
+title = "Open a Puzzle"
+size = Vector2i(600, 500)
+ok_button_text = "Open"
+file_mode = 0
+filters = PackedStringArray("*.tres")
+
+[node name="HintFileDialog" type="FileDialog" parent="."]
+unique_name_in_owner = true
+initial_position = 2
+title = "Open a Hint"
+size = Vector2i(600, 500)
+ok_button_text = "Open"
+file_mode = 0
+filters = PackedStringArray("*.tres")
+
+[connection signal="pressed" from="Top/VBoxContainer/HBoxContainer/Load" to="." method="_on_load_pressed"]
+[connection signal="pressed" from="Bottom/Save" to="." method="_on_save_pressed"]
+[connection signal="pressed" from="Middle/VBox/AddHint" to="." method="_on_add_hint_pressed"]
+[connection signal="file_selected" from="PuzzleFileDialog" to="." method="_on_file_dialog_file_selected"]
+[connection signal="file_selected" from="HintFileDialog" to="." method="_on_hint_file_dialog_file_selected"]

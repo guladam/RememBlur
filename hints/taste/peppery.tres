@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="Sense" load_steps=2 format=3 uid="uid://d1few6xf4gfgp"]
 
-[ext_resource type="Script" path="res://hints/sense.gd" id="1_fy4gs"]
+[ext_resource type="Script" path="res://hints/hint.gd" id="1_fy4gs"]
 
 [resource]
 script = ExtResource("1_fy4gs")

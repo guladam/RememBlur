@@ -1,4 +1,6 @@
 ﻿keys,en,hu
+CAT_ANIMAL,animals,állatok
+CAT_FRUITVEG,fruits & veggies,zöldség-gyümölcs
 COLOR_RED,red,piros
 COLOR_BLUE,blue,kék
 COLOR_GREEN,green,zöld
@@ -62,4 +64,4 @@ TOUCH_STICKY,sticky,ragacsos
 TOUCH_COLD,cold,hideg
 TOUCH_WARM,warm,meleg
 TOUCH_SLIMY,slimy,nyálkás
-TOUCH_FUZZY,fuzzy,pehelyszerű
+TOUCH_FUZZY,fuzzy,pelyhes

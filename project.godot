@@ -14,6 +14,10 @@ config/name="RememBlur"
 config/features=PackedStringArray("4.0", "GL Compatibility")
 config/icon="res://icon.svg"
 
+[internationalization]
+
+locale/translations=PackedStringArray("res://translation/translation_utf8.en.translation", "res://translation/translation_utf8.hu.translation")
+
 [rendering]
 
 renderer/rendering_method="gl_compatibility"

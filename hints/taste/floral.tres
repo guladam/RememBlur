@@ -1,8 +1,8 @@
-[gd_resource type="Resource" script_class="Sense" load_steps=2 format=3 uid="uid://d0x8kqbyj0bik"]
+[gd_resource type="Resource" script_class="Hint" load_steps=2 format=3 uid="uid://d0x8kqbyj0bik"]
 
-[ext_resource type="Script" path="res://hints/sense.gd" id="1_njnds"]
+[ext_resource type="Script" path="res://hints/hint.gd" id="1_njnds"]
 
 [resource]
 script = ExtResource("1_njnds")
 type = 0
-text = "TASTE_HERBAL"
+text = "TASTE_FLORAL"
