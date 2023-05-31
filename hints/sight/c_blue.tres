@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="Sense" load_steps=2 format=3 uid="uid://cdw4cj7rth1ec"]
+
+[ext_resource type="Script" path="res://hints/sense.gd" id="1_21iot"]
+
+[resource]
+script = ExtResource("1_21iot")
+type = 4
+text = "COLOR_BLUE"

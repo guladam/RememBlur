@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="Sense" load_steps=2 format=3 uid="uid://com365x0cirv"]
+
+[ext_resource type="Script" path="res://hints/sense.gd" id="1_0ww6g"]
+
+[resource]
+script = ExtResource("1_0ww6g")
+type = 1
+text = "SMELL_PUNGENT"

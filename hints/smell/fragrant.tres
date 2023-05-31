@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="Sense" load_steps=2 format=3 uid="uid://cmlds10apw6yw"]
+
+[ext_resource type="Script" path="res://hints/sense.gd" id="1_6sdwn"]
+
+[resource]
+script = ExtResource("1_6sdwn")
+type = 1
+text = "SMELL_FRAGRANT"

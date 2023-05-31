@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="Sense" load_steps=2 format=3 uid="uid://dwj1f087t55nx"]
+
+[ext_resource type="Script" path="res://hints/sense.gd" id="1_73hw6"]
+
+[resource]
+script = ExtResource("1_73hw6")
+type = 1
+text = "SMELL_POPCORN"

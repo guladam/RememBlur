@@ -5,6 +5,6 @@
 
 [resource]
 script = ExtResource("1_u5ygp")
-type = 0
+type = 2
 text = ""
 sound = ExtResource("2_f6ts3")
