@@ -1,8 +1,10 @@
-[gd_resource type="Resource" script_class="Sense" load_steps=2 format=3 uid="uid://dshcvovhxycwb"]
+[gd_resource type="Resource" script_class="Sense" load_steps=3 format=3 uid="uid://dshcvovhxycwb"]
 
-[ext_resource type="Script" path="res://hints/sense.gd" id="1_lw1sq"]
+[ext_resource type="Script" path="res://hints/sense.gd" id="1_uf6ap"]
+[ext_resource type="AudioStream" uid="uid://c0i6o5gi0dj6u" path="res://hints/hearing/lions_playing.ogg" id="2_n4m6f"]
 
 [resource]
-script = ExtResource("1_lw1sq")
+script = ExtResource("1_uf6ap")
 type = 0
 text = ""
+sound = ExtResource("2_n4m6f")

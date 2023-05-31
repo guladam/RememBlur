@@ -1,8 +1,10 @@
-[gd_resource type="Resource" script_class="Sense" load_steps=2 format=3 uid="uid://ct156hkkys0me"]
+[gd_resource type="Resource" script_class="Sense" load_steps=3 format=3 uid="uid://ct156hkkys0me"]
 
 [ext_resource type="Script" path="res://hints/sense.gd" id="1_3x62h"]
+[ext_resource type="AudioStream" uid="uid://cx6t40li8soxi" path="res://hints/hearing/footsteps_water.ogg" id="2_7vu4o"]
 
 [resource]
 script = ExtResource("1_3x62h")
 type = 0
 text = ""
+sound = ExtResource("2_7vu4o")

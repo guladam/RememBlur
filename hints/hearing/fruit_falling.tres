@@ -1,10 +1,10 @@
 [gd_resource type="Resource" script_class="Sense" load_steps=3 format=3 uid="uid://c5iisa26yn2pc"]
 
-[ext_resource type="Script" path="res://hints/sense.gd" id="1_l656g"]
-[ext_resource type="AudioStream" uid="uid://ckqr50gl4p4ej" path="res://test_assets/apple_falling.wav" id="2_rsp1m"]
+[ext_resource type="Script" path="res://hints/sense.gd" id="1_qkstr"]
+[ext_resource type="AudioStream" uid="uid://te3ftfw25bku" path="res://hints/hearing/fruit_falling.ogg" id="2_ryw5e"]
 
 [resource]
-script = ExtResource("1_l656g")
+script = ExtResource("1_qkstr")
 type = 2
 text = ""
-sound = ExtResource("2_rsp1m")
+sound = ExtResource("2_ryw5e")
