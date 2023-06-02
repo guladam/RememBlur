@@ -1,7 +1,9 @@
 extends Sprite2D
+class_name Box
 
 
 @onready var icon: Sprite2D = $Icon
+var in_use := false
 var icons := {
 	Hint.Type.TASTE: preload("res://player/box/taste.png"),
 	Hint.Type.SMELL: preload("res://player/box/smell.png"),
@@ -9,6 +11,20 @@ var icons := {
 	Hint.Type.TOUCH: preload("res://player/box/hand.png"),
 	Hint.Type.SIGHT: preload("res://player/box/eye.png")
 }
+var hint: Hint
+
+
+func setup(h: Hint) -> void:
+	hint = h
+	set_icon(hint.type)
+	in_use = true
+	show()
+
 
 func set_icon(hint_type: Hint.Type) -> void:
 	icon.texture = icons[hint_type]
+
+
+func use() -> void:
+	in_use = false
+	hide()

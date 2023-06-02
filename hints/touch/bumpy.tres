@@ -1,8 +1,8 @@
-[gd_resource type="Resource" script_class="Sense" load_steps=2 format=3 uid="uid://c45xnx226etp4"]
+[gd_resource type="Resource" script_class="Hint" load_steps=2 format=3 uid="uid://c45xnx226etp4"]
 
 [ext_resource type="Script" path="res://hints/hint.gd" id="1_6otc4"]
 
 [resource]
 script = ExtResource("1_6otc4")
 type = 3
-text = "TOUCH_VELVETY"
+text = "TOUCH_BUMPY"

@@ -130,10 +130,11 @@ shape = SubResource("RectangleShape2D_400uf")
 
 [node name="InteractionRig" type="Node2D" parent="."]
 
-[node name="PlayerInteraction" type="Area2D" parent="InteractionRig"]
+[node name="PlayerInteraction" type="Area2D" parent="InteractionRig" node_paths=PackedStringArray("box")]
 collision_layer = 2
 collision_mask = 0
 script = ExtResource("4_nq3b0")
+box = NodePath("../../Sprite2D/Box")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionRig/PlayerInteraction"]
 shape = SubResource("CapsuleShape2D_0vhe4")

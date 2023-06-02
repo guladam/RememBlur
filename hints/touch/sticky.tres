@@ -1,8 +1,8 @@
-[gd_resource type="Resource" script_class="Sense" load_steps=2 format=3 uid="uid://n0dqchyfcfw0"]
+[gd_resource type="Resource" script_class="Hint" load_steps=2 format=3 uid="uid://n0dqchyfcfw0"]
 
 [ext_resource type="Script" path="res://hints/hint.gd" id="1_f3jwx"]
 
 [resource]
 script = ExtResource("1_f3jwx")
 type = 3
-text = "TOUCH_WET"
+text = "TOUCH_STICKY"

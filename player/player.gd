@@ -34,10 +34,13 @@ func play_animation() -> void:
 		animation_player.play("idle")
 
 
-func _on_player_interaction_box_requested(hint_type: Hint.Type) -> void:
-	box.set_icon(hint_type)
-	box.show()
+func _on_player_interaction_box_requested(hint: Hint) -> void:
+	if box.in_use:
+		print("you already have a box!")
+		return
+
+	box.setup(hint)
 
 
 func _on_player_interaction_box_used() -> void:
-	box.hide()
+	box.use()

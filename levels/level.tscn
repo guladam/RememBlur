@@ -1,15 +1,17 @@
-[gd_scene load_steps=16 format=3 uid="uid://d3qvej762es6c"]
+[gd_scene load_steps=18 format=3 uid="uid://d3qvej762es6c"]
 
+[ext_resource type="Script" path="res://levels/level.gd" id="1_0xu8p"]
 [ext_resource type="Texture2D" uid="uid://dddky3d8w2h4l" path="res://levels/visuals/floor_tile.svg" id="1_lv850"]
+[ext_resource type="Resource" uid="uid://dd72ddquqou52" path="res://puzzles/animals/lion.tres" id="2_ongqh"]
 [ext_resource type="Texture2D" uid="uid://btqprofb1ln30" path="res://levels/visuals/wall_tile.png" id="2_sqesd"]
 [ext_resource type="PackedScene" uid="uid://sa16u6skxwxt" path="res://player/player.tscn" id="3_5vla8"]
 [ext_resource type="Shader" path="res://levels/level_background.gdshader" id="3_csofm"]
 [ext_resource type="Texture2D" uid="uid://d1ma7m7tncqin" path="res://icon.svg" id="5_joapu"]
 [ext_resource type="PackedScene" uid="uid://cqdd5ec3x03dr" path="res://interactables/interactable.tscn" id="6_gmdey"]
 [ext_resource type="PackedScene" uid="uid://b0lnbpich0nky" path="res://interactables/interaction_popup.tscn" id="7_1fab8"]
-[ext_resource type="Script" path="res://interactables/action.gd" id="8_uba7g"]
 [ext_resource type="Texture2D" uid="uid://bxnrbciubof8d" path="res://interactables/zoom.png" id="8_x7c3y"]
 [ext_resource type="PackedScene" uid="uid://cac3mwjxdapna" path="res://interactables/touch_hint_giver.tscn" id="10_bgrpp"]
+[ext_resource type="Script" path="res://interactables/hint_giver.gd" id="11_072b0"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_4i1xo"]
 texture = ExtResource("1_lv850")
@@ -82,6 +84,8 @@ shader_parameter/electric_power = 1.0
 size = Vector2(256, 256)
 
 [node name="Level" type="Node2D"]
+script = ExtResource("1_0xu8p")
+puzzle = ExtResource("2_ongqh")
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_pgikf")
@@ -139,7 +143,7 @@ icon_texture = ExtResource("8_x7c3y")
 text = "Interact"
 
 [node name="TestAction" type="Node2D" parent="Examiner"]
-script = ExtResource("8_uba7g")
+script = ExtResource("11_072b0")
 
 [node name="TouchHintGiver" parent="." instance=ExtResource("10_bgrpp")]
 position = Vector2(-1024, 1408)

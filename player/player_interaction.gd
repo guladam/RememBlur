@@ -1,12 +1,19 @@
 extends Area2D
 
 
-signal box_requested(hint_type: Hint.Type)
+signal box_requested(hint_type: Hint)
 signal box_used
 
 
-func request_box(hint_type: Hint.Type) -> void:
-	box_requested.emit(hint_type)
+@export var box: Box
+
+
+func can_take_box() -> bool:
+	return not box.in_use
+
+
+func take_box(hint: Hint) -> void:
+	box_requested.emit(hint)
 
 
 func use_box() -> void:

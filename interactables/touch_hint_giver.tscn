@@ -1,17 +1,31 @@
-[gd_scene load_steps=7 format=3 uid="uid://cac3mwjxdapna"]
+[gd_scene load_steps=20 format=3 uid="uid://cac3mwjxdapna"]
 
 [ext_resource type="Script" path="res://interactables/touch_hint_giver.gd" id="1_fhgug"]
 [ext_resource type="PackedScene" uid="uid://cqdd5ec3x03dr" path="res://interactables/interactable.tscn" id="2_0jhay"]
+[ext_resource type="Resource" uid="uid://c45xnx226etp4" path="res://hints/touch/bumpy.tres" id="2_gynm6"]
 [ext_resource type="Texture2D" uid="uid://d1ma7m7tncqin" path="res://icon.svg" id="2_nqisw"]
 [ext_resource type="PackedScene" uid="uid://b0lnbpich0nky" path="res://interactables/interaction_popup.tscn" id="3_o1er0"]
+[ext_resource type="Resource" uid="uid://c2lc56rfet3m2" path="res://hints/touch/coarse.tres" id="3_oere5"]
 [ext_resource type="Texture2D" uid="uid://bxnrbciubof8d" path="res://interactables/zoom.png" id="4_igdrh"]
+[ext_resource type="Resource" uid="uid://d3ye65m8jdqqk" path="res://hints/touch/cold.tres" id="4_sf1bj"]
+[ext_resource type="Resource" uid="uid://dsraw7q5yfpu1" path="res://hints/touch/fuzzy.tres" id="5_yfmnq"]
+[ext_resource type="Resource" uid="uid://djgb07evvco12" path="res://hints/touch/prickly.tres" id="6_gjul8"]
+[ext_resource type="Resource" uid="uid://dftcfnv2d72xn" path="res://hints/touch/slimy.tres" id="7_pclxf"]
+[ext_resource type="Resource" uid="uid://brw0g4vjykvja" path="res://hints/touch/smooth.tres" id="8_uew1h"]
+[ext_resource type="Resource" uid="uid://c686cfewumd3r" path="res://hints/touch/soft.tres" id="9_4d7p8"]
+[ext_resource type="Resource" uid="uid://du23bbcpxlxvc" path="res://hints/touch/spongy.tres" id="10_dcjjo"]
+[ext_resource type="Resource" uid="uid://n0dqchyfcfw0" path="res://hints/touch/sticky.tres" id="11_ce1se"]
+[ext_resource type="Resource" uid="uid://cubpkv7ncxe1q" path="res://hints/touch/velvety.tres" id="12_528ck"]
+[ext_resource type="Resource" uid="uid://dtn4f6p2grc0x" path="res://hints/touch/warm.tres" id="13_q73np"]
+[ext_resource type="Resource" uid="uid://cuawj7xa0s5ah" path="res://hints/touch/wet.tres" id="14_fvaxm"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_gb8yy"]
 radius = 89.0
 height = 214.0
 
-[node name="TouchHintGiver" type="Node2D"]
+[node name="TouchHintGiver" type="Node2D" groups=["interactibles"]]
 script = ExtResource("1_fhgug")
+hints = Array[Resource("res://hints/hint.gd")]([ExtResource("2_gynm6"), ExtResource("3_oere5"), ExtResource("4_sf1bj"), ExtResource("5_yfmnq"), ExtResource("6_gjul8"), ExtResource("7_pclxf"), ExtResource("8_uew1h"), ExtResource("9_4d7p8"), ExtResource("10_dcjjo"), ExtResource("11_ce1se"), ExtResource("12_528ck"), ExtResource("13_q73np"), ExtResource("14_fvaxm")])
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("2_nqisw")
@@ -31,4 +45,16 @@ offset_bottom = 0.0
 icon_texture = ExtResource("4_igdrh")
 text = "Get touch hint"
 
+[node name="Cooldown" type="Timer" parent="."]
+wait_time = 10.0
+one_shot = true
+
+[node name="Label" type="Label" parent="."]
+offset_left = -18.0
+offset_top = -141.0
+offset_right = 22.0
+offset_bottom = -118.0
+theme_override_font_sizes/font_size = 32
+
 [connection signal="interacted" from="Interactable" to="." method="_on_interactable_interacted"]
+[connection signal="timeout" from="Cooldown" to="." method="_on_cooldown_timeout"]

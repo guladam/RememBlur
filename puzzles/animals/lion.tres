@@ -9,5 +9,5 @@
 [resource]
 script = ExtResource("1_kntro")
 hints = Array[Resource("res://hints/hint.gd")]([ExtResource("1_lqtnj"), ExtResource("2_r46w5"), ExtResource("3_p3udl"), ExtResource("4_lbdra")])
-category = "animals"
+category = 0
 helpfulness_values = Array[int]([2, 3, 1, 2])
