@@ -123,7 +123,7 @@ text = "Add hint"
 [node name="PuzzleFileDialog" type="FileDialog" parent="."]
 unique_name_in_owner = true
 initial_position = 2
-title = "Open a Puzzle"
+title = "Open a File"
 size = Vector2i(600, 500)
 ok_button_text = "Open"
 file_mode = 0
@@ -132,7 +132,7 @@ filters = PackedStringArray("*.tres")
 [node name="HintFileDialog" type="FileDialog" parent="."]
 unique_name_in_owner = true
 initial_position = 2
-title = "Open a Hint"
+title = "Open a File"
 size = Vector2i(600, 500)
 ok_button_text = "Open"
 file_mode = 0
