@@ -20,6 +20,6 @@ func get_hint(helpfulness := 0) -> Hint:
 	var given_hint := -1
 	# TODO replace with actual logic
 	if randf() > 0.4:
-		given_hint = HintUtils.get_helpful_hint(hints, _puzzle, helpfulness)
+		given_hint = _puzzle.get_helpful_hint(hints, helpfulness)
 	
 	return hints.pop_at(given_hint)

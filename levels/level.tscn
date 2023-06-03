@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://d3qvej762es6c"]
+[gd_scene load_steps=16 format=3 uid="uid://d3qvej762es6c"]
 
 [ext_resource type="Script" path="res://levels/level.gd" id="1_0xu8p"]
 [ext_resource type="Texture2D" uid="uid://dddky3d8w2h4l" path="res://levels/visuals/floor_tile.svg" id="1_lv850"]
@@ -6,12 +6,11 @@
 [ext_resource type="Texture2D" uid="uid://btqprofb1ln30" path="res://levels/visuals/wall_tile.png" id="2_sqesd"]
 [ext_resource type="PackedScene" uid="uid://sa16u6skxwxt" path="res://player/player.tscn" id="3_5vla8"]
 [ext_resource type="Shader" path="res://levels/level_background.gdshader" id="3_csofm"]
-[ext_resource type="Texture2D" uid="uid://d1ma7m7tncqin" path="res://icon.svg" id="5_joapu"]
-[ext_resource type="PackedScene" uid="uid://cqdd5ec3x03dr" path="res://interactables/interactable.tscn" id="6_gmdey"]
-[ext_resource type="PackedScene" uid="uid://b0lnbpich0nky" path="res://interactables/interaction_popup.tscn" id="7_1fab8"]
-[ext_resource type="Texture2D" uid="uid://bxnrbciubof8d" path="res://interactables/zoom.png" id="8_x7c3y"]
-[ext_resource type="PackedScene" uid="uid://cac3mwjxdapna" path="res://interactables/touch_hint_giver.tscn" id="10_bgrpp"]
-[ext_resource type="Script" path="res://interactables/hint_giver.gd" id="11_072b0"]
+[ext_resource type="PackedScene" uid="uid://dns1ybse4vg1a" path="res://interactables/hint_examiner/hint_examiner.tscn" id="7_1cm8l"]
+[ext_resource type="PackedScene" uid="uid://bt5s66j4no7ta" path="res://interactables/hint_examiner/latest_hint_screen.tscn" id="8_wvc2n"]
+[ext_resource type="Script" path="res://levels/level_ui.gd" id="8_xg5p3"]
+[ext_resource type="PackedScene" uid="uid://cac3mwjxdapna" path="res://interactables/hint_givers/touch_hint_giver.tscn" id="10_bgrpp"]
+[ext_resource type="PackedScene" uid="uid://cosp287ap0ox3" path="res://interactables/hint_examiner/all_hints_screen.tscn" id="10_jc0lw"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_4i1xo"]
 texture = ExtResource("1_lv850")
@@ -80,9 +79,6 @@ shader_parameter/electric_scale = 60.0
 shader_parameter/electric_speed = 0.001
 shader_parameter/electric_power = 1.0
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_dktun"]
-size = Vector2(256, 256)
-
 [node name="Level" type="Node2D"]
 script = ExtResource("1_0xu8p")
 puzzle = ExtResource("2_ongqh")
@@ -113,6 +109,22 @@ position = Vector2(768, 768)
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 
+[node name="TouchHintGiver" parent="." instance=ExtResource("10_bgrpp")]
+position = Vector2(-1024, 1408)
+
+[node name="HintExaminer" parent="." instance=ExtResource("7_1cm8l")]
+modulate = Color(0.690196, 0.686275, 0.466667, 1)
+position = Vector2(640, 256)
+
+[node name="UI" type="CanvasLayer" parent="."]
+script = ExtResource("8_xg5p3")
+
+[node name="LatestHintScreen" parent="UI" instance=ExtResource("8_wvc2n")]
+visible = false
+
+[node name="AllHintsScreen" parent="UI" instance=ExtResource("10_jc0lw")]
+visible = false
+
 [node name="BackgroundLayer" type="CanvasLayer" parent="."]
 layer = -1
 
@@ -124,26 +136,6 @@ offset_right = 3840.0
 offset_bottom = 2160.0
 metadata/_edit_lock_ = true
 
-[node name="Examiner" type="Sprite2D" parent="."]
-position = Vector2(256, 256)
-texture = ExtResource("5_joapu")
-
-[node name="Interactable" parent="Examiner" node_paths=PackedStringArray("popup") instance=ExtResource("6_gmdey")]
-popup = NodePath("../InteractionPopup")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Examiner/Interactable"]
-shape = SubResource("RectangleShape2D_dktun")
-
-[node name="InteractionPopup" parent="Examiner" instance=ExtResource("7_1fab8")]
-offset_left = -64.0
-offset_top = -192.0
-offset_right = 136.0
-offset_bottom = -64.0
-icon_texture = ExtResource("8_x7c3y")
-text = "Interact"
-
-[node name="TestAction" type="Node2D" parent="Examiner"]
-script = ExtResource("11_072b0")
-
-[node name="TouchHintGiver" parent="." instance=ExtResource("10_bgrpp")]
-position = Vector2(-1024, 1408)
+[connection signal="show_all_hints_screen" from="HintExaminer" to="." method="_on_hint_examiner_show_all_hints_screen"]
+[connection signal="show_latest_hint_screen" from="HintExaminer" to="." method="_on_hint_examiner_show_latest_hint_screen"]
+[connection signal="switch_to_all_hints_screen" from="UI/LatestHintScreen" to="UI" method="show_all_hints_screen"]

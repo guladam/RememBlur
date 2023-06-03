@@ -1,4 +1,4 @@
-extends "res://interactables/hint_giver.gd"
+extends "res://interactables/hint_givers/hint_giver.gd"
 
 @onready var interactable: Area2D = $Interactable
 
@@ -16,10 +16,10 @@ func _process(_delta: float) -> void:
 
 
 func _on_interactable_interacted(player: Area2D) -> void:
-	if not player or not player.has_method("take_box") or not player.has_method("can_take_box"):
+	if not player or not player.has_method("take_box") or not player.has_method("has_box"):
 		return
 	
-	if not player.can_take_box():
+	if player.has_box():
 		# TODO feedback?
 		return
 	

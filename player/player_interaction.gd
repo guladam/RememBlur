@@ -8,8 +8,12 @@ signal box_used
 @export var box: Box
 
 
-func can_take_box() -> bool:
-	return not box.in_use
+func get_box() -> Box:
+	return box
+
+
+func has_box() -> bool:
+	return box.in_use
 
 
 func take_box(hint: Hint) -> void:

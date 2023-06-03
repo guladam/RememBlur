@@ -19,8 +19,6 @@ func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("interact"):
 		can_interact = false
 		interacted.emit(_player)
-		print("interaction")
-		# TODO cooldown
 		
 		if popup:
 			popup.disappear()

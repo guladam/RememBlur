@@ -1,0 +1,31 @@
+[gd_scene load_steps=7 format=3 uid="uid://dns1ybse4vg1a"]
+
+[ext_resource type="Script" path="res://interactables/hint_examiner/hint_examiner.gd" id="1_okbu3"]
+[ext_resource type="PackedScene" uid="uid://cqdd5ec3x03dr" path="res://interactables/interactable.tscn" id="1_vkyq5"]
+[ext_resource type="Texture2D" uid="uid://d1ma7m7tncqin" path="res://icon.svg" id="2_x4t13"]
+[ext_resource type="PackedScene" uid="uid://b0lnbpich0nky" path="res://interactables/interaction_popup.tscn" id="4_6u2fm"]
+[ext_resource type="Texture2D" uid="uid://bxnrbciubof8d" path="res://interactables/zoom.png" id="5_n75pm"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_rinn5"]
+radius = 102.0
+height = 234.0
+
+[node name="HintExaminer" type="Node2D" groups=["puzzle_receiver"]]
+script = ExtResource("1_okbu3")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_x4t13")
+
+[node name="Interactable" parent="." node_paths=PackedStringArray("popup") instance=ExtResource("1_vkyq5")]
+has_cooldown = false
+popup = NodePath("../InteractionPopup")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Interactable"]
+shape = SubResource("CapsuleShape2D_rinn5")
+debug_color = Color(0, 0.6, 0.701961, 0.419608)
+
+[node name="InteractionPopup" parent="." instance=ExtResource("4_6u2fm")]
+icon_texture = ExtResource("5_n75pm")
+text = "examine hint(s)"
+
+[connection signal="interacted" from="Interactable" to="." method="_on_interactable_interacted"]
