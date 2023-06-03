@@ -17,7 +17,7 @@ func _on_interactable_interacted(player: Area2D) -> void:
 	
 	if player.has_box():
 		var box: Box = player.get_box()
-		_puzzle.seen_hints.append(box.hint)
+		_puzzle.add_hint_as_seen(box.hint)
 		player.use_box()
 		show_latest_hint_screen.emit(box.hint)
 	else:

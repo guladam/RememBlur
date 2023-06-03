@@ -2,6 +2,9 @@ extends Resource
 class_name Puzzle
 
 
+signal hint_added_as_seen(hint: Hint)
+
+
 @export var hints: Array[Hint] : set = set_hints
 @export var category: Categories.CATEGORIES
 @export var helpfulness_values: Array[int]
@@ -15,6 +18,11 @@ func reset() -> void:
 func set_hints(new_hints: Array) -> void:
 	hints = new_hints
 	emit_changed()
+
+
+func add_hint_as_seen(hint: Hint) -> void:
+	seen_hints.append(hint)
+	hint_added_as_seen.emit(hint)
 
 
 func get_helpfulness_of_hint(hint: Hint) -> int:
