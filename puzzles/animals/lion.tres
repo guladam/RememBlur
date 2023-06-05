@@ -8,6 +8,7 @@
 
 [resource]
 script = ExtResource("1_kntro")
+solution_key = "PUZZLE_LION"
 hints = Array[Resource("res://hints/hint.gd")]([ExtResource("1_lqtnj"), ExtResource("2_r46w5"), ExtResource("3_p3udl"), ExtResource("4_lbdra")])
 category = 0
 helpfulness_values = Array[int]([2, 3, 1, 2])

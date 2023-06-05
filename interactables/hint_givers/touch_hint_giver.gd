@@ -27,6 +27,7 @@ func _on_interactable_interacted(player: Area2D) -> void:
 	if h:
 		player.take_box(h)
 		cooldown.start()
+		interactable.hide_popup()
 		interactable.turn_off()
 	else:
 		# TODO give feedback to player (eg. camshake)

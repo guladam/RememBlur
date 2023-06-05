@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://d3qvej762es6c"]
+[gd_scene load_steps=19 format=3 uid="uid://d3qvej762es6c"]
 
 [ext_resource type="Script" path="res://levels/level.gd" id="1_0xu8p"]
 [ext_resource type="Texture2D" uid="uid://dddky3d8w2h4l" path="res://levels/visuals/floor_tile.svg" id="1_lv850"]
@@ -7,10 +7,13 @@
 [ext_resource type="PackedScene" uid="uid://sa16u6skxwxt" path="res://player/player.tscn" id="3_5vla8"]
 [ext_resource type="Shader" path="res://levels/level_background.gdshader" id="3_csofm"]
 [ext_resource type="PackedScene" uid="uid://dns1ybse4vg1a" path="res://interactables/hint_examiner/hint_examiner.tscn" id="7_1cm8l"]
+[ext_resource type="PackedScene" uid="uid://3qxqdcpjgqix" path="res://interactables/guesser/guesser.tscn" id="8_eb060"]
 [ext_resource type="PackedScene" uid="uid://bt5s66j4no7ta" path="res://interactables/hint_examiner/latest_hint_screen.tscn" id="8_wvc2n"]
 [ext_resource type="Script" path="res://levels/level_ui.gd" id="8_xg5p3"]
 [ext_resource type="PackedScene" uid="uid://cac3mwjxdapna" path="res://interactables/hint_givers/touch_hint_giver.tscn" id="10_bgrpp"]
 [ext_resource type="PackedScene" uid="uid://cosp287ap0ox3" path="res://interactables/hint_examiner/all_hints_screen.tscn" id="10_jc0lw"]
+[ext_resource type="PackedScene" uid="uid://wfim02c132bf" path="res://interactables/guesser/puzzle_letters.tscn" id="11_vd0mw"]
+[ext_resource type="PackedScene" uid="uid://b3o2wkh3qrpvd" path="res://interactables/guesser/guesser_ui.tscn" id="13_x23yd"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_4i1xo"]
 texture = ExtResource("1_lv850")
@@ -116,6 +119,9 @@ position = Vector2(-1024, 1408)
 modulate = Color(0.690196, 0.686275, 0.466667, 1)
 position = Vector2(640, 256)
 
+[node name="Guesser" parent="." instance=ExtResource("8_eb060")]
+position = Vector2(128, 256)
+
 [node name="UI" type="CanvasLayer" parent="."]
 script = ExtResource("8_xg5p3")
 
@@ -123,6 +129,11 @@ script = ExtResource("8_xg5p3")
 visible = false
 
 [node name="AllHintsScreen" parent="UI" instance=ExtResource("10_jc0lw")]
+visible = false
+
+[node name="PuzzleLetters" parent="UI" instance=ExtResource("11_vd0mw")]
+
+[node name="GuesserUI" parent="UI" instance=ExtResource("13_x23yd")]
 visible = false
 
 [node name="BackgroundLayer" type="CanvasLayer" parent="."]
@@ -135,7 +146,3 @@ offset_top = -2160.0
 offset_right = 3840.0
 offset_bottom = 2160.0
 metadata/_edit_lock_ = true
-
-[connection signal="show_all_hints_screen" from="HintExaminer" to="." method="_on_hint_examiner_show_all_hints_screen"]
-[connection signal="show_latest_hint_screen" from="HintExaminer" to="." method="_on_hint_examiner_show_latest_hint_screen"]
-[connection signal="switch_to_all_hints_screen" from="UI/LatestHintScreen" to="UI" method="show_all_hints_screen"]

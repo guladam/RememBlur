@@ -1,0 +1,32 @@
+[gd_scene load_steps=2 format=3 uid="uid://b3o2wkh3qrpvd"]
+
+[ext_resource type="Script" path="res://interactables/guesser/guesser_ui.gd" id="1_swggk"]
+
+[node name="GuesserUI" type="CenterContainer" groups=["puzzle_receiver"]]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_swggk")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="Letters" type="HBoxContainer" parent="VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="Guess" type="LineEdit" parent="VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+alignment = 1
+
+[node name="Remember" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+text = "Remember"
+
+[connection signal="text_submitted" from="VBoxContainer/Guess" to="." method="_on_guess_text_submitted"]
+[connection signal="pressed" from="VBoxContainer/Remember" to="." method="_on_remember_pressed"]
