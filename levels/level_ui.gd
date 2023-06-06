@@ -6,11 +6,16 @@ signal guess_entered(guess: String)
 @onready var all_hints_screen: CenterContainer = $AllHintsScreen
 @onready var puzzle_letters: Control = $PuzzleLetters
 @onready var guesser_ui: CenterContainer = $GuesserUI
+@onready var time_left: MarginContainer = $TimeLeft
 
 
 func _ready() -> void:
 	latest_hint_screen.switch_to_all_hints_screen.connect(show_all_hints_screen)
 	guesser_ui.guess_entered.connect(func(guess: String): guess_entered.emit(guess))
+
+
+func setup_time_left(timer: Timer) -> void:
+	time_left.setup(timer)
 
 
 func show_latest_hint_screen(hint: Hint) -> void:

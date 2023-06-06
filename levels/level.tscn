@@ -1,11 +1,12 @@
-[gd_scene load_steps=19 format=3 uid="uid://d3qvej762es6c"]
+[gd_scene load_steps=22 format=3 uid="uid://d3qvej762es6c"]
 
 [ext_resource type="Script" path="res://levels/level.gd" id="1_0xu8p"]
 [ext_resource type="Texture2D" uid="uid://dddky3d8w2h4l" path="res://levels/visuals/floor_tile.svg" id="1_lv850"]
 [ext_resource type="Resource" uid="uid://dd72ddquqou52" path="res://puzzles/animals/lion.tres" id="2_ongqh"]
 [ext_resource type="Texture2D" uid="uid://btqprofb1ln30" path="res://levels/visuals/wall_tile.png" id="2_sqesd"]
 [ext_resource type="PackedScene" uid="uid://sa16u6skxwxt" path="res://player/player.tscn" id="3_5vla8"]
-[ext_resource type="Shader" path="res://levels/level_background.gdshader" id="3_csofm"]
+[ext_resource type="Resource" uid="uid://bubc4po0y1ol8" path="res://stats/player_stats.tres" id="4_v6e78"]
+[ext_resource type="Resource" uid="uid://dh3x1s6th3qwx" path="res://levels/game_state.tres" id="6_p2gfj"]
 [ext_resource type="PackedScene" uid="uid://dns1ybse4vg1a" path="res://interactables/hint_examiner/hint_examiner.tscn" id="7_1cm8l"]
 [ext_resource type="PackedScene" uid="uid://3qxqdcpjgqix" path="res://interactables/guesser/guesser.tscn" id="8_eb060"]
 [ext_resource type="PackedScene" uid="uid://bt5s66j4no7ta" path="res://interactables/hint_examiner/latest_hint_screen.tscn" id="8_wvc2n"]
@@ -14,6 +15,8 @@
 [ext_resource type="PackedScene" uid="uid://cosp287ap0ox3" path="res://interactables/hint_examiner/all_hints_screen.tscn" id="10_jc0lw"]
 [ext_resource type="PackedScene" uid="uid://wfim02c132bf" path="res://interactables/guesser/puzzle_letters.tscn" id="11_vd0mw"]
 [ext_resource type="PackedScene" uid="uid://b3o2wkh3qrpvd" path="res://interactables/guesser/guesser_ui.tscn" id="13_x23yd"]
+[ext_resource type="PackedScene" uid="uid://be0ehq5ccgvj5" path="res://levels/time_left.tscn" id="14_3vhk0"]
+[ext_resource type="Shader" path="res://levels/visuals/level_background.gdshader" id="16_qhf86"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_4i1xo"]
 texture = ExtResource("1_lv850")
@@ -74,7 +77,7 @@ sources/0 = SubResource("TileSetAtlasSource_4i1xo")
 sources/5 = SubResource("TileSetAtlasSource_s77gy")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_oe07w"]
-shader = ExtResource("3_csofm")
+shader = ExtResource("16_qhf86")
 shader_parameter/pixel_size = Vector2(0.001, 0.001)
 shader_parameter/voronoi_scale = 20.0
 shader_parameter/voronoi_seed = 0.0
@@ -84,7 +87,10 @@ shader_parameter/electric_power = 1.0
 
 [node name="Level" type="Node2D"]
 script = ExtResource("1_0xu8p")
+time_limit = 300.0
 puzzle = ExtResource("2_ongqh")
+game_state = ExtResource("6_p2gfj")
+player_stats = ExtResource("4_v6e78")
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_pgikf")
@@ -118,23 +124,30 @@ position = Vector2(-1024, 1408)
 [node name="HintExaminer" parent="." instance=ExtResource("7_1cm8l")]
 modulate = Color(0.690196, 0.686275, 0.466667, 1)
 position = Vector2(640, 256)
+game_state = ExtResource("6_p2gfj")
 
 [node name="Guesser" parent="." instance=ExtResource("8_eb060")]
 position = Vector2(128, 256)
+game_state = ExtResource("6_p2gfj")
 
 [node name="UI" type="CanvasLayer" parent="."]
 script = ExtResource("8_xg5p3")
 
 [node name="LatestHintScreen" parent="UI" instance=ExtResource("8_wvc2n")]
 visible = false
+game_state = ExtResource("6_p2gfj")
 
 [node name="AllHintsScreen" parent="UI" instance=ExtResource("10_jc0lw")]
 visible = false
+game_state = ExtResource("6_p2gfj")
 
 [node name="PuzzleLetters" parent="UI" instance=ExtResource("11_vd0mw")]
 
 [node name="GuesserUI" parent="UI" instance=ExtResource("13_x23yd")]
 visible = false
+game_state = ExtResource("6_p2gfj")
+
+[node name="TimeLeft" parent="UI" instance=ExtResource("14_3vhk0")]
 
 [node name="BackgroundLayer" type="CanvasLayer" parent="."]
 layer = -1
@@ -146,3 +159,6 @@ offset_top = -2160.0
 offset_right = 3840.0
 offset_bottom = 2160.0
 metadata/_edit_lock_ = true
+
+[node name="LevelTimer" type="Timer" parent="."]
+one_shot = true

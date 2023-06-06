@@ -1,6 +1,8 @@
 extends CharacterBody2D
 
 @export var speed := 600
+@export var game_state: GameState
+@export var player_stats: PlayerStats
 
 @onready var sprites := {
 	"front": preload("res://player/roboguy.png"),
@@ -12,12 +14,19 @@ extends CharacterBody2D
 
 
 func _physics_process(_delta: float) -> void:
+	if game_state and game_state.state != GameState.State.PLAYING:
+		return
+	
 	var h_direction := Input.get_axis("left", "right")
 	var v_direction := Input.get_axis("up", "down")
-	velocity = Vector2(h_direction, v_direction).normalized() * speed
+	velocity = Vector2(h_direction, v_direction).normalized() * get_speed()
 	update_sprite()
 	play_animation()
 	move_and_slide()
+
+
+func get_speed() -> float:
+	return (speed + player_stats.move_speed_bonus) * player_stats.get_multiplier(player_stats.move_speed_multipliers, player_stats.SIGN.POSITIVE)
 
 
 func update_sprite() -> void:

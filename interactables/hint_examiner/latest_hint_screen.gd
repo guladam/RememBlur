@@ -6,7 +6,13 @@ signal switch_to_all_hints_screen
 @onready var hint_display = preload("res://interactables/hint_examiner/hint_display.tscn")
 @onready var hint: Control = %Hint
 
+@export var game_state: GameState
 var _puzzle: Puzzle
+
+
+func _unhandled_input(event: InputEvent) -> void:
+	if event.is_action_pressed("ui_cancel") and visible:
+		_on_close_pressed()
 
 
 func setup(p: Puzzle) -> void:
@@ -27,6 +33,7 @@ func clear_previous_hint() -> void:
 
 
 func _on_close_pressed() -> void:
+	game_state.state = GameState.State.PLAYING
 	hide()
 
 

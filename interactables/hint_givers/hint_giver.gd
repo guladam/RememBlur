@@ -3,6 +3,7 @@ class_name HintGiver
 
 
 @export var hints: Array[Hint]
+@export var player_stats: PlayerStats
 var cooldown: Timer
 var _puzzle: Puzzle
 

@@ -1,0 +1,17 @@
+[gd_scene load_steps=2 format=3 uid="uid://be0ehq5ccgvj5"]
+
+[ext_resource type="Script" path="res://levels/time_left.gd" id="1_u8q63"]
+
+[node name="TimeLeft" type="MarginContainer"]
+offset_right = 40.0
+offset_bottom = 40.0
+theme_override_constants/margin_left = 40
+theme_override_constants/margin_top = 40
+script = ExtResource("1_u8q63")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 2
+theme_override_font_sizes/font_size = 48
+text = "00:00"
+horizontal_alignment = 1
+vertical_alignment = 1

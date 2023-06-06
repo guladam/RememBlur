@@ -1,0 +1,7 @@
+[gd_resource type="Resource" script_class="GameState" load_steps=2 format=3 uid="uid://dh3x1s6th3qwx"]
+
+[ext_resource type="Script" path="res://levels/game_state.gd" id="1_1g58j"]
+
+[resource]
+script = ExtResource("1_1g58j")
+state = 0

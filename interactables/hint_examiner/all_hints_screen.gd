@@ -1,9 +1,15 @@
 extends CenterContainer
 
-
+@export var game_state: GameState
 @onready var hints: VBoxContainer = %Hints
 @onready var hint_display := preload("res://interactables/hint_examiner/hint_display.tscn")
 var _puzzle: Puzzle
+
+
+func _unhandled_input(event: InputEvent) -> void:
+	if event.is_action_pressed("ui_cancel") and visible:
+		_on_close_pressed()
+
 
 func setup(p: Puzzle) -> void:
 	_puzzle = p
@@ -15,6 +21,7 @@ func show_screen() -> void:
 
 
 func _on_close_pressed() -> void:
+	game_state.state = GameState.State.PLAYING
 	hide()
 
 

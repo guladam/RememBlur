@@ -10,7 +10,7 @@
 radius = 102.0
 height = 234.0
 
-[node name="Guesser" type="Node2D" groups=["puzzle_receiver"]]
+[node name="Guesser" type="Node2D" groups=["puzzle_receiver", "stats_receiver"]]
 script = ExtResource("1_07d4o")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]

@@ -2,6 +2,7 @@ extends CenterContainer
 
 signal guess_entered(guess: String)
 
+@export var game_state: GameState
 @onready var guess: LineEdit = %Guess
 @onready var letters: HBoxContainer = %Letters
 @onready var letter := preload("res://interactables/guesser/letter.tscn")
@@ -9,6 +10,11 @@ signal guess_entered(guess: String)
 var _puzzle: Puzzle
 var puzzle_length: int
 var typing_enabled := false
+
+
+func _unhandled_input(event: InputEvent) -> void:
+	if event.is_action_pressed("ui_cancel") and visible:
+		close()
 
 
 func setup(puzzle: Puzzle) -> void:
@@ -48,6 +54,11 @@ func submit_guess() -> void:
 		return
 	
 	guess_entered.emit(guess.text)
+	close()
+
+
+func close() -> void:
+	game_state.state = GameState.State.PLAYING
 	hide()
 	typing_enabled = false
 
