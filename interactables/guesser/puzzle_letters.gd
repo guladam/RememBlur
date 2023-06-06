@@ -27,9 +27,9 @@ func update_letters() -> void:
 		var current_letter: Label = letters.get_child(i)
 		current_letter.text = "_"
 		if _puzzle.seen_letters.has(_puzzle.solution[i]):
-			current_letter.text = _puzzle.solution[i]
+			current_letter.text = _puzzle.solution[i].to_upper()
 
 
 func show_solution() -> void:
 	for i in range(puzzle_length):
-		letters.get_child(i).text = _puzzle.solution[i]
+		letters.get_child(i).text = _puzzle.solution[i].to_upper()

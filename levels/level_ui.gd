@@ -7,6 +7,7 @@ signal guess_entered(guess: String)
 @onready var puzzle_letters: Control = $PuzzleLetters
 @onready var guesser_ui: CenterContainer = $GuesserUI
 @onready var time_left: MarginContainer = $TimeLeft
+@onready var health_bar: MarginContainer = $HealthBar
 
 
 func _ready() -> void:
@@ -16,6 +17,10 @@ func _ready() -> void:
 
 func setup_time_left(timer: Timer) -> void:
 	time_left.setup(timer)
+
+
+func setup_healthbar() -> void:
+	health_bar.setup()
 
 
 func show_latest_hint_screen(hint: Hint) -> void:

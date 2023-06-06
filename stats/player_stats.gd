@@ -10,20 +10,19 @@ enum SIGN { NEGATIVE, POSITIVE }
 @export_group("Health")
 @export var health := 3:
 	set(value):
-		if health != value:
-			health_changed.emit()
-		
 		health = value
+		health_changed.emit()
 		
 		if health <= 0:
 			player_died.emit()
 		
 @export var max_health := 3:
 	set(value):
-		if max_health != value:
+		var really_changed := max_health != value
+		max_health = value
+		if really_changed:
 			max_health_changed.emit()
 			self.health += 1
-		max_health = value
 
 @export_group("Movement")
 @export var move_speed_bonus := 0

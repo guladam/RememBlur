@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://ccgfnx7f7vy36"]
+
+[node name="HealthIcon" type="TextureRect"]
+custom_minimum_size = Vector2(64, 64)
+offset_right = 40.0
+offset_bottom = 40.0
+expand_mode = 1
+stretch_mode = 5

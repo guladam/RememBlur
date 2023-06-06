@@ -1,5 +1,8 @@
 extends Node2D
 
+signal lost
+signal won
+
 @export var time_limit: float
 @export var puzzle: Puzzle
 @export var game_state: GameState
@@ -22,7 +25,10 @@ func _ready() -> void:
 	
 	guesser.show_guessing_screen.connect(ui.show_guesser_ui)
 	guesser.guessed_correctly.connect(ui.show_solution)
+	guesser.guessed_correctly.connect(level_won)
 	ui.guess_entered.connect(guesser._on_guess_entered)
+	
+	ui.setup_healthbar()
 	
 	ui.setup_time_left(level_timer)
 	level_timer.wait_time = get_time_with_bonus()
@@ -36,4 +42,10 @@ func get_time_with_bonus() -> float:
 
 
 func game_over() -> void:
+	lost.emit()
 	print("lost")
+
+
+func level_won() -> void:
+	won.emit()
+	print("won")

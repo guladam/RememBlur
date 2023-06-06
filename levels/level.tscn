@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://d3qvej762es6c"]
+[gd_scene load_steps=23 format=3 uid="uid://d3qvej762es6c"]
 
 [ext_resource type="Script" path="res://levels/level.gd" id="1_0xu8p"]
 [ext_resource type="Texture2D" uid="uid://dddky3d8w2h4l" path="res://levels/visuals/floor_tile.svg" id="1_lv850"]
@@ -17,6 +17,7 @@
 [ext_resource type="PackedScene" uid="uid://b3o2wkh3qrpvd" path="res://interactables/guesser/guesser_ui.tscn" id="13_x23yd"]
 [ext_resource type="PackedScene" uid="uid://be0ehq5ccgvj5" path="res://levels/time_left.tscn" id="14_3vhk0"]
 [ext_resource type="Shader" path="res://levels/visuals/level_background.gdshader" id="16_qhf86"]
+[ext_resource type="PackedScene" uid="uid://blt5faaqq0dkj" path="res://stats/health_bar.tscn" id="17_4ton6"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_4i1xo"]
 texture = ExtResource("1_lv850")
@@ -148,6 +149,8 @@ visible = false
 game_state = ExtResource("6_p2gfj")
 
 [node name="TimeLeft" parent="UI" instance=ExtResource("14_3vhk0")]
+
+[node name="HealthBar" parent="UI" instance=ExtResource("17_4ton6")]
 
 [node name="BackgroundLayer" type="CanvasLayer" parent="."]
 layer = -1
