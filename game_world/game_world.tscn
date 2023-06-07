@@ -1,0 +1,33 @@
+[gd_scene load_steps=8 format=3 uid="uid://dx5x0f0t2l1ed"]
+
+[ext_resource type="Script" path="res://game_world/game_world.gd" id="1_blek8"]
+[ext_resource type="Resource" uid="uid://dh3x1s6th3qwx" path="res://levels/game_state.tres" id="2_mldso"]
+[ext_resource type="PackedScene" uid="uid://8d02qj7c0jr7" path="res://game_world/scene_changer.tscn" id="2_qd4cn"]
+[ext_resource type="Script" path="res://game_world/game_world_ui.gd" id="3_67kba"]
+[ext_resource type="PackedScene" uid="uid://p03027vjqqtn" path="res://game_world/game_over.tscn" id="3_u5qtp"]
+[ext_resource type="PackedScene" uid="uid://d3ulbe1u7dmgg" path="res://game_world/level_won.tscn" id="4_vwpcu"]
+[ext_resource type="PackedScene" uid="uid://b6wnjg311t737" path="res://game_world/last_level_won.tscn" id="5_odpl3"]
+
+[node name="GameWorld" type="Node2D"]
+script = ExtResource("1_blek8")
+puzzle_folder = "res://puzzles"
+player_stats_path = "res://stats/player_stats.tres"
+game_state = ExtResource("2_mldso")
+
+[node name="CurrentLevel" type="Node" parent="."]
+
+[node name="UI" type="CanvasLayer" parent="."]
+script = ExtResource("3_67kba")
+
+[node name="GameOver" parent="UI" instance=ExtResource("3_u5qtp")]
+visible = false
+
+[node name="LevelWon" parent="UI" instance=ExtResource("4_vwpcu")]
+visible = false
+
+[node name="LastLevelWon" parent="UI" instance=ExtResource("5_odpl3")]
+visible = false
+
+[node name="SceneChanger" parent="." instance=ExtResource("2_qd4cn")]
+target_scene = "res://menus/main_menu.tscn"
+fade_duration = 0.75

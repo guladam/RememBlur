@@ -28,7 +28,7 @@ func setup() -> void:
 	player_stats.health_changed.connect(update_hearts)
 	show_hearts()
 	update_hearts()
-	
+
 
 func update_hearts() -> void:
 	for i in range(lives.get_child_count()):

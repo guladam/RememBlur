@@ -8,6 +8,7 @@ signal max_health_changed
 enum SIGN { NEGATIVE, POSITIVE }
 
 @export_group("Health")
+@export var default_max_health := 3
 @export var health := 3:
 	set(value):
 		health = value
@@ -15,7 +16,7 @@ enum SIGN { NEGATIVE, POSITIVE }
 		
 		if health <= 0:
 			player_died.emit()
-		
+
 @export var max_health := 3:
 	set(value):
 		var really_changed := max_health != value
@@ -56,3 +57,24 @@ func get_multiplier(values: Array[float], _sign: SIGN) -> float:
 		
 	var s := 1 if _sign == SIGN.POSITIVE else -1
 	return 1.0 + s * values.reduce(func(accum, number): return accum + number)
+
+
+func reset() -> void:
+	max_health = default_max_health
+	health = max_health
+	move_speed_bonus = 0
+	time_bonus = 0
+	universal_cd_bonus = 0
+	sight_cd_bonus = 0
+	hearing_cd_bonus = 0
+	smell_cd_bonus = 0
+	taste_cd_bonus = 0
+	touch_cd_bonus = 0
+	move_speed_multipliers.clear()
+	time_multipliers.clear()
+	universal_cd_multipliers.clear()
+	sight_cd_multipliers.clear()
+	hearing_cd_multipliers.clear()
+	smell_cd_multipliers.clear()
+	taste_cd_multipliers.clear()
+	touch_cd_multipliers.clear()

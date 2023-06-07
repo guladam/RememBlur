@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="Puzzle" load_steps=7 format=3 uid="uid://ihi2kkiec6g0"]
+
+[ext_resource type="Resource" uid="uid://bliffq4xf4xde" path="res://hints/sight/c_red.tres" id="1_teksa"]
+[ext_resource type="Script" path="res://puzzles/puzzle.gd" id="1_tkt23"]
+[ext_resource type="Resource" uid="uid://cn3hsqdhj4f3r" path="res://hints/sight/s_circle.tres" id="2_mbnsr"]
+[ext_resource type="Resource" uid="uid://d2l3qvpdj21qj" path="res://hints/smell/fruity.tres" id="3_hpfym"]
+[ext_resource type="Resource" uid="uid://doj8nvd6yh1tx" path="res://hints/taste/tangy.tres" id="4_duca2"]
+[ext_resource type="Resource" uid="uid://cpw5fmdqh8ou1" path="res://hints/taste/sweet.tres" id="5_6tnmw"]
+
+[resource]
+script = ExtResource("1_tkt23")
+solution_key = "PUZZLE_TOMATO"
+hints = Array[Resource("res://hints/hint.gd")]([ExtResource("1_teksa"), ExtResource("2_mbnsr"), ExtResource("3_hpfym"), ExtResource("4_duca2"), ExtResource("5_6tnmw")])
+category = 1
+helpfulness_values = Array[int]([3, 3, 2, 1, 3])

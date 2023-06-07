@@ -1,12 +1,25 @@
-[gd_resource type="Resource" script_class="PlayerStats" load_steps=2 format=3 uid="uid://b54sd07pwxseo"]
+[gd_resource type="Resource" script_class="PlayerStats" load_steps=2 format=3 uid="uid://bamfmqf8nohb2"]
 
-[ext_resource type="Script" path="res://stats/player_stats.gd" id="1_ku81f"]
+[ext_resource type="Script" path="res://stats/player_stats.gd" id="1_45wth"]
 
 [resource]
-script = ExtResource("1_ku81f")
+script = ExtResource("1_45wth")
 health = 3
 max_health = 3
 move_speed_bonus = 0
-move_speed_multiplier = Array[float]([])
+move_speed_multipliers = Array[float]([])
+time_bonus = 0
+time_multipliers = Array[float]([])
+universal_cd_bonus = 0
+universal_cd_multipliers = Array[float]([])
 sight_cd_bonus = 0
-sight_cd_multiplier = Array[float]([])
+sight_cd_multipliers = Array[float]([])
+hearing_cd_bonus = 0
+hearing_cd_multipliers = Array[float]([])
+smell_cd_bonus = 0
+smell_cd_multipliers = Array[float]([])
+taste_cd_bonus = 0
+taste_cd_multipliers = Array[float]([])
+touch_cd_bonus = 0
+touch_cd_multipliers = Array[float]([])
+blood_donation = false
