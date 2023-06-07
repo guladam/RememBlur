@@ -1,0 +1,15 @@
+[gd_scene load_steps=2 format=3 uid="uid://cos5a5ofb5ir5"]
+
+[ext_resource type="Script" path="res://upgrades/ui/upgrade_selector.gd" id="1_qey73"]
+
+[node name="UpgradeSelector" type="CenterContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_qey73")
+
+[node name="Upgrades" type="HBoxContainer" parent="."]
+unique_name_in_owner = true
+layout_mode = 2

@@ -67,3 +67,9 @@ TOUCH_SLIMY,slimy,nyálkás
 TOUCH_FUZZY,fuzzy,pelyhes
 PUZZLE_LION,lion,oroszlán
 PUZZLE_TOMATO,tomato,paradicsom
+UPGRADE_T1_HEAL,+1 Health,+1 Életerő
+UPGRADE_T1_MS_BONUS,Move slightly faster,Kicsivel gyorsabb mozgás
+UPGRADE_T2_HEAL,+2 Health,+2 Életerő
+UPGRADE_T2_MAXHP,+1 Maximum Health,+1 Maximum Életerő
+UPGRADE_T3_BLOOD_DONATION,blood donation,véráldozat
+UPGRADE_T3_FULL_HEAL,Restore all Health,Teljes gyógyulás

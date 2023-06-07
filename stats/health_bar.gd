@@ -12,11 +12,11 @@ extends MarginContainer
 
 func clear_children() -> void:
 	for c in lives.get_children():
-		queue_free()
-
+		c.queue_free()
 
 func show_hearts() -> void:
 	clear_children()
+	
 	for i in range(player_stats.max_health):
 		var new_icon := health_icon.instantiate()
 		lives.add_child(new_icon)
@@ -31,5 +31,8 @@ func setup() -> void:
 
 
 func update_hearts() -> void:
+	# wait for the previous hearts to be deleted
+	await get_tree().process_frame
+	
 	for i in range(lives.get_child_count()):
 		lives.get_child(i).texture = icons["full"] if i+1 <= player_stats.health else icons["empty"]

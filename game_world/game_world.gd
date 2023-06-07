@@ -18,6 +18,7 @@ var level_counter := 0
 func _ready() -> void:
 	ui.game_over.main_menu_requested.connect(scene_changer.transition_to)
 	ui.game_over.new_run_requested.connect(get_tree().reload_current_scene)
+	ui.upgrade_selector.upgrade_selected.connect(ui.level_won.show)
 	ui.level_won.main_menu_requested.connect(scene_changer.transition_to)
 	ui.level_won.next_level_requested.connect(load_next_level)
 	ui.last_level_won.main_menu_requested.connect(scene_changer.transition_to)
@@ -73,7 +74,7 @@ func _on_level_won() -> void:
 	if level_counter == levels.size() - 1:
 		ui.last_level_won.show()
 	else:
-		ui.level_won.show()
+		ui.upgrade_selector.show_upgrades()
 		
 	level_counter += 1
 

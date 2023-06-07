@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="HealthUpgrade" load_steps=2 format=3 uid="uid://cchjjj47hp0ur"]
+
+[ext_resource type="Script" path="res://upgrades/scripts/health_upgrade.gd" id="1_kb243"]
+
+[resource]
+script = ExtResource("1_kb243")
+upgrade_type = 0
+value = 2
+name_key = "UPGRADE_T2_HEAL"
+stat_name = "health"

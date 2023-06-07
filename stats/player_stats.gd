@@ -11,7 +11,7 @@ enum SIGN { NEGATIVE, POSITIVE }
 @export var default_max_health := 3
 @export var health := 3:
 	set(value):
-		health = value
+		health = clampi(value, 0, self.max_health)
 		health_changed.emit()
 		
 		if health <= 0:
@@ -24,6 +24,9 @@ enum SIGN { NEGATIVE, POSITIVE }
 		if really_changed:
 			max_health_changed.emit()
 			self.health += 1
+
+@export_group("Upgrades")
+@export var upgrade_options := 3
 
 @export_group("Movement")
 @export var move_speed_bonus := 0
@@ -62,6 +65,7 @@ func get_multiplier(values: Array[float], _sign: SIGN) -> float:
 func reset() -> void:
 	max_health = default_max_health
 	health = max_health
+	upgrade_options = 3
 	move_speed_bonus = 0
 	time_bonus = 0
 	universal_cd_bonus = 0
