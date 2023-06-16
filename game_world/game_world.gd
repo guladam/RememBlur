@@ -25,7 +25,6 @@ func _ready() -> void:
 	
 	print("new run")
 	player_stats.reset()
-	print("TODO reset upgrades")
 	generate_run()
 	load_next_level()
 

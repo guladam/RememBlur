@@ -1,16 +1,14 @@
 extends CharacterBody2D
 
 @export var speed := 600
+@export var rotation_speed := 0.25
 @export var game_state: GameState
 @export var player_stats: PlayerStats
 
-@onready var sprites := {
-	"front": preload("res://player/roboguy.png"),
-	"back": preload("res://player/roboguy_back.png")
-}
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
-@onready var sprite: Sprite2D = $Sprite2D
-@onready var box: Sprite2D = $Sprite2D/Box
+@onready var visuals: Node2D = $Visuals
+@onready var head: Sprite2D = $Visuals/Head
+@onready var box: Sprite2D = $Visuals/Head/Box
 
 
 func _physics_process(_delta: float) -> void:
@@ -30,10 +28,8 @@ func get_speed() -> float:
 
 
 func update_sprite() -> void:
-	if velocity.y < -0.05:
-		sprite.texture = sprites["back"]
-	elif velocity.y > 0.05:
-		sprite.texture = sprites["front"]
+	if velocity.length() > 0.05:
+		head.rotation = lerp_angle(head.rotation, Vector2.ZERO.angle_to_point(velocity), rotation_speed)
 
 
 func play_animation() -> void:

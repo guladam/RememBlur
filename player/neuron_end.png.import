@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://l1u38qm3grc"
-path="res://.godot/imported/roboguy_back.png-94485e678c174a28912de4399e37d48d.ctex"
+uid="uid://66cdl6x4kyg4"
+path="res://.godot/imported/neuron_end.png-ba67c7b967fa6e48efa0fd3135668f6e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://player/roboguy_back.png"
-dest_files=["res://.godot/imported/roboguy_back.png-94485e678c174a28912de4399e37d48d.ctex"]
+source_file="res://player/neuron_end.png"
+dest_files=["res://.godot/imported/neuron_end.png-ba67c7b967fa6e48efa0fd3135668f6e.ctex"]
 
 [params]
 
