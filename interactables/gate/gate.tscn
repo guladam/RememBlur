@@ -10,7 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://bxnrbciubof8d" path="res://interactables/zoom.png" id="6_ao1x2"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_h4fs4"]
-size = Vector2(190, 110)
+size = Vector2(143, 69)
 
 [node name="Gate" type="Node2D"]
 script = ExtResource("1_tbect")
@@ -34,11 +34,10 @@ color = Color(0, 0, 0, 0.278431)
 polygon = PackedVector2Array(47.5, 7.5, -32.5, 7.5, -32.5, 27.5, -72.5, -12.5, -32.5, -52.5, -32.5, -32.5, 47.5, -32.5)
 
 [node name="AutoInteractable" parent="." instance=ExtResource("3_vb8vv")]
-visible = false
 script = ExtResource("4_jsl3v")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AutoInteractable"]
-position = Vector2(-4, -6)
+position = Vector2(-3.5, -8.5)
 shape = SubResource("RectangleShape2D_h4fs4")
 
 [node name="InteractionPopup" parent="." instance=ExtResource("5_hgatj")]

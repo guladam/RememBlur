@@ -49,7 +49,7 @@ noise = SubResource("FastNoiseLite_4gr73")
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ikyqn"]
 shader = SubResource("Shader_uoes5")
 shader_parameter/strength = 0.005
-shader_parameter/speed = 0.0
+shader_parameter/speed = 2.0
 shader_parameter/frames = 3
 shader_parameter/flowMap = SubResource("NoiseTexture2D_6kbio")
 
@@ -137,18 +137,140 @@ polygon = PackedVector2Array(-518, 953, -554, 889, -626, 778, -706, 647, -740, 5
 [node name="CollisionPolygon2D17" type="CollisionPolygon2D" parent="Brain/StaticBody2D"]
 polygon = PackedVector2Array(90, -1676, 122, -1783, 213, -1930, 229, -1938, 293, -1939, 361, -1886, 436, -1811, 534, -1749, 554, -1749, 462, -1845, 442, -1879, 476, -1892, 542, -1892, 614, -1839, 797, -1627, 816, -1572, 838, -1491, 819, -1441, 807, -1419, 693, -1410, 585, -1426, 469, -1465, 402, -1507, 379, -1508, 365, -1518, 338, -1514, 326, -1499, 341, -1487, 387, -1463, 494, -1444, 568, -1419, 645, -1383, 731, -1371, 893, -1327, 923, -1300, 942, -1297, 952, -1318, 920, -1357, 930, -1435, 898, -1512, 842, -1601, 827, -1650, 839, -1675, 877, -1674, 904, -1662, 920, -1649, 946, -1644, 1121, -1434, 1129, -1364, 1119, -1356, 1065, -1362, 1045, -1361, 1044, -1349, 1123, -1337, 1230, -1250, 1278, -1163, 1414, -972, 1473, -820, 1477, -758, 1484, -735, 1494, -732, 1562, -515, 1556, -480, 1509, -491, 1480, -487, 1559, -444, 1597, -395, 1599, -336, 1554, -284, 1491, -142, 1460, -86, 1468, -27, 1527, 47, 1554, 151, 1552, 200, 1518, 140, 1450, 103, 1412, 104, 1367, 126, 1361, 138, 1406, 122, 1440, 124, 1494, 169, 1516, 220, 1515, 289, 1480, 356, 1479, 395, 1407, 547, 1366, 642, 1349, 680, 1313, 808, 1304, 847, 1176, 896, 1084, 980, 1097, 1020, 1060, 1126, 1027, 1198, 1008, 1222, 1074, 1439, 971, 1594, 872, 1711, 768, 1782, 679, 1790, 648, 1792, 648, 1810, 707, 1819, 475, 1982, 478, 1964, 376, 1960, 314, 1910, 354, 1841, 310, 1876, 265, 1923, 211, 1962, 166, 1987, 92, 1969, 36, 1937, 16, 1851, 36, 1630, -36, 1708, -12, 2023, 423, 2047, 1019, 1681, 1489, 696, 1713, -527, 984, -1771, 130, -2051, 28, -1781)
 
+[node name="CollisionPolygon2D18" type="CollisionPolygon2D" parent="Brain/StaticBody2D"]
+polygon = PackedVector2Array(167, -1735, 222, -1803, 245, -1807, 311, -1736, 438, -1656, 493, -1650, 547, -1597, 535, -1576, 513, -1579, 448, -1626, 334, -1657, 240, -1647, 171, -1599, 134, -1541, 118, -1487, 127, -1435, 167, -1386, 220, -1359, 295, -1355, 318, -1351, 329, -1362, 368, -1358, 391, -1326, 410, -1303, 453, -1272, 470, -1249, 502, -1197, 522, -1184, 580, -1179, 635, -1193, 681, -1229, 738, -1280, 741, -1316, 750, -1347, 763, -1364, 777, -1357, 767, -1333, 769, -1284, 848, -1299, 892, -1297, 778, -1275, 758, -1257, 700, -1215, 675, -1150, 678, -1099, 710, -997, 745, -925, 741, -857, 734, -829, 765, -788, 810, -768, 901, -770, 1036, -808, 1034, -783, 1107, -733, 1123, -718, 1153, -718, 1145, -692, 1196, -638, 1225, -606, 1228, -587, 1286, -513, 1286, -495, 1266, -490, 1250, -498, 1191, -586, 1205, -593, 1194, -624, 1186, -607, 1107, -698, 1065, -690, 1090, -716, 1014, -759, 972, -745, 925, -749, 857, -741, 799, -728, 776, -684, 760, -621, 773, -563, 819, -525, 875, -517, 932, -547, 1038, -415, 1061, -366, 1104, -321, 1147, -199, 1185, -41, 1230, -11, 1257, 16, 1253, 30, 1191, 6, 1090, -77, 1076, -257, 1040, -347, 984, -388, 933, -406, 865, -409, 842, -393, 770, -291, 766, -299, 825, -386, 786, -493, 726, -569, 650, -588, 561, -597, 562, -580, 576, -552, 562, -550, 539, -593, 462, -589, 447, -566, 429, -569, 421, -595, 353, -598, 296, -622, 259, -652, 208, -728, 149, -804, 145, -838, 156, -859, 176, -857, 195, -844, 209, -788, 300, -640, 314, -628, 417, -605, 439, -627, 530, -661, 617, -708, 659, -752, 675, -877, 652, -958, 587, -1084, 534, -1134, 511, -1153, 474, -1159, 435, -1188, 400, -1216, 371, -1211, 277, -1265, 264, -1285, 212, -1312, 194, -1304, 169, -1303, 142, -1280, 158, -1322, 95, -1351, 121, -1657)
+
+[node name="CollisionPolygon2D19" type="CollisionPolygon2D" parent="Brain/StaticBody2D"]
+polygon = PackedVector2Array(989, -1253, 1011, -1207, 1001, -1177, 986, -1168, 981, -1130, 955, -1160, 946, -1157, 978, -1108, 971, -1074, 952, -1035, 885, -973, 940, -943, 1010, -926, 1044, -910, 1135, -801, 1164, -762, 1158, -726, 1249, -625, 1454, -488, 1453, -504, 1368, -575, 1306, -609, 1306, -635, 1270, -713, 1263, -734, 1187, -780, 1075, -912, 1060, -974, 1118, -1004, 1113, -1011, 1061, -992, 1059, -1054, 1074, -1116, 1152, -1138, 1160, -1147, 1269, -1142, 1301, -1127, 1280, -1158, 1215, -1154, 1159, -1153, 1144, -1148, 1124, -1150, 1050, -1131, 1050, -1165, 1035, -1191, 1038, -1198, 1064, -1199, 1087, -1209, 1100, -1232, 1082, -1229, 1065, -1221, 1047, -1220, 1027, -1224, 1001, -1258, 992, -1259)
+
+[node name="CollisionPolygon2D20" type="CollisionPolygon2D" parent="Brain/StaticBody2D"]
+polygon = PackedVector2Array(94, -1400, 69, -1393, 34, -1345, 12, -1269, 20, -1231, 42, -1228, 54, -1225, 30, -1205, 30, -1098, 49, -1060, 67, -1022, 88, -1003, 104, -1047, 117, -1058, 113, -1016, 113, -979, 176, -941, 229, -928, 257, -967, 266, -966, 251, -924, 363, -891, 475, -799, 458, -770, 439, -758, 405, -759, 308, -816, 250, -861, 215, -879, 162, -881, 108, -851, 77, -820, 27, -700, 34, -512, 42, -416, 42, -285, 47, -26, 44, 80, 38, 124, 28, 162, 62, 212, 138, 269, 201, 277, 239, 298, 294, 329, 318, 332, 376, 231, 406, 212, 412, 187, 431, 177, 462, 182, 488, 215, 489, 253, 455, 318, 420, 388, 403, 472, 408, 554, 419, 591, 474, 681, 483, 820, 511, 828, 535, 849, 516, 849, 480, 848, 463, 890, 452, 993, 463, 1073, 501, 1088, 498, 1094, 454, 1090, 349, 1192, 308, 1215, 275, 1206, 318, 1188, 333, 1179, 321, 1179, 376, 1100, 382, 1045, 354, 991, 354, 961, 312, 989, 298, 989, 293, 984, 342, 944, 415, 839, 430, 816, 443, 815, 433, 696, 407, 650, 378, 542, 342, 450, 324, 344, 301, 346, 271, 335, 216, 307, 183, 293, 126, 301, 92, 339, 44, 409, 16, 412, 16, -1081, 2, -1425, 25, -1394, 65, -1436)
+
+[node name="CollisionPolygon2D21" type="CollisionPolygon2D" parent="Brain/StaticBody2D"]
+polygon = PackedVector2Array(264, 28, 374, -99, 504, -195, 596, -354, 595, -383, 613, -334, 616, -274, 530, -157, 549, -45, 567, 13, 717, 149, 868, 237, 1061, 251, 1140, 311, 1224, 347, 1325, 350, 1310, 543, 1300, 560, 1348, 683, 1330, 746, 1300, 606, 1269, 543, 1175, 484, 1134, 445, 1158, 572, 1154, 633, 1202, 749, 1259, 825, 1300, 846, 1172, 892, 1165, 836, 1141, 725, 1120, 665, 1099, 596, 1110, 519, 1093, 432, 1058, 383, 1046, 363, 889, 291, 807, 267, 763, 295, 775, 452, 753, 576, 732, 625, 703, 638, 673, 587, 695, 460, 708, 531, 747, 456, 728, 275, 644, 132, 503, 8, 447, 15, 373, 5)
+
+[node name="CollisionPolygon2D22" type="CollisionPolygon2D" parent="Brain/StaticBody2D"]
+polygon = PackedVector2Array(831, -150, 919, -239, 929, -248, 910, -204, 867, -160)
+
+[node name="CollisionPolygon2D23" type="CollisionPolygon2D" parent="Brain/StaticBody2D"]
+polygon = PackedVector2Array(948, 425, 1020, 437, 1073, 500, 1069, 449, 1038, 415, 964, 410)
+
+[node name="CollisionPolygon2D24" type="CollisionPolygon2D" parent="Brain/StaticBody2D"]
+polygon = PackedVector2Array(42, 410, 34, 514, 58, 607, 77, 641, 114, 616, 85, 666, 76, 782, 48, 868, 90, 990, 120, 1011, 179, 1012, 138, 1030, 103, 1026, 50, 1091, 52, 1206, 129, 1232, 96, 1240, 55, 1227, 56, 1361, 31, 1459, 66, 1486, 106, 1494, 149, 1480, 129, 1502, 91, 1506, 43, 1492, 30, 1483, 23, 1586, 86, 1626, 181, 1635, 144, 1660, 161, 1720, 204, 1738, 171, 1749, 131, 1725, 104, 1662, 36, 1635, -23, 1621, 55, 641, 18, 514)
+
+[node name="CollisionPolygon2D25" type="CollisionPolygon2D" parent="Brain/StaticBody2D"]
+polygon = PackedVector2Array(701, 653, 703, 715, 673, 810, 655, 963, 617, 1130, 529, 1228, 492, 1259, 442, 1278, 409, 1314, 347, 1348, 272, 1348, 164, 1352, 190, 1363, 265, 1364, 324, 1375, 360, 1379, 441, 1337, 510, 1282, 554, 1458, 530, 1489, 481, 1557, 451, 1597, 449, 1664, 481, 1671, 528, 1666, 566, 1638, 548, 1631, 527, 1644, 502, 1650, 612, 1450, 642, 1457, 686, 1433, 725, 1393, 690, 1407, 635, 1438, 624, 1436, 569, 1308, 566, 1234, 616, 1155, 662, 1098, 673, 1057, 750, 998, 770, 1000, 777, 977, 819, 951, 880, 962, 962, 996, 898, 953, 855, 939, 813, 939, 778, 910, 761, 899, 755, 784, 768, 725, 765, 681, 752, 680, 745, 641, 724, 632)
+
+[node name="CollisionPolygon2D26" type="CollisionPolygon2D" parent="Brain/StaticBody2D"]
+polygon = PackedVector2Array(798, 1293, 828, 1283, 842, 1280, 894, 1294, 1014, 1244, 1020, 1261, 972, 1286, 915, 1308, 877, 1306, 860, 1317, 802, 1306)
+
+[node name="CollisionPolygon2D27" type="CollisionPolygon2D" parent="Brain/StaticBody2D"]
+polygon = PackedVector2Array(743, 1374, 837, 1328, 847, 1339, 841, 1385, 905, 1396, 874, 1409, 818, 1398, 810, 1354, 748, 1380)
+
+[node name="CollisionPolygon2D28" type="CollisionPolygon2D" parent="Brain/StaticBody2D"]
+polygon = PackedVector2Array(779, 1610, 767, 1607, 760, 1569, 767, 1554, 779, 1549, 795, 1528, 788, 1558, 780, 1590)
+
 [node name="Gates" type="Node2D" parent="."]
 
 [node name="Gate" parent="Gates" node_paths=PackedStringArray("destination_gate") instance=ExtResource("6_q1foo")]
 position = Vector2(147, -605)
-rotation = 0.556958
+rotation = 0.405672
 destination_gate = NodePath("../Gate2")
 
 [node name="Gate2" parent="Gates" node_paths=PackedStringArray("destination_gate") instance=ExtResource("6_q1foo")]
 position = Vector2(-249, -732)
-rotation = -0.0855877
+rotation = 0.223567
 destination_gate = NodePath("../Gate")
 reverse_arrow = true
+
+[node name="Gate3" parent="Gates" node_paths=PackedStringArray("destination_gate") instance=ExtResource("6_q1foo")]
+position = Vector2(-1334, -825)
+rotation = -0.523043
+destination_gate = NodePath("../Gate4")
+reverse_arrow = true
+
+[node name="Gate4" parent="Gates" node_paths=PackedStringArray("destination_gate") instance=ExtResource("6_q1foo")]
+position = Vector2(-1022, -978)
+rotation = -3.39648
+destination_gate = NodePath("../Gate3")
+reverse_arrow = true
+
+[node name="Gate5" parent="Gates" node_paths=PackedStringArray("destination_gate") instance=ExtResource("6_q1foo")]
+position = Vector2(-478, 1261)
+rotation = -1.30701
+destination_gate = NodePath("../Gate6")
+
+[node name="Gate6" parent="Gates" node_paths=PackedStringArray("destination_gate") instance=ExtResource("6_q1foo")]
+position = Vector2(-564, 1484)
+rotation = -1.18066
+destination_gate = NodePath("../Gate5")
+reverse_arrow = true
+
+[node name="Gate7" parent="Gates" node_paths=PackedStringArray("destination_gate") instance=ExtResource("6_q1foo")]
+position = Vector2(847, -637)
+rotation = 0.708341
+destination_gate = NodePath("../Gate8")
+
+[node name="Gate8" parent="Gates" node_paths=PackedStringArray("destination_gate") instance=ExtResource("6_q1foo")]
+position = Vector2(567, -846)
+rotation = 0.706087
+destination_gate = NodePath("../Gate7")
+reverse_arrow = true
+
+[node name="Gate9" parent="Gates" node_paths=PackedStringArray("destination_gate") instance=ExtResource("6_q1foo")]
+position = Vector2(670, 1312)
+rotation = 1.85223
+destination_gate = NodePath("../Gate10")
+reverse_arrow = true
+
+[node name="Gate10" parent="Gates" node_paths=PackedStringArray("destination_gate") instance=ExtResource("6_q1foo")]
+position = Vector2(619, 1553)
+rotation = 1.81933
+destination_gate = NodePath("../Gate9")
+
+[node name="Gate11" parent="Gates" node_paths=PackedStringArray("destination_gate") instance=ExtResource("6_q1foo")]
+position = Vector2(1504, -370)
+rotation = 1.40548
+destination_gate = NodePath("../Gate12")
+
+[node name="Gate12" parent="Gates" node_paths=PackedStringArray("destination_gate") instance=ExtResource("6_q1foo")]
+position = Vector2(1481, -575)
+rotation = 1.25196
+destination_gate = NodePath("../Gate11")
+reverse_arrow = true
+
+[node name="Gate13" parent="Gates" node_paths=PackedStringArray("destination_gate") instance=ExtResource("6_q1foo")]
+position = Vector2(1185, -930)
+rotation = -0.548375
+destination_gate = NodePath("../Gate14")
+
+[node name="Gate14" parent="Gates" node_paths=PackedStringArray("destination_gate") instance=ExtResource("6_q1foo")]
+position = Vector2(972, -846)
+rotation = -0.322362
+destination_gate = NodePath("../Gate13")
+reverse_arrow = true
+
+[node name="Gate15" parent="Gates" node_paths=PackedStringArray("destination_gate") instance=ExtResource("6_q1foo")]
+position = Vector2(790, -1162)
+rotation = 0.619154
+destination_gate = NodePath("../Gate16")
+
+[node name="Gate16" parent="Gates" node_paths=PackedStringArray("destination_gate") instance=ExtResource("6_q1foo")]
+position = Vector2(614, -1285)
+rotation = 0.619154
+destination_gate = NodePath("../Gate15")
+reverse_arrow = true
+
+[node name="Gate17" parent="Gates" node_paths=PackedStringArray("destination_gate") instance=ExtResource("6_q1foo")]
+position = Vector2(-101, 449)
+rotation = 0.020944
+destination_gate = NodePath("../Gate18")
+reverse_arrow = true
+
+[node name="Gate18" parent="Gates" node_paths=PackedStringArray("destination_gate") instance=ExtResource("6_q1foo")]
+position = Vector2(147, 450)
+rotation = -0.0925427
+destination_gate = NodePath("../Gate17")
 
 [node name="Player" parent="." instance=ExtResource("3_5vla8")]
 position = Vector2(235, -159)
@@ -164,7 +286,7 @@ position = Vector2(640, 256)
 game_state = ExtResource("6_p2gfj")
 
 [node name="Guesser" parent="." instance=ExtResource("8_eb060")]
-position = Vector2(128, 256)
+position = Vector2(201, 144)
 game_state = ExtResource("6_p2gfj")
 
 [node name="UI" type="CanvasLayer" parent="."]
