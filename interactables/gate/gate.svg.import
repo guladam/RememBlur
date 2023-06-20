@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dddky3d8w2h4l"
-path="res://.godot/imported/floor_tile.svg-a12d3908eb81b25aaa588289f8686bee.ctex"
+uid="uid://b5gmacfp5m4l0"
+path="res://.godot/imported/gate.svg-5f9d88c5070890f6bd5f85a574c726fa.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://levels/visuals/floor_tile.svg"
-dest_files=["res://.godot/imported/floor_tile.svg-a12d3908eb81b25aaa588289f8686bee.ctex"]
+source_file="res://interactables/gate/gate.svg"
+dest_files=["res://.godot/imported/gate.svg-5f9d88c5070890f6bd5f85a574c726fa.ctex"]
 
 [params]
 

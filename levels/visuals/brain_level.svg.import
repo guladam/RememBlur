@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://btqprofb1ln30"
-path="res://.godot/imported/wall_tile.png-5e068ace4c402444dd6160ec456cc824.ctex"
+uid="uid://rcollv1nmfvq"
+path="res://.godot/imported/brain_level.svg-b70759f767d406d02a18c35f97661c83.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://levels/visuals/wall_tile.png"
-dest_files=["res://.godot/imported/wall_tile.png-5e068ace4c402444dd6160ec456cc824.ctex"]
+source_file="res://levels/visuals/brain_level.svg"
+dest_files=["res://.godot/imported/brain_level.svg-b70759f767d406d02a18c35f97661c83.ctex"]
 
 [params]
 
@@ -32,3 +32,6 @@ process/hdr_as_srgb=false
 process/hdr_clamp_exposure=false
 process/size_limit=0
 detect_3d/compress_to=1
+svg/scale=10.0
+editor/scale_with_editor_scale=false
+editor/convert_colors_with_editor_theme=false

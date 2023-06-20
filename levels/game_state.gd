@@ -6,4 +6,4 @@ class_name GameState
 		state = value
 		emit_changed()
 
-enum State { PLAYING, IN_UI, PAUSED }
+enum State { PLAYING, IN_UI, DIVING, PAUSED }

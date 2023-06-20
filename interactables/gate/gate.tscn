@@ -1,0 +1,48 @@
+[gd_scene load_steps=10 format=3 uid="uid://c15qhgoay4u16"]
+
+[ext_resource type="Script" path="res://interactables/gate/gate.gd" id="1_tbect"]
+[ext_resource type="Resource" uid="uid://dh3x1s6th3qwx" path="res://levels/game_state.tres" id="2_ypjgs"]
+[ext_resource type="Texture2D" uid="uid://b5gmacfp5m4l0" path="res://interactables/gate/gate.svg" id="3_83jx0"]
+[ext_resource type="Material" uid="uid://4u3oys0j7c5c" path="res://global/wobble.tres" id="3_f4ckl"]
+[ext_resource type="PackedScene" uid="uid://cqdd5ec3x03dr" path="res://interactables/interactable.tscn" id="3_vb8vv"]
+[ext_resource type="Script" path="res://interactables/auto_interactable.gd" id="4_jsl3v"]
+[ext_resource type="PackedScene" uid="uid://b0lnbpich0nky" path="res://interactables/interaction_popup.tscn" id="5_hgatj"]
+[ext_resource type="Texture2D" uid="uid://bxnrbciubof8d" path="res://interactables/zoom.png" id="6_ao1x2"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_h4fs4"]
+size = Vector2(190, 110)
+
+[node name="Gate" type="Node2D"]
+script = ExtResource("1_tbect")
+game_state = ExtResource("2_ypjgs")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+material = ExtResource("3_f4ckl")
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("3_83jx0")
+
+[node name="Front" type="Polygon2D" parent="Sprite2D"]
+rotation = 0.0847695
+color = Color(0, 0, 0, 0.278431)
+polygon = PackedVector2Array(47.5, 7.5, -32.5, 7.5, -32.5, 27.5, -72.5, -12.5, -32.5, -52.5, -32.5, -32.5, 47.5, -32.5)
+
+[node name="Back" type="Polygon2D" parent="Sprite2D"]
+visible = false
+position = Vector2(-20, -27.5)
+rotation = 3.22711
+color = Color(0, 0, 0, 0.278431)
+polygon = PackedVector2Array(47.5, 7.5, -32.5, 7.5, -32.5, 27.5, -72.5, -12.5, -32.5, -52.5, -32.5, -32.5, 47.5, -32.5)
+
+[node name="AutoInteractable" parent="." instance=ExtResource("3_vb8vv")]
+visible = false
+script = ExtResource("4_jsl3v")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AutoInteractable"]
+position = Vector2(-4, -6)
+shape = SubResource("RectangleShape2D_h4fs4")
+
+[node name="InteractionPopup" parent="." instance=ExtResource("5_hgatj")]
+icon_texture = ExtResource("6_ao1x2")
+text = "Dive"
+
+[connection signal="interacted" from="AutoInteractable" to="." method="_on_interactable_interacted"]

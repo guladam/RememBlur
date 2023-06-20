@@ -1,11 +1,12 @@
-[gd_scene load_steps=19 format=3 uid="uid://d3qvej762es6c"]
+[gd_scene load_steps=25 format=3 uid="uid://d3qvej762es6c"]
 
 [ext_resource type="Script" path="res://levels/level.gd" id="1_0xu8p"]
 [ext_resource type="Resource" uid="uid://dd72ddquqou52" path="res://puzzles/animals/lion.tres" id="2_ongqh"]
 [ext_resource type="PackedScene" uid="uid://sa16u6skxwxt" path="res://player/player.tscn" id="3_5vla8"]
 [ext_resource type="Resource" uid="uid://bubc4po0y1ol8" path="res://stats/player_stats.tres" id="4_v6e78"]
-[ext_resource type="Texture2D" uid="uid://d2ln7ok8tgywq" path="res://levels/visuals/brain-512758_1920.png" id="5_hm4q4"]
+[ext_resource type="Texture2D" uid="uid://rcollv1nmfvq" path="res://levels/visuals/brain_level.svg" id="5_djbfx"]
 [ext_resource type="Resource" uid="uid://dh3x1s6th3qwx" path="res://levels/game_state.tres" id="6_p2gfj"]
+[ext_resource type="PackedScene" uid="uid://c15qhgoay4u16" path="res://interactables/gate/gate.tscn" id="6_q1foo"]
 [ext_resource type="PackedScene" uid="uid://dns1ybse4vg1a" path="res://interactables/hint_examiner/hint_examiner.tscn" id="7_1cm8l"]
 [ext_resource type="PackedScene" uid="uid://3qxqdcpjgqix" path="res://interactables/guesser/guesser.tscn" id="8_eb060"]
 [ext_resource type="PackedScene" uid="uid://bt5s66j4no7ta" path="res://interactables/hint_examiner/latest_hint_screen.tscn" id="8_wvc2n"]
@@ -17,15 +18,45 @@
 [ext_resource type="PackedScene" uid="uid://be0ehq5ccgvj5" path="res://levels/time_left.tscn" id="14_3vhk0"]
 [ext_resource type="Shader" path="res://levels/visuals/level_background.gdshader" id="16_qhf86"]
 [ext_resource type="PackedScene" uid="uid://blt5faaqq0dkj" path="res://stats/health_bar.tscn" id="17_4ton6"]
+[ext_resource type="Texture2D" uid="uid://ckw7ak7x2t7id" path="res://levels/visuals/bg_texture.png" id="18_o8lpy"]
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_oe07w"]
+[sub_resource type="Shader" id="Shader_uoes5"]
+code = "shader_type canvas_item;
+
+uniform sampler2D flowMap; //Displacement map
+uniform float strength;    //Force of the effect
+uniform float speed;       //Speed of the effect
+uniform int frames: hint_range(1, 10); //Frames of the effect
+
+
+//Returns a value between 0 and 1 depending of the frames -> exemple: frames = 4, frame 1 = 0.25
+float clock(float time){
+	float fframes = float(frames);
+	return floor(mod(time * speed, fframes)) / fframes;
+}
+
+void fragment(){
+	float c = clock(TIME); //Get clock frame
+	vec4 offset = texture(flowMap, vec2(UV.x + c, UV.y + c)) * strength; // Get offset 
+	COLOR = texture(TEXTURE, vec2(UV.x, UV.y) + offset.xy - vec2(0.5, 0.5)*strength); // We need to remove the displacement 
+}"
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_4gr73"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_6kbio"]
+noise = SubResource("FastNoiseLite_4gr73")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ikyqn"]
+shader = SubResource("Shader_uoes5")
+shader_parameter/strength = 0.005
+shader_parameter/speed = 0.0
+shader_parameter/frames = 3
+shader_parameter/flowMap = SubResource("NoiseTexture2D_6kbio")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_umwio"]
 shader = ExtResource("16_qhf86")
-shader_parameter/pixel_size = Vector2(0.001, 0.001)
-shader_parameter/voronoi_scale = 20.0
-shader_parameter/voronoi_seed = 0.0
-shader_parameter/electric_scale = 60.0
-shader_parameter/electric_speed = 0.001
-shader_parameter/electric_power = 1.0
+shader_parameter/direction = Vector2(-0.5, 0.5)
+shader_parameter/speed_scale = 0.25
 
 [node name="Level" type="Node2D"]
 script = ExtResource("1_0xu8p")
@@ -34,10 +65,93 @@ puzzle = ExtResource("2_ongqh")
 game_state = ExtResource("6_p2gfj")
 player_stats = ExtResource("4_v6e78")
 
-[node name="Brain" type="Sprite2D" parent="."]
-texture = ExtResource("5_hm4q4")
+[node name="Brain" type="Node2D" parent="."]
+
+[node name="BrainBackgroundLeft" type="Polygon2D" parent="Brain"]
+color = Color(0.454902, 0.25098, 0.305882, 1)
+polygon = PackedVector2Array(-256, 2048, -435, 2042, -785, 1889, -997, 1738, -1147, 1562, -1257, 1243, -1430, 804, -1451, 635, -1627, 218, -1621, -458, -1330, -1189, -819, -1804, -605, -1881, -363, -2034, -164, -2012, -107, -1969, -45, -1769, -22, -1134, 2, -563, 25, 976, -23, 1660, -115, 1771, -148, 2000)
+metadata/_edit_lock_ = true
+
+[node name="BrainBackgroundRight" type="Polygon2D" parent="Brain"]
+position = Vector2(9, -21)
+rotation = -3.14159
+color = Color(0.454902, 0.25098, 0.305882, 1)
+polygon = PackedVector2Array(-168.991, 1931, -349.991, 1959, -648.992, 1830, -887.992, 1690, -1139.99, 1398.01, -1248.99, 1237.01, -1504, 815.007, -1628, 474.007, -1571, 212.007, -1579, -208.993, -1353, -703.994, -1271.01, -1143.99, -1036.01, -1611, -646.009, -1916, -372.009, -2052, -166.009, -2038, -10.0088, -1988, 1.99207, -1784, -22, -1134, 2, -563, 25, 976, -0.994082, 1332, -85.9935, 1459, -57.9926, 1673)
+metadata/_edit_lock_ = true
+
+[node name="Brain" type="Sprite2D" parent="Brain"]
+material = SubResource("ShaderMaterial_ikyqn")
+texture = ExtResource("5_djbfx")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Brain"]
+collision_mask = 0
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Brain/StaticBody2D"]
+polygon = PackedVector2Array(-41, -1623, -64, -1623, -89, -1660, -100, -1727, -153, -1878, -222, -1949, -295, -1942, -385, -1974, -401, -1971, -422, -1882, -424, -1806, -415, -1757, -437, -1735, -463, -1753, -484, -1791, -509, -1905, -632, -1839, -699, -1822, -847, -1738, -924, -1632, -997, -1570, -1005, -1518, -984, -1491, -949, -1481, -873, -1494, -870, -1481, -954, -1448, -1060, -1418, -1171, -1326, -1183, -1296, -1162, -1238, -1096, -1220, -1069, -1210, -1047, -1262, -1019, -1278, -1051, -1208, -1044, -1173, -1047, -1138, -1008, -1129, -1010, -1114, -1059, -1080, -1104, -988, -1114, -1014, -1094, -1104, -1091, -1141, -1112, -1168, -1183, -1183, -1274, -1150, -1330, -1104, -1334, -995, -1410, -902, -1467, -766, -1474, -701, -1413, -691, -1352, -713, -1334, -714, -1358, -692, -1394, -681, -1364, -660, -1350, -623, -1364, -605, -1411, -625, -1419, -644, -1447, -642, -1508, -607, -1568, -466, -1578, -354, -1588, -238, -1547, -261, -1526, -258, -1500, -239, -1585, -100, -1615, -24, -1615, 94, -1608, 143, -1565, 124, -1545, 131, -1589, 197, -1591, 248, -1563, 342, -1389, 444, -1422, 447, -1444, 460, -1459, 518, -1424, 582, -1409, 655, -1425, 675, -1388, 758, -1330, 817, -1247, 851, -1214, 869, -1222, 880, -1253, 877, -1274, 865, -1288, 862, -1291, 886, -1311, 893, -1326, 886, -1318, 853, -1383, 795, -1317, 1023, -1277, 1067, -1179, 1073, -1138, 1025, -1120, 1024, -1099, 1051, -1105, 1076, -1207, 1123, -1235, 1147, -1227, 1209, -1174, 1274, -1107, 1324, -1061, 1334, -1104, 1333, -1184, 1286, -1208, 1282, -1238, 1249, -1121, 1572, -1039, 1641, -929, 1749, -846, 1800, -750, 1828, -718, 1826, -785, 1914, -1401, 1599, -1868, -565, -838, -2045, -70, -2153)
+
+[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="Brain/StaticBody2D"]
+polygon = PackedVector2Array(-308, -1903, -274, -1892, -257, -1887, -252, -1852, -241, -1848, -238, -1879, -190, -1851, -146, -1850, -197, -1903, -283, -1921)
+
+[node name="CollisionPolygon2D3" type="CollisionPolygon2D" parent="Brain/StaticBody2D"]
+polygon = PackedVector2Array(-330, -1804, -327, -1822, -248, -1815, -242, -1804, -201, -1785, -253, -1777, -281, -1772, -317, -1788)
+
+[node name="CollisionPolygon2D4" type="CollisionPolygon2D" parent="Brain/StaticBody2D"]
+polygon = PackedVector2Array(-686, -1545, -783, -1552, -835, -1528, -845, -1511, -796, -1524, -707, -1526, -672, -1448, -720, -1341, -744, -1304, -795, -1267, -814, -1225, -807, -1202, -791, -1199, -711, -1283, -695, -1328, -634, -1465, -521, -1430, -545, -1459, -599, -1474, -617, -1499, -606, -1539, -530, -1570, -531, -1582, -571, -1571, -596, -1578, -588, -1634, -515, -1692, -523, -1703, -564, -1681, -622, -1688, -686, -1670, -661, -1729, -591, -1765, -568, -1795, -578, -1801, -678, -1774, -631, -1835, -692, -1821, -719, -1610)
+
+[node name="CollisionPolygon2D5" type="CollisionPolygon2D" parent="Brain/StaticBody2D"]
+polygon = PackedVector2Array(-48, -1613, -53, -1597, -91, -1616, -149, -1633, -118, -1603, -109, -1583, -111, -1563, -57, -1510, -53, -1451, -111, -1474, -158, -1476, -187, -1446, -189, -1437, -242, -1434, -310, -1470, -310, -1522, -359, -1563, -371, -1558, -335, -1519, -330, -1479, -366, -1480, -376, -1474, -329, -1464, -258, -1421, -204, -1408, -130, -1408, -108, -1423, -64, -1406, -61, -1315, -129, -1251, -147, -1259, -199, -1251, -266, -1220, -302, -1219, -343, -1261, -373, -1292, -405, -1302, -341, -1232, -318, -1201, -278, -1181, -226, -1193, -201, -1204, -191, -1193, -149, -1200, -87, -1191, -67, -1153, -65, -1076, -100, -984, -125, -958, -179, -959, -217, -978, -244, -994, -247, -982, -298, -1042, -329, -1058, -279, -975, -273, -901, -276, -846, -257, -821, -229, -830, -197, -907, -163, -923, -92, -922, -48, -873, -30, -809, -44, -746, -73, -723, -93, -773, -130, -795, -128, -779, -93, -733, -103, -678, -142, -644, -267, -652, -303, -658, -327, -655, -340, -674, -347, -661, -338, -645, -230, -602, -386, -522, -421, -521, -508, -486, -587, -429, -614, -394, -708, -357, -785, -357, -906, -437, -960, -523, -1073, -351, -1107, -301, -1188, -213, -1252, -172, -1268, -137, -1260, -67, -1283, 38, -1289, 102, -1278, 131, -1253, 130, -1228, 102, -1253, 64, -1244, -94, -1179, -192, -1092, -291, -1045, -346, -990, -369, -914, -365, -836, -334, -809, -305, -753, -295, -659, -335, -503, -432, -329, -495, -129, -521, -83, -564, -47, -624, -32, -631, -19, -613, -24, -452, -64, -483, -75, -479, -28, -425, -38, -171, -74, -146, -85, -133, -76, -126, -50, -133, -38, -148, -41, 44, -102, 127, -178, 185, -207, 224, -239, 268, -226, 369, -218, 437, -226, 483, -202, 445, -201, 365, -154, 305, -108, 289, -53, 315, -14, 383, -4, 818, -54, 1010, -85, 1056, -160, 1078, -245, 1068, -281, 1073, -293, 1118, -310, 1150, -309, 1163, -283, 1161, -231, 1129, -125, 1095, -89, 1105, -88, 1191, -142, 1288, -196, 1347, -260, 1368, -368, 1386, -534, 1378, -596, 1358, -602, 1380, -524, 1396, -435, 1406, -340, 1406, -278, 1395, -200, 1423, -124, 1490, -91, 1546, -79, 1583, -116, 1728, -158, 1665, -191, 1648, -204, 1660, -169, 1680, -143, 1725, -137, 1806, -183, 1942, -259, 2019, -308, 2026, -408, 2017, -516, 1994, -548, 1938, -556, 1967, -637, 1932, -685, 1863, -718, 1827, -800, 1937, -189, 2099, -71, 1907, 40, 620, 17, 521, -5, -277, 11, -1062, -22, -1437)
+
+[node name="CollisionPolygon2D6" type="CollisionPolygon2D" parent="Brain/StaticBody2D"]
+polygon = PackedVector2Array(-425, -1256, -469, -1253, -522, -1236, -567, -1205, -663, -1103, -683, -1052, -670, -1033, -649, -948, -660, -852, -710, -789, -743, -775, -782, -783, -820, -826, -935, -884, -1056, -914, -1105, -921, -1104, -913, -906, -844, -819, -771, -732, -608, -717, -608, -687, -690, -624, -765, -585, -777, -544, -776, -490, -748, -475, -752, -552, -814, -574, -846, -576, -890, -626, -945, -655, -1052, -648, -1075, -596, -1145, -495, -1226, -418, -1249)
+
+[node name="CollisionPolygon2D7" type="CollisionPolygon2D" parent="Brain/StaticBody2D"]
+polygon = PackedVector2Array(-963, -1258, -929, -1284, -904, -1326, -899, -1360, -884, -1372, -868, -1370, -868, -1355, -893, -1327, -920, -1278, -954, -1256)
+
+[node name="CollisionPolygon2D8" type="CollisionPolygon2D" parent="Brain/StaticBody2D"]
+polygon = PackedVector2Array(-987, -1099, -976, -1090, -973, -1058, -955, -1029, -923, -1003, -885, -991, -864, -995, -860, -1005, -863, -1012, -898, -1016, -945, -1040, -956, -1051, -958, -1089, -966, -1099, -978, -1105)
+
+[node name="CollisionPolygon2D9" type="CollisionPolygon2D" parent="Brain/StaticBody2D"]
+polygon = PackedVector2Array(-1271, -897, -1201, -988, -1152, -1067, -1144, -1055, -1182, -993, -1184, -954, -1174, -922, -1189, -903, -1225, -882, -1245, -882, -1255, -890, -1271, -885)
+
+[node name="CollisionPolygon2D10" type="CollisionPolygon2D" parent="Brain/StaticBody2D"]
+polygon = PackedVector2Array(-1265, -695, -1243, -676, -1222, -676, -1203, -695, -1183, -697, -1177, -704, -1189, -713, -1226, -703, -1243, -699, -1256, -705)
+
+[node name="CollisionPolygon2D11" type="CollisionPolygon2D" parent="Brain/StaticBody2D"]
+polygon = PackedVector2Array(-1398, 73, -1400, 114, -1372, 131, -1338, 169, -1360, 125, -1359, 88, -1385, 67)
+
+[node name="CollisionPolygon2D12" type="CollisionPolygon2D" parent="Brain/StaticBody2D"]
+polygon = PackedVector2Array(-1020, -22, -961, -102, -945, -187, -915, -126, -876, -84, -880, -68, -915, -88, -930, -37, -990, -5, -1025, -9)
+
+[node name="CollisionPolygon2D13" type="CollisionPolygon2D" parent="Brain/StaticBody2D"]
+polygon = PackedVector2Array(-1252, 250, -1204, 317, -1170, 420, -1172, 491, -1158, 512, -1146, 506, -1049, 341, -994, 331, -823, 196, -771, 297, -776, 144, -615, -28, -577, -4, -578, -40, -569, -77, -468, -198, -383, -304, -334, -332, -277, -328, -181, -273, -112, -250, -158, -289, -199, -422, -290, -419, -379, -371, -479, -289, -546, -194, -675, -103, -716, -84, -762, -89, -810, -61, -856, -58, -858, -48, -810, -45, -806, 22, -830, 92, -940, 184, -1007, 219, -1059, 278, -1157, 291)
+
+[node name="CollisionPolygon2D14" type="CollisionPolygon2D" parent="Brain/StaticBody2D"]
+polygon = PackedVector2Array(-532, 94, -548, 154, -538, 222, -530, 284, -455, 403, -366, 508, -414, 503, -433, 509, -326, 564, -282, 646, -274, 686, -271, 694, -242, 694, -245, 708, -284, 710, -292, 718, -251, 730, -233, 746, -219, 782, -207, 792, -192, 784, -183, 725, -194, 716, -316, 511, -314, 461, -270, 413, -278, 409, -308, 443, -350, 459, -470, 319, -498, 250, -468, 170, -453, 152, -458, 88, -492, 84, -511, 82)
+
+[node name="CollisionPolygon2D15" type="CollisionPolygon2D" parent="Brain/StaticBody2D"]
+polygon = PackedVector2Array(-973, 671, -979, 701, -976, 716, -940, 732, -911, 728, -946, 712, -937, 709, -926, 683, -942, 666, -956, 661)
+
+[node name="CollisionPolygon2D16" type="CollisionPolygon2D" parent="Brain/StaticBody2D"]
+polygon = PackedVector2Array(-518, 953, -554, 889, -626, 778, -706, 647, -740, 548, -756, 556, -768, 635, -761, 685, -694, 813, -603, 984, -583, 1023, -576, 1125, -621, 1178, -659, 1265, -688, 1269, -730, 1245, -769, 1152, -796, 1114, -915, 1097, -934, 1102, -957, 1102, -988, 1121, -992, 1138, -973, 1151, -952, 1151, -923, 1123, -815, 1130, -802, 1152, -793, 1206, -820, 1253, -863, 1286, -916, 1314, -936, 1321, -936, 1330, -922, 1332, -880, 1318, -817, 1317, -785, 1326, -735, 1352, -708, 1349, -693, 1358, -733, 1426, -783, 1463, -810, 1478, -839, 1484, -795, 1565, -797, 1573, -826, 1585, -874, 1582, -903, 1572, -887, 1586, -846, 1600, -811, 1606, -777, 1597, -735, 1685, -722, 1755, -714, 1821, -718, 1826, -682, 1866, -659, 1831, -620, 1790, -642, 1707, -673, 1661, -583, 1637, -547, 1635, -515, 1668, -462, 1712, -505, 1743, -530, 1786, -542, 1837, -533, 1833, -495, 1771, -441, 1731, -416, 1737, -392, 1767, -377, 1854, -375, 1916, -353, 1930, -337, 1923, -349, 1849, -340, 1759, -322, 1673, -309, 1638, -337, 1590, -382, 1563, -408, 1552, -401, 1567, -384, 1592, -368, 1633, -371, 1671, -401, 1704, -415, 1710, -464, 1685, -512, 1645, -536, 1619, -568, 1616, -679, 1648, -711, 1592, -715, 1553, -699, 1516, -655, 1475, -616, 1431, -599, 1383, -532, 1147, -490, 1055, -504, 1002, -490, 979, -427, 915, -376, 869, -377, 861, -465, 918, -508, 955)
+
+[node name="CollisionPolygon2D17" type="CollisionPolygon2D" parent="Brain/StaticBody2D"]
+polygon = PackedVector2Array(90, -1676, 122, -1783, 213, -1930, 229, -1938, 293, -1939, 361, -1886, 436, -1811, 534, -1749, 554, -1749, 462, -1845, 442, -1879, 476, -1892, 542, -1892, 614, -1839, 797, -1627, 816, -1572, 838, -1491, 819, -1441, 807, -1419, 693, -1410, 585, -1426, 469, -1465, 402, -1507, 379, -1508, 365, -1518, 338, -1514, 326, -1499, 341, -1487, 387, -1463, 494, -1444, 568, -1419, 645, -1383, 731, -1371, 893, -1327, 923, -1300, 942, -1297, 952, -1318, 920, -1357, 930, -1435, 898, -1512, 842, -1601, 827, -1650, 839, -1675, 877, -1674, 904, -1662, 920, -1649, 946, -1644, 1121, -1434, 1129, -1364, 1119, -1356, 1065, -1362, 1045, -1361, 1044, -1349, 1123, -1337, 1230, -1250, 1278, -1163, 1414, -972, 1473, -820, 1477, -758, 1484, -735, 1494, -732, 1562, -515, 1556, -480, 1509, -491, 1480, -487, 1559, -444, 1597, -395, 1599, -336, 1554, -284, 1491, -142, 1460, -86, 1468, -27, 1527, 47, 1554, 151, 1552, 200, 1518, 140, 1450, 103, 1412, 104, 1367, 126, 1361, 138, 1406, 122, 1440, 124, 1494, 169, 1516, 220, 1515, 289, 1480, 356, 1479, 395, 1407, 547, 1366, 642, 1349, 680, 1313, 808, 1304, 847, 1176, 896, 1084, 980, 1097, 1020, 1060, 1126, 1027, 1198, 1008, 1222, 1074, 1439, 971, 1594, 872, 1711, 768, 1782, 679, 1790, 648, 1792, 648, 1810, 707, 1819, 475, 1982, 478, 1964, 376, 1960, 314, 1910, 354, 1841, 310, 1876, 265, 1923, 211, 1962, 166, 1987, 92, 1969, 36, 1937, 16, 1851, 36, 1630, -36, 1708, -12, 2023, 423, 2047, 1019, 1681, 1489, 696, 1713, -527, 984, -1771, 130, -2051, 28, -1781)
+
+[node name="Gates" type="Node2D" parent="."]
+
+[node name="Gate" parent="Gates" node_paths=PackedStringArray("destination_gate") instance=ExtResource("6_q1foo")]
+position = Vector2(147, -605)
+rotation = 0.556958
+destination_gate = NodePath("../Gate2")
+
+[node name="Gate2" parent="Gates" node_paths=PackedStringArray("destination_gate") instance=ExtResource("6_q1foo")]
+position = Vector2(-249, -732)
+rotation = -0.0855877
+destination_gate = NodePath("../Gate")
+reverse_arrow = true
 
 [node name="Player" parent="." instance=ExtResource("3_5vla8")]
+position = Vector2(235, -159)
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 
@@ -78,11 +192,21 @@ game_state = ExtResource("6_p2gfj")
 layer = -1
 
 [node name="Background" type="ColorRect" parent="BackgroundLayer"]
-material = SubResource("ShaderMaterial_oe07w")
 offset_left = -3840.0
-offset_top = -2160.0
+offset_top = -3840.0
 offset_right = 3840.0
-offset_bottom = 2160.0
+offset_bottom = 3840.0
+color = Color(0.984314, 0.509804, 1, 0.54902)
+metadata/_edit_lock_ = true
+
+[node name="BackgroundShader" type="TextureRect" parent="BackgroundLayer"]
+material = SubResource("ShaderMaterial_umwio")
+offset_left = -3831.0
+offset_top = -3840.0
+offset_right = 3849.0
+offset_bottom = 3840.0
+texture = ExtResource("18_o8lpy")
+stretch_mode = 1
 metadata/_edit_lock_ = true
 
 [node name="LevelTimer" type="Timer" parent="."]

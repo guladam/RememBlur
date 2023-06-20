@@ -5,7 +5,12 @@ signal box_requested(hint_type: Hint)
 signal box_used
 
 
+@export var player: Node2D
 @export var box: Box
+
+
+func get_player() -> Node2D:
+	return player
 
 
 func get_box() -> Box:
