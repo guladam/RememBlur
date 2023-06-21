@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bfaiepmhx86h1"
-path="res://.godot/imported/box.png-3cfab01008e44858c56fd78b650ee0cf.ctex"
+uid="uid://ce7gb4l6g68j4"
+path="res://.godot/imported/ear.svg-12c033946a9a6613673b192838725b40.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://player/box/box.png"
-dest_files=["res://.godot/imported/box.png-3cfab01008e44858c56fd78b650ee0cf.ctex"]
+source_file="res://interactables/sensory_icons/ear.svg"
+dest_files=["res://.godot/imported/ear.svg-12c033946a9a6613673b192838725b40.ctex"]
 
 [params]
 
@@ -32,3 +32,6 @@ process/hdr_as_srgb=false
 process/hdr_clamp_exposure=false
 process/size_limit=0
 detect_3d/compress_to=1
+svg/scale=1.0
+editor/scale_with_editor_scale=false
+editor/convert_colors_with_editor_theme=false

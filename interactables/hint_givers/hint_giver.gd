@@ -15,6 +15,7 @@ func setup(p: Puzzle) -> void:
 func get_hint(helpfulness := 0) -> Hint:
 	# TODO do we want a signal for that?
 	if hints.is_empty():
+		print("keine hints")
 		return null
 	
 	hints.shuffle()

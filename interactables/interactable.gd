@@ -47,5 +47,4 @@ func turn_off() -> void:
 
 
 func turn_on() -> void:
-	can_interact = true
 	collision_shape_2d.set_deferred("disabled", false)

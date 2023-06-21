@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dtqcvq3u1or05"
-path="res://.godot/imported/ear.png-ed58d0d9f95d49d3f96197e070987fde.ctex"
+uid="uid://bybq6wbhlqpwa"
+path="res://.godot/imported/nose.svg-e1e5cb48fddfb375f4d7027c82c45397.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://player/box/ear.png"
-dest_files=["res://.godot/imported/ear.png-ed58d0d9f95d49d3f96197e070987fde.ctex"]
+source_file="res://interactables/sensory_icons/nose.svg"
+dest_files=["res://.godot/imported/nose.svg-e1e5cb48fddfb375f4d7027c82c45397.ctex"]
 
 [params]
 
@@ -32,3 +32,6 @@ process/hdr_as_srgb=false
 process/hdr_clamp_exposure=false
 process/size_limit=0
 detect_3d/compress_to=1
+svg/scale=1.0
+editor/scale_with_editor_scale=false
+editor/convert_colors_with_editor_theme=false

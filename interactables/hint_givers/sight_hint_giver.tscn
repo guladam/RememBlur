@@ -1,0 +1,68 @@
+[gd_scene load_steps=28 format=3 uid="uid://ciy87g0165dyq"]
+
+[ext_resource type="Script" path="res://interactables/hint_givers/sight_hint_giver.gd" id="1_svl6t"]
+[ext_resource type="Resource" uid="uid://boqx1r2s2yfp" path="res://hints/sight/c_black.tres" id="2_t8a4h"]
+[ext_resource type="Resource" uid="uid://cdw4cj7rth1ec" path="res://hints/sight/c_blue.tres" id="3_qp86l"]
+[ext_resource type="Resource" uid="uid://cr4hds3nd38jb" path="res://hints/sight/c_brown.tres" id="4_0m7tw"]
+[ext_resource type="Resource" uid="uid://dekuojdk0d3te" path="res://hints/sight/c_gray.tres" id="5_8a5qa"]
+[ext_resource type="Resource" uid="uid://b2unf64wp4k8a" path="res://hints/sight/c_green.tres" id="6_hl7aq"]
+[ext_resource type="Resource" uid="uid://y40sv6ulw3ga" path="res://hints/sight/c_multicolored.tres" id="7_mlvgs"]
+[ext_resource type="Resource" uid="uid://crk7drcn11ql1" path="res://hints/sight/c_orange.tres" id="8_3e3d2"]
+[ext_resource type="Resource" uid="uid://lfw5opmq230q" path="res://hints/sight/c_purple.tres" id="9_mllmm"]
+[ext_resource type="Resource" uid="uid://bliffq4xf4xde" path="res://hints/sight/c_red.tres" id="10_6a1n5"]
+[ext_resource type="Resource" uid="uid://sa1yk5m7xav4" path="res://hints/sight/c_teal.tres" id="11_ow7jd"]
+[ext_resource type="Resource" uid="uid://rqe28xpjdvuo" path="res://hints/sight/c_transparent.tres" id="12_lefod"]
+[ext_resource type="Resource" uid="uid://dvgyhsyke46d" path="res://hints/sight/c_violet.tres" id="13_u2nvb"]
+[ext_resource type="Resource" uid="uid://53217n4qrrot" path="res://hints/sight/c_white.tres" id="14_fhmue"]
+[ext_resource type="Resource" uid="uid://b2nn2eeuw6ou3" path="res://hints/sight/c_yellow.tres" id="15_lgduh"]
+[ext_resource type="Texture2D" uid="uid://dgwn14djxwh3x" path="res://interactables/sensory_icons/eye.svg" id="15_qcpkd"]
+[ext_resource type="PackedScene" uid="uid://cqdd5ec3x03dr" path="res://interactables/interactable.tscn" id="16_6ao5i"]
+[ext_resource type="Resource" uid="uid://cn3hsqdhj4f3r" path="res://hints/sight/s_circle.tres" id="16_aqqes"]
+[ext_resource type="Resource" uid="uid://bwbb2dddpqt40" path="res://hints/sight/s_high.tres" id="17_jgdim"]
+[ext_resource type="PackedScene" uid="uid://b0lnbpich0nky" path="res://interactables/interaction_popup.tscn" id="17_wxyep"]
+[ext_resource type="Resource" uid="uid://87gsqhbh7ccp" path="res://hints/sight/s_oblong.tres" id="18_r2vja"]
+[ext_resource type="Resource" uid="uid://bfqffit3npt8n" path="res://hints/sight/s_oval.tres" id="19_pog5q"]
+[ext_resource type="Resource" uid="uid://pah7x7c7go5s" path="res://hints/sight/s_rectangle.tres" id="20_8xid1"]
+[ext_resource type="Resource" uid="uid://dyitk5l15qagk" path="res://hints/sight/s_short.tres" id="21_yhk6g"]
+[ext_resource type="Resource" uid="uid://bopkkeo4uqs0d" path="res://hints/sight/s_square.tres" id="22_jjqcd"]
+[ext_resource type="Resource" uid="uid://cjutahoisbdva" path="res://hints/sight/s_triangle.tres" id="23_lo2gr"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_gb8yy"]
+radius = 89.0
+height = 214.0
+
+[node name="SightHintGiver" type="Node2D" groups=["puzzle_receiver", "stats_receiver"]]
+script = ExtResource("1_svl6t")
+hints = Array[Resource("res://hints/hint.gd")]([ExtResource("2_t8a4h"), ExtResource("3_qp86l"), ExtResource("4_0m7tw"), ExtResource("5_8a5qa"), ExtResource("6_hl7aq"), ExtResource("7_mlvgs"), ExtResource("8_3e3d2"), ExtResource("9_mllmm"), ExtResource("10_6a1n5"), ExtResource("11_ow7jd"), ExtResource("12_lefod"), ExtResource("13_u2nvb"), ExtResource("14_fhmue"), ExtResource("15_lgduh"), ExtResource("16_aqqes"), ExtResource("17_jgdim"), ExtResource("18_r2vja"), ExtResource("19_pog5q"), ExtResource("20_8xid1"), ExtResource("21_yhk6g"), ExtResource("22_jjqcd"), ExtResource("23_lo2gr")])
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+modulate = Color(1, 1, 1, 0.392157)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("15_qcpkd")
+
+[node name="Interactable" parent="." node_paths=PackedStringArray("popup") instance=ExtResource("16_6ao5i")]
+popup = NodePath("../InteractionPopup")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Interactable"]
+shape = SubResource("CapsuleShape2D_gb8yy")
+
+[node name="InteractionPopup" parent="." instance=ExtResource("17_wxyep")]
+visible = true
+offset_left = -5.0
+offset_top = -185.0
+offset_right = 195.0
+offset_bottom = -57.0
+text = "BRAIN_SIGHT"
+
+[node name="Cooldown" type="Timer" parent="."]
+wait_time = 30.0
+one_shot = true
+
+[node name="Label" type="Label" parent="."]
+offset_top = -120.0
+offset_right = 40.0
+offset_bottom = -75.0
+theme_override_font_sizes/font_size = 32
+
+[connection signal="interacted" from="Interactable" to="." method="_on_interactable_interacted"]
+[connection signal="timeout" from="Cooldown" to="." method="_on_cooldown_timeout"]

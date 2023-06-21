@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://buh0u5gnfk4ou"
-path="res://.godot/imported/eye.png-63597d4ed870a377d6fb65c818ced2bf.ctex"
+uid="uid://dgwn14djxwh3x"
+path="res://.godot/imported/eye.svg-76a9a163c1338e39d11234ba7998b465.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://player/box/eye.png"
-dest_files=["res://.godot/imported/eye.png-63597d4ed870a377d6fb65c818ced2bf.ctex"]
+source_file="res://interactables/sensory_icons/eye.svg"
+dest_files=["res://.godot/imported/eye.svg-76a9a163c1338e39d11234ba7998b465.ctex"]
 
 [params]
 
@@ -32,3 +32,6 @@ process/hdr_as_srgb=false
 process/hdr_clamp_exposure=false
 process/size_limit=0
 detect_3d/compress_to=1
+svg/scale=1.0
+editor/scale_with_editor_scale=false
+editor/convert_colors_with_editor_theme=false

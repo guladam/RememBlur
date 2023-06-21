@@ -8,7 +8,6 @@ extends CharacterBody2D
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var visuals: Node2D = $Visuals
 @onready var head: Sprite2D = $Visuals/Head
-@onready var box: Sprite2D = $Visuals/Head/Box
 
 
 func _physics_process(_delta: float) -> void:
@@ -37,15 +36,3 @@ func play_animation() -> void:
 		animation_player.play("walk")
 	else:
 		animation_player.play("idle")
-
-
-func _on_player_interaction_box_requested(hint: Hint) -> void:
-	if box.in_use:
-		print("you already have a box!")
-		return
-
-	box.setup(hint)
-
-
-func _on_player_interaction_box_used() -> void:
-	box.use()

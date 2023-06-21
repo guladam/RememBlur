@@ -73,3 +73,13 @@ UPGRADE_T2_HEAL,+2 Health,+2 Életerő
 UPGRADE_T2_MAXHP,+1 Maximum Health,+1 Maximum Életerő
 UPGRADE_T3_BLOOD_DONATION,blood donation,véráldozat
 UPGRADE_T3_FULL_HEAL,Restore all Health,Teljes gyógyulás
+,,
+,,
+,,
+,,
+,,
+BRAIN_TOUCH,somatosensory cortex,szomatoszenzoros kéreg
+BRAIN_SIGHT,primary visual cortex,elsődleges látókéreg
+BRAIN_SMELL,olfactory bulb,szaglóhagyma
+BRAIN_TASTE,gustatory cortex,ízkéreg
+BRAIN_HEARING,auditory cortex,elsődleges hallókéreg

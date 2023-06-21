@@ -1,0 +1,65 @@
+[gd_scene load_steps=25 format=3 uid="uid://k2hyhewm1ivl"]
+
+[ext_resource type="Script" path="res://interactables/hint_givers/taste_hint_giver.gd" id="1_cj7ix"]
+[ext_resource type="Resource" uid="uid://d36k2n0ymobpp" path="res://hints/taste/bitter.tres" id="2_yveok"]
+[ext_resource type="Resource" uid="uid://hmupyy2nk2oy" path="res://hints/taste/buttery.tres" id="3_v4103"]
+[ext_resource type="Resource" uid="uid://g45302vkqmpa" path="res://hints/taste/citrusy.tres" id="4_hw4so"]
+[ext_resource type="Resource" uid="uid://daib0f7ogqm23" path="res://hints/taste/creamy.tres" id="5_wlhkb"]
+[ext_resource type="Resource" uid="uid://kkop1s8o57gk" path="res://hints/taste/earthy.tres" id="6_u1vwu"]
+[ext_resource type="Resource" uid="uid://d0x8kqbyj0bik" path="res://hints/taste/floral.tres" id="7_w4x22"]
+[ext_resource type="Resource" uid="uid://c27h8ercww3fq" path="res://hints/taste/fruity.tres" id="8_0pguj"]
+[ext_resource type="Resource" uid="uid://c4po7ktrqepjw" path="res://hints/taste/herbal.tres" id="9_d7btl"]
+[ext_resource type="Resource" uid="uid://d1wixd4sutll5" path="res://hints/taste/nutty.tres" id="10_b31jf"]
+[ext_resource type="Resource" uid="uid://d1few6xf4gfgp" path="res://hints/taste/peppery.tres" id="11_xtk6t"]
+[ext_resource type="Resource" uid="uid://okcfv771cbkt" path="res://hints/taste/salty.tres" id="12_axvy5"]
+[ext_resource type="Resource" uid="uid://x1orfg4xpgfx" path="res://hints/taste/smoky.tres" id="13_talhx"]
+[ext_resource type="Resource" uid="uid://c2vfdp4yl4ogp" path="res://hints/taste/sour.tres" id="14_0suf8"]
+[ext_resource type="Resource" uid="uid://b5ktavk35e86" path="res://hints/taste/spicy.tres" id="15_kd063"]
+[ext_resource type="Resource" uid="uid://cpw5fmdqh8ou1" path="res://hints/taste/sweet.tres" id="16_500k5"]
+[ext_resource type="PackedScene" uid="uid://cqdd5ec3x03dr" path="res://interactables/interactable.tscn" id="16_qelou"]
+[ext_resource type="PackedScene" uid="uid://b0lnbpich0nky" path="res://interactables/interaction_popup.tscn" id="17_kw03f"]
+[ext_resource type="Resource" uid="uid://doj8nvd6yh1tx" path="res://hints/taste/tangy.tres" id="17_y4txt"]
+[ext_resource type="Resource" uid="uid://bra0faamco7cv" path="res://hints/taste/tart.tres" id="18_h5kfu"]
+[ext_resource type="Resource" uid="uid://lefxljiq0tdm" path="res://hints/taste/umami.tres" id="19_s2bvw"]
+[ext_resource type="Resource" uid="uid://dygedrttjsdru" path="res://hints/taste/zesty.tres" id="20_2qxda"]
+[ext_resource type="Texture2D" uid="uid://dckt7ug77lkwx" path="res://interactables/sensory_icons/taste.svg" id="21_2y64c"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_gb8yy"]
+radius = 89.0
+height = 214.0
+
+[node name="TasteHintGiver" type="Node2D" groups=["puzzle_receiver", "stats_receiver"]]
+script = ExtResource("1_cj7ix")
+hints = Array[Resource("res://hints/hint.gd")]([ExtResource("2_yveok"), ExtResource("3_v4103"), ExtResource("4_hw4so"), ExtResource("5_wlhkb"), ExtResource("6_u1vwu"), ExtResource("7_w4x22"), ExtResource("8_0pguj"), ExtResource("9_d7btl"), ExtResource("10_b31jf"), ExtResource("11_xtk6t"), ExtResource("12_axvy5"), ExtResource("13_talhx"), ExtResource("14_0suf8"), ExtResource("15_kd063"), ExtResource("16_500k5"), ExtResource("17_y4txt"), ExtResource("18_h5kfu"), ExtResource("19_s2bvw"), ExtResource("20_2qxda")])
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+modulate = Color(1, 1, 1, 0.392157)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("21_2y64c")
+
+[node name="Interactable" parent="." node_paths=PackedStringArray("popup") instance=ExtResource("16_qelou")]
+popup = NodePath("../InteractionPopup")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Interactable"]
+shape = SubResource("CapsuleShape2D_gb8yy")
+
+[node name="InteractionPopup" parent="." instance=ExtResource("17_kw03f")]
+visible = true
+offset_left = -5.0
+offset_top = -185.0
+offset_right = 195.0
+offset_bottom = -57.0
+text = "BRAIN_TASTE"
+
+[node name="Cooldown" type="Timer" parent="."]
+wait_time = 10.0
+one_shot = true
+
+[node name="Label" type="Label" parent="."]
+offset_top = -120.0
+offset_right = 40.0
+offset_bottom = -75.0
+theme_override_font_sizes/font_size = 32
+
+[connection signal="interacted" from="Interactable" to="." method="_on_interactable_interacted"]
+[connection signal="timeout" from="Cooldown" to="." method="_on_cooldown_timeout"]

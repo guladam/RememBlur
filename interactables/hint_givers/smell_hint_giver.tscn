@@ -1,0 +1,56 @@
+[gd_scene load_steps=16 format=3 uid="uid://cncda6uagkg7l"]
+
+[ext_resource type="Script" path="res://interactables/hint_givers/smell_hint_giver.gd" id="1_2j48f"]
+[ext_resource type="Resource" uid="uid://cvihph24go05" path="res://hints/smell/chemical.tres" id="2_30n6d"]
+[ext_resource type="Resource" uid="uid://bjntdnutglvg3" path="res://hints/smell/decayed.tres" id="3_v12t3"]
+[ext_resource type="Resource" uid="uid://cmlds10apw6yw" path="res://hints/smell/fragrant.tres" id="4_4e02h"]
+[ext_resource type="Resource" uid="uid://d2l3qvpdj21qj" path="res://hints/smell/fruity.tres" id="5_6quoh"]
+[ext_resource type="Resource" uid="uid://bwvmluxaabdk5" path="res://hints/smell/lemon.tres" id="6_g0br5"]
+[ext_resource type="Resource" uid="uid://bwar81i36pwvk" path="res://hints/smell/minty.tres" id="7_agp8r"]
+[ext_resource type="Resource" uid="uid://dwj1f087t55nx" path="res://hints/smell/popcorn.tres" id="8_odo85"]
+[ext_resource type="Resource" uid="uid://com365x0cirv" path="res://hints/smell/pungent.tres" id="9_gucec"]
+[ext_resource type="Resource" uid="uid://belslsuh1h0vx" path="res://hints/smell/sweet.tres" id="10_fnyxa"]
+[ext_resource type="Resource" uid="uid://bvg272giqme0s" path="res://hints/smell/woody.tres" id="11_5riil"]
+[ext_resource type="Texture2D" uid="uid://bybq6wbhlqpwa" path="res://interactables/sensory_icons/nose.svg" id="24_003sv"]
+[ext_resource type="PackedScene" uid="uid://cqdd5ec3x03dr" path="res://interactables/interactable.tscn" id="25_ybnjn"]
+[ext_resource type="PackedScene" uid="uid://b0lnbpich0nky" path="res://interactables/interaction_popup.tscn" id="26_2vs36"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_gb8yy"]
+radius = 89.0
+height = 214.0
+
+[node name="SmellHintGiver" type="Node2D" groups=["puzzle_receiver", "stats_receiver"]]
+script = ExtResource("1_2j48f")
+hints = Array[Resource("res://hints/hint.gd")]([ExtResource("2_30n6d"), ExtResource("3_v12t3"), ExtResource("4_4e02h"), ExtResource("5_6quoh"), ExtResource("6_g0br5"), ExtResource("7_agp8r"), ExtResource("8_odo85"), ExtResource("9_gucec"), ExtResource("10_fnyxa"), ExtResource("11_5riil")])
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+modulate = Color(1, 1, 1, 0.392157)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("24_003sv")
+
+[node name="Interactable" parent="." node_paths=PackedStringArray("popup") instance=ExtResource("25_ybnjn")]
+popup = NodePath("../InteractionPopup")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Interactable"]
+shape = SubResource("CapsuleShape2D_gb8yy")
+
+[node name="InteractionPopup" parent="." instance=ExtResource("26_2vs36")]
+visible = true
+offset_left = -5.0
+offset_top = -185.0
+offset_right = 195.0
+offset_bottom = -57.0
+text = "BRAIN_SMELL"
+
+[node name="Cooldown" type="Timer" parent="."]
+wait_time = 30.0
+one_shot = true
+
+[node name="Label" type="Label" parent="."]
+offset_top = -120.0
+offset_right = 40.0
+offset_bottom = -75.0
+theme_override_font_sizes/font_size = 32
+
+[connection signal="interacted" from="Interactable" to="." method="_on_interactable_interacted"]
+[connection signal="timeout" from="Cooldown" to="." method="_on_cooldown_timeout"]

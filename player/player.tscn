@@ -1,8 +1,7 @@
-[gd_scene load_steps=17 format=3 uid="uid://sa16u6skxwxt"]
+[gd_scene load_steps=16 format=3 uid="uid://sa16u6skxwxt"]
 
 [ext_resource type="Script" path="res://player/player.gd" id="1_bcs0f"]
 [ext_resource type="Resource" uid="uid://dh3x1s6th3qwx" path="res://levels/game_state.tres" id="2_rubtw"]
-[ext_resource type="PackedScene" uid="uid://cwvsipish1o44" path="res://player/box/box.tscn" id="3_i0y45"]
 [ext_resource type="Resource" uid="uid://bamfmqf8nohb2" path="res://stats/default_player_stats.tres" id="3_npb00"]
 [ext_resource type="Texture2D" uid="uid://nduxc768muh8" path="res://player/neuron.png" id="3_y3qj4"]
 [ext_resource type="Material" uid="uid://4u3oys0j7c5c" path="res://global/wobble.tres" id="4_08dv5"]
@@ -139,10 +138,6 @@ scale = Vector2(0.2, 0.2)
 material = ExtResource("4_08dv5")
 texture = ExtResource("3_y3qj4")
 
-[node name="Box" parent="Visuals/Head" instance=ExtResource("3_i0y45")]
-visible = false
-position = Vector2(0, -142)
-
 [node name="Tail" type="Line2D" parent="Visuals/Head"]
 texture_repeat = 2
 material = ExtResource("4_08dv5")
@@ -169,15 +164,11 @@ shape = SubResource("RectangleShape2D_400uf")
 
 [node name="InteractionRig" type="Node2D" parent="."]
 
-[node name="PlayerInteraction" type="Area2D" parent="InteractionRig" node_paths=PackedStringArray("player", "box")]
+[node name="PlayerInteraction" type="Area2D" parent="InteractionRig" node_paths=PackedStringArray("player")]
 collision_layer = 2
 collision_mask = 0
 script = ExtResource("4_nq3b0")
 player = NodePath("../..")
-box = NodePath("../../Visuals/Head/Box")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionRig/PlayerInteraction"]
 shape = SubResource("CapsuleShape2D_0vhe4")
-
-[connection signal="box_requested" from="InteractionRig/PlayerInteraction" to="." method="_on_player_interaction_box_requested"]
-[connection signal="box_used" from="InteractionRig/PlayerInteraction" to="." method="_on_player_interaction_box_used"]

@@ -17,7 +17,7 @@ func _process(_delta: float) -> void:
 
 
 func set_cooldown() -> void:
-	cooldown.wait_time = (base_cd - player_stats.touch_cd_bonus) * player_stats.get_multiplier(player_stats.touch_cd_multipliers, player_stats.SIGN.NEGATIVE)
+	cooldown.wait_time = (base_cd - player_stats.smell_cd_bonus) * player_stats.get_multiplier(player_stats.touch_cd_multipliers, player_stats.SIGN.NEGATIVE)
 
 
 func _on_interactable_interacted(player: Area2D) -> void:

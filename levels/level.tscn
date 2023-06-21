@@ -8,50 +8,21 @@
 [ext_resource type="Resource" uid="uid://dh3x1s6th3qwx" path="res://levels/game_state.tres" id="6_p2gfj"]
 [ext_resource type="PackedScene" uid="uid://c15qhgoay4u16" path="res://interactables/gate/gate.tscn" id="6_q1foo"]
 [ext_resource type="PackedScene" uid="uid://dns1ybse4vg1a" path="res://interactables/hint_examiner/hint_examiner.tscn" id="7_1cm8l"]
+[ext_resource type="PackedScene" uid="uid://ciy87g0165dyq" path="res://interactables/hint_givers/sight_hint_giver.tscn" id="7_kilb8"]
 [ext_resource type="PackedScene" uid="uid://3qxqdcpjgqix" path="res://interactables/guesser/guesser.tscn" id="8_eb060"]
 [ext_resource type="PackedScene" uid="uid://bt5s66j4no7ta" path="res://interactables/hint_examiner/latest_hint_screen.tscn" id="8_wvc2n"]
 [ext_resource type="Script" path="res://levels/level_ui.gd" id="8_xg5p3"]
+[ext_resource type="PackedScene" uid="uid://cncda6uagkg7l" path="res://interactables/hint_givers/smell_hint_giver.tscn" id="9_lr6t1"]
+[ext_resource type="PackedScene" uid="uid://k2hyhewm1ivl" path="res://interactables/hint_givers/taste_hint_giver.tscn" id="10_bbqim"]
 [ext_resource type="PackedScene" uid="uid://cac3mwjxdapna" path="res://interactables/hint_givers/touch_hint_giver.tscn" id="10_bgrpp"]
 [ext_resource type="PackedScene" uid="uid://cosp287ap0ox3" path="res://interactables/hint_examiner/all_hints_screen.tscn" id="10_jc0lw"]
+[ext_resource type="PackedScene" uid="uid://c826jg5vddi34" path="res://interactables/hint_givers/hearing_hint_giver.tscn" id="11_36wrc"]
 [ext_resource type="PackedScene" uid="uid://wfim02c132bf" path="res://interactables/guesser/puzzle_letters.tscn" id="11_vd0mw"]
 [ext_resource type="PackedScene" uid="uid://b3o2wkh3qrpvd" path="res://interactables/guesser/guesser_ui.tscn" id="13_x23yd"]
 [ext_resource type="PackedScene" uid="uid://be0ehq5ccgvj5" path="res://levels/time_left.tscn" id="14_3vhk0"]
 [ext_resource type="Shader" path="res://levels/visuals/level_background.gdshader" id="16_qhf86"]
 [ext_resource type="PackedScene" uid="uid://blt5faaqq0dkj" path="res://stats/health_bar.tscn" id="17_4ton6"]
 [ext_resource type="Texture2D" uid="uid://ckw7ak7x2t7id" path="res://levels/visuals/bg_texture.png" id="18_o8lpy"]
-
-[sub_resource type="Shader" id="Shader_uoes5"]
-code = "shader_type canvas_item;
-
-uniform sampler2D flowMap; //Displacement map
-uniform float strength;    //Force of the effect
-uniform float speed;       //Speed of the effect
-uniform int frames: hint_range(1, 10); //Frames of the effect
-
-
-//Returns a value between 0 and 1 depending of the frames -> exemple: frames = 4, frame 1 = 0.25
-float clock(float time){
-	float fframes = float(frames);
-	return floor(mod(time * speed, fframes)) / fframes;
-}
-
-void fragment(){
-	float c = clock(TIME); //Get clock frame
-	vec4 offset = texture(flowMap, vec2(UV.x + c, UV.y + c)) * strength; // Get offset 
-	COLOR = texture(TEXTURE, vec2(UV.x, UV.y) + offset.xy - vec2(0.5, 0.5)*strength); // We need to remove the displacement 
-}"
-
-[sub_resource type="FastNoiseLite" id="FastNoiseLite_4gr73"]
-
-[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_6kbio"]
-noise = SubResource("FastNoiseLite_4gr73")
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_ikyqn"]
-shader = SubResource("Shader_uoes5")
-shader_parameter/strength = 0.005
-shader_parameter/speed = 2.0
-shader_parameter/frames = 3
-shader_parameter/flowMap = SubResource("NoiseTexture2D_6kbio")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_umwio"]
 shader = ExtResource("16_qhf86")
@@ -80,10 +51,10 @@ polygon = PackedVector2Array(-168.991, 1931, -349.991, 1959, -648.992, 1830, -88
 metadata/_edit_lock_ = true
 
 [node name="Brain" type="Sprite2D" parent="Brain"]
-material = SubResource("ShaderMaterial_ikyqn")
 texture = ExtResource("5_djbfx")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="Brain"]
+visible = false
 collision_mask = 0
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Brain/StaticBody2D"]
@@ -184,14 +155,14 @@ destination_gate = NodePath("../Gate")
 reverse_arrow = true
 
 [node name="Gate3" parent="Gates" node_paths=PackedStringArray("destination_gate") instance=ExtResource("6_q1foo")]
-position = Vector2(-1334, -825)
+position = Vector2(-1170, -804)
 rotation = -0.523043
 destination_gate = NodePath("../Gate4")
 reverse_arrow = true
 
 [node name="Gate4" parent="Gates" node_paths=PackedStringArray("destination_gate") instance=ExtResource("6_q1foo")]
-position = Vector2(-1022, -978)
-rotation = -3.39648
+position = Vector2(-829, -947)
+rotation = -3.6132
 destination_gate = NodePath("../Gate3")
 reverse_arrow = true
 
@@ -272,13 +243,22 @@ position = Vector2(147, 450)
 rotation = -0.0925427
 destination_gate = NodePath("../Gate17")
 
-[node name="Player" parent="." instance=ExtResource("3_5vla8")]
-position = Vector2(235, -159)
+[node name="HintGivers" type="Node2D" parent="."]
 
-[node name="Camera2D" type="Camera2D" parent="Player"]
+[node name="SightHintGiver" parent="HintGivers" instance=ExtResource("7_kilb8")]
+position = Vector2(-251, 1908)
 
-[node name="TouchHintGiver" parent="." instance=ExtResource("10_bgrpp")]
-position = Vector2(-1024, 1408)
+[node name="TouchHintGiver" parent="HintGivers" instance=ExtResource("10_bgrpp")]
+position = Vector2(-1477, 262)
+
+[node name="SmellHintGiver" parent="HintGivers" instance=ExtResource("9_lr6t1")]
+position = Vector2(-170, -1700)
+
+[node name="TasteHintGiver" parent="HintGivers" instance=ExtResource("10_bbqim")]
+position = Vector2(1396, 364)
+
+[node name="HearingHintGiver" parent="HintGivers" instance=ExtResource("11_36wrc")]
+position = Vector2(1106, 867)
 
 [node name="HintExaminer" parent="." instance=ExtResource("7_1cm8l")]
 modulate = Color(0.690196, 0.686275, 0.466667, 1)
@@ -288,6 +268,11 @@ game_state = ExtResource("6_p2gfj")
 [node name="Guesser" parent="." instance=ExtResource("8_eb060")]
 position = Vector2(201, 144)
 game_state = ExtResource("6_p2gfj")
+
+[node name="Player" parent="." instance=ExtResource("3_5vla8")]
+position = Vector2(235, -159)
+
+[node name="Camera2D" type="Camera2D" parent="Player"]
 
 [node name="UI" type="CanvasLayer" parent="."]
 script = ExtResource("8_xg5p3")

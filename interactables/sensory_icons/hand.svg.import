@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://577vc07ph1r2"
-path="res://.godot/imported/taste.png-884f7c7c5fe2e5ce14303d0f4768d151.ctex"
+uid="uid://dceqd6lbx5shh"
+path="res://.godot/imported/hand.svg-9b757dd4c6837052044002e06933761f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://player/box/taste.png"
-dest_files=["res://.godot/imported/taste.png-884f7c7c5fe2e5ce14303d0f4768d151.ctex"]
+source_file="res://interactables/sensory_icons/hand.svg"
+dest_files=["res://.godot/imported/hand.svg-9b757dd4c6837052044002e06933761f.ctex"]
 
 [params]
 
@@ -32,3 +32,6 @@ process/hdr_as_srgb=false
 process/hdr_clamp_exposure=false
 process/size_limit=0
 detect_3d/compress_to=1
+svg/scale=1.0
+editor/scale_with_editor_scale=false
+editor/convert_colors_with_editor_theme=false
