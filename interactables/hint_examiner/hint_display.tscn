@@ -1,29 +1,48 @@
-[gd_scene load_steps=8 format=3 uid="uid://pgyvcmpqcsxi"]
+[gd_scene load_steps=10 format=3 uid="uid://pgyvcmpqcsxi"]
 
 [ext_resource type="Texture2D" uid="uid://cq8c5qmjfn7an" path="res://interactables/hint_examiner/assets/ear_icon.png" id="1_n6jkf"]
+[ext_resource type="Theme" uid="uid://cytrqyn3gsxmg" path="res://ui_theme.tres" id="1_vhlo4"]
 [ext_resource type="Script" path="res://interactables/hint_examiner/hint_display.gd" id="1_wkhf6"]
 [ext_resource type="Texture2D" uid="uid://bifxbr2j02w5l" path="res://interactables/hint_examiner/assets/play_btn.png" id="2_ho546"]
+[ext_resource type="StyleBox" uid="uid://dk5sq0sp2ifvd" path="res://hint_stylebox.tres" id="2_s6o10"]
 [ext_resource type="Texture2D" uid="uid://c7c2yht1ors08" path="res://interactables/hint_examiner/assets/play_btn_hover.png" id="3_1h7b2"]
 [ext_resource type="Texture2D" uid="uid://bu6e5gol2mkf3" path="res://interactables/hint_examiner/assets/x.png" id="4_7i728"]
 [ext_resource type="Texture2D" uid="uid://cm7yambyb6v45" path="res://interactables/hint_examiner/assets/star.png" id="5_shuig"]
 [ext_resource type="Texture2D" uid="uid://combqai1wv7rk" path="res://interactables/hint_examiner/assets/star_empty.png" id="7_mlu44"]
 
-[node name="HintDisplay" type="MarginContainer"]
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
+[node name="HintDisplay" type="PanelContainer"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -100.0
+offset_top = -192.0
+offset_right = 100.0
+offset_bottom = 192.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("1_vhlo4")
+theme_override_styles/panel = ExtResource("2_s6o10")
 script = ExtResource("1_wkhf6")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="."]
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 2
+theme_override_constants/margin_left = 40
+theme_override_constants/margin_top = 40
+theme_override_constants/margin_right = 40
+theme_override_constants/margin_bottom = 40
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
 layout_mode = 2
 theme_override_constants/separation = 30
+alignment = 1
 
-[node name="Top" type="HBoxContainer" parent="VBoxContainer"]
+[node name="Top" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
+alignment = 1
 
-[node name="Icon" type="TextureRect" parent="VBoxContainer/Top"]
+[node name="Icon" type="TextureRect" parent="MarginContainer/VBoxContainer/Top"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
@@ -31,34 +50,37 @@ texture = ExtResource("1_n6jkf")
 expand_mode = 1
 stretch_mode = 5
 
-[node name="Type" type="Label" parent="VBoxContainer/Top"]
+[node name="Type" type="Label" parent="MarginContainer/VBoxContainer/Top"]
 unique_name_in_owner = true
 layout_mode = 2
 theme_override_font_sizes/font_size = 24
 text = "Hearing"
 
-[node name="Content" type="VBoxContainer" parent="VBoxContainer"]
+[node name="Content" type="VBoxContainer" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
 
-[node name="HintText" type="Label" parent="VBoxContainer/Content"]
+[node name="HintText" type="Label" parent="MarginContainer/VBoxContainer/Content"]
 unique_name_in_owner = true
 layout_mode = 2
 text = "HINT TEXT"
+horizontal_alignment = 1
+vertical_alignment = 1
 
-[node name="HintImage" type="TextureRect" parent="VBoxContainer/Content"]
+[node name="HintImage" type="TextureRect" parent="MarginContainer/VBoxContainer/Content"]
 unique_name_in_owner = true
 layout_mode = 2
 
-[node name="Sound" type="HBoxContainer" parent="VBoxContainer/Content"]
+[node name="Sound" type="HBoxContainer" parent="MarginContainer/VBoxContainer/Content"]
 unique_name_in_owner = true
 layout_mode = 2
+alignment = 1
 
-[node name="Label" type="Label" parent="VBoxContainer/Content/Sound"]
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/Content/Sound"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 24
-text = "Play"
+text = "Listen"
 
-[node name="PlaySound" type="TextureButton" parent="VBoxContainer/Content/Sound"]
+[node name="PlaySound" type="TextureButton" parent="MarginContainer/VBoxContainer/Content/Sound"]
 custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
 texture_normal = ExtResource("2_ho546")
@@ -67,38 +89,38 @@ texture_hover = ExtResource("3_1h7b2")
 ignore_texture_size = true
 stretch_mode = 5
 
-[node name="UnHelpful" type="TextureRect" parent="VBoxContainer"]
+[node name="UnHelpful" type="TextureRect" parent="MarginContainer/VBoxContainer"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
-size_flags_horizontal = 0
+size_flags_horizontal = 4
 texture = ExtResource("4_7i728")
 expand_mode = 1
 stretch_mode = 5
 
-[node name="Helpful" type="HBoxContainer" parent="VBoxContainer"]
+[node name="Helpful" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 
-[node name="Icon" type="TextureRect" parent="VBoxContainer/Helpful"]
+[node name="Icon" type="TextureRect" parent="MarginContainer/VBoxContainer/Helpful"]
 custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
 texture = ExtResource("5_shuig")
 expand_mode = 1
 stretch_mode = 5
 
-[node name="Icon2" type="TextureRect" parent="VBoxContainer/Helpful"]
+[node name="Icon2" type="TextureRect" parent="MarginContainer/VBoxContainer/Helpful"]
 custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
 texture = ExtResource("7_mlu44")
 expand_mode = 1
 stretch_mode = 5
 
-[node name="Icon3" type="TextureRect" parent="VBoxContainer/Helpful"]
+[node name="Icon3" type="TextureRect" parent="MarginContainer/VBoxContainer/Helpful"]
 custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
 texture = ExtResource("7_mlu44")
 expand_mode = 1
 stretch_mode = 5
 
-[connection signal="pressed" from="VBoxContainer/Content/Sound/PlaySound" to="." method="_on_play_sound_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Content/Sound/PlaySound" to="." method="_on_play_sound_pressed"]

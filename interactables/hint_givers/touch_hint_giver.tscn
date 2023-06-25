@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://cac3mwjxdapna"]
+[gd_scene load_steps=21 format=3 uid="uid://cac3mwjxdapna"]
 
 [ext_resource type="Script" path="res://interactables/hint_givers/touch_hint_giver.gd" id="1_fhgug"]
 [ext_resource type="PackedScene" uid="uid://cqdd5ec3x03dr" path="res://interactables/interactable.tscn" id="2_0jhay"]
@@ -16,7 +16,9 @@
 [ext_resource type="Resource" uid="uid://cubpkv7ncxe1q" path="res://hints/touch/velvety.tres" id="12_528ck"]
 [ext_resource type="Resource" uid="uid://dtn4f6p2grc0x" path="res://hints/touch/warm.tres" id="13_q73np"]
 [ext_resource type="Resource" uid="uid://cuawj7xa0s5ah" path="res://hints/touch/wet.tres" id="14_fvaxm"]
+[ext_resource type="Material" uid="uid://dcf3p2j3frwt7" path="res://global/wobble_sense.tres" id="15_p3tqx"]
 [ext_resource type="Texture2D" uid="uid://dceqd6lbx5shh" path="res://interactables/sensory_icons/hand.svg" id="15_yeivf"]
+[ext_resource type="PackedScene" uid="uid://cyhvse1bag8h2" path="res://interactables/hint_givers/cooldown.tscn" id="19_nt6sw"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_gb8yy"]
 radius = 89.0
@@ -27,7 +29,7 @@ script = ExtResource("1_fhgug")
 hints = Array[Resource("res://hints/hint.gd")]([ExtResource("2_gynm6"), ExtResource("3_oere5"), ExtResource("4_sf1bj"), ExtResource("5_yfmnq"), ExtResource("6_gjul8"), ExtResource("7_pclxf"), ExtResource("8_uew1h"), ExtResource("9_4d7p8"), ExtResource("10_dcjjo"), ExtResource("11_ce1se"), ExtResource("12_528ck"), ExtResource("13_q73np"), ExtResource("14_fvaxm")])
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-modulate = Color(1, 1, 1, 0.392157)
+material = ExtResource("15_p3tqx")
 scale = Vector2(0.2, 0.2)
 texture = ExtResource("15_yeivf")
 
@@ -38,22 +40,23 @@ popup = NodePath("../InteractionPopup")
 shape = SubResource("CapsuleShape2D_gb8yy")
 
 [node name="InteractionPopup" parent="." instance=ExtResource("3_o1er0")]
-visible = true
-offset_left = -5.0
+offset_left = 0.0
 offset_top = -185.0
-offset_right = 195.0
+offset_right = 203.0
 offset_bottom = -57.0
+scale = Vector2(1, 1)
 text = "BRAIN_TOUCH"
 
-[node name="Cooldown" type="Timer" parent="."]
+[node name="CooldownTimer" type="Timer" parent="."]
 wait_time = 10.0
 one_shot = true
 
-[node name="Label" type="Label" parent="."]
-offset_top = -120.0
-offset_right = 40.0
-offset_bottom = -75.0
-theme_override_font_sizes/font_size = 32
+[node name="Cooldown" parent="." instance=ExtResource("19_nt6sw")]
+visible = false
+offset_left = -32.0
+offset_top = -128.0
+offset_right = 32.0
+offset_bottom = -64.0
 
 [connection signal="interacted" from="Interactable" to="." method="_on_interactable_interacted"]
-[connection signal="timeout" from="Cooldown" to="." method="_on_cooldown_timeout"]
+[connection signal="timeout" from="CooldownTimer" to="." method="_on_cooldown_timeout"]

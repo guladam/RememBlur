@@ -5,8 +5,8 @@ extends MarginContainer
 @onready var lives: HBoxContainer = %Lives
 @onready var health_icon = preload("res://stats/health_icon.tscn")
 @onready var icons := {
-	"full": preload("res://interactables/hint_examiner/assets/star.png"),
-	"empty": preload("res://interactables/hint_examiner/assets/star_empty.png")
+	"full": preload("res://stats/energy.png"),
+	"empty": preload("res://stats/energy_empty.png")
 }
 
 

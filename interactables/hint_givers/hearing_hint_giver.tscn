@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://c826jg5vddi34"]
+[gd_scene load_steps=15 format=3 uid="uid://c826jg5vddi34"]
 
 [ext_resource type="Script" path="res://interactables/hint_givers/taste_hint_giver.gd" id="1_go32b"]
 [ext_resource type="Resource" uid="uid://dj0e65mmdtw0" path="res://hints/hearing/coin.tres" id="2_yiq72"]
@@ -8,6 +8,8 @@
 [ext_resource type="Resource" uid="uid://c5iisa26yn2pc" path="res://hints/hearing/fruit_falling.tres" id="6_bg515"]
 [ext_resource type="Resource" uid="uid://dshcvovhxycwb" path="res://hints/hearing/lions_playing.tres" id="7_hmgf1"]
 [ext_resource type="Resource" uid="uid://cn6ek1lcrkn6d" path="res://hints/hearing/wood_dropping.tres" id="8_wiy8h"]
+[ext_resource type="Material" uid="uid://dcf3p2j3frwt7" path="res://global/wobble_sense.tres" id="9_vs3vs"]
+[ext_resource type="PackedScene" uid="uid://cyhvse1bag8h2" path="res://interactables/hint_givers/cooldown.tscn" id="13_bs7sy"]
 [ext_resource type="Texture2D" uid="uid://ce7gb4l6g68j4" path="res://interactables/sensory_icons/ear.svg" id="21_5oklu"]
 [ext_resource type="PackedScene" uid="uid://cqdd5ec3x03dr" path="res://interactables/interactable.tscn" id="22_l5n0q"]
 [ext_resource type="PackedScene" uid="uid://b0lnbpich0nky" path="res://interactables/interaction_popup.tscn" id="23_2h5xr"]
@@ -21,7 +23,7 @@ script = ExtResource("1_go32b")
 hints = Array[Resource("res://hints/hint.gd")]([ExtResource("2_yiq72"), ExtResource("3_j4n0r"), ExtResource("4_uw3g3"), ExtResource("5_mjqf1"), ExtResource("6_bg515"), ExtResource("7_hmgf1"), ExtResource("8_wiy8h")])
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-modulate = Color(1, 1, 1, 0.392157)
+material = ExtResource("9_vs3vs")
 scale = Vector2(0.2, 0.2)
 texture = ExtResource("21_5oklu")
 
@@ -32,22 +34,22 @@ popup = NodePath("../InteractionPopup")
 shape = SubResource("CapsuleShape2D_gb8yy")
 
 [node name="InteractionPopup" parent="." instance=ExtResource("23_2h5xr")]
-visible = true
-offset_left = -5.0
+offset_left = 0.0
 offset_top = -185.0
-offset_right = 195.0
+offset_right = 203.0
 offset_bottom = -57.0
 text = "BRAIN_HEARING"
 
-[node name="Cooldown" type="Timer" parent="."]
+[node name="CooldownTimer" type="Timer" parent="."]
 wait_time = 10.0
 one_shot = true
 
-[node name="Label" type="Label" parent="."]
-offset_top = -120.0
-offset_right = 40.0
-offset_bottom = -75.0
-theme_override_font_sizes/font_size = 32
+[node name="Cooldown" parent="." instance=ExtResource("13_bs7sy")]
+visible = false
+offset_left = -32.0
+offset_top = -128.0
+offset_right = 32.0
+offset_bottom = -64.0
 
 [connection signal="interacted" from="Interactable" to="." method="_on_interactable_interacted"]
-[connection signal="timeout" from="Cooldown" to="." method="_on_cooldown_timeout"]
+[connection signal="timeout" from="CooldownTimer" to="." method="_on_cooldown_timeout"]

@@ -7,6 +7,8 @@ layout_mode = 3
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
+offset_top = 25.0
+offset_bottom = 25.0
 grow_horizontal = 2
 script = ExtResource("1_qdwbu")
 
@@ -20,5 +22,5 @@ offset_left = -257.5
 offset_right = 257.5
 offset_bottom = 108.0
 grow_horizontal = 2
-theme_override_constants/separation = 80
+theme_override_constants/separation = 50
 alignment = 1

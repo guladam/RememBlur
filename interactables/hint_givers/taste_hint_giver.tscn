@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://k2hyhewm1ivl"]
+[gd_scene load_steps=27 format=3 uid="uid://k2hyhewm1ivl"]
 
 [ext_resource type="Script" path="res://interactables/hint_givers/taste_hint_giver.gd" id="1_cj7ix"]
 [ext_resource type="Resource" uid="uid://d36k2n0ymobpp" path="res://hints/taste/bitter.tres" id="2_yveok"]
@@ -23,6 +23,8 @@
 [ext_resource type="Resource" uid="uid://lefxljiq0tdm" path="res://hints/taste/umami.tres" id="19_s2bvw"]
 [ext_resource type="Resource" uid="uid://dygedrttjsdru" path="res://hints/taste/zesty.tres" id="20_2qxda"]
 [ext_resource type="Texture2D" uid="uid://dckt7ug77lkwx" path="res://interactables/sensory_icons/taste.svg" id="21_2y64c"]
+[ext_resource type="Material" uid="uid://dcf3p2j3frwt7" path="res://global/wobble_sense.tres" id="21_o26fe"]
+[ext_resource type="PackedScene" uid="uid://cyhvse1bag8h2" path="res://interactables/hint_givers/cooldown.tscn" id="25_ob6yg"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_gb8yy"]
 radius = 89.0
@@ -33,7 +35,7 @@ script = ExtResource("1_cj7ix")
 hints = Array[Resource("res://hints/hint.gd")]([ExtResource("2_yveok"), ExtResource("3_v4103"), ExtResource("4_hw4so"), ExtResource("5_wlhkb"), ExtResource("6_u1vwu"), ExtResource("7_w4x22"), ExtResource("8_0pguj"), ExtResource("9_d7btl"), ExtResource("10_b31jf"), ExtResource("11_xtk6t"), ExtResource("12_axvy5"), ExtResource("13_talhx"), ExtResource("14_0suf8"), ExtResource("15_kd063"), ExtResource("16_500k5"), ExtResource("17_y4txt"), ExtResource("18_h5kfu"), ExtResource("19_s2bvw"), ExtResource("20_2qxda")])
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-modulate = Color(1, 1, 1, 0.392157)
+material = ExtResource("21_o26fe")
 scale = Vector2(0.2, 0.2)
 texture = ExtResource("21_2y64c")
 
@@ -44,22 +46,22 @@ popup = NodePath("../InteractionPopup")
 shape = SubResource("CapsuleShape2D_gb8yy")
 
 [node name="InteractionPopup" parent="." instance=ExtResource("17_kw03f")]
-visible = true
-offset_left = -5.0
+offset_left = 0.0
 offset_top = -185.0
-offset_right = 195.0
+offset_right = 203.0
 offset_bottom = -57.0
 text = "BRAIN_TASTE"
 
-[node name="Cooldown" type="Timer" parent="."]
+[node name="CooldownTimer" type="Timer" parent="."]
 wait_time = 10.0
 one_shot = true
 
-[node name="Label" type="Label" parent="."]
-offset_top = -120.0
-offset_right = 40.0
-offset_bottom = -75.0
-theme_override_font_sizes/font_size = 32
+[node name="Cooldown" parent="." instance=ExtResource("25_ob6yg")]
+visible = false
+offset_left = -32.0
+offset_top = -128.0
+offset_right = 32.0
+offset_bottom = -64.0
 
 [connection signal="interacted" from="Interactable" to="." method="_on_interactable_interacted"]
-[connection signal="timeout" from="Cooldown" to="." method="_on_cooldown_timeout"]
+[connection signal="timeout" from="CooldownTimer" to="." method="_on_cooldown_timeout"]

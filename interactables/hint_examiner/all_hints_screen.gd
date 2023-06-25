@@ -1,4 +1,4 @@
-extends CenterContainer
+extends PanelContainer
 
 @export var game_state: GameState
 @onready var hints: VBoxContainer = %Hints

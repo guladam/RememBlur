@@ -3,10 +3,10 @@ extends CanvasLayer
 signal guess_entered(guess: String)
 
 @onready var latest_hint_screen: CenterContainer = $LatestHintScreen
-@onready var all_hints_screen: CenterContainer = $AllHintsScreen
+@onready var all_hints_screen: PanelContainer = $AllHintsScreen
 @onready var puzzle_letters: Control = $PuzzleLetters
 @onready var guesser_ui: CenterContainer = $GuesserUI
-@onready var time_left: MarginContainer = $TimeLeft
+@onready var time_left: VBoxContainer = $TimeLeft
 @onready var health_bar: MarginContainer = $HealthBar
 
 

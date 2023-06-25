@@ -1,10 +1,13 @@
 extends Node2D
 class_name HintGiver
 
+signal show_latest_hint_screen(hint: Hint)
 
+@export var game_state: GameState
 @export var hints: Array[Hint]
 @export var player_stats: PlayerStats
 var cooldown: Timer
+var cooldown_progress: TextureProgressBar
 var _puzzle: Puzzle
 
 
@@ -25,3 +28,9 @@ func get_hint(helpfulness := 0) -> Hint:
 		given_hint = _puzzle.get_helpful_hint(hints, helpfulness)
 	
 	return hints.pop_at(given_hint)
+
+
+func unlock_hint(h: Hint) -> void:
+	game_state.state = GameState.State.IN_UI
+	show_latest_hint_screen.emit(h)
+	_puzzle.add_hint_as_seen(h)

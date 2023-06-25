@@ -1,4 +1,4 @@
-extends NinePatchRect
+extends PanelContainer
 class_name InteractionPopup
 
 
@@ -11,6 +11,10 @@ class_name InteractionPopup
 func _ready() -> void:
 	%Icon.texture = icon_texture
 	%Text.text = text
+	
+	await get_tree().process_frame
+	pivot_offset = size / 2
+	position.x = 0
 
 
 func appear() -> void:

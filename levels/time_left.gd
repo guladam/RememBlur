@@ -1,4 +1,4 @@
-extends MarginContainer
+extends VBoxContainer
 
 
 @onready var label: Label = $Label

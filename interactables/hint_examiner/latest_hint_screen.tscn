@@ -1,5 +1,6 @@
-[gd_scene load_steps=2 format=3 uid="uid://bt5s66j4no7ta"]
+[gd_scene load_steps=3 format=3 uid="uid://bt5s66j4no7ta"]
 
+[ext_resource type="Theme" uid="uid://cytrqyn3gsxmg" path="res://ui_theme.tres" id="1_l1y27"]
 [ext_resource type="Script" path="res://interactables/hint_examiner/latest_hint_screen.gd" id="1_pjul8"]
 
 [node name="LatestHintScreen" type="CenterContainer" groups=["puzzle_receiver"]]
@@ -8,18 +9,21 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("1_l1y27")
 script = ExtResource("1_pjul8")
 
 [node name="VboxContainer" type="VBoxContainer" parent="."]
 layout_mode = 2
+theme_override_constants/separation = 25
 
-[node name="Hint" type="Control" parent="VboxContainer"]
+[node name="Hint" type="AspectRatioContainer" parent="VboxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 
 [node name="HBoxContainer" type="HBoxContainer" parent="VboxContainer"]
 layout_mode = 2
-theme_override_constants/separation = 20
+theme_override_constants/separation = 35
+alignment = 1
 
 [node name="ShowAll" type="Button" parent="VboxContainer/HBoxContainer"]
 layout_mode = 2

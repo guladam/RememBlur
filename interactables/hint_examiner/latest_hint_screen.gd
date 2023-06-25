@@ -4,7 +4,7 @@ extends CenterContainer
 signal switch_to_all_hints_screen
 
 @onready var hint_display = preload("res://interactables/hint_examiner/hint_display.tscn")
-@onready var hint: Control = %Hint
+@onready var hint := %Hint
 
 @export var game_state: GameState
 var _puzzle: Puzzle

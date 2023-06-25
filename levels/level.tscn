@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://d3qvej762es6c"]
+[gd_scene load_steps=24 format=3 uid="uid://d3qvej762es6c"]
 
 [ext_resource type="Script" path="res://levels/level.gd" id="1_0xu8p"]
 [ext_resource type="Resource" uid="uid://dd72ddquqou52" path="res://puzzles/animals/lion.tres" id="2_ongqh"]
@@ -7,7 +7,6 @@
 [ext_resource type="Texture2D" uid="uid://rcollv1nmfvq" path="res://levels/visuals/brain_level.svg" id="5_djbfx"]
 [ext_resource type="Resource" uid="uid://dh3x1s6th3qwx" path="res://levels/game_state.tres" id="6_p2gfj"]
 [ext_resource type="PackedScene" uid="uid://c15qhgoay4u16" path="res://interactables/gate/gate.tscn" id="6_q1foo"]
-[ext_resource type="PackedScene" uid="uid://dns1ybse4vg1a" path="res://interactables/hint_examiner/hint_examiner.tscn" id="7_1cm8l"]
 [ext_resource type="PackedScene" uid="uid://ciy87g0165dyq" path="res://interactables/hint_givers/sight_hint_giver.tscn" id="7_kilb8"]
 [ext_resource type="PackedScene" uid="uid://3qxqdcpjgqix" path="res://interactables/guesser/guesser.tscn" id="8_eb060"]
 [ext_resource type="PackedScene" uid="uid://bt5s66j4no7ta" path="res://interactables/hint_examiner/latest_hint_screen.tscn" id="8_wvc2n"]
@@ -247,22 +246,22 @@ destination_gate = NodePath("../Gate17")
 
 [node name="SightHintGiver" parent="HintGivers" instance=ExtResource("7_kilb8")]
 position = Vector2(-251, 1908)
+game_state = ExtResource("6_p2gfj")
 
 [node name="TouchHintGiver" parent="HintGivers" instance=ExtResource("10_bgrpp")]
 position = Vector2(-1477, 262)
+game_state = ExtResource("6_p2gfj")
 
 [node name="SmellHintGiver" parent="HintGivers" instance=ExtResource("9_lr6t1")]
 position = Vector2(-170, -1700)
+game_state = ExtResource("6_p2gfj")
 
 [node name="TasteHintGiver" parent="HintGivers" instance=ExtResource("10_bbqim")]
 position = Vector2(1396, 364)
+game_state = ExtResource("6_p2gfj")
 
 [node name="HearingHintGiver" parent="HintGivers" instance=ExtResource("11_36wrc")]
 position = Vector2(1106, 867)
-
-[node name="HintExaminer" parent="." instance=ExtResource("7_1cm8l")]
-modulate = Color(0.690196, 0.686275, 0.466667, 1)
-position = Vector2(640, 256)
 game_state = ExtResource("6_p2gfj")
 
 [node name="Guesser" parent="." instance=ExtResource("8_eb060")]

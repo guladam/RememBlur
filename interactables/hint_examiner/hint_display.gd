@@ -1,4 +1,4 @@
-extends MarginContainer
+extends PanelContainer
 
 
 @onready var icon: TextureRect = %Icon
@@ -57,4 +57,4 @@ func _show_helpfulness(puzzle: Puzzle) -> void:
 	
 
 func _on_play_sound_pressed() -> void:
-	SfxPlayer.play(hint.sound)
+	SfxPlayer.play(hint.sound, true)

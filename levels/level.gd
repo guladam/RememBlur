@@ -9,7 +9,7 @@ signal won
 @export var player_stats: PlayerStats
 
 @onready var ui: CanvasLayer = $UI
-@onready var hint_examiner: Node2D = $HintExaminer
+@onready var hint_givers: Node2D = $HintGivers
 @onready var guesser: Node2D = $Guesser
 @onready var level_timer: Timer = $LevelTimer
 
@@ -20,8 +20,8 @@ func _ready() -> void:
 	get_tree().call_group("puzzle_receiver", "setup", puzzle)
 	get_tree().call_group("stats_receiver", "set", "player_stats", player_stats)
 	
-	hint_examiner.show_all_hints_screen.connect(ui.show_all_hints_screen)
-	hint_examiner.show_latest_hint_screen.connect(ui.show_latest_hint_screen)
+	for hint_giver in hint_givers.get_children():
+		hint_giver.show_latest_hint_screen.connect(ui.show_latest_hint_screen)
 	
 	guesser.show_guessing_screen.connect(ui.show_guesser_ui)
 	guesser.guessed_correctly.connect(ui.show_solution)

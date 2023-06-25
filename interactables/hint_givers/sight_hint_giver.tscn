@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://ciy87g0165dyq"]
+[gd_scene load_steps=30 format=3 uid="uid://ciy87g0165dyq"]
 
 [ext_resource type="Script" path="res://interactables/hint_givers/sight_hint_giver.gd" id="1_svl6t"]
 [ext_resource type="Resource" uid="uid://boqx1r2s2yfp" path="res://hints/sight/c_black.tres" id="2_t8a4h"]
@@ -26,6 +26,8 @@
 [ext_resource type="Resource" uid="uid://dyitk5l15qagk" path="res://hints/sight/s_short.tres" id="21_yhk6g"]
 [ext_resource type="Resource" uid="uid://bopkkeo4uqs0d" path="res://hints/sight/s_square.tres" id="22_jjqcd"]
 [ext_resource type="Resource" uid="uid://cjutahoisbdva" path="res://hints/sight/s_triangle.tres" id="23_lo2gr"]
+[ext_resource type="Material" uid="uid://dcf3p2j3frwt7" path="res://global/wobble_sense.tres" id="24_8ceun"]
+[ext_resource type="PackedScene" uid="uid://cyhvse1bag8h2" path="res://interactables/hint_givers/cooldown.tscn" id="28_opxv5"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_gb8yy"]
 radius = 89.0
@@ -36,7 +38,7 @@ script = ExtResource("1_svl6t")
 hints = Array[Resource("res://hints/hint.gd")]([ExtResource("2_t8a4h"), ExtResource("3_qp86l"), ExtResource("4_0m7tw"), ExtResource("5_8a5qa"), ExtResource("6_hl7aq"), ExtResource("7_mlvgs"), ExtResource("8_3e3d2"), ExtResource("9_mllmm"), ExtResource("10_6a1n5"), ExtResource("11_ow7jd"), ExtResource("12_lefod"), ExtResource("13_u2nvb"), ExtResource("14_fhmue"), ExtResource("15_lgduh"), ExtResource("16_aqqes"), ExtResource("17_jgdim"), ExtResource("18_r2vja"), ExtResource("19_pog5q"), ExtResource("20_8xid1"), ExtResource("21_yhk6g"), ExtResource("22_jjqcd"), ExtResource("23_lo2gr")])
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-modulate = Color(1, 1, 1, 0.392157)
+material = ExtResource("24_8ceun")
 scale = Vector2(0.2, 0.2)
 texture = ExtResource("15_qcpkd")
 
@@ -47,22 +49,21 @@ popup = NodePath("../InteractionPopup")
 shape = SubResource("CapsuleShape2D_gb8yy")
 
 [node name="InteractionPopup" parent="." instance=ExtResource("17_wxyep")]
-visible = true
-offset_left = -5.0
 offset_top = -185.0
-offset_right = 195.0
 offset_bottom = -57.0
+scale = Vector2(1, 1)
 text = "BRAIN_SIGHT"
 
-[node name="Cooldown" type="Timer" parent="."]
+[node name="CooldownTimer" type="Timer" parent="."]
 wait_time = 30.0
 one_shot = true
 
-[node name="Label" type="Label" parent="."]
-offset_top = -120.0
-offset_right = 40.0
-offset_bottom = -75.0
-theme_override_font_sizes/font_size = 32
+[node name="Cooldown" parent="." instance=ExtResource("28_opxv5")]
+visible = false
+offset_left = -32.0
+offset_top = -128.0
+offset_right = 32.0
+offset_bottom = -64.0
 
 [connection signal="interacted" from="Interactable" to="." method="_on_interactable_interacted"]
-[connection signal="timeout" from="Cooldown" to="." method="_on_cooldown_timeout"]
+[connection signal="timeout" from="CooldownTimer" to="." method="_on_cooldown_timeout"]

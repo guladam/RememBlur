@@ -19,17 +19,19 @@ func setup_puzzle() -> void:
 	for i in range(puzzle_length):
 		var new_letter: Label = letter.instantiate()
 		letters.add_child(new_letter)
-		new_letter.text = "_"
+		new_letter.theme_type_variation = "LetterLabel"
 
 
 func update_letters() -> void:
 	for i in range(puzzle_length):
 		var current_letter: Label = letters.get_child(i)
-		current_letter.text = "_"
+		current_letter.theme_type_variation = "LetterLabel"
 		if _puzzle.seen_letters.has(_puzzle.solution[i]):
 			current_letter.text = _puzzle.solution[i].to_upper()
+			current_letter.theme_type_variation = ""
 
 
 func show_solution() -> void:
 	for i in range(puzzle_length):
 		letters.get_child(i).text = _puzzle.solution[i].to_upper()
+		letters.get_child(i).theme_type_variation = ""

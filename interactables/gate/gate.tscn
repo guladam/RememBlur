@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://c15qhgoay4u16"]
+[gd_scene load_steps=8 format=3 uid="uid://c15qhgoay4u16"]
 
 [ext_resource type="Script" path="res://interactables/gate/gate.gd" id="1_tbect"]
 [ext_resource type="Resource" uid="uid://dh3x1s6th3qwx" path="res://levels/game_state.tres" id="2_ypjgs"]
@@ -6,8 +6,6 @@
 [ext_resource type="Material" uid="uid://4u3oys0j7c5c" path="res://global/wobble.tres" id="3_f4ckl"]
 [ext_resource type="PackedScene" uid="uid://cqdd5ec3x03dr" path="res://interactables/interactable.tscn" id="3_vb8vv"]
 [ext_resource type="Script" path="res://interactables/auto_interactable.gd" id="4_jsl3v"]
-[ext_resource type="PackedScene" uid="uid://b0lnbpich0nky" path="res://interactables/interaction_popup.tscn" id="5_hgatj"]
-[ext_resource type="Texture2D" uid="uid://bxnrbciubof8d" path="res://interactables/zoom.png" id="6_ao1x2"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_h4fs4"]
 size = Vector2(143, 69)
@@ -39,9 +37,5 @@ script = ExtResource("4_jsl3v")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AutoInteractable"]
 position = Vector2(-3.5, -8.5)
 shape = SubResource("RectangleShape2D_h4fs4")
-
-[node name="InteractionPopup" parent="." instance=ExtResource("5_hgatj")]
-icon_texture = ExtResource("6_ao1x2")
-text = "Dive"
 
 [connection signal="interacted" from="AutoInteractable" to="." method="_on_interactable_interacted"]

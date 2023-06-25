@@ -5,15 +5,17 @@ var base_cd: float
 
 
 func _ready() -> void:
-	cooldown = $Cooldown
+	cooldown = $CooldownTimer
+	cooldown_progress = $Cooldown
 	base_cd = cooldown.wait_time
 
-# TODO do this properly
+
 func _process(_delta: float) -> void:
 	if not cooldown.is_stopped():
-		$Label.text = str(round(cooldown.time_left))
+		cooldown_progress.value = (cooldown.wait_time - cooldown.time_left) / cooldown.wait_time * 100
 	else:
-		$Label.text = ""
+		cooldown_progress.value = 0
+		cooldown_progress.hide()
 
 
 func set_cooldown() -> void:
@@ -28,9 +30,10 @@ func _on_interactable_interacted(player: Area2D) -> void:
 	if h:
 		set_cooldown()
 		cooldown.start()
+		cooldown_progress.show()
 		interactable.hide_popup()
 		interactable.turn_off()
-		print(h)
+		unlock_hint(h)
 	else:
 		# TODO give feedback to player (eg. camshake)
 		print("nothing left")

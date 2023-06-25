@@ -40,6 +40,7 @@ func check_guess(guess: String) -> bool:
 	
 	return false
 
+
 func set_hints(new_hints: Array) -> void:
 	hints = new_hints
 	emit_changed()
