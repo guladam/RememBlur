@@ -296,20 +296,22 @@ game_state = ExtResource("6_p2gfj")
 [node name="TimeLeft" parent="UI" instance=ExtResource("14_3vhk0")]
 
 [node name="Guess" type="Button" parent="UI"]
-offset_left = 55.0
+custom_minimum_size = Vector2(225, 0)
+offset_left = 27.0
 offset_top = 236.0
-offset_right = 233.0
+offset_right = 252.0
 offset_bottom = 298.0
 theme = ExtResource("20_j22m6")
-text = "guess (g)"
+text = "BTN_GUESS"
 
 [node name="Hints" type="Button" parent="UI"]
-offset_left = 55.0
+custom_minimum_size = Vector2(225, 0)
+offset_left = 27.0
 offset_top = 320.0
-offset_right = 233.0
+offset_right = 252.0
 offset_bottom = 382.0
 theme = ExtResource("20_j22m6")
-text = "hints (h)"
+text = "BTN_HINT"
 
 [node name="HealthBar" parent="UI" instance=ExtResource("17_4ton6")]
 

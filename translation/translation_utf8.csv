@@ -83,3 +83,42 @@ BRAIN_SIGHT,primary visual cortex,elsődleges látókéreg
 BRAIN_SMELL,olfactory bulb,szaglóhagyma
 BRAIN_TASTE,gustatory cortex,ízkéreg
 BRAIN_HEARING,auditory cortex,elsődleges hallókéreg
+TOUCH,Touch,Tapintás
+SIGHT,Sight,Látás
+SMELL,Smell,Szaglás
+TASTE,Taste,Ízlés
+HEARING,Hearing,Hallás
+,,
+,,
+,,
+en,English,angol
+hu,Hungarian,magyar
+MENU_NEW,New Story,Új Sztori
+MENU_TUTORIAL,Tutorial,Tutorial
+MENU_OPTIONS,Options,Beállítások
+MENU_QUIT,Quit Game,Kilépés
+MENU_LANGUAGE,Language,nyelv
+BTN_GUESS,guess (G),tippelés (G)
+BTN_HINT,hints (H),tények (H)
+UI_GUESSER_PROMPT,"What do you think 
+the word is?",Mi lehet ez a szó?
+UI_REMEMBER_BTN,Remember,Visszaemlékezés
+UI_SHOW_ALL,All Hints,Összes Tény
+UI_HELPFUL,Helpful,Hasznos
+UI_UNHELPFUL,Unhelpful,Haszontalan
+UI_CLOSE,Close,Bezárás
+UI_GAME_OVER,%s couldn't remember :-(,%s nem emlékszik :-( 
+UI_RESTART,Restart,Újrakezdés
+UI_MAIN_MENU,Main Menu,Főmenü
+UI_NEXT_LEVEL,Next Level,Következő Pálya
+UI_LEVEL_WON,"%s remembers this word!
+%s more to go…","%s emlékszik erre a szóra!
+Már csak %s hiányzik…"
+UI_LAST_LEVEL,"%s remembers the story!
+It was a %s…","%s összerakta a sztorit!
+Egy klasszikus %s…"
+UI_STORY_BTN,Show Story,Mutasd a Sztorit
+UI_UPGRADE_SELECTION,"The neuron evolves...
+Select an upgrade:","A neuron fejlődik...
+Válassz egy fejlesztést:"
+UI_PLAY,Play,Lejátszás

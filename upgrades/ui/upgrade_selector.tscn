@@ -28,8 +28,7 @@ theme_override_constants/separation = 30
 [node name="Label" type="Label" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 48
-text = "The neuron evolves... 
-select an upgrade"
+text = "UI_UPGRADE_SELECTION"
 horizontal_alignment = 1
 vertical_alignment = 1
 

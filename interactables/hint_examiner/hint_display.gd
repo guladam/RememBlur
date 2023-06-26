@@ -32,8 +32,7 @@ func setup(_hint: Hint, puzzle: Puzzle) -> void:
 
 func _set_type() -> void:
 	icon.texture = ICONS_BY_TYPE[hint.type]
-	# TODO change to translation
-	type.text = hint.get_type_as_string()
+	type.text = tr(hint.get_type_as_string().to_upper())
 
 
 func _set_visibilities() -> void:

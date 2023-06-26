@@ -31,8 +31,7 @@ theme_override_constants/separation = 40
 
 [node name="Label" type="Label" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
-text = "What do you think 
-the word is?"
+text = "UI_GUESSER_PROMPT"
 horizontal_alignment = 1
 
 [node name="Guess" type="LineEdit" parent="MarginContainer/VBoxContainer"]
@@ -45,7 +44,7 @@ caret_blink_interval = 0.5
 
 [node name="Remember" type="Button" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
-text = "Remember"
+text = "UI_REMEMBER_BTN"
 
 [connection signal="text_submitted" from="MarginContainer/VBoxContainer/Guess" to="." method="_on_guess_text_submitted"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/Remember" to="." method="_on_remember_pressed"]

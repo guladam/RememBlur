@@ -427,7 +427,7 @@ theme_override_font_sizes/font_size = 120
 [node name="Timer" type="Timer" parent="Title"]
 one_shot = true
 
-[node name="VBoxContainer" type="VBoxContainer" parent="."]
+[node name="Buttons" type="VBoxContainer" parent="."]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -442,27 +442,27 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/separation = 30
 
-[node name="NewStory" type="Button" parent="VBoxContainer"]
+[node name="NewStory" type="Button" parent="Buttons"]
 custom_minimum_size = Vector2(250, 0)
 layout_mode = 2
-text = "New Story"
+text = "MENU_NEW"
 
-[node name="Tutorial" type="Button" parent="VBoxContainer"]
+[node name="Tutorial" type="Button" parent="Buttons"]
 custom_minimum_size = Vector2(250, 0)
 layout_mode = 2
-text = "Tutorial"
+text = "MENU_TUTORIAL"
 
-[node name="Tutorial2" type="Button" parent="VBoxContainer"]
+[node name="Options" type="Button" parent="Buttons"]
 custom_minimum_size = Vector2(250, 0)
 layout_mode = 2
-text = "Options"
+text = "MENU_OPTIONS"
 
-[node name="Quit" type="Button" parent="VBoxContainer"]
+[node name="Quit" type="Button" parent="Buttons"]
 custom_minimum_size = Vector2(250, 0)
 layout_mode = 2
-text = "Quit Game"
+text = "MENU_QUIT"
 
-[node name="VBoxContainer2" type="VBoxContainer" parent="."]
+[node name="LangSelector" type="VBoxContainer" parent="."]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -476,21 +476,21 @@ offset_bottom = 459.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Label" type="Label" parent="VBoxContainer2"]
+[node name="Label" type="Label" parent="LangSelector"]
 layout_mode = 2
-text = "Language"
+text = "MENU_LANGUAGE"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer2"]
+[node name="HBoxContainer" type="HBoxContainer" parent="LangSelector"]
 layout_mode = 2
 theme_override_constants/separation = 25
 
-[node name="Left" type="Button" parent="VBoxContainer2/HBoxContainer"]
+[node name="Left" type="Button" parent="LangSelector/HBoxContainer"]
 layout_mode = 2
 text = "<"
 
-[node name="Language" type="Label" parent="VBoxContainer2/HBoxContainer"]
+[node name="Language" type="Label" parent="LangSelector/HBoxContainer"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(170, 0)
 layout_mode = 2
@@ -498,7 +498,7 @@ text = "English"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Right" type="Button" parent="VBoxContainer2/HBoxContainer"]
+[node name="Right" type="Button" parent="LangSelector/HBoxContainer"]
 layout_mode = 2
 text = ">"
 
@@ -531,11 +531,11 @@ libraries = {
 }
 
 [connection signal="timeout" from="Title/Timer" to="Title" method="_on_timer_timeout"]
-[connection signal="pressed" from="VBoxContainer/NewStory" to="SceneChanger" method="transition_to"]
-[connection signal="pressed" from="VBoxContainer/Tutorial" to="SceneChanger" method="transition_to"]
-[connection signal="pressed" from="VBoxContainer/Tutorial2" to="SceneChanger" method="transition_to"]
-[connection signal="pressed" from="VBoxContainer/Quit" to="SceneChanger" method="transition_to"]
-[connection signal="pressed" from="VBoxContainer2/HBoxContainer/Left" to="." method="_on_left_pressed"]
-[connection signal="pressed" from="VBoxContainer2/HBoxContainer/Right" to="." method="_on_right_pressed"]
+[connection signal="pressed" from="Buttons/NewStory" to="SceneChanger" method="transition_to"]
+[connection signal="pressed" from="Buttons/Tutorial" to="SceneChanger" method="transition_to"]
+[connection signal="pressed" from="Buttons/Options" to="SceneChanger" method="transition_to"]
+[connection signal="pressed" from="Buttons/Quit" to="SceneChanger" method="transition_to"]
+[connection signal="pressed" from="LangSelector/HBoxContainer/Left" to="." method="_on_left_pressed"]
+[connection signal="pressed" from="LangSelector/HBoxContainer/Right" to="." method="_on_right_pressed"]
 
 [editable path="Neuron"]

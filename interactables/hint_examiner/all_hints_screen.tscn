@@ -45,17 +45,17 @@ alignment = 1
 [node name="All" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
-text = "Show All"
+text = "UI_SHOW_ALL"
 
 [node name="Helpful" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
-text = "Helpful"
+text = "UI_HELPFUL"
 
 [node name="Unhelpful" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
-text = "Unhelpful"
+text = "UI_UNHELPFUL"
 
 [node name="ScrollContainer" type="ScrollContainer" parent="MarginContainer/VBoxContainer"]
 custom_minimum_size = Vector2(400, 300)
@@ -70,7 +70,7 @@ theme_override_constants/separation = 15
 [node name="Close" type="Button" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
-text = "Close"
+text = "UI_CLOSE"
 
 [connection signal="pressed" from="MarginContainer/VBoxContainer/HBoxContainer/All" to="." method="_on_all_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/HBoxContainer/Helpful" to="." method="_on_helpful_pressed"]
