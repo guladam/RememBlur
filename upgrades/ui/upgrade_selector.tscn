@@ -1,15 +1,39 @@
-[gd_scene load_steps=2 format=3 uid="uid://cos5a5ofb5ir5"]
+[gd_scene load_steps=3 format=3 uid="uid://cos5a5ofb5ir5"]
 
+[ext_resource type="Theme" uid="uid://cytrqyn3gsxmg" path="res://ui_theme.tres" id="1_0c40e"]
 [ext_resource type="Script" path="res://upgrades/ui/upgrade_selector.gd" id="1_qey73"]
 
-[node name="UpgradeSelector" type="CenterContainer"]
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
+[node name="UpgradeSelector" type="PanelContainer"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("1_0c40e")
 script = ExtResource("1_qey73")
 
-[node name="Upgrades" type="HBoxContainer" parent="."]
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 2
+theme_override_constants/margin_left = 50
+theme_override_constants/margin_top = 50
+theme_override_constants/margin_right = 50
+theme_override_constants/margin_bottom = 50
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 30
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 48
+text = "The neuron evolves... 
+select an upgrade"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Upgrades" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
+theme_override_constants/separation = 25

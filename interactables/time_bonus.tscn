@@ -1,0 +1,104 @@
+[gd_scene load_steps=8 format=3 uid="uid://dh4kcc77ubyq0"]
+
+[ext_resource type="Script" path="res://interactables/time_bonus.gd" id="1_lo6r0"]
+[ext_resource type="Material" uid="uid://dkl8i0474rde7" path="res://levels/visuals/wobble_time_bonus.tres" id="2_wbppe"]
+[ext_resource type="Texture2D" uid="uid://0il653hl72ts" path="res://levels/visuals/clock.png" id="2_x2nfj"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_qegg7"]
+radius = 58.3095
+
+[sub_resource type="Animation" id="Animation_0y3f1"]
+resource_name = "pickup"
+length = 0.6
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.6),
+"transitions": PackedFloat32Array(0.5, -2),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1.2, 1.2)]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.6),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"queue_free"
+}]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite2D:material:shader_parameter/modulate")
+tracks/2/interp = 2
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0.72549, 0.505882, 0.686275, 0.678431), Color(0.72549, 0.505882, 0.686275, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_dfb7w"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:material:shader_parameter/modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0.72549, 0.505882, 0.686275, 0.678431)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_efdby"]
+_data = {
+"RESET": SubResource("Animation_dfb7w"),
+"pickup": SubResource("Animation_0y3f1")
+}
+
+[node name="TimeBonus" type="Area2D"]
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("1_lo6r0")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+material = ExtResource("2_wbppe")
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("2_x2nfj")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
+shape = SubResource("CircleShape2D_qegg7")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_efdby")
+}
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]

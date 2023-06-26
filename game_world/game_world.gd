@@ -23,7 +23,6 @@ func _ready() -> void:
 	ui.level_won.next_level_requested.connect(load_next_level)
 	ui.last_level_won.main_menu_requested.connect(scene_changer.transition_to)
 	
-	print("new run")
 	player_stats.reset()
 	generate_run()
 	load_next_level()

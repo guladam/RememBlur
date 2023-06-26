@@ -50,12 +50,12 @@ text = "Show All"
 [node name="Helpful" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
-text = "Helpful only"
+text = "Helpful"
 
 [node name="Unhelpful" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
-text = "Unhelpful only"
+text = "Unhelpful"
 
 [node name="ScrollContainer" type="ScrollContainer" parent="MarginContainer/VBoxContainer"]
 custom_minimum_size = Vector2(400, 300)
@@ -65,6 +65,7 @@ horizontal_scroll_mode = 0
 [node name="Hints" type="VBoxContainer" parent="MarginContainer/VBoxContainer/ScrollContainer"]
 unique_name_in_owner = true
 layout_mode = 2
+theme_override_constants/separation = 15
 
 [node name="Close" type="Button" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2

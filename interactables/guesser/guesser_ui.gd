@@ -1,11 +1,10 @@
-extends CenterContainer
+extends PanelContainer
 
 signal guess_entered(guess: String)
 
 @export var game_state: GameState
 @onready var guess: LineEdit = %Guess
-@onready var letters: HBoxContainer = %Letters
-@onready var letter := preload("res://interactables/guesser/letter.tscn")
+
 
 var _puzzle: Puzzle
 var puzzle_length: int
@@ -26,24 +25,21 @@ func setup(puzzle: Puzzle) -> void:
 func setup_guesser() -> void:
 	guess.max_length = puzzle_length
 	guess.placeholder_text = "_".repeat(puzzle_length)
-	
-	for i in range(puzzle_length):
-		var new_letter: Label = letter.instantiate()
-		letters.add_child(new_letter)
-		new_letter.text = "_"
 
 
 func show_guesser() -> void:
-	var current_letter: Label
-	guess.placeholder_text = "_".repeat(puzzle_length)
+	if game_state.state == GameState.State.IN_UI:
+		return
+
+	game_state.state = GameState.State.IN_UI
 	
-	for i in range(puzzle_length):
-		current_letter = letters.get_child(i)
-		current_letter.text = "_"
-		if _puzzle.seen_letters.has(_puzzle.solution[i]):
-			current_letter.text = _puzzle.solution[i]
-	
+	pivot_offset = size / 2
+	scale = Vector2.ZERO
 	show()
+	var _t := get_tree().create_tween().set_ease(Tween.EASE_IN_OUT).set_trans(Tween.TRANS_CUBIC)
+	_t.tween_property(self, "scale", Vector2.ONE, 0.2)
+	_t.parallel().tween_property(self, "modulate", Color.WHITE, 0.2)
+	
 	guess.grab_focus()
 	guess.clear()
 	typing_enabled = true
@@ -53,14 +49,17 @@ func submit_guess() -> void:
 	if guess.text.length() != puzzle_length:
 		return
 	
-	guess_entered.emit(guess.text)
 	close()
+	guess_entered.emit(guess.text)
 
 
 func close() -> void:
 	game_state.state = GameState.State.PLAYING
-	hide()
 	typing_enabled = false
+	var _t := get_tree().create_tween().set_ease(Tween.EASE_IN_OUT).set_trans(Tween.TRANS_CUBIC)
+	_t.tween_property(self, "scale", Vector2.ZERO, 0.2)
+	_t.parallel().tween_property(self, "modulate", Color.TRANSPARENT, 0.2)
+	_t.tween_callback(hide)
 
 
 func _on_remember_pressed() -> void:

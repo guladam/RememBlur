@@ -1,4 +1,4 @@
-extends MarginContainer
+extends PanelContainer
 
 signal upgrade_selected(upgrade: Upgrade)
 
@@ -6,7 +6,8 @@ signal upgrade_selected(upgrade: Upgrade)
 
 @onready var text: Label = %Text
 @onready var icon: TextureRect = %Icon
-
+@onready var style := preload("res://upgrades/ui/upgrade_card_stylebox.tres")
+@onready var style_hovered := preload("res://upgrades/ui/upgrade_card_stylebox_hover.tres")
 
 func _ready() -> void:
 	text.text = tr(upgrade.name_key)
@@ -26,3 +27,11 @@ func _on_gui_input(event: InputEvent) -> void:
 	if selected:
 		upgrade_selected.emit(upgrade)
 		mouse_filter = Control.MOUSE_FILTER_IGNORE
+
+
+func _on_mouse_entered() -> void:
+	set("theme_override_styles/panel", style_hovered)
+
+
+func _on_mouse_exited() -> void:
+	set("theme_override_styles/panel", style)

@@ -1,20 +1,541 @@
-[gd_scene load_steps=2 format=3 uid="uid://fb8migf54xca"]
+[gd_scene load_steps=14 format=3 uid="uid://fb8migf54xca"]
 
 [ext_resource type="PackedScene" uid="uid://8d02qj7c0jr7" path="res://game_world/scene_changer.tscn" id="1_u50bu"]
+[ext_resource type="Theme" uid="uid://cytrqyn3gsxmg" path="res://ui_theme.tres" id="1_wi1pu"]
+[ext_resource type="Script" path="res://menus/main_menu.gd" id="2_qh2yq"]
+[ext_resource type="Shader" uid="uid://3vsvyhsbccay" path="res://menus/visuals/question_mark_shader.tres" id="2_tb62v"]
+[ext_resource type="Texture2D" uid="uid://e8d266xb4o8t" path="res://menus/visuals/question_mark.png" id="3_5jmh6"]
+[ext_resource type="Script" path="res://menus/title.gd" id="4_th1if"]
+[ext_resource type="PackedScene" uid="uid://bnfb7w4s7qm8u" path="res://menus/flicker_letter.tscn" id="5_7p14i"]
+[ext_resource type="Texture2D" uid="uid://bflijhemiptd6" path="res://menus/visuals/main_menu_brain.png" id="5_fbu2u"]
+[ext_resource type="PackedScene" uid="uid://d3bsx0tnsm5n8" path="res://menus/menu_neuron.tscn" id="8_4irur"]
 
-[node name="MainMenu" type="CenterContainer"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_4bt11"]
+shader = ExtResource("2_tb62v")
+shader_parameter/direction = Vector2(-1, 1)
+shader_parameter/speed_scale = 0.15
+
+[sub_resource type="Animation" id="Animation_a8i5s"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Neuron:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(709, 931)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Neuron:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Neuron/Visuals/End:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Neuron/Visuals/Tail:scale")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Neuron/Visuals/Head:scale")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Neuron:scale")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Neuron/Visuals/Tail:modulate")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("Neuron/Visuals/Head:rotation")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("Neuron/Visuals/Head:modulate")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("Neuron/Visuals/Tail:rotation")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("Neuron/Visuals/End:position")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-645, 32)]
+}
+tracks/11/type = "value"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("Neuron:rotation")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/12/type = "value"
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/path = NodePath("Neuron/Visuals/Tail:position")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_i05bt"]
+resource_name = "animate_neuron"
+length = 15.0
+loop_mode = 1
+tracks/0/type = "animation"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Neuron/Visuals/AnimationPlayer")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"clips": PackedStringArray("walk"),
+"times": PackedFloat32Array(0)
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Neuron:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1, 4.2, 6, 9.6, 11.2, 14.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(709, 931), Vector2(709, 931), Vector2(73, 670), Vector2(748, 212), Vector2(186, 1123), Vector2(967, 564), Vector2(85.9999, 408)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Neuron:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 4.2, 6, 9.6, 11.2, 14.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [-2.61799, -2.61799, -4.14612, -4.14612, -2.90183, -2.90248]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Neuron:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.3, 14.3, 15),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Neuron/Visuals/End:scale")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 1.6, 1.8, 3.6, 3.9, 6.5, 6.8, 9.1, 9.3, 12.1, 12.4, 14, 14.2),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, 0), Vector2(1, 1), Vector2(1, 1), Vector2(0, 0), Vector2(0, 0), Vector2(1, 1), Vector2(1, 1), Vector2(0, 0), Vector2(0, 0), Vector2(1, 1), Vector2(1, 1), Vector2(0, 0)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Neuron/Visuals/Tail:scale")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 1.1, 1.5, 3.6, 4, 6.2, 6.6, 9.1, 9.3, 11.8, 12.2, 14, 14.2),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, 0), Vector2(1, 1), Vector2(1, 1), Vector2(0, 0), Vector2(0, 0), Vector2(1, 1), Vector2(1, 1), Vector2(0, 0), Vector2(0, 0), Vector2(1, 1), Vector2(1, 1), Vector2(0, 0)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Neuron/Visuals/Head:scale")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0, 0.9, 1.2, 3.5, 3.8, 6.2, 6.4, 8.9, 9.2, 11.8, 12, 13.8, 14.1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, 0), Vector2(1, 1), Vector2(1, 1), Vector2(0, 0), Vector2(0, 0), Vector2(1, 1), Vector2(1, 1), Vector2(0, 0), Vector2(0, 0), Vector2(1, 1), Vector2(1, 1), Vector2(0, 0)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("Neuron:scale")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(),
+"transitions": PackedFloat32Array(),
+"update": 0,
+"values": []
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("Neuron/Visuals/Tail:modulate")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0, 1.1, 1.5, 3.6, 4, 6.2, 6.6, 9, 9.3, 11.8, 12.2, 13.9, 14.2),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("Neuron/Visuals/Head:rotation")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(5.6, 11.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 0.0]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("Neuron/Visuals/Head:modulate")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(1, 1.3, 3.5, 3.8, 6.1, 6.3, 8.9, 9.2, 11.7, 11.9, 13.8, 14.1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/11/type = "value"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("Neuron/Visuals/Tail:rotation")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"times": PackedFloat32Array(6.2, 11.8),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 0.0]
+}
+tracks/12/type = "value"
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/path = NodePath("Neuron/Visuals/End:position")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/keys = {
+"times": PackedFloat32Array(0, 1.8, 3.5, 3.6, 3.7, 3.8, 6.5, 8.9, 9, 9.2, 11.6, 13.8, 13.9, 14, 14.1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(-620, 32), Vector2(-620, 32), Vector2(-601.878, 36.2695), Vector2(-568.247, 33.2705), Vector2(-408.192, 9.24219), Vector2(-249.298, 3.20508), Vector2(-620, 32), Vector2(-620, 32), Vector2(-561.109, 22.9441), Vector2(-302.731, -12.2817), Vector2(-620, 32), Vector2(-620, 32), Vector2(-561.109, 22.9441), Vector2(-490.471, 4.50195), Vector2(-174.471, -14.54)]
+}
+tracks/13/type = "value"
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/path = NodePath("Neuron/Visuals/Tail:position")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/keys = {
+"times": PackedFloat32Array(0, 1.5, 3.5, 3.6, 8.9, 9, 11.8, 13.8, 13.9, 14),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, 0), Vector2(45.1892, -10.2279), Vector2(80.878, -12.415), Vector2(0, 0), Vector2(82.01, -18.5618), Vector2(0, 0), Vector2(0, 0), Vector2(82.01, -18.5618), Vector2(148.838, -33.0178)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_eineu"]
+_data = {
+"RESET": SubResource("Animation_a8i5s"),
+"animate_neuron": SubResource("Animation_i05bt")
+}
+
+[node name="MainMenu" type="ColorRect"]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 1
+theme = ExtResource("1_wi1pu")
+color = Color(0, 0, 0, 1)
+script = ExtResource("2_qh2yq")
 
-[node name="Play" type="Button" parent="."]
+[node name="QuestionMarks" type="TextureRect" parent="."]
+material = SubResource("ShaderMaterial_4bt11")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_5jmh6")
+stretch_mode = 1
+
+[node name="Title" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 94.0
+offset_top = -322.0
+offset_right = 749.0
+offset_bottom = -174.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("4_th1if")
+
+[node name="FlickerLetter" parent="Title" instance=ExtResource("5_7p14i")]
 layout_mode = 2
-text = "Play"
+theme_override_font_sizes/font_size = 120
+
+[node name="FlickerLetter2" parent="Title" instance=ExtResource("5_7p14i")]
+layout_mode = 2
+text = "E"
+
+[node name="FlickerLetter3" parent="Title" instance=ExtResource("5_7p14i")]
+layout_mode = 2
+text = "M"
+
+[node name="FlickerLetter4" parent="Title" instance=ExtResource("5_7p14i")]
+layout_mode = 2
+text = "E"
+
+[node name="FlickerLetter5" parent="Title" instance=ExtResource("5_7p14i")]
+layout_mode = 2
+text = "M"
+
+[node name="FlickerLetter6" parent="Title" instance=ExtResource("5_7p14i")]
+layout_mode = 2
+text = "B"
+
+[node name="FlickerLetter7" parent="Title" instance=ExtResource("5_7p14i")]
+layout_mode = 2
+text = "L"
+
+[node name="FlickerLetter8" parent="Title" instance=ExtResource("5_7p14i")]
+layout_mode = 2
+text = "U"
+
+[node name="FlickerLetter9" parent="Title" instance=ExtResource("5_7p14i")]
+layout_mode = 2
+theme_override_font_sizes/font_size = 120
+
+[node name="Timer" type="Timer" parent="Title"]
+one_shot = true
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 320.0
+offset_top = -108.0
+offset_right = 514.0
+offset_bottom = 230.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 30
+
+[node name="NewStory" type="Button" parent="VBoxContainer"]
+custom_minimum_size = Vector2(250, 0)
+layout_mode = 2
+text = "New Story"
+
+[node name="Tutorial" type="Button" parent="VBoxContainer"]
+custom_minimum_size = Vector2(250, 0)
+layout_mode = 2
+text = "Tutorial"
+
+[node name="Tutorial2" type="Button" parent="VBoxContainer"]
+custom_minimum_size = Vector2(250, 0)
+layout_mode = 2
+text = "Options"
+
+[node name="Quit" type="Button" parent="VBoxContainer"]
+custom_minimum_size = Vector2(250, 0)
+layout_mode = 2
+text = "Quit Game"
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 299.0
+offset_top = 342.0
+offset_right = 531.0
+offset_bottom = 459.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="VBoxContainer2"]
+layout_mode = 2
+text = "Language"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer2"]
+layout_mode = 2
+theme_override_constants/separation = 25
+
+[node name="Left" type="Button" parent="VBoxContainer2/HBoxContainer"]
+layout_mode = 2
+text = "<"
+
+[node name="Language" type="Label" parent="VBoxContainer2/HBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(170, 0)
+layout_mode = 2
+text = "English"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Right" type="Button" parent="VBoxContainer2/HBoxContainer"]
+layout_mode = 2
+text = ">"
 
 [node name="SceneChanger" parent="." instance=ExtResource("1_u50bu")]
 target_scene = "res://game_world/game_world.tscn"
 fade_duration = 0.75
 
-[connection signal="pressed" from="Play" to="SceneChanger" method="transition_to"]
+[node name="MainMenuBrain" type="Sprite2D" parent="."]
+position = Vector2(512, 640)
+scale = Vector2(0.459424, 0.459424)
+texture = ExtResource("5_fbu2u")
+
+[node name="Neuron" parent="." instance=ExtResource("8_4irur")]
+position = Vector2(709, 931)
+
+[node name="Head" parent="Neuron/Visuals" index="0"]
+position = Vector2(0.000488281, 0)
+
+[node name="End" parent="Neuron/Visuals" index="1"]
+position = Vector2(-645, 32)
+scale = Vector2(1e-05, 1e-05)
+
+[node name="Tail" parent="Neuron/Visuals" index="2"]
+scale = Vector2(1e-05, 1e-05)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+autoplay = "animate_neuron"
+libraries = {
+"": SubResource("AnimationLibrary_eineu")
+}
+
+[connection signal="timeout" from="Title/Timer" to="Title" method="_on_timer_timeout"]
+[connection signal="pressed" from="VBoxContainer/NewStory" to="SceneChanger" method="transition_to"]
+[connection signal="pressed" from="VBoxContainer/Tutorial" to="SceneChanger" method="transition_to"]
+[connection signal="pressed" from="VBoxContainer/Tutorial2" to="SceneChanger" method="transition_to"]
+[connection signal="pressed" from="VBoxContainer/Quit" to="SceneChanger" method="transition_to"]
+[connection signal="pressed" from="VBoxContainer2/HBoxContainer/Left" to="." method="_on_left_pressed"]
+[connection signal="pressed" from="VBoxContainer2/HBoxContainer/Right" to="." method="_on_right_pressed"]
+
+[editable path="Neuron"]

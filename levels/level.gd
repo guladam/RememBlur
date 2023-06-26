@@ -10,7 +10,7 @@ signal won
 
 @onready var ui: CanvasLayer = $UI
 @onready var hint_givers: Node2D = $HintGivers
-@onready var guesser: Node2D = $Guesser
+@onready var guesser: Node = $Guesser
 @onready var level_timer: Timer = $LevelTimer
 
 

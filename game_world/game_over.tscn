@@ -1,8 +1,9 @@
-[gd_scene load_steps=2 format=3 uid="uid://p03027vjqqtn"]
+[gd_scene load_steps=3 format=3 uid="uid://p03027vjqqtn"]
 
 [ext_resource type="Script" path="res://game_world/game_over.gd" id="1_2gefa"]
+[ext_resource type="Theme" uid="uid://cytrqyn3gsxmg" path="res://ui_theme.tres" id="1_kev8b"]
 
-[node name="GameOver" type="CenterContainer"]
+[node name="GameOver" type="PanelContainer"]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -10,25 +11,36 @@ anchor_right = 0.5
 anchor_bottom = 0.5
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("1_kev8b")
 script = ExtResource("1_2gefa")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="."]
+[node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 2
+theme_override_constants/margin_left = 50
+theme_override_constants/margin_top = 50
+theme_override_constants/margin_right = 50
+theme_override_constants/margin_bottom = 50
 
-[node name="Label" type="Label" parent="VBoxContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
 layout_mode = 2
+theme_override_constants/separation = 30
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 48
 text = "You lost :-("
 horizontal_alignment = 1
 
-[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
+theme_override_constants/separation = 50
 
-[node name="Restart" type="Button" parent="VBoxContainer/HBoxContainer"]
+[node name="Restart" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 text = "Restart"
 
-[node name="MainMenu" type="Button" parent="VBoxContainer/HBoxContainer"]
+[node name="MainMenu" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 text = "Main Menu"

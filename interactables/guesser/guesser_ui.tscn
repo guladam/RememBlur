@@ -1,32 +1,51 @@
-[gd_scene load_steps=2 format=3 uid="uid://b3o2wkh3qrpvd"]
+[gd_scene load_steps=3 format=3 uid="uid://b3o2wkh3qrpvd"]
 
 [ext_resource type="Script" path="res://interactables/guesser/guesser_ui.gd" id="1_swggk"]
+[ext_resource type="Theme" uid="uid://cytrqyn3gsxmg" path="res://ui_theme.tres" id="1_y3t5x"]
 
-[node name="GuesserUI" type="CenterContainer" groups=["puzzle_receiver"]]
+[node name="GuesserUI" type="PanelContainer" groups=["puzzle_receiver"]]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
+offset_left = -96.5
+offset_top = -108.0
+offset_right = 96.5
+offset_bottom = 108.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("1_y3t5x")
 script = ExtResource("1_swggk")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="."]
+[node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 2
+theme_override_constants/margin_left = 40
+theme_override_constants/margin_top = 40
+theme_override_constants/margin_right = 40
+theme_override_constants/margin_bottom = 40
 
-[node name="Letters" type="HBoxContainer" parent="VBoxContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 40
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "What do you think 
+the word is?"
+horizontal_alignment = 1
+
+[node name="Guess" type="LineEdit" parent="MarginContainer/VBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
-
-[node name="Guess" type="LineEdit" parent="VBoxContainer"]
-unique_name_in_owner = true
-layout_mode = 2
+placeholder_text = "solution"
 alignment = 1
+caret_blink = true
+caret_blink_interval = 0.5
 
-[node name="Remember" type="Button" parent="VBoxContainer"]
+[node name="Remember" type="Button" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
 text = "Remember"
 
-[connection signal="text_submitted" from="VBoxContainer/Guess" to="." method="_on_guess_text_submitted"]
-[connection signal="pressed" from="VBoxContainer/Remember" to="." method="_on_remember_pressed"]
+[connection signal="text_submitted" from="MarginContainer/VBoxContainer/Guess" to="." method="_on_guess_text_submitted"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Remember" to="." method="_on_remember_pressed"]

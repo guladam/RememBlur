@@ -1,4 +1,4 @@
-[gd_resource type="Theme" load_steps=8 format=3 uid="uid://cytrqyn3gsxmg"]
+[gd_resource type="Theme" load_steps=11 format=3 uid="uid://cytrqyn3gsxmg"]
 
 [ext_resource type="FontFile" uid="uid://cc0weut07hoh3" path="res://cherrybomb_one.ttf" id="1_i3tvf"]
 
@@ -71,9 +71,30 @@ shadow_offset = Vector2(2, 2)
 bg_color = Color(0.6, 0.6, 0.6, 0)
 border_width_bottom = 10
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_i2j7f"]
+bg_color = Color(0.286275, 0.301961, 0.494118, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2ro7a"]
+bg_color = Color(0.776471, 0.623529, 0.647059, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2esdi"]
+bg_color = Color(0.545098, 0.427451, 0.611765, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
 [resource]
 default_font = ExtResource("1_i3tvf")
-default_font_size = 18
+default_font_size = 32
 Button/colors/font_hover_color = Color(0.776471, 0.623529, 0.647059, 1)
 Button/colors/font_pressed_color = Color(0.776471, 0.623529, 0.647059, 1)
 Button/styles/disabled = SubResource("StyleBoxFlat_305gy")
@@ -82,3 +103,6 @@ Button/styles/hover = SubResource("StyleBoxFlat_335fl")
 Button/styles/normal = SubResource("StyleBoxFlat_3nnkt")
 Button/styles/pressed = SubResource("StyleBoxFlat_2hv4i")
 LetterLabel/styles/normal = SubResource("StyleBoxFlat_dxtf4")
+VScrollBar/styles/grabber = SubResource("StyleBoxFlat_i2j7f")
+VScrollBar/styles/grabber_highlight = SubResource("StyleBoxFlat_2ro7a")
+VScrollBar/styles/grabber_pressed = SubResource("StyleBoxFlat_2esdi")

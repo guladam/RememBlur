@@ -11,7 +11,6 @@ var type := TYPE_NIL
 
 
 func _get_property_list() -> Array:
-	print("recalc")
 	if type == TYPE_NIL:
 		return []
 	

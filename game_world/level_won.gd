@@ -1,4 +1,4 @@
-extends CenterContainer
+extends PanelContainer
 
 signal next_level_requested
 signal main_menu_requested

@@ -1,9 +1,11 @@
-[gd_scene load_steps=3 format=3 uid="uid://drkl3gmuqg8c7"]
+[gd_scene load_steps=5 format=3 uid="uid://drkl3gmuqg8c7"]
 
 [ext_resource type="Script" path="res://upgrades/ui/upgrade_card.gd" id="1_2g3qq"]
+[ext_resource type="Theme" uid="uid://cytrqyn3gsxmg" path="res://ui_theme.tres" id="1_fjt32"]
 [ext_resource type="Texture2D" uid="uid://d1ma7m7tncqin" path="res://icon.svg" id="2_1g6mj"]
+[ext_resource type="StyleBox" uid="uid://bo6qt3x381vqn" path="res://upgrades/ui/upgrade_card_stylebox.tres" id="2_3dg8e"]
 
-[node name="UpgradeCard" type="MarginContainer"]
+[node name="UpgradeCard" type="PanelContainer"]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -15,31 +17,34 @@ offset_right = 50.0
 offset_bottom = 100.0
 grow_horizontal = 2
 grow_vertical = 2
-mouse_filter = 0
+theme = ExtResource("1_fjt32")
+theme_override_styles/panel = ExtResource("2_3dg8e")
 script = ExtResource("1_2g3qq")
 
-[node name="Panel" type="Panel" parent="."]
+[node name="Margin" type="MarginContainer" parent="."]
 custom_minimum_size = Vector2(200, 300)
 layout_mode = 2
 mouse_filter = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Panel"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
+[node name="VBoxContainer" type="VBoxContainer" parent="Margin"]
+custom_minimum_size = Vector2(175, 0)
+layout_mode = 2
 mouse_filter = 2
 alignment = 1
 
-[node name="Text" type="Label" parent="Panel/VBoxContainer"]
+[node name="Text" type="Label" parent="Margin/VBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 text = "UPGRADE_TEXT"
 horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
 
-[node name="Icon" type="TextureRect" parent="Panel/VBoxContainer"]
+[node name="Icon" type="TextureRect" parent="Margin/VBoxContainer"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
@@ -47,3 +52,6 @@ mouse_filter = 2
 texture = ExtResource("2_1g6mj")
 expand_mode = 1
 stretch_mode = 5
+
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]

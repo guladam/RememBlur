@@ -28,7 +28,6 @@ func setup(_hint: Hint, puzzle: Puzzle) -> void:
 	_set_type()
 	_set_visibilities()
 	_show_helpfulness(puzzle)
-	# todo animate
 
 
 func _set_type() -> void:

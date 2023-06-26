@@ -2,7 +2,7 @@ extends PanelContainer
 
 @export var game_state: GameState
 @onready var hints: VBoxContainer = %Hints
-@onready var hint_display := preload("res://interactables/hint_examiner/hint_display.tscn")
+@onready var hint_display := preload("res://interactables/hint_examiner/hint_display_horizontal.tscn")
 var _puzzle: Puzzle
 
 
@@ -17,12 +17,24 @@ func setup(p: Puzzle) -> void:
 
 
 func show_screen() -> void:
+	if game_state.state == GameState.State.IN_UI:
+		return
+	
+	game_state.state = GameState.State.IN_UI
+	pivot_offset = size / 2
+	scale = Vector2.ZERO
 	show()
+	var _t := get_tree().create_tween().set_ease(Tween.EASE_IN_OUT).set_trans(Tween.TRANS_CUBIC)
+	_t.tween_property(self, "scale", Vector2.ONE, 0.2)
+	_t.parallel().tween_property(self, "modulate", Color.WHITE, 0.2)
 
 
 func _on_close_pressed() -> void:
 	game_state.state = GameState.State.PLAYING
-	hide()
+	var _t := get_tree().create_tween().set_ease(Tween.EASE_IN_OUT).set_trans(Tween.TRANS_CUBIC)
+	_t.tween_property(self, "scale", Vector2.ZERO, 0.2)
+	_t.parallel().tween_property(self, "modulate", Color.TRANSPARENT, 0.2)
+	_t.tween_callback(hide)
 
 
 func _on_hint_seen(hint: Hint) -> void:

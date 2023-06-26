@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://d3qvej762es6c"]
+[gd_scene load_steps=26 format=3 uid="uid://d3qvej762es6c"]
 
 [ext_resource type="Script" path="res://levels/level.gd" id="1_0xu8p"]
 [ext_resource type="Resource" uid="uid://dd72ddquqou52" path="res://puzzles/animals/lion.tres" id="2_ongqh"]
@@ -22,6 +22,8 @@
 [ext_resource type="Shader" path="res://levels/visuals/level_background.gdshader" id="16_qhf86"]
 [ext_resource type="PackedScene" uid="uid://blt5faaqq0dkj" path="res://stats/health_bar.tscn" id="17_4ton6"]
 [ext_resource type="Texture2D" uid="uid://ckw7ak7x2t7id" path="res://levels/visuals/bg_texture.png" id="18_o8lpy"]
+[ext_resource type="Theme" uid="uid://cytrqyn3gsxmg" path="res://ui_theme.tres" id="20_j22m6"]
+[ext_resource type="PackedScene" uid="uid://dh4kcc77ubyq0" path="res://interactables/time_bonus.tscn" id="24_wng4p"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_umwio"]
 shader = ExtResource("16_qhf86")
@@ -34,6 +36,9 @@ time_limit = 300.0
 puzzle = ExtResource("2_ongqh")
 game_state = ExtResource("6_p2gfj")
 player_stats = ExtResource("4_v6e78")
+
+[node name="Guesser" parent="." instance=ExtResource("8_eb060")]
+game_state = ExtResource("6_p2gfj")
 
 [node name="Brain" type="Node2D" parent="."]
 
@@ -51,6 +56,7 @@ metadata/_edit_lock_ = true
 
 [node name="Brain" type="Sprite2D" parent="Brain"]
 texture = ExtResource("5_djbfx")
+metadata/_edit_lock_ = true
 
 [node name="StaticBody2D" type="StaticBody2D" parent="Brain"]
 visible = false
@@ -264,10 +270,6 @@ game_state = ExtResource("6_p2gfj")
 position = Vector2(1106, 867)
 game_state = ExtResource("6_p2gfj")
 
-[node name="Guesser" parent="." instance=ExtResource("8_eb060")]
-position = Vector2(201, 144)
-game_state = ExtResource("6_p2gfj")
-
 [node name="Player" parent="." instance=ExtResource("3_5vla8")]
 position = Vector2(235, -159)
 
@@ -275,6 +277,7 @@ position = Vector2(235, -159)
 
 [node name="UI" type="CanvasLayer" parent="."]
 script = ExtResource("8_xg5p3")
+game_state = ExtResource("6_p2gfj")
 
 [node name="LatestHintScreen" parent="UI" instance=ExtResource("8_wvc2n")]
 visible = false
@@ -291,6 +294,22 @@ visible = false
 game_state = ExtResource("6_p2gfj")
 
 [node name="TimeLeft" parent="UI" instance=ExtResource("14_3vhk0")]
+
+[node name="Guess" type="Button" parent="UI"]
+offset_left = 55.0
+offset_top = 236.0
+offset_right = 233.0
+offset_bottom = 298.0
+theme = ExtResource("20_j22m6")
+text = "guess (g)"
+
+[node name="Hints" type="Button" parent="UI"]
+offset_left = 55.0
+offset_top = 320.0
+offset_right = 233.0
+offset_bottom = 382.0
+theme = ExtResource("20_j22m6")
+text = "hints (h)"
 
 [node name="HealthBar" parent="UI" instance=ExtResource("17_4ton6")]
 
@@ -317,3 +336,6 @@ metadata/_edit_lock_ = true
 
 [node name="LevelTimer" type="Timer" parent="."]
 one_shot = true
+
+[node name="TimeBonus" parent="." instance=ExtResource("24_wng4p")]
+position = Vector2(466, -387)

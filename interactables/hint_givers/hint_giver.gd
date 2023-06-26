@@ -31,6 +31,7 @@ func get_hint(helpfulness := 0) -> Hint:
 
 
 func unlock_hint(h: Hint) -> void:
-	game_state.state = GameState.State.IN_UI
 	show_latest_hint_screen.emit(h)
 	_puzzle.add_hint_as_seen(h)
+	if _puzzle.get_helpfulness_of_hint(h) <= 0:
+		Events.time_bonus_picked_up.emit(10)

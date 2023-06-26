@@ -1,6 +1,7 @@
-extends CenterContainer
+extends PanelContainer
 
 signal upgrade_selected
+
 
 @export var player_stats: PlayerStats
 @export var all_upgrades: Array[Resource]

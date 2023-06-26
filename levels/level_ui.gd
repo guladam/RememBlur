@@ -2,17 +2,35 @@ extends CanvasLayer
 
 signal guess_entered(guess: String)
 
+@export var game_state: GameState
+
 @onready var latest_hint_screen: CenterContainer = $LatestHintScreen
 @onready var all_hints_screen: PanelContainer = $AllHintsScreen
 @onready var puzzle_letters: Control = $PuzzleLetters
-@onready var guesser_ui: CenterContainer = $GuesserUI
-@onready var time_left: VBoxContainer = $TimeLeft
+@onready var guesser_ui: PanelContainer = $GuesserUI
+@onready var time_left: Control = $TimeLeft
 @onready var health_bar: MarginContainer = $HealthBar
+@onready var guess_btn: Button = $Guess
+@onready var hints_btn: Button = $Hints
 
 
 func _ready() -> void:
 	latest_hint_screen.switch_to_all_hints_screen.connect(show_all_hints_screen)
 	guesser_ui.guess_entered.connect(func(guess: String): guess_entered.emit(guess))
+	hints_btn.pressed.connect(show_all_hints_screen)
+	guess_btn.pressed.connect(show_guesser_ui)
+
+
+func _unhandled_input(event: InputEvent) -> void:
+	if game_state.state != GameState.State.PLAYING:
+		return
+		
+	if event.is_action_pressed("guess"):
+		show_guesser_ui()
+		get_viewport().set_input_as_handled()
+	elif event.is_action_pressed("hints"):
+		show_all_hints_screen()
+		get_viewport().set_input_as_handled()
 
 
 func setup_time_left(timer: Timer) -> void:

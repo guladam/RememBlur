@@ -4,7 +4,13 @@
 [ext_resource type="Script" path="res://levels/time_left.gd" id="1_u8q63"]
 [ext_resource type="Texture2D" uid="uid://0il653hl72ts" path="res://levels/visuals/clock.png" id="3_nprfe"]
 
-[node name="TimeLeft" type="VBoxContainer"]
+[node name="TimeLeft" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 200.0
+script = ExtResource("1_u8q63")
+
+[node name="VboxContainer" type="VBoxContainer" parent="."]
 custom_minimum_size = Vector2(200, 0)
 offset_left = 40.0
 offset_top = 50.0
@@ -12,18 +18,20 @@ offset_right = 240.0
 offset_bottom = 255.0
 theme = ExtResource("1_tuv0b")
 theme_override_constants/separation = 0
-script = ExtResource("1_u8q63")
 
-[node name="Icon" type="TextureRect" parent="."]
+[node name="Icon" type="TextureRect" parent="VboxContainer"]
 custom_minimum_size = Vector2(72, 72)
 layout_mode = 2
 texture = ExtResource("3_nprfe")
 expand_mode = 1
 stretch_mode = 5
 
-[node name="Label" type="Label" parent="."]
+[node name="Label" type="Label" parent="VboxContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 62
 text = "00:00"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="BonusMarker" type="Marker2D" parent="."]
+position = Vector2(270, 124)

@@ -28,15 +28,11 @@ func check_guess(guess: String) -> bool:
 	if guess.length() != solution.length():
 		return false
 	
-	var has_new_letter := false
-	
 	for i in range(solution.length()):
 		if solution[i] == guess[i] and not seen_letters.has(guess[i]):
 			seen_letters.append(guess[i])
-			has_new_letter = true
 	
-	if has_new_letter:
-		emit_changed()
+	emit_changed()
 	
 	return false
 

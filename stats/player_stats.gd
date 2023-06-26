@@ -25,6 +25,7 @@ enum SIGN { NEGATIVE, POSITIVE }
 			max_health_changed.emit()
 			self.health += 1
 
+
 @export_group("Upgrades")
 @export var upgrade_options := 3
 

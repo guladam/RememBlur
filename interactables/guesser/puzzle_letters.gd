@@ -29,6 +29,9 @@ func update_letters() -> void:
 		if _puzzle.seen_letters.has(_puzzle.solution[i]):
 			current_letter.text = _puzzle.solution[i].to_upper()
 			current_letter.theme_type_variation = ""
+			current_letter.reveal()
+		else:
+			current_letter.flash_red()
 
 
 func show_solution() -> void:
