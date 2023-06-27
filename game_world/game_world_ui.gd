@@ -5,3 +5,4 @@ extends CanvasLayer
 @onready var level_won: PanelContainer = $LevelWon
 @onready var last_level_won: PanelContainer = $LastLevelWon
 @onready var upgrade_selector: PanelContainer = $UpgradeSelector
+@onready var pause: Panel = $Pause

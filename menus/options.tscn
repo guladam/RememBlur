@@ -1,18 +1,16 @@
-[gd_scene load_steps=15 format=3 uid="uid://fb8migf54xca"]
+[gd_scene load_steps=13 format=3 uid="uid://caajyg0wa5pjw"]
 
-[ext_resource type="PackedScene" uid="uid://8d02qj7c0jr7" path="res://game_world/scene_changer.tscn" id="1_u50bu"]
-[ext_resource type="Theme" uid="uid://cytrqyn3gsxmg" path="res://ui_theme.tres" id="1_wi1pu"]
-[ext_resource type="Script" path="res://menus/main_menu.gd" id="2_qh2yq"]
-[ext_resource type="Shader" uid="uid://3vsvyhsbccay" path="res://menus/visuals/question_mark_shader.tres" id="2_tb62v"]
-[ext_resource type="Texture2D" uid="uid://e8d266xb4o8t" path="res://menus/visuals/question_mark.png" id="3_5jmh6"]
-[ext_resource type="Script" path="res://menus/title.gd" id="4_th1if"]
-[ext_resource type="PackedScene" uid="uid://bnfb7w4s7qm8u" path="res://menus/flicker_letter.tscn" id="5_7p14i"]
-[ext_resource type="Texture2D" uid="uid://bflijhemiptd6" path="res://menus/visuals/main_menu_brain.png" id="5_fbu2u"]
-[ext_resource type="PackedScene" uid="uid://ge36ui6fwwft" path="res://menus/lang_selector.tscn" id="6_8d1hd"]
-[ext_resource type="PackedScene" uid="uid://d3bsx0tnsm5n8" path="res://menus/menu_neuron.tscn" id="8_4irur"]
+[ext_resource type="Theme" uid="uid://cytrqyn3gsxmg" path="res://ui_theme.tres" id="1_2ahqc"]
+[ext_resource type="Script" path="res://menus/options.gd" id="2_hr2yx"]
+[ext_resource type="Shader" uid="uid://3vsvyhsbccay" path="res://menus/visuals/question_mark_shader.tres" id="3_s4x6r"]
+[ext_resource type="Texture2D" uid="uid://e8d266xb4o8t" path="res://menus/visuals/question_mark.png" id="4_yursn"]
+[ext_resource type="PackedScene" uid="uid://ge36ui6fwwft" path="res://menus/lang_selector.tscn" id="5_xu5th"]
+[ext_resource type="PackedScene" uid="uid://8d02qj7c0jr7" path="res://game_world/scene_changer.tscn" id="7_ijcbu"]
+[ext_resource type="Texture2D" uid="uid://bflijhemiptd6" path="res://menus/visuals/main_menu_brain.png" id="8_3qqe0"]
+[ext_resource type="PackedScene" uid="uid://d3bsx0tnsm5n8" path="res://menus/menu_neuron.tscn" id="9_6w1wf"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_4bt11"]
-shader = ExtResource("2_tb62v")
+shader = ExtResource("3_s4x6r")
 shader_parameter/direction = Vector2(-1, 1)
 shader_parameter/speed_scale = 0.15
 
@@ -352,16 +350,16 @@ _data = {
 "animate_neuron": SubResource("Animation_i05bt")
 }
 
-[node name="MainMenu" type="ColorRect"]
+[node name="Options" type="ColorRect"]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 1
-theme = ExtResource("1_wi1pu")
+theme = ExtResource("1_2ahqc")
 color = Color(0, 0, 0, 1)
-script = ExtResource("2_qh2yq")
+script = ExtResource("2_hr2yx")
 
 [node name="QuestionMarks" type="TextureRect" parent="."]
 material = SubResource("ShaderMaterial_4bt11")
@@ -371,10 +369,10 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("3_5jmh6")
+texture = ExtResource("4_yursn")
 stretch_mode = 1
 
-[node name="Title" type="HBoxContainer" parent="."]
+[node name="Title" type="Label" parent="."]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -387,48 +385,12 @@ offset_right = 749.0
 offset_bottom = -174.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("4_th1if")
+theme_override_font_sizes/font_size = 100
+text = "MENU_OPTIONS"
+horizontal_alignment = 1
+vertical_alignment = 1
 
-[node name="FlickerLetter" parent="Title" instance=ExtResource("5_7p14i")]
-layout_mode = 2
-theme_override_font_sizes/font_size = 120
-
-[node name="FlickerLetter2" parent="Title" instance=ExtResource("5_7p14i")]
-layout_mode = 2
-text = "E"
-
-[node name="FlickerLetter3" parent="Title" instance=ExtResource("5_7p14i")]
-layout_mode = 2
-text = "M"
-
-[node name="FlickerLetter4" parent="Title" instance=ExtResource("5_7p14i")]
-layout_mode = 2
-text = "E"
-
-[node name="FlickerLetter5" parent="Title" instance=ExtResource("5_7p14i")]
-layout_mode = 2
-text = "M"
-
-[node name="FlickerLetter6" parent="Title" instance=ExtResource("5_7p14i")]
-layout_mode = 2
-text = "B"
-
-[node name="FlickerLetter7" parent="Title" instance=ExtResource("5_7p14i")]
-layout_mode = 2
-text = "L"
-
-[node name="FlickerLetter8" parent="Title" instance=ExtResource("5_7p14i")]
-layout_mode = 2
-text = "U"
-
-[node name="FlickerLetter9" parent="Title" instance=ExtResource("5_7p14i")]
-layout_mode = 2
-theme_override_font_sizes/font_size = 120
-
-[node name="Timer" type="Timer" parent="Title"]
-one_shot = true
-
-[node name="Buttons" type="VBoxContainer" parent="."]
+[node name="Options" type="VBoxContainer" parent="."]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -443,43 +405,78 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/separation = 30
 
-[node name="NewStory" type="Button" parent="Buttons"]
+[node name="Video" type="OptionButton" parent="Options"]
+unique_name_in_owner = true
+layout_mode = 2
+item_count = 3
+selected = 0
+popup/item_0/text = "OPTION_FULLSCREEN"
+popup/item_0/id = 0
+popup/item_1/text = "OPTION_BORDERLESS"
+popup/item_1/id = 1
+popup/item_2/text = "OPTION_WINDOWED"
+popup/item_2/id = 2
+
+[node name="SoundContainer" type="HBoxContainer" parent="Options"]
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="Label" type="Label" parent="Options/SoundContainer"]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+text = "OPTION_SFX"
+
+[node name="Sound" type="HSlider" parent="Options/SoundContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(225, 51)
+layout_mode = 2
+size_flags_horizontal = 3
+value = 100.0
+
+[node name="MusicContainer" type="HBoxContainer" parent="Options"]
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="Label" type="Label" parent="Options/MusicContainer"]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+text = "OPTION_MUSIC"
+
+[node name="Music" type="HSlider" parent="Options/MusicContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(225, 51)
+layout_mode = 2
+size_flags_horizontal = 3
+value = 100.0
+
+[node name="VSync" type="CheckButton" parent="Options"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "V-Sync"
+
+[node name="Save" type="Button" parent="Options"]
+unique_name_in_owner = true
 custom_minimum_size = Vector2(250, 0)
 layout_mode = 2
-text = "MENU_NEW"
+text = "MENU_SAVE"
 
-[node name="Tutorial" type="Button" parent="Buttons"]
-custom_minimum_size = Vector2(250, 0)
-layout_mode = 2
-text = "MENU_TUTORIAL"
-
-[node name="Options" type="Button" parent="Buttons"]
-custom_minimum_size = Vector2(250, 0)
-layout_mode = 2
-text = "MENU_OPTIONS"
-
-[node name="Quit" type="Button" parent="Buttons"]
-custom_minimum_size = Vector2(250, 0)
-layout_mode = 2
-text = "MENU_QUIT"
-
-[node name="LangSelector" parent="." instance=ExtResource("6_8d1hd")]
+[node name="LangSelector" parent="." instance=ExtResource("5_xu5th")]
 layout_mode = 1
-offset_left = 250.0
-offset_top = 342.0
-offset_right = 590.0
-offset_bottom = 459.0
+offset_left = 243.0
+offset_top = 358.0
+offset_right = 583.0
+offset_bottom = 475.0
 
-[node name="SceneChanger" parent="." instance=ExtResource("1_u50bu")]
-target_scene = "res://game_world/game_world.tscn"
+[node name="SceneChanger" parent="." instance=ExtResource("7_ijcbu")]
+target_scene = "res://menus/main_menu.tscn"
 fade_duration = 0.35
 
 [node name="MainMenuBrain" type="Sprite2D" parent="."]
 position = Vector2(512, 640)
 scale = Vector2(0.459424, 0.459424)
-texture = ExtResource("5_fbu2u")
+texture = ExtResource("8_3qqe0")
 
-[node name="Neuron" parent="." instance=ExtResource("8_4irur")]
+[node name="Neuron" parent="." instance=ExtResource("9_6w1wf")]
 position = Vector2(709, 931)
 
 [node name="Head" parent="Neuron/Visuals" index="0"]
@@ -498,10 +495,10 @@ libraries = {
 "": SubResource("AnimationLibrary_eineu")
 }
 
-[connection signal="timeout" from="Title/Timer" to="Title" method="_on_timer_timeout"]
-[connection signal="pressed" from="Buttons/NewStory" to="SceneChanger" method="transition_to"]
-[connection signal="pressed" from="Buttons/Tutorial" to="SceneChanger" method="transition_to"]
-[connection signal="pressed" from="Buttons/Options" to="SceneChanger" method="transition_to" binds= ["res://menus/options.tscn"]]
-[connection signal="pressed" from="Buttons/Quit" to="SceneChanger" method="transition_to"]
+[connection signal="item_selected" from="Options/Video" to="." method="_on_Video_item_selected"]
+[connection signal="value_changed" from="Options/SoundContainer/Sound" to="." method="_on_Sound_value_changed"]
+[connection signal="value_changed" from="Options/MusicContainer/Music" to="." method="_on_Music_value_changed"]
+[connection signal="toggled" from="Options/VSync" to="." method="_on_VSync_toggled"]
+[connection signal="pressed" from="Options/Save" to="." method="_on_Save_pressed"]
 
 [editable path="Neuron"]

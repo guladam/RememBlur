@@ -11,7 +11,7 @@ var _puzzle: Puzzle
 
 
 func _unhandled_input(event: InputEvent) -> void:
-	if event.is_action_pressed("ui_cancel") and visible:
+	if visible and event.is_action_pressed("ui_cancel"):
 		_on_close_pressed()
 
 

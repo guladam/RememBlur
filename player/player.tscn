@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://sa16u6skxwxt"]
+[gd_scene load_steps=15 format=3 uid="uid://sa16u6skxwxt"]
 
 [ext_resource type="Script" path="res://player/player.gd" id="1_bcs0f"]
 [ext_resource type="Resource" uid="uid://dh3x1s6th3qwx" path="res://levels/game_state.tres" id="2_rubtw"]
@@ -8,8 +8,6 @@
 [ext_resource type="Script" path="res://player/player_interaction.gd" id="4_nq3b0"]
 [ext_resource type="Texture2D" uid="uid://iiucx47nrx2t" path="res://player/neuron_tail.png" id="6_nfhwe"]
 [ext_resource type="Texture2D" uid="uid://66cdl6x4kyg4" path="res://player/neuron_end.png" id="6_nhw83"]
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_a5p5j"]
 
 [sub_resource type="Animation" id="Animation_t373r"]
 length = 0.001
@@ -130,8 +128,7 @@ speed = 750
 game_state = ExtResource("2_rubtw")
 player_stats = ExtResource("3_npb00")
 
-[node name="Visuals" type="Node2D" parent="."]
-material = SubResource("ShaderMaterial_a5p5j")
+[node name="Visuals" type="CanvasGroup" parent="."]
 scale = Vector2(0.2, 0.2)
 
 [node name="Head" type="Sprite2D" parent="Visuals"]

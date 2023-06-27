@@ -270,6 +270,23 @@ game_state = ExtResource("6_p2gfj")
 position = Vector2(1106, 867)
 game_state = ExtResource("6_p2gfj")
 
+[node name="PickUps" type="Node2D" parent="."]
+
+[node name="TimeBonus" parent="PickUps" instance=ExtResource("24_wng4p")]
+position = Vector2(668, -1577)
+time_bonus = 30
+
+[node name="TimeBonus2" parent="PickUps" instance=ExtResource("24_wng4p")]
+position = Vector2(158, -1174)
+time_bonus = 20
+
+[node name="TimeBonus3" parent="PickUps" instance=ExtResource("24_wng4p")]
+position = Vector2(-166, -1093)
+
+[node name="TimeBonus4" parent="PickUps" instance=ExtResource("24_wng4p")]
+position = Vector2(-859, 1684)
+time_bonus = 20
+
 [node name="Player" parent="." instance=ExtResource("3_5vla8")]
 position = Vector2(235, -159)
 
@@ -338,6 +355,3 @@ metadata/_edit_lock_ = true
 
 [node name="LevelTimer" type="Timer" parent="."]
 one_shot = true
-
-[node name="TimeBonus" parent="." instance=ExtResource("24_wng4p")]
-position = Vector2(466, -387)

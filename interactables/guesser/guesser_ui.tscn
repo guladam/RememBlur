@@ -42,9 +42,18 @@ alignment = 1
 caret_blink = true
 caret_blink_interval = 0.5
 
-[node name="Remember" type="Button" parent="MarginContainer/VBoxContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="Remember" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer"]
 layout_mode = 2
 text = "UI_REMEMBER_BTN"
 
+[node name="Cancel" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "UI_CLOSE"
+
 [connection signal="text_submitted" from="MarginContainer/VBoxContainer/Guess" to="." method="_on_guess_text_submitted"]
-[connection signal="pressed" from="MarginContainer/VBoxContainer/Remember" to="." method="_on_remember_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/HBoxContainer/Remember" to="." method="_on_remember_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/HBoxContainer/Cancel" to="." method="_on_cancel_pressed"]

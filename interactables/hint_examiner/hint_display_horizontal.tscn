@@ -25,6 +25,7 @@ grow_vertical = 2
 theme = ExtResource("1_p1chc")
 theme_override_styles/panel = ExtResource("2_cqgqx")
 script = ExtResource("3_4mf8j")
+hint_text_type = 1
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 2

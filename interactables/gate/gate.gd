@@ -21,7 +21,7 @@ func arrive(player: Node2D) -> void:
 	player.global_position = self.global_position
 	var t := create_tween().set_ease(Tween.EASE_IN_OUT).set_trans(Tween.TRANS_CUBIC)
 	t.tween_property(player, "scale", Vector2.ONE, ANIM_SPEED)
-	t.parallel().tween_property(player, "modulate", Color.WHITE, ANIM_SPEED)
+	t.parallel().tween_property(player.visuals, "modulate", Color.WHITE, ANIM_SPEED)
 	t.tween_callback(game_state.set.bind("state", GameState.State.PLAYING))
 	
 
@@ -33,5 +33,5 @@ func _on_interactable_interacted(player: Node2D) -> void:
 	var t := create_tween().set_ease(Tween.EASE_IN_OUT).set_trans(Tween.TRANS_CUBIC)
 	t.tween_property(player.get_player(), "global_position", self.global_position, ANIM_SPEED)
 	t.parallel().tween_property(player.get_player(), "scale", Vector2.ZERO, ANIM_SPEED)
-	t.parallel().tween_property(player.get_player(), "modulate", Color.TRANSPARENT, ANIM_SPEED)
+	t.parallel().tween_property(player.get_player().visuals, "modulate", Color.TRANSPARENT, ANIM_SPEED)
 	t.tween_callback(destination_gate.arrive.bind(player.get_player()))	

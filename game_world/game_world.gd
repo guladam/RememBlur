@@ -13,6 +13,7 @@ extends Node2D
 
 var levels: Array[Puzzle] = []
 var level_counter := 0
+var _prev_state: GameState.State
 
 
 func _ready() -> void:
@@ -22,6 +23,8 @@ func _ready() -> void:
 	ui.level_won.main_menu_requested.connect(scene_changer.transition_to)
 	ui.level_won.next_level_requested.connect(load_next_level)
 	ui.last_level_won.main_menu_requested.connect(scene_changer.transition_to)
+	ui.pause.resume_game.connect(_on_resume_requested)
+	ui.pause.go_to_main_menu.connect(_on_main_menu_from_pause)
 	
 	player_stats.reset()
 	generate_run()
@@ -43,6 +46,7 @@ func load_next_level() -> void:
 	current_level.add_child(new_level)
 	new_level.won.connect(_on_level_won)
 	new_level.lost.connect(_on_level_lost)
+	new_level.pause.connect(_on_pause_requested)
 
 
 func load_all_puzzles() -> Array[Puzzle]:
@@ -68,6 +72,18 @@ func generate_run() -> void:
 	levels = all_puzzles.slice(0, levels_per_run)
 
 
+func _pause() -> void:
+	game_state.state = GameState.State.PAUSED
+	get_tree().paused = true
+	ui.pause.show()
+
+
+func _unpause() -> void:
+	game_state.state = _prev_state
+	get_tree().paused = false
+	ui.pause.hide()
+
+
 func _on_level_won() -> void:
 	if level_counter == levels.size() - 1:
 		ui.last_level_won.show()
@@ -79,3 +95,21 @@ func _on_level_won() -> void:
 
 func _on_level_lost() -> void:
 	ui.game_over.show()
+
+
+func _on_pause_requested(pause: bool) -> void:
+	_prev_state = game_state.state
+	if pause:
+		_pause()
+	else:
+		_unpause()
+
+
+func _on_resume_requested() -> void:
+	_unpause()
+
+
+func _on_main_menu_from_pause() -> void:
+	game_state.state = _prev_state
+	get_tree().paused = false
+	scene_changer.transition_to()

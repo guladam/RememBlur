@@ -6,7 +6,7 @@ extends CharacterBody2D
 @export var player_stats: PlayerStats
 
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
-@onready var visuals: Node2D = $Visuals
+@onready var visuals: CanvasGroup = $Visuals
 @onready var head: Sprite2D = $Visuals/Head
 
 

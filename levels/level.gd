@@ -2,6 +2,7 @@ extends Node2D
 
 signal lost
 signal won
+signal pause
 
 @export var time_limit: float
 @export var puzzle: Puzzle
@@ -35,6 +36,12 @@ func _ready() -> void:
 	level_timer.start()
 	level_timer.timeout.connect(game_over)
 	player_stats.player_died.connect(game_over)
+
+
+func _input(event: InputEvent) -> void:
+	if event.is_action_pressed("pause"):
+		pause.emit(not get_tree().paused)
+		get_viewport().set_input_as_handled()
 
 
 func get_time_with_bonus() -> float:

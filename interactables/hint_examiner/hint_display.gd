@@ -1,6 +1,8 @@
 extends PanelContainer
 
+enum HintTextType { FULL_SENTENCE, SHORT }
 
+@export var hint_text_type: HintTextType
 @onready var icon: TextureRect = %Icon
 @onready var type: Label = %Type
 @onready var hint_text: Label = %HintText
@@ -10,6 +12,14 @@ extends PanelContainer
 @onready var helpful: HBoxContainer = %Helpful
 @onready var star_full: Texture = preload("res://interactables/hint_examiner/assets/star.png")
 @onready var star_empty: Texture = preload("res://interactables/hint_examiner/assets/star_empty.png")
+
+var helpfulness_translations := {
+	-1: "UNHELPFUL",
+	0: "UNHELPFUL",
+	1: "HELPFUL1",
+	2: "HELPFUL2",
+	3: "HELPFUL3",
+}
 
 var hint: Hint
 
@@ -26,8 +36,9 @@ func setup(_hint: Hint, puzzle: Puzzle) -> void:
 	hint = _hint
 
 	_set_type()
-	_set_visibilities()
+	_set_hint_text(puzzle)
 	_show_helpfulness(puzzle)
+	_set_visibilities()
 
 
 func _set_type() -> void:
@@ -36,12 +47,27 @@ func _set_type() -> void:
 
 
 func _set_visibilities() -> void:
-	hint_text.text = hint.text
 	hint_image.texture = hint.img
 	
 	sound.visible = hint.type == Hint.Type.HEARING
 	hint_text.visible = hint.text != ""
 	hint_image.visible = hint.img != null
+
+
+func _set_hint_text(puzzle: Puzzle) -> void:
+	var helpfulness := puzzle.get_helpfulness_of_hint(hint)
+	match hint_text_type:
+		HintTextType.FULL_SENTENCE:
+			if hint.type != Hint.Type.HEARING:
+				hint_text.text = tr("HINT_MESSAGE") % [
+					tr(helpfulness_translations[helpfulness]),
+					tr(hint.text)
+				]
+			else:
+				hint_text.text = tr("HINT_MESSAGE_HEARING") % tr(helpfulness_translations[helpfulness])
+
+		HintTextType.SHORT:
+			hint_text.text = tr(hint.text)
 
 
 func _show_helpfulness(puzzle: Puzzle) -> void:

@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://dx5x0f0t2l1ed"]
+[gd_scene load_steps=17 format=3 uid="uid://dx5x0f0t2l1ed"]
 
 [ext_resource type="Script" path="res://game_world/game_world.gd" id="1_blek8"]
 [ext_resource type="Resource" uid="uid://dh3x1s6th3qwx" path="res://levels/game_state.tres" id="2_mldso"]
@@ -15,8 +15,10 @@
 [ext_resource type="Resource" uid="uid://c5e2nqw7voc27" path="res://upgrades/t2_max_hp1.tres" id="12_7q2bu"]
 [ext_resource type="Resource" uid="uid://dxpamy2bnd6s4" path="res://upgrades/t3_blood_donation.tres" id="13_f41wy"]
 [ext_resource type="Resource" uid="uid://bgb7rw8fbqirm" path="res://upgrades/t3_full_heal.tres" id="14_c3sqx"]
+[ext_resource type="PackedScene" uid="uid://bkeq3v7l38cvg" path="res://menus/pause.tscn" id="15_ea2i5"]
 
 [node name="GameWorld" type="Node2D"]
+process_mode = 3
 script = ExtResource("1_blek8")
 puzzle_folder = "res://puzzles"
 player_stats_path = "res://stats/player_stats.tres"
@@ -25,6 +27,7 @@ game_state = ExtResource("2_mldso")
 [node name="CurrentLevel" type="Node" parent="."]
 
 [node name="UI" type="CanvasLayer" parent="."]
+layer = 2
 script = ExtResource("3_67kba")
 
 [node name="GameOver" parent="UI" instance=ExtResource("3_u5qtp")]
@@ -41,6 +44,10 @@ visible = false
 player_stats = ExtResource("8_2k8sd")
 all_upgrades = Array[Resource]([ExtResource("9_kmuup"), ExtResource("10_14fta"), ExtResource("11_jggr0"), ExtResource("12_7q2bu"), ExtResource("13_f41wy"), ExtResource("14_c3sqx")])
 
+[node name="Pause" parent="UI" instance=ExtResource("15_ea2i5")]
+visible = false
+
 [node name="SceneChanger" parent="." instance=ExtResource("2_qd4cn")]
+layer = 99
 target_scene = "res://menus/main_menu.tscn"
-fade_duration = 0.75
+fade_duration = 0.35

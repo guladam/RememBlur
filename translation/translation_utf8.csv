@@ -73,11 +73,6 @@ UPGRADE_T2_HEAL,+2 Health,+2 Életerő
 UPGRADE_T2_MAXHP,+1 Maximum Health,+1 Maximum Életerő
 UPGRADE_T3_BLOOD_DONATION,blood donation,véráldozat
 UPGRADE_T3_FULL_HEAL,Restore all Health,Teljes gyógyulás
-,,
-,,
-,,
-,,
-,,
 BRAIN_TOUCH,somatosensory cortex,szomatoszenzoros kéreg
 BRAIN_SIGHT,primary visual cortex,elsődleges látókéreg
 BRAIN_SMELL,olfactory bulb,szaglóhagyma
@@ -88,24 +83,24 @@ SIGHT,Sight,Látás
 SMELL,Smell,Szaglás
 TASTE,Taste,Ízlés
 HEARING,Hearing,Hallás
-,,
-,,
-,,
 en,English,angol
 hu,Hungarian,magyar
 MENU_NEW,New Story,Új Sztori
 MENU_TUTORIAL,Tutorial,Tutorial
 MENU_OPTIONS,Options,Beállítások
 MENU_QUIT,Quit Game,Kilépés
-MENU_LANGUAGE,Language,nyelv
-BTN_GUESS,guess (G),tippelés (G)
-BTN_HINT,hints (H),tények (H)
+MENU_LANGUAGE,Language,Nyelv
+MENU_SAVE,Save,Mentés
+BTN_GUESS,Guess (G),Tippelés (G)
+BTN_HINT,Hints (H),Tények (H)
 UI_GUESSER_PROMPT,"What do you think 
 the word is?",Mi lehet ez a szó?
-UI_REMEMBER_BTN,Remember,Visszaemlékezés
+UI_REMEMBER_BTN,Remember,Ez volt!
 UI_SHOW_ALL,All Hints,Összes Tény
 UI_HELPFUL,Helpful,Hasznos
 UI_UNHELPFUL,Unhelpful,Haszontalan
+UI_PAUSED,Paused,Szünet
+UI_RESUME,Resume,Folytatás
 UI_CLOSE,Close,Bezárás
 UI_GAME_OVER,%s couldn't remember :-(,%s nem emlékszik :-( 
 UI_RESTART,Restart,Újrakezdés
@@ -122,3 +117,14 @@ UI_UPGRADE_SELECTION,"The neuron evolves...
 Select an upgrade:","A neuron fejlődik...
 Válassz egy fejlesztést:"
 UI_PLAY,Play,Lejátszás
+OPTION_FULLSCREEN,Fullscreen,Teljes képernyős
+OPTION_BORDERLESS,Borderless,Keret nélküli ablakos
+OPTION_WINDOWED,Windowed,Ablakos
+OPTION_SFX,SFX,Hang
+OPTION_MUSIC,Music,Zene
+UNHELPFUL,definitely not,"Az biztos, hogy nem"
+HELPFUL1,kind of,Nagyjából
+HELPFUL2,mostly,Leginkább
+HELPFUL3,definitely,Egyértelműen
+HINT_MESSAGE,It's %s %s.,%s %s.
+HINT_MESSAGE_HEARING,It sounds %s like this.,%s ilyen hangja van.
