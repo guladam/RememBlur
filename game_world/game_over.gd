@@ -9,6 +9,7 @@ signal main_menu_requested
 func _ready() -> void:
 	%Restart.pressed.connect(func(): new_run_requested.emit())
 	%MainMenu.pressed.connect(func(): main_menu_requested.emit())
-	
-	# TODO proper run name
-	message.text = tr("UI_GAME_OVER") % "John Doe"
+
+
+func setup(run_name: String) -> void:
+	message.text = tr("UI_GAME_OVER") % run_name

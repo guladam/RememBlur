@@ -85,7 +85,7 @@ TASTE,Taste,Ízlés
 HEARING,Hearing,Hallás
 en,English,angol
 hu,Hungarian,magyar
-MENU_NEW,New Story,Új Sztori
+MENU_NEW,New Story,Új Sztori 
 MENU_TUTORIAL,Tutorial,Tutorial
 MENU_OPTIONS,Options,Beállítások
 MENU_QUIT,Quit Game,Kilépés
@@ -128,3 +128,23 @@ HELPFUL2,mostly,Leginkább
 HELPFUL3,definitely,Egyértelműen
 HINT_MESSAGE,It's %s %s.,%s %s.
 HINT_MESSAGE_HEARING,It sounds %s like this.,%s ilyen hangja van.
+MENU_NAME,Who is this story about?,Kiről szól a történet?
+MENU_NAME_PLACEHOLDER,name,név
+MENU_START,Start,Kezdés
+MENU_STORY,"To generate the story:
+1. click on the ChatGPT button
+2. log in
+3. paste this prompt to a new chat window with Ctrl+V.","A sztori kigenerálásához:
+1. kattints a ChatGPT gombra
+2. jelentkezz be
+3. egy új chat ablakban illeszd be az utasítást a Ctrl+V billentyűkombinációval."
+GENRE_MYSTERY,mystery,krimi
+GENRE_HORROR,horror,horror
+GENRE_FANTASY,fantasy,fantasy
+GENRE_COMEDY_SKIT,comedy skit,stand-up comedy
+GENRE_DRAMA,drama,dráma
+GENRE_SLAM_POETRY,slam poetry,slam poetry
+GENRE_FAIRY_TALE,fairy tale,mese
+GENRE_ROMANCE,romance,romantikus sztori
+GENRE_SCIFI,sci-fi,sci-fi
+GENRE_YOUNG_ADULT,young adult,ifjúsági regény

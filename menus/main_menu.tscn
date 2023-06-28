@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://fb8migf54xca"]
+[gd_scene load_steps=14 format=3 uid="uid://fb8migf54xca"]
 
 [ext_resource type="PackedScene" uid="uid://8d02qj7c0jr7" path="res://game_world/scene_changer.tscn" id="1_u50bu"]
 [ext_resource type="Theme" uid="uid://cytrqyn3gsxmg" path="res://ui_theme.tres" id="1_wi1pu"]
@@ -8,7 +8,6 @@
 [ext_resource type="Script" path="res://menus/title.gd" id="4_th1if"]
 [ext_resource type="PackedScene" uid="uid://bnfb7w4s7qm8u" path="res://menus/flicker_letter.tscn" id="5_7p14i"]
 [ext_resource type="Texture2D" uid="uid://bflijhemiptd6" path="res://menus/visuals/main_menu_brain.png" id="5_fbu2u"]
-[ext_resource type="PackedScene" uid="uid://ge36ui6fwwft" path="res://menus/lang_selector.tscn" id="6_8d1hd"]
 [ext_resource type="PackedScene" uid="uid://d3bsx0tnsm5n8" path="res://menus/menu_neuron.tscn" id="8_4irur"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_4bt11"]
@@ -462,13 +461,6 @@ text = "MENU_OPTIONS"
 custom_minimum_size = Vector2(250, 0)
 layout_mode = 2
 text = "MENU_QUIT"
-
-[node name="LangSelector" parent="." instance=ExtResource("6_8d1hd")]
-layout_mode = 1
-offset_left = 250.0
-offset_top = 342.0
-offset_right = 590.0
-offset_bottom = 459.0
 
 [node name="SceneChanger" parent="." instance=ExtResource("1_u50bu")]
 target_scene = "res://game_world/game_world.tscn"

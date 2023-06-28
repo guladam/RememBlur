@@ -1,0 +1,73 @@
+[gd_scene load_steps=3 format=3 uid="uid://cgluhrb5f2qqg"]
+
+[ext_resource type="Script" path="res://game_world/story_board.gd" id="1_ij5f3"]
+[ext_resource type="Theme" uid="uid://cytrqyn3gsxmg" path="res://ui_theme.tres" id="1_ovlow"]
+
+[node name="StoryBoard" type="Panel"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_ovlow")
+script = ExtResource("1_ij5f3")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -62.5
+offset_top = -20.0
+offset_right = 62.5
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 20
+alignment = 1
+
+[node name="Instructions" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "MENU_STORY"
+vertical_alignment = 1
+
+[node name="PanelContainer" type="PanelContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/PanelContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="Prompt" type="TextEdit" parent="VBoxContainer/PanelContainer/MarginContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(450, 350)
+layout_mode = 2
+theme_override_colors/font_selected_color = Color(0.913725, 0.913725, 0.913725, 1)
+theme_override_colors/font_readonly_color = Color(0.776471, 0.623529, 0.647059, 1)
+text = "Generate a short %s in %s. Use 150-200 words. 
+	The main character is called %s.
+	Make sure to include the following words: %s"
+editable = false
+wrap_mode = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 20
+alignment = 1
+
+[node name="ChatGPT" type="Button" parent="VBoxContainer/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 4
+text = "ChatGPT"
+
+[node name="MainMenu" type="Button" parent="VBoxContainer/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 4
+text = "UI_MAIN_MENU"

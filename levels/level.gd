@@ -49,10 +49,12 @@ func get_time_with_bonus() -> float:
 
 
 func game_over() -> void:
+	level_timer.stop()
 	lost.emit()
 	game_state.state = GameState.State.PAUSED
 
 
 func level_won() -> void:
+	level_timer.stop()
 	won.emit()
 	game_state.state = GameState.State.PAUSED

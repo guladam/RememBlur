@@ -2,6 +2,7 @@ extends Node2D
 
 @export_dir var puzzle_folder: String
 @export_file var player_stats_path: String
+@export var genres: Array[String]
 @export var levels_per_run := 5
 @export var game_state: GameState
 
@@ -11,24 +12,30 @@ extends Node2D
 @onready var player_stats := preload("res://stats/player_stats.tres")
 @onready var ui: CanvasLayer = $UI
 
+var run_name: String
+var run_genre: String
 var levels: Array[Puzzle] = []
 var level_counter := 0
 var _prev_state: GameState.State
 
 
 func _ready() -> void:
+	randomize()
+	run_genre = genres.pick_random()
+	
 	ui.game_over.main_menu_requested.connect(scene_changer.transition_to)
 	ui.game_over.new_run_requested.connect(get_tree().reload_current_scene)
-	ui.upgrade_selector.upgrade_selected.connect(ui.level_won.show)
+	ui.upgrade_selector.upgrade_selected.connect(_on_upgrade_selected)
 	ui.level_won.main_menu_requested.connect(scene_changer.transition_to)
 	ui.level_won.next_level_requested.connect(load_next_level)
-	ui.last_level_won.main_menu_requested.connect(scene_changer.transition_to)
+	ui.last_level_won.story_requested.connect(_on_story_requested)
 	ui.pause.resume_game.connect(_on_resume_requested)
 	ui.pause.go_to_main_menu.connect(_on_main_menu_from_pause)
+	ui.story_board.main_menu_requested.connect(scene_changer.transition_to)
+	ui.name_setup.name_given.connect(_on_name_given)
 	
 	player_stats.reset()
 	generate_run()
-	load_next_level()
 
 
 func load_next_level() -> void:
@@ -113,3 +120,19 @@ func _on_main_menu_from_pause() -> void:
 	game_state.state = _prev_state
 	get_tree().paused = false
 	scene_changer.transition_to()
+
+
+func _on_name_given(_name: String) -> void:
+	run_name = _name
+	ui.last_level_won.setup(run_name, tr(run_genre))
+	ui.game_over.setup(run_name)
+	load_next_level()
+
+
+func _on_upgrade_selected() -> void:
+	ui.level_won.show_screen(run_name, levels.size() - level_counter)
+
+
+func _on_story_requested() -> void:
+	var words := levels.map(func(p: Puzzle): return tr(p.solution_key))
+	ui.story_board.show_story(words, tr(run_genre), run_name)

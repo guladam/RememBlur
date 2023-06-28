@@ -14,5 +14,8 @@ func _ready() -> void:
 	)
 	
 	%MainMenu.pressed.connect(func(): main_menu_requested.emit())
-	# TODO proper naming, levels remaining
-	message.text = tr("UI_LEVEL_WON") % ["John Doe", 99]
+
+
+func show_screen(run_name: String, levels_remaining: int) -> void:
+	message.text = tr("UI_LEVEL_WON") % [run_name, levels_remaining]
+	show()
