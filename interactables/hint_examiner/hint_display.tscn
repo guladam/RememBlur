@@ -61,10 +61,12 @@ layout_mode = 2
 
 [node name="HintText" type="Label" parent="MarginContainer/VBoxContainer/Content"]
 unique_name_in_owner = true
+custom_minimum_size = Vector2(300, 0)
 layout_mode = 2
 text = "HINT TEXT"
 horizontal_alignment = 1
 vertical_alignment = 1
+autowrap_mode = 2
 
 [node name="HintImage" type="TextureRect" parent="MarginContainer/VBoxContainer/Content"]
 unique_name_in_owner = true

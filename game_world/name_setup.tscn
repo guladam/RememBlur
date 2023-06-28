@@ -1,7 +1,17 @@
-[gd_scene load_steps=3 format=3 uid="uid://lidrlek117wp"]
+[gd_scene load_steps=7 format=3 uid="uid://lidrlek117wp"]
 
 [ext_resource type="Theme" uid="uid://cytrqyn3gsxmg" path="res://ui_theme.tres" id="1_oms5u"]
 [ext_resource type="Script" path="res://game_world/name_setup.gd" id="2_3qiq6"]
+[ext_resource type="Shader" uid="uid://3vsvyhsbccay" path="res://menus/visuals/question_mark_shader.tres" id="3_0lv41"]
+[ext_resource type="Texture2D" uid="uid://e8d266xb4o8t" path="res://menus/visuals/question_mark.png" id="4_kwl13"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rehga"]
+bg_color = Color(0.27451, 0.2, 0.313726, 1)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_vxw3e"]
+shader = ExtResource("3_0lv41")
+shader_parameter/direction = Vector2(-1, 1)
+shader_parameter/speed_scale = 0.15
 
 [node name="NameSetup" type="Panel"]
 anchors_preset = 15
@@ -10,7 +20,19 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("1_oms5u")
+theme_override_styles/panel = SubResource("StyleBoxFlat_rehga")
 script = ExtResource("2_3qiq6")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+material = SubResource("ShaderMaterial_vxw3e")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("4_kwl13")
+stretch_mode = 1
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 1
@@ -40,6 +62,7 @@ layout_mode = 2
 placeholder_text = "MENU_NAME_PLACEHOLDER"
 alignment = 1
 max_length = 50
+caret_blink = true
 
 [node name="Start" type="Button" parent="VBoxContainer"]
 layout_mode = 2

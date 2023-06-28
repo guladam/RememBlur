@@ -105,7 +105,9 @@ func _on_level_lost() -> void:
 
 
 func _on_pause_requested(pause: bool) -> void:
-	_prev_state = game_state.state
+	if game_state.state != GameState.State.PAUSED:
+		_prev_state = game_state.state
+
 	if pause:
 		_pause()
 	else:
@@ -113,7 +115,7 @@ func _on_pause_requested(pause: bool) -> void:
 
 
 func _on_resume_requested() -> void:
-	_unpause()
+	_on_pause_requested(false)
 
 
 func _on_main_menu_from_pause() -> void:
@@ -135,4 +137,5 @@ func _on_upgrade_selected() -> void:
 
 func _on_story_requested() -> void:
 	var words := levels.map(func(p: Puzzle): return tr(p.solution_key))
-	ui.story_board.show_story(words, tr(run_genre), run_name)
+	var english_genre := TranslationServer.get_translation_object("en").get_message(run_genre)
+	ui.story_board.show_story(words, english_genre, run_name)

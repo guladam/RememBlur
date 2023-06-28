@@ -44,7 +44,7 @@ func _on_close_pressed() -> void:
 	game_state.state = GameState.State.PLAYING
 	_animating = true
 	var _t := get_tree().create_tween().set_ease(Tween.EASE_IN_OUT).set_trans(Tween.TRANS_CUBIC)
-	_t.tween_property(self, "scale", Vector2.ZERO, 0.2)
+	_t.tween_property(self, "scale", Vector2(0.5, 0.5), 0.2)
 	_t.parallel().tween_property(self, "modulate", Color.TRANSPARENT, 0.2)
 	_t.tween_callback(hide)
 	_t.tween_callback(set.bind("_animating", false))

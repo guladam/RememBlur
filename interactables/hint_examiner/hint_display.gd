@@ -50,8 +50,10 @@ func _set_visibilities() -> void:
 	hint_image.texture = hint.img
 	
 	sound.visible = hint.type == Hint.Type.HEARING
-	hint_text.visible = hint.text != ""
 	hint_image.visible = hint.img != null
+	
+	if hint_text_type == HintTextType.SHORT and hint.type == Hint.Type.HEARING:
+		hint_text.visible = false
 
 
 func _set_hint_text(puzzle: Puzzle) -> void:
