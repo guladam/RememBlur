@@ -1,0 +1,212 @@
+[gd_scene load_steps=24 format=3 uid="uid://bej30ghplefsy"]
+
+[ext_resource type="Script" path="res://tutorial/tutorial_level.gd" id="1_bj7cd"]
+[ext_resource type="Resource" uid="uid://dd72ddquqou52" path="res://puzzles/animals/lion.tres" id="2_jlcsb"]
+[ext_resource type="Resource" uid="uid://dh3x1s6th3qwx" path="res://levels/game_state.tres" id="3_bvwhn"]
+[ext_resource type="Resource" uid="uid://bubc4po0y1ol8" path="res://stats/player_stats.tres" id="4_x1hh7"]
+[ext_resource type="PackedScene" uid="uid://3qxqdcpjgqix" path="res://interactables/guesser/guesser.tscn" id="5_hwvp3"]
+[ext_resource type="PackedScene" uid="uid://c6x47bpav0hmj" path="res://tutorial/tutorial_obstacle.tscn" id="6_o33j1"]
+[ext_resource type="PackedScene" uid="uid://c15qhgoay4u16" path="res://interactables/gate/gate.tscn" id="7_5e0wl"]
+[ext_resource type="PackedScene" uid="uid://ciy87g0165dyq" path="res://interactables/hint_givers/sight_hint_giver.tscn" id="8_ly8t4"]
+[ext_resource type="PackedScene" uid="uid://dbvd0r518ukut" path="res://tutorial/marker.tscn" id="11_nkwj7"]
+[ext_resource type="PackedScene" uid="uid://c826jg5vddi34" path="res://interactables/hint_givers/hearing_hint_giver.tscn" id="12_3q3hy"]
+[ext_resource type="PackedScene" uid="uid://dh4kcc77ubyq0" path="res://interactables/time_bonus.tscn" id="13_1115j"]
+[ext_resource type="PackedScene" uid="uid://sa16u6skxwxt" path="res://player/player.tscn" id="14_3rwob"]
+[ext_resource type="Script" path="res://levels/level_ui.gd" id="15_dmaad"]
+[ext_resource type="PackedScene" uid="uid://bt5s66j4no7ta" path="res://interactables/hint_examiner/latest_hint_screen.tscn" id="16_t3y8b"]
+[ext_resource type="PackedScene" uid="uid://cosp287ap0ox3" path="res://interactables/hint_examiner/all_hints_screen.tscn" id="17_ayq76"]
+[ext_resource type="PackedScene" uid="uid://wfim02c132bf" path="res://interactables/guesser/puzzle_letters.tscn" id="18_dlsys"]
+[ext_resource type="PackedScene" uid="uid://b3o2wkh3qrpvd" path="res://interactables/guesser/guesser_ui.tscn" id="19_e15yd"]
+[ext_resource type="PackedScene" uid="uid://be0ehq5ccgvj5" path="res://levels/time_left.tscn" id="20_lme3s"]
+[ext_resource type="Theme" uid="uid://cytrqyn3gsxmg" path="res://ui_theme.tres" id="21_5o522"]
+[ext_resource type="PackedScene" uid="uid://blt5faaqq0dkj" path="res://stats/health_bar.tscn" id="22_co1ge"]
+[ext_resource type="Shader" path="res://levels/visuals/level_background.gdshader" id="23_gnkeu"]
+[ext_resource type="Texture2D" uid="uid://ckw7ak7x2t7id" path="res://levels/visuals/bg_texture.png" id="24_o6ucq"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_umwio"]
+shader = ExtResource("23_gnkeu")
+shader_parameter/direction = Vector2(-0.5, 0.5)
+shader_parameter/speed_scale = 0.25
+
+[node name="TutorialLevel" type="Node2D"]
+script = ExtResource("1_bj7cd")
+tutorial_message_texts = Array[String](["TUTORIAL_STEP_1", "TUTORIAL_STEP_2", "TUTORIAL_STEP_3", "TUTORIAL_STEP_4", "TUTORIAL_STEP_5", "TUTORIAL_STEP_6", "TUTORIAL_STEP_0"])
+tutorial_message_button_texts = Array[String](["UI_GOT_IT", "UI_GOT_IT", "UI_GOT_IT", "UI_GOT_IT", "UI_GOT_IT", "UI_GOT_IT", "UI_GOT_IT"])
+time_limit = 900.0
+puzzle = ExtResource("2_jlcsb")
+game_state = ExtResource("3_bvwhn")
+player_stats = ExtResource("4_x1hh7")
+
+[node name="Guesser" parent="." instance=ExtResource("5_hwvp3")]
+game_state = ExtResource("3_bvwhn")
+
+[node name="Visuals" type="Node2D" parent="."]
+
+[node name="BrainBackgroundLeft" type="Polygon2D" parent="Visuals"]
+color = Color(0.454902, 0.25098, 0.305882, 1)
+polygon = PackedVector2Array(-256, 2048, -435, 2042, -785, 1889, -997, 1738, -1147, 1562, -1257, 1243, -1430, 804, -1451, 635, -1627, 218, -1621, -458, -1330, -1189, -819, -1804, -605, -1881, -363, -2034, -164, -2012, -107, -1969, -45, -1769, -22, -1134, 2, -563, 25, 976, -23, 1660, -115, 1771, -148, 2000)
+metadata/_edit_lock_ = true
+
+[node name="TutorialObstacle" parent="Visuals" instance=ExtResource("6_o33j1")]
+points = PackedVector2Array(-256, 2048, -435, 2042, -785, 1889, -997, 1738, -1147, 1562, -1257, 1243, -1430, 804, -1451, 635, -1627, 218, -1621, -458, -1330, -1189, -819, -1804, -605, -1881, -363, -2034, -164, -2012, -107, -1969, -45, -1769, -22, -1134, 2, -563, 25, 976, -23, 1660, -115, 1771, -148, 2000, -256, 2048)
+
+[node name="Gates" type="Node2D" parent="."]
+
+[node name="Gate" parent="Gates" node_paths=PackedStringArray("destination_gate") instance=ExtResource("7_5e0wl")]
+position = Vector2(-1440, -568)
+rotation = 1.69921
+destination_gate = NodePath("../Gate2")
+
+[node name="Gate2" parent="Gates" node_paths=PackedStringArray("destination_gate") instance=ExtResource("7_5e0wl")]
+position = Vector2(-1392, -808)
+rotation = 1.78057
+destination_gate = NodePath("../Gate")
+reverse_arrow = true
+
+[node name="HintGivers" type="Node2D" parent="."]
+
+[node name="SightHintGiver" parent="HintGivers" instance=ExtResource("8_ly8t4")]
+position = Vector2(-1288, 616)
+game_state = ExtResource("3_bvwhn")
+
+[node name="HearingHintGiver" parent="HintGivers" instance=ExtResource("12_3q3hy")]
+position = Vector2(-736, 1312)
+game_state = ExtResource("3_bvwhn")
+
+[node name="PickUps" type="Node2D" parent="."]
+
+[node name="TimeBonus" parent="PickUps" instance=ExtResource("13_1115j")]
+position = Vector2(-1440, 248)
+time_bonus = 300
+
+[node name="TimeBonus2" parent="PickUps" instance=ExtResource("13_1115j")]
+position = Vector2(-1336, 24)
+time_bonus = 300
+
+[node name="TimeBonus3" parent="PickUps" instance=ExtResource("13_1115j")]
+position = Vector2(-1192, 216)
+time_bonus = 300
+
+[node name="Markers" type="Node2D" parent="."]
+
+[node name="Marker" parent="Markers" instance=ExtResource("11_nkwj7")]
+position = Vector2(-576, -1248)
+
+[node name="Marker2" parent="Markers" instance=ExtResource("11_nkwj7")]
+position = Vector2(-112, -224)
+step = 2
+
+[node name="Marker3" parent="Markers" instance=ExtResource("11_nkwj7")]
+visible = false
+position = Vector2(-784, 272)
+monitoring = false
+step = 3
+
+[node name="Marker4" parent="Markers" instance=ExtResource("11_nkwj7")]
+visible = false
+position = Vector2(-216, 816)
+monitoring = false
+step = 4
+
+[node name="Marker5" parent="Markers" instance=ExtResource("11_nkwj7")]
+visible = false
+position = Vector2(-880, 1488)
+monitoring = false
+step = 5
+
+[node name="Marker6" parent="Markers" instance=ExtResource("11_nkwj7")]
+visible = false
+position = Vector2(-304, 1936)
+monitoring = false
+step = 6
+
+[node name="Obstacles" type="Node2D" parent="."]
+
+[node name="TutorialObstacle" parent="Obstacles" instance=ExtResource("6_o33j1")]
+points = PackedVector2Array(-1200, -1328, -960, -1208, -664, -1144, -432, -1128, -152, -1136, -24, -1152)
+
+[node name="TutorialObstacle2" parent="Obstacles" instance=ExtResource("6_o33j1")]
+points = PackedVector2Array(-1616, -232, -1376, -336, -1056, -416, -664, -408, -424, -344, -248, -136, 0, -40)
+
+[node name="TutorialObstacle3" parent="Obstacles" instance=ExtResource("6_o33j1")]
+points = PackedVector2Array(-1520, 432, -1144, 392, -712, 392, -448, 424, -160, 560, 16, 544)
+
+[node name="TutorialObstacle4" parent="Obstacles" instance=ExtResource("6_o33j1")]
+points = PackedVector2Array(-1288, 1160, -864, 912, -488, 848, -152, 968, 16, 984)
+
+[node name="TutorialObstacle5" parent="Obstacles" instance=ExtResource("6_o33j1")]
+points = PackedVector2Array(-1064, 1656, -592, 1552, -392, 1296, -160, 1064, 16, 976)
+
+[node name="TutorialObstacle99" parent="Obstacles" instance=ExtResource("6_o33j1")]
+points = PackedVector2Array(-1528, -680, -1232, -712, -1000, -784, -736, -784, -496, -744, -256, -688, 0, -600)
+
+[node name="Player" parent="." instance=ExtResource("14_3rwob")]
+position = Vector2(-256, -1920)
+
+[node name="Camera2D" type="Camera2D" parent="Player"]
+
+[node name="UI" type="CanvasLayer" parent="."]
+script = ExtResource("15_dmaad")
+game_state = ExtResource("3_bvwhn")
+
+[node name="LatestHintScreen" parent="UI" instance=ExtResource("16_t3y8b")]
+visible = false
+game_state = ExtResource("3_bvwhn")
+
+[node name="AllHintsScreen" parent="UI" instance=ExtResource("17_ayq76")]
+visible = false
+game_state = ExtResource("3_bvwhn")
+
+[node name="PuzzleLetters" parent="UI" instance=ExtResource("18_dlsys")]
+
+[node name="GuesserUI" parent="UI" instance=ExtResource("19_e15yd")]
+visible = false
+game_state = ExtResource("3_bvwhn")
+
+[node name="TimeLeft" parent="UI" instance=ExtResource("20_lme3s")]
+
+[node name="Guess" type="Button" parent="UI"]
+visible = false
+custom_minimum_size = Vector2(225, 0)
+offset_left = 27.0
+offset_top = 236.0
+offset_right = 252.0
+offset_bottom = 298.0
+theme = ExtResource("21_5o522")
+text = "BTN_GUESS"
+
+[node name="Hints" type="Button" parent="UI"]
+visible = false
+custom_minimum_size = Vector2(225, 0)
+offset_left = 27.0
+offset_top = 320.0
+offset_right = 252.0
+offset_bottom = 382.0
+theme = ExtResource("21_5o522")
+text = "BTN_HINT"
+
+[node name="HealthBar" parent="UI" instance=ExtResource("22_co1ge")]
+
+[node name="BackgroundLayer" type="CanvasLayer" parent="."]
+layer = -1
+
+[node name="Background" type="ColorRect" parent="BackgroundLayer"]
+offset_left = -3840.0
+offset_top = -3840.0
+offset_right = 3840.0
+offset_bottom = 3840.0
+color = Color(0.984314, 0.509804, 1, 0.54902)
+metadata/_edit_lock_ = true
+
+[node name="BackgroundShader" type="TextureRect" parent="BackgroundLayer"]
+material = SubResource("ShaderMaterial_umwio")
+offset_left = -3831.0
+offset_top = -3840.0
+offset_right = 3849.0
+offset_bottom = 3840.0
+texture = ExtResource("24_o6ucq")
+stretch_mode = 1
+metadata/_edit_lock_ = true
+
+[node name="LevelTimer" type="Timer" parent="."]
+one_shot = true

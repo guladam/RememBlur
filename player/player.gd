@@ -12,6 +12,7 @@ extends CharacterBody2D
 
 func _physics_process(_delta: float) -> void:
 	if game_state and game_state.state != GameState.State.PLAYING:
+		animation_player.play("idle")
 		return
 	
 	var h_direction := Input.get_axis("left", "right")

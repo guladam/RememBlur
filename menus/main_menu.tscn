@@ -492,7 +492,6 @@ libraries = {
 
 [connection signal="timeout" from="Title/Timer" to="Title" method="_on_timer_timeout"]
 [connection signal="pressed" from="Buttons/NewStory" to="SceneChanger" method="transition_to"]
-[connection signal="pressed" from="Buttons/Tutorial" to="SceneChanger" method="transition_to"]
 [connection signal="pressed" from="Buttons/Options" to="SceneChanger" method="transition_to" binds= ["res://menus/options.tscn"]]
 [connection signal="pressed" from="Buttons/Quit" to="SceneChanger" method="transition_to"]
 

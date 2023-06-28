@@ -19,7 +19,6 @@ script = ExtResource("1_4y1vm")
 [node name="Label" type="Label" parent="."]
 layout_mode = 2
 text = "MENU_LANGUAGE"
-horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="HBoxContainer" type="HBoxContainer" parent="."]

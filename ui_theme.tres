@@ -1,4 +1,4 @@
-[gd_resource type="Theme" load_steps=20 format=3 uid="uid://cytrqyn3gsxmg"]
+[gd_resource type="Theme" load_steps=22 format=3 uid="uid://cytrqyn3gsxmg"]
 
 [ext_resource type="Texture2D" uid="uid://15wow3u87of0" path="res://menus/visuals/checkbox_checked.png" id="1_7ry8l"]
 [ext_resource type="FontFile" uid="uid://cc0weut07hoh3" path="res://cherrybomb_one.ttf" id="1_i3tvf"]
@@ -133,6 +133,24 @@ shadow_color = Color(0, 0, 0, 0.278431)
 shadow_size = 2
 shadow_offset = Vector2(2, 2)
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_184qj"]
+bg_color = Color(0.475596, 0.41739, 0.547087, 1)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fgyxv"]
+content_margin_left = 8.0
+content_margin_top = 8.0
+content_margin_right = 8.0
+content_margin_bottom = 8.0
+bg_color = Color(0.282215, 0.206291, 0.324638, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dxtf4"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
 border_width_bottom = 10
@@ -204,6 +222,9 @@ CheckButton/styles/hover = SubResource("StyleBoxFlat_k4i7g")
 CheckButton/styles/hover_pressed = SubResource("StyleBoxFlat_c8mw1")
 CheckButton/styles/normal = SubResource("StyleBoxFlat_ip5oy")
 CheckButton/styles/pressed = SubResource("StyleBoxFlat_227qf")
+HSlider/styles/grabber_area = SubResource("StyleBoxFlat_184qj")
+HSlider/styles/grabber_area_highlight = SubResource("StyleBoxFlat_184qj")
+HSlider/styles/slider = SubResource("StyleBoxFlat_fgyxv")
 LetterLabel/styles/normal = SubResource("StyleBoxFlat_dxtf4")
 PopupMenu/constants/h_separation = 10
 PopupMenu/styles/hover = SubResource("StyleBoxFlat_nrnvy")

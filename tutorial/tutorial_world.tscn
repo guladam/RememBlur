@@ -1,0 +1,32 @@
+[gd_scene load_steps=6 format=3 uid="uid://ds38800ytigtu"]
+
+[ext_resource type="PackedScene" uid="uid://bej30ghplefsy" path="res://tutorial/tutorial_level.tscn" id="1_clohb"]
+[ext_resource type="PackedScene" uid="uid://p03027vjqqtn" path="res://game_world/game_over.tscn" id="4_ecphi"]
+[ext_resource type="PackedScene" uid="uid://d3ulbe1u7dmgg" path="res://game_world/level_won.tscn" id="5_2eso5"]
+[ext_resource type="PackedScene" uid="uid://bkeq3v7l38cvg" path="res://menus/pause.tscn" id="15_muxu5"]
+[ext_resource type="PackedScene" uid="uid://8d02qj7c0jr7" path="res://game_world/scene_changer.tscn" id="18_h2jiy"]
+
+[node name="TutorialWorld" type="Node2D"]
+process_mode = 3
+
+[node name="CurrentLevel" type="Node" parent="."]
+process_mode = 1
+
+[node name="TutorialLevel" parent="CurrentLevel" instance=ExtResource("1_clohb")]
+
+[node name="UI" type="CanvasLayer" parent="."]
+layer = 2
+
+[node name="GameOver" parent="UI" instance=ExtResource("4_ecphi")]
+visible = false
+
+[node name="LevelWon" parent="UI" instance=ExtResource("5_2eso5")]
+visible = false
+
+[node name="Pause" parent="UI" instance=ExtResource("15_muxu5")]
+visible = false
+
+[node name="SceneChanger" parent="." instance=ExtResource("18_h2jiy")]
+layer = 99
+target_scene = "res://menus/main_menu.tscn"
+fade_duration = 0.35

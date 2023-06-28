@@ -154,8 +154,8 @@ rotation = 0.405672
 destination_gate = NodePath("../Gate2")
 
 [node name="Gate2" parent="Gates" node_paths=PackedStringArray("destination_gate") instance=ExtResource("6_q1foo")]
-position = Vector2(-249, -732)
-rotation = 0.223567
+position = Vector2(-185, -724)
+rotation = 0.382999
 destination_gate = NodePath("../Gate")
 reverse_arrow = true
 

@@ -7,7 +7,7 @@ extends ColorRect
 @onready var vsync := %VSync
 @onready var save_btn := %Save
 @onready var scene_changer: CanvasLayer = $SceneChanger
-@onready var lang_selector: VBoxContainer = $LangSelector
+@onready var lang_selector: VBoxContainer = %LangSelector
 
 var _settings: ConfigFile
 

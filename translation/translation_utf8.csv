@@ -148,3 +148,20 @@ GENRE_FAIRY_TALE,fairy tale,mese
 GENRE_ROMANCE,romance,romantikus sztori
 GENRE_SCIFI,sci-fi,sci-fi
 GENRE_YOUNG_ADULT,young adult,ifjúsági regény
+TUTORIAL_STEP_0,"Welcome to RememBlur!
+
+Your goal is to remember a story from your past.
+For that, you need to recall keywords, one by one.
+
+","Üdv a RememBlur világában!
+
+A feladatod, hogy visszaemlékezz egy történetre a múltadból.
+Ehhez egyesével fel kell idézned a kulcsszavakat."
+TUTORIAL_STEP_1,Use the WASD or arrow keys to collect the first marker.,"Mozogni a WASD gombokkal vagy a nyilakkal tudsz.
+Szedd össze az első jelölőt."
+TUTORIAL_STEP_2,Step2,Step2
+TUTORIAL_STEP_3,Step3,Step3
+TUTORIAL_STEP_4,Step4,Step4
+TUTORIAL_STEP_5,Step5,Step5
+TUTORIAL_STEP_6,Step6,Step6
+UI_GOT_IT,Got it,Értem

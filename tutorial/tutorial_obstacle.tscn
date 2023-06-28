@@ -1,0 +1,13 @@
+[gd_scene load_steps=2 format=3 uid="uid://c6x47bpav0hmj"]
+
+[ext_resource type="Script" path="res://tutorial/tutorial_obstacle.gd" id="1_2vrtm"]
+
+[node name="TutorialObstacle" type="Line2D"]
+width = 30.0
+default_color = Color(0, 0, 0, 1)
+joint_mode = 2
+begin_cap_mode = 2
+end_cap_mode = 2
+script = ExtResource("1_2vrtm")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
