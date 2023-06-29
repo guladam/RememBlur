@@ -194,5 +194,7 @@ Amikor van egy tipped, kattints a gombra a bal felső sarokban vagy nyomd meg a 
 TUTORIAL_STEP_6_2,"If you guess the correct keyword, you won the level. However, if you enter a wrong guess you lose 1 energy. When your energy reaches 0 or your time is up, the game is over.","Ha a jó kulcsszóra  tippelsz, megnyered a szintet. Rossz tipp esetén pedig vesztesz 1 energiát. Ha az 0 energiád marad vagy lejár az időt, elveszíted a játékot."
 TUTORIAL_STEP_6_3,"Enter the keyword, then collect the last marker.",Írd be a kulcsszót aztán szedd össze az utolsó jelölőt.
 UI_GOT_IT,Got it,Értem
-TUTORIAL_FINISHED,Yay!,Yay!
-TUTORIAL_GAME_OVER,Bleh :( ,Bleh :( 
+TUTORIAL_FINISHED,"That's the end of the tutorial. 
+You're ready for some real remembering action.","Ezzel véget is ért a tutorial.
+Készen állsz a valódi visszaemlékezésre."
+TUTORIAL_GAME_OVER,Something went wrong. You might want to try again.,Valami félrement. Lehet érdemes lenne újra megpróbálni?
