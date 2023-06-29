@@ -3,6 +3,7 @@ extends CenterContainer
 
 signal switch_to_all_hints_screen
 
+
 @onready var hint_display = preload("res://interactables/hint_examiner/hint_display.tscn")
 @onready var hint := %Hint
 

@@ -1,5 +1,7 @@
 extends PanelContainer
 
+signal closed
+
 @export var game_state: GameState
 @onready var hints: VBoxContainer = %Hints
 @onready var hint_display := preload("res://interactables/hint_examiner/hint_display_horizontal.tscn")
@@ -48,6 +50,7 @@ func _on_close_pressed() -> void:
 	_t.parallel().tween_property(self, "modulate", Color.TRANSPARENT, 0.2)
 	_t.tween_callback(hide)
 	_t.tween_callback(set.bind("_animating", false))
+	_t.tween_callback(func(): closed.emit())
 
 
 func _on_hint_seen(hint: Hint) -> void:

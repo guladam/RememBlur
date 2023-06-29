@@ -5,24 +5,32 @@ extends Level
 @onready var tutorial_message := preload("res://tutorial/tutorial_message.tscn")
 @onready var obstacles: Node2D = $Obstacles
 @onready var markers: Node2D = $Markers
+@onready var sight_hint_giver: Node2D = $HintGivers/SightHintGiver
+@onready var hearing_hint_giver: Node2D = $HintGivers/HearingHintGiver
+@onready var all_hints_screen: PanelContainer = $UI/AllHintsScreen
 
 var _time_bonuses_picked_up := 0
+var _step_4 := 0
+var _step_5 := 0
 
 
 func _ready() -> void:
 	super._ready()
 	Events.time_bonus_picked_up.connect(_on_time_bonus_picked_up)
 	Events.tutorial_marker_picked_up.connect(_on_marker_picked_up)
-	var message := _show_tutorial_message(-1)
-	message.tutorial_message_button_clicked.connect(_step_0_finished)
-	
+	sight_hint_giver.show_latest_hint_screen.connect(_step_4_progress)
+	hearing_hint_giver.show_latest_hint_screen.connect(_step_5_progress)
 
-func _show_tutorial_message(i: int) -> TutorialMessage:
-	assert(i < tutorial_message_texts.size(), "message index out of bounds")
+	var message := _show_tutorial_message(-1, 0)
+	message.tutorial_message_button_clicked.connect(_step_0_finished)
+
+
+func _show_tutorial_message(text_idx: int, button_idx: int) -> TutorialMessage:
+	assert(text_idx < tutorial_message_texts.size(), "message index out of bounds")
 	
 	var new_message := tutorial_message.instantiate()
-	new_message.message_tr_text = tutorial_message_texts[i]
-	new_message.button_tr_text = tutorial_message_button_texts[i]
+	new_message.message_tr_text = tutorial_message_texts[text_idx]
+	new_message.button_tr_text = tutorial_message_button_texts[button_idx]
 	new_message.game_state = game_state
 	
 	ui.add_child(new_message)
@@ -43,37 +51,92 @@ func _on_marker_picked_up(step: int) -> void:
 
 
 func _step_0_finished() -> void:
-	_show_tutorial_message(0)
+	_show_tutorial_message(0, 0)
 
 
 func _step_1_finished() -> void:
-	var message := _show_tutorial_message(1)
+	var message := _show_tutorial_message(1, 0)
 	message.tutorial_message_button_clicked.connect(
 		func():
 			obstacles.get_child(0).queue_free()
 	)
 
 func _step_2_finished() -> void:
-	var message := _show_tutorial_message(2)
+	var message := _show_tutorial_message(2, 0)
+	message.tutorial_message_button_clicked.connect(
+		func():
+			obstacles.get_child(0).queue_free()
+	)
+	set_time(90)
+
+
+func _step_3_finished() -> void:
+	var message := _show_tutorial_message(3, 0)
+	message.tutorial_message_button_clicked.connect(_step_3_second_msg)
+
+
+func _step_3_second_msg() -> void:
+	var message := _show_tutorial_message(4, 0)
 	message.tutorial_message_button_clicked.connect(
 		func():
 			obstacles.get_child(0).queue_free()
 	)
 
 
-func _step_3_finished() -> void:
-	var message := _show_tutorial_message(3)
-	message.tutorial_message_button_clicked.connect(
+func _step_4_progress(_hint: Hint) -> void:
+	_step_4 += 1
+	ui.hints_btn.show()
+	all_hints_screen.closed.connect(
 		func():
-			obstacles.get_child(0).queue_free()
+			if _step_4 < 2:
+				_step_4 += 1
+				markers.get_child(0).reveal()
 	)
 
 
 func _step_4_finished() -> void:
-	#TODO
-	pass
+	var message := _show_tutorial_message(6, 0)
+	message.tutorial_message_button_clicked.connect(_step_4_second_msg)
+
+
+func _step_4_second_msg() -> void:
+	var message := _show_tutorial_message(7, 0)
+	message.tutorial_message_button_clicked.connect(
+		func():
+			obstacles.get_child(0).queue_free()
+	)
+
+
+func _step_5_progress(_hint: Hint) -> void:
+	if _step_5 != 0:
+		return
+		
+	markers.get_child(0).reveal()
+	_step_5 += 1
 
 
 func _step_5_finished() -> void:
-	#TODO
-	pass
+	var message := _show_tutorial_message(8, 0)
+	message.tutorial_message_button_clicked.connect(_step_5_second_msg)
+
+
+func _step_5_second_msg() -> void:
+	var message := _show_tutorial_message(9, 0)
+	message.tutorial_message_button_clicked.connect(_step_5_third_msg)
+
+
+func _step_5_third_msg() -> void:
+	ui.guess_btn.show()
+	var message := _show_tutorial_message(10, 0)
+	message.tutorial_message_button_clicked.connect(
+		func():
+			obstacles.get_child(0).queue_free()
+	)
+
+
+func _step_6_finished() -> void:
+	super.level_won()
+
+
+func level_won() -> void:
+	markers.get_child(0).reveal()

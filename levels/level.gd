@@ -25,6 +25,8 @@ func _ready() -> void:
 	for hint_giver in hint_givers.get_children():
 		hint_giver.show_latest_hint_screen.connect(ui.show_latest_hint_screen)
 	
+	
+	Events.time_bonus_picked_up.connect(add_time)
 	guesser.show_guessing_screen.connect(ui.show_guesser_ui)
 	guesser.guessed_correctly.connect(ui.show_solution)
 	guesser.guessed_correctly.connect(level_won)
@@ -59,3 +61,11 @@ func level_won() -> void:
 	level_timer.stop()
 	won.emit()
 	game_state.state = GameState.State.PAUSED
+
+
+func add_time(amount: int) -> void:
+	level_timer.start(level_timer.time_left + amount)
+
+
+func set_time(seconds: int) -> void:
+	level_timer.start(seconds)

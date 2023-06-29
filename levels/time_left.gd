@@ -17,7 +17,6 @@ func _process(_delta: float) -> void:
 
 
 func add_time(amount: int) -> void:
-	timer.start(timer.time_left + amount)
 	var new_label := time_label.instantiate()
 	add_child(new_label)
 	new_label.position = bonus_marker.position

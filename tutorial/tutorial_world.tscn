@@ -1,13 +1,14 @@
 [gd_scene load_steps=6 format=3 uid="uid://ds38800ytigtu"]
 
+[ext_resource type="Script" path="res://tutorial/tutorial_world.gd" id="1_2qsa5"]
 [ext_resource type="PackedScene" uid="uid://bej30ghplefsy" path="res://tutorial/tutorial_level.tscn" id="1_clohb"]
-[ext_resource type="PackedScene" uid="uid://p03027vjqqtn" path="res://game_world/game_over.tscn" id="4_ecphi"]
-[ext_resource type="PackedScene" uid="uid://d3ulbe1u7dmgg" path="res://game_world/level_won.tscn" id="5_2eso5"]
-[ext_resource type="PackedScene" uid="uid://bkeq3v7l38cvg" path="res://menus/pause.tscn" id="15_muxu5"]
+[ext_resource type="PackedScene" uid="uid://dx24kq1sg6y2n" path="res://tutorial/tutorial_message.tscn" id="3_pqyp6"]
+[ext_resource type="Resource" uid="uid://dh3x1s6th3qwx" path="res://levels/game_state.tres" id="4_0anft"]
 [ext_resource type="PackedScene" uid="uid://8d02qj7c0jr7" path="res://game_world/scene_changer.tscn" id="18_h2jiy"]
 
 [node name="TutorialWorld" type="Node2D"]
 process_mode = 3
+script = ExtResource("1_2qsa5")
 
 [node name="CurrentLevel" type="Node" parent="."]
 process_mode = 1
@@ -17,14 +18,17 @@ process_mode = 1
 [node name="UI" type="CanvasLayer" parent="."]
 layer = 2
 
-[node name="GameOver" parent="UI" instance=ExtResource("4_ecphi")]
-visible = false
+[node name="GameOver" parent="UI" instance=ExtResource("3_pqyp6")]
+process_mode = 3
+message_tr_text = "TUTORIAL_GAME_OVER"
+button_tr_text = "UI_MAIN_MENU"
+game_state = ExtResource("4_0anft")
 
-[node name="LevelWon" parent="UI" instance=ExtResource("5_2eso5")]
-visible = false
-
-[node name="Pause" parent="UI" instance=ExtResource("15_muxu5")]
-visible = false
+[node name="LevelWon" parent="UI" instance=ExtResource("3_pqyp6")]
+process_mode = 3
+message_tr_text = "TUTORIAL_FINISHED"
+button_tr_text = "UI_MAIN_MENU"
+game_state = ExtResource("4_0anft")
 
 [node name="SceneChanger" parent="." instance=ExtResource("18_h2jiy")]
 layer = 99
