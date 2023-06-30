@@ -1,13 +1,15 @@
 extends CenterContainer
 
 
+signal closed
 signal switch_to_all_hints_screen
 
 
+@export var show_all_hints_button := true
+@export var game_state: GameState
 @onready var hint_display = preload("res://interactables/hint_examiner/hint_display.tscn")
 @onready var hint := %Hint
 
-@export var game_state: GameState
 var _puzzle: Puzzle
 
 
@@ -18,6 +20,7 @@ func _unhandled_input(event: InputEvent) -> void:
 
 func setup(p: Puzzle) -> void:
 	_puzzle = p
+	%ShowAll.visible = show_all_hints_button
 
 
 func show_screen(new_hint: Hint) -> void:
@@ -62,3 +65,4 @@ func close() -> void:
 	_t.tween_callback(hide)
 	
 	await _t.finished
+	closed.emit()

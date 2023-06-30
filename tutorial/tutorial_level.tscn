@@ -30,7 +30,7 @@ shader_parameter/speed_scale = 0.25
 
 [node name="TutorialLevel" type="Node2D"]
 script = ExtResource("1_bj7cd")
-tutorial_message_texts = Array[String](["TUTORIAL_STEP_1", "TUTORIAL_STEP_2", "TUTORIAL_STEP_3", "TUTORIAL_STEP_4_1", "TUTORIAL_STEP_4_2", "TUTORIAL_STEP_4_3", "TUTORIAL_STEP_5_1", "TUTORIAL_STEP_5_2", "TUTORIAL_STEP_6_1", "TUTORIAL_STEP_6_2", "TUTORIAL_STEP_6_3", "TUTORIAL_STEP_0"])
+tutorial_message_texts = Array[String](["TUTORIAL_STEP_1", "TUTORIAL_STEP_2_1", "TUTORIAL_STEP_2_2", "TUTORIAL_STEP_3", "TUTORIAL_STEP_4_1", "TUTORIAL_STEP_4_2", "TUTORIAL_STEP_4_3", "TUTORIAL_STEP_4_4", "TUTORIAL_STEP_5_1", "TUTORIAL_STEP_5_2", "TUTORIAL_STEP_6_1", "TUTORIAL_STEP_6_2", "TUTORIAL_STEP_6_3", "TUTORIAL_STEP_0"])
 tutorial_message_button_texts = Array[String](["UI_GOT_IT"])
 time_limit = 900.0
 puzzle = ExtResource("2_jlcsb")
@@ -151,6 +151,7 @@ game_state = ExtResource("3_bvwhn")
 
 [node name="LatestHintScreen" parent="UI" instance=ExtResource("16_t3y8b")]
 visible = false
+show_all_hints_button = false
 game_state = ExtResource("3_bvwhn")
 
 [node name="AllHintsScreen" parent="UI" instance=ExtResource("17_ayq76")]

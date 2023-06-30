@@ -17,5 +17,5 @@ func reveal() -> void:
 func _on_area_entered(_area: Area2D) -> void:
 	set_deferred("monitoring", false)
 	animation_player.play("pickup")
-	await animation_player.animation_finished
+	await get_tree().create_timer(0.3).timeout
 	Events.tutorial_marker_picked_up.emit(step)

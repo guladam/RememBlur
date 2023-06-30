@@ -26,6 +26,7 @@ theme_override_constants/separation = 35
 alignment = 1
 
 [node name="ShowAll" type="Button" parent="VboxContainer/HBoxContainer"]
+unique_name_in_owner = true
 layout_mode = 2
 text = "UI_SHOW_ALL"
 

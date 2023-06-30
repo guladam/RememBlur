@@ -18,9 +18,8 @@ func _ready() -> void:
 	super._ready()
 	Events.time_bonus_picked_up.connect(_on_time_bonus_picked_up)
 	Events.tutorial_marker_picked_up.connect(_on_marker_picked_up)
-	sight_hint_giver.show_latest_hint_screen.connect(_step_4_progress)
-	hearing_hint_giver.show_latest_hint_screen.connect(_step_5_progress)
-
+	ui.latest_hint_screen.closed.connect(_step_4_progress)
+	
 	var message := _show_tutorial_message(-1, 0)
 	message.tutorial_message_button_clicked.connect(_step_0_finished)
 
@@ -56,13 +55,19 @@ func _step_0_finished() -> void:
 
 func _step_1_finished() -> void:
 	var message := _show_tutorial_message(1, 0)
-	message.tutorial_message_button_clicked.connect(
-		func():
-			obstacles.get_child(0).queue_free()
-	)
+	message.tutorial_message_button_clicked.connect(_step_1_second_msg)
+
+
+func _step_1_second_msg() -> void:
+		var message := _show_tutorial_message(2, 0)
+		message.tutorial_message_button_clicked.connect(
+			func():
+				obstacles.get_child(0).queue_free()
+		)
+
 
 func _step_2_finished() -> void:
-	var message := _show_tutorial_message(2, 0)
+	var message := _show_tutorial_message(3, 0)
 	message.tutorial_message_button_clicked.connect(
 		func():
 			obstacles.get_child(0).queue_free()
@@ -71,43 +76,56 @@ func _step_2_finished() -> void:
 
 
 func _step_3_finished() -> void:
-	var message := _show_tutorial_message(3, 0)
+	var message := _show_tutorial_message(4, 0)
 	message.tutorial_message_button_clicked.connect(_step_3_second_msg)
 
 
 func _step_3_second_msg() -> void:
-	var message := _show_tutorial_message(4, 0)
+	var message := _show_tutorial_message(5, 0)
 	message.tutorial_message_button_clicked.connect(
 		func():
 			obstacles.get_child(0).queue_free()
 	)
 
 
-func _step_4_progress(_hint: Hint) -> void:
+func _step_4_progress() -> void:
+	if _step_4 >= 2:
+		return
+
 	_step_4 += 1
+	var message := _show_tutorial_message(6, 0)
+	message.tutorial_message_button_clicked.connect(_step_4_progress_2)
+
+
+func _step_4_progress_2() -> void:
 	ui.hints_btn.show()
-	all_hints_screen.closed.connect(
-		func():
-			if _step_4 < 2:
-				_step_4 += 1
-				markers.get_child(0).reveal()
-	)
+	all_hints_screen.closed.connect(_step_4_progress_3)
+
+
+func _step_4_progress_3() -> void:
+	if _step_4 < 2:
+		_step_4 += 1
+		var message := _show_tutorial_message(7, 0)
+		message.tutorial_message_button_clicked.connect(
+			func(): markers.get_child(0).reveal()
+		)
 
 
 func _step_4_finished() -> void:
-	var message := _show_tutorial_message(6, 0)
+	var message := _show_tutorial_message(8, 0)
 	message.tutorial_message_button_clicked.connect(_step_4_second_msg)
 
 
 func _step_4_second_msg() -> void:
-	var message := _show_tutorial_message(7, 0)
+	var message := _show_tutorial_message(9, 0)
 	message.tutorial_message_button_clicked.connect(
 		func():
 			obstacles.get_child(0).queue_free()
+			ui.latest_hint_screen.closed.connect(_step_5_progress)
 	)
 
 
-func _step_5_progress(_hint: Hint) -> void:
+func _step_5_progress() -> void:
 	if _step_5 != 0:
 		return
 		
@@ -116,18 +134,18 @@ func _step_5_progress(_hint: Hint) -> void:
 
 
 func _step_5_finished() -> void:
-	var message := _show_tutorial_message(8, 0)
+	var message := _show_tutorial_message(10, 0)
 	message.tutorial_message_button_clicked.connect(_step_5_second_msg)
 
 
 func _step_5_second_msg() -> void:
-	var message := _show_tutorial_message(9, 0)
+	var message := _show_tutorial_message(11, 0)
 	message.tutorial_message_button_clicked.connect(_step_5_third_msg)
 
 
 func _step_5_third_msg() -> void:
 	ui.guess_btn.show()
-	var message := _show_tutorial_message(10, 0)
+	var message := _show_tutorial_message(12, 0)
 	message.tutorial_message_button_clicked.connect(
 		func():
 			obstacles.get_child(0).queue_free()

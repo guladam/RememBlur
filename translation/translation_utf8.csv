@@ -150,24 +150,17 @@ GENRE_SCIFI,sci-fi,sci-fi
 GENRE_YOUNG_ADULT,young adult,ifjúsági regény
 TUTORIAL_STEP_0,"Welcome to RememBlur!
 
-Your goal is to remember a story from your past.
-For that, you need to recall keywords, one by one.
+Your goal is to remember a story from your past. For that, you need to recall keywords, one by one.","Üdv a RememBlur világában!
 
-","Üdv a RememBlur világában!
-
-A feladatod, hogy visszaemlékezz egy történetre a múltadból.
-Ehhez egyesével fel kell idézned a kulcsszavakat."
+A feladatod, hogy visszaemlékezz egy történetre a múltadból. Ehhez egyesével fel kell idézned a kulcsszavakat."
 TUTORIAL_STEP_1,Use the WASD or arrow keys to collect the first marker.,"Mozogni a WASD gombokkal vagy a nyilakkal tudsz.
 Szedd össze az első jelölőt."
-TUTORIAL_STEP_2,"Awesome!
+TUTORIAL_STEP_2_1,"Awesome!
 
-In the bottom left corner, there is a gate. Sometimes, the only way to get to the nooks and crannies of the brain is to use a teleport gate. This is 100% correct, anatomically speaking. 
+In the bottom left corner, there is a gate. Sometimes, the only way to get to the nooks and crannies of the brain is to use a teleport gate. This is 100% correct, anatomically speaking.","Szuper!
 
-Use the Gate to get to other side.","Szuper!
-
-A bal alsó sarokban ott egy portál. Néha muszáj portálokat használni ha el akarsz jutni az agy zeg-zugos részeire. Ez természetes 100%-ban igaz az agy valós anatómiájára is.
-
-Használd a portált, hogy átjuss a másik oldalra."
+A bal alsó sarokban ott egy portál. Néha muszáj portálokat használni ha el akarsz jutni az agy zeg-zugos részeire. Ez természetesen 100%-ban igaz az agy valós anatómiájára is."
+TUTORIAL_STEP_2_2,Use the Gate to get to other side.,"Használd a portált, hogy átjuss a másik oldalra."
 TUTORIAL_STEP_3,"Oh no!
 
 It seems like you are running out of time (check the top-left corner). Collect the time bonus pickups to ""buy"" some time.","Jajj ne!
@@ -178,8 +171,13 @@ TUTORIAL_STEP_4_1,"Great!
 Now, we should focus on the keyword. It is a 5 letter word as you can see on the top of the screen. But we need more hints because we can only guess the whole word...  ","Nagyszerű!
 
 Koncentráljunk a kulcsszóra mostmár. Az látszik a képernyő tetején, hogy négy betűs a szó. De ennél több segítségre van szükségünk, mert csak a teljes szót tudjuk megtippelni…"
-TUTORIAL_STEP_4_2,"Luckily, their senses come to the rescue. To interact with the primary visual cortex press SPACE or E.",Szerencsére a főszereplő érzékei kisegítenek minket. Az elsődleges látókéreg aktiválásához nyomd meg a SPACE vagy az E billentyűt.
+TUTORIAL_STEP_4_2,"Luckily, their senses come to the rescue. To interact with the primary visual cortex go next to it and press SPACE or E.",Szerencsére a főszereplő érzékei kisegítenek minket. Az elsődleges látókéreg aktiválásához mozogj oda mellé és nyomd meg a SPACE vagy az E billentyűt.
 TUTORIAL_STEP_4_3,You can always check all the hints you have so far. Just press the button in the top-left corner or press H.,Bármikor tudod ellenőrizni az eddigi segítségeidet. Kattints a gombra a bal felső sarokban vagy nyomd meg a H billentyűt.
+TUTORIAL_STEP_4_4,"Fantastic!
+
+Collect the next marker to continue.","Fantasztikus!
+
+Szedd össze a következő jelölőt."
 TUTORIAL_STEP_5_1,"Now we know that it's definitely something red…
 
 When you get a hint it's either unhelpful (X) or helpful to some degree (stars).","Mostmár tudjuk, hogy biztosan valami pirosról van szó…
@@ -191,7 +189,7 @@ TUTORIAL_STEP_6_1,"That sound helps a lot, doesn't it?
 When you're ready to guess press the button in the top-left corner or press G.","Ez sokat segít, nemde?
 
 Amikor van egy tipped, kattints a gombra a bal felső sarokban vagy nyomd meg a G billentyűt."
-TUTORIAL_STEP_6_2,"If you guess the correct keyword, you won the level. However, if you enter a wrong guess you lose 1 energy. When your energy reaches 0 or your time is up, the game is over.","Ha a jó kulcsszóra  tippelsz, megnyered a szintet. Rossz tipp esetén pedig vesztesz 1 energiát. Ha az 0 energiád marad vagy lejár az időt, elveszíted a játékot."
+TUTORIAL_STEP_6_2,"If you guess the correct keyword, you won the level. However, if you enter a wrong guess you lose 1 energy. When your energy reaches 0 or your time is up, the game is over.","Ha a jó kulcsszóra  tippelsz, megnyered a szintet. Rossz tipp esetén pedig veszítesz 1 energiát. Ha 0 energiád marad vagy lejár az idő, elveszíted a játékot."
 TUTORIAL_STEP_6_3,"Enter the keyword, then collect the last marker.",Írd be a kulcsszót aztán szedd össze az utolsó jelölőt.
 UI_GOT_IT,Got it,Értem
 TUTORIAL_FINISHED,"That's the end of the tutorial. 
