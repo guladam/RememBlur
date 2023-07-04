@@ -1,6 +1,4 @@
 ﻿keys,en,hu
-CAT_ANIMAL,animals,állatok
-CAT_FRUITVEG,fruits & veggies,zöldség-gyümölcs
 COLOR_RED,red,piros
 COLOR_BLUE,blue,kék
 COLOR_GREEN,green,zöld
@@ -65,8 +63,6 @@ TOUCH_COLD,cold,hideg
 TOUCH_WARM,warm,meleg
 TOUCH_SLIMY,slimy,nyálkás
 TOUCH_FUZZY,fuzzy,pelyhes
-PUZZLE_LION,lion,oroszlán
-PUZZLE_TOMATO,tomato,paradicsom
 UPGRADE_T1_HEAL,+1 Health,+1 Életerő
 UPGRADE_T1_MS_BONUS,Move slightly faster,Kicsivel gyorsabb mozgás
 UPGRADE_T2_HEAL,+2 Health,+2 Életerő

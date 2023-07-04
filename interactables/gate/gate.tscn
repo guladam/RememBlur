@@ -1,8 +1,9 @@
-[gd_scene load_steps=8 format=3 uid="uid://c15qhgoay4u16"]
+[gd_scene load_steps=9 format=3 uid="uid://c15qhgoay4u16"]
 
 [ext_resource type="Script" path="res://interactables/gate/gate.gd" id="1_tbect"]
 [ext_resource type="Resource" uid="uid://dh3x1s6th3qwx" path="res://levels/game_state.tres" id="2_ypjgs"]
 [ext_resource type="Texture2D" uid="uid://b5gmacfp5m4l0" path="res://interactables/gate/gate.svg" id="3_83jx0"]
+[ext_resource type="AudioStream" uid="uid://ddtitjcplex0b" path="res://interactables/gate/gate.ogg" id="3_84l4e"]
 [ext_resource type="Material" uid="uid://4u3oys0j7c5c" path="res://global/wobble.tres" id="3_f4ckl"]
 [ext_resource type="PackedScene" uid="uid://cqdd5ec3x03dr" path="res://interactables/interactable.tscn" id="3_vb8vv"]
 [ext_resource type="Script" path="res://interactables/auto_interactable.gd" id="4_jsl3v"]
@@ -13,6 +14,7 @@ size = Vector2(143, 69)
 [node name="Gate" type="Node2D"]
 script = ExtResource("1_tbect")
 game_state = ExtResource("2_ypjgs")
+sound = ExtResource("3_84l4e")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 material = ExtResource("3_f4ckl")

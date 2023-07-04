@@ -3,6 +3,7 @@ extends PanelContainer
 enum HintTextType { FULL_SENTENCE, SHORT }
 
 @export var hint_text_type: HintTextType
+
 @onready var icon: TextureRect = %Icon
 @onready var type: Label = %Type
 @onready var hint_text: Label = %HintText
@@ -12,6 +13,12 @@ enum HintTextType { FULL_SENTENCE, SHORT }
 @onready var helpful: HBoxContainer = %Helpful
 @onready var star_full: Texture = preload("res://interactables/hint_examiner/assets/star.png")
 @onready var star_empty: Texture = preload("res://interactables/hint_examiner/assets/star_empty.png")
+@onready var helpfulness_sounds := [
+	preload("res://interactables/hint_examiner/unhelpful.ogg"),
+	preload("res://interactables/hint_examiner/helpful1.ogg"),
+	preload("res://interactables/hint_examiner/helpful2.ogg"),
+	preload("res://interactables/hint_examiner/helpful3.ogg")
+]
 
 var helpfulness_translations := {
 	-1: "UNHELPFUL",
@@ -39,6 +46,10 @@ func setup(_hint: Hint, puzzle: Puzzle) -> void:
 	_set_hint_text(puzzle)
 	_show_helpfulness(puzzle)
 	_set_visibilities()
+	
+	var helpfulness := puzzle.get_helpfulness_of_hint(hint)
+	var idx := helpfulness if helpfulness > 0 else 0
+	SfxPlayer.play(helpfulness_sounds[idx])
 
 
 func _set_type() -> void:

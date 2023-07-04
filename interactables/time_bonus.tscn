@@ -1,6 +1,7 @@
-[gd_scene load_steps=8 format=3 uid="uid://dh4kcc77ubyq0"]
+[gd_scene load_steps=9 format=3 uid="uid://dh4kcc77ubyq0"]
 
 [ext_resource type="Script" path="res://interactables/time_bonus.gd" id="1_lo6r0"]
+[ext_resource type="AudioStream" uid="uid://byu6s4mg3o0es" path="res://interactables/pickup.ogg" id="2_rsysg"]
 [ext_resource type="Material" uid="uid://dkl8i0474rde7" path="res://levels/visuals/wobble_time_bonus.tres" id="2_wbppe"]
 [ext_resource type="Texture2D" uid="uid://0il653hl72ts" path="res://levels/visuals/clock.png" id="2_x2nfj"]
 
@@ -86,6 +87,7 @@ _data = {
 collision_layer = 0
 collision_mask = 2
 script = ExtResource("1_lo6r0")
+sound = ExtResource("2_rsysg")
 
 [node name="CanvasGroup" type="CanvasGroup" parent="."]
 

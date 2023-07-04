@@ -40,15 +40,13 @@ popup = NodePath("../InteractionPopup")
 shape = SubResource("CapsuleShape2D_gb8yy")
 
 [node name="InteractionPopup" parent="." instance=ExtResource("3_o1er0")]
-offset_left = 0.0
 offset_top = -185.0
-offset_right = 203.0
 offset_bottom = -57.0
 scale = Vector2(1, 1)
 text = "BRAIN_TOUCH"
 
 [node name="CooldownTimer" type="Timer" parent="."]
-wait_time = 10.0
+wait_time = 90.0
 one_shot = true
 
 [node name="Cooldown" parent="." instance=ExtResource("19_nt6sw")]

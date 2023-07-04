@@ -4,10 +4,14 @@ class_name Categories
 
 enum CATEGORIES {
 	Animals,
-	FruitsVeggies
+	FruitsVeggies,
+	Plants,
+	Objects
 }
 
 const CATEGORY_NAMES = {
 	CATEGORIES.Animals: "CAT_ANIMAL",
 	CATEGORIES.FruitsVeggies: "CAT_FRUITVEG",
+	CATEGORIES.Plants: "CAT_PLANTS",
+	CATEGORIES.Objects: "CAT_OBJECTS",
 }

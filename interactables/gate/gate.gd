@@ -4,6 +4,7 @@ class_name Gate
 @export var destination_gate: Gate
 @export var game_state: GameState
 @export var reverse_arrow := false
+@export var sound: AudioStream
 @onready var front: Polygon2D = $Sprite2D/Front
 @onready var back: Polygon2D = $Sprite2D/Back
 
@@ -30,6 +31,7 @@ func _on_interactable_interacted(player: Node2D) -> void:
 		return
 		
 	game_state.state = GameState.State.DIVING
+	SfxPlayer.play(sound)
 	var t := create_tween().set_ease(Tween.EASE_IN_OUT).set_trans(Tween.TRANS_CUBIC)
 	t.tween_property(player.get_player(), "global_position", self.global_position, ANIM_SPEED)
 	t.parallel().tween_property(player.get_player(), "scale", Vector2.ZERO, ANIM_SPEED)

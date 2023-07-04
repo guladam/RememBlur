@@ -1,7 +1,8 @@
-[gd_scene load_steps=9 format=3 uid="uid://dbvd0r518ukut"]
+[gd_scene load_steps=10 format=3 uid="uid://dbvd0r518ukut"]
 
 [ext_resource type="Script" path="res://tutorial/marker.gd" id="1_qnqto"]
 [ext_resource type="Material" uid="uid://dkl8i0474rde7" path="res://levels/visuals/wobble_time_bonus.tres" id="2_7olwh"]
+[ext_resource type="AudioStream" uid="uid://byu6s4mg3o0es" path="res://interactables/pickup.ogg" id="2_d135x"]
 [ext_resource type="Texture2D" uid="uid://rtb2oeeb7l1o" path="res://tutorial/marker.png" id="3_iarer"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_6n656"]
@@ -115,6 +116,7 @@ _data = {
 collision_layer = 0
 collision_mask = 2
 script = ExtResource("1_qnqto")
+sound = ExtResource("2_d135x")
 
 [node name="CanvasGroup" type="CanvasGroup" parent="."]
 

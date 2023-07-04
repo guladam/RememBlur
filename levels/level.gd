@@ -40,6 +40,7 @@ func _ready() -> void:
 	level_timer.timeout.connect(game_over)
 	player_stats.player_died.connect(game_over)
 
+	MusicPlayer.play_song_by_name("game_music.ogg")
 
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("pause"):

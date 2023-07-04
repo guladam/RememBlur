@@ -10,3 +10,5 @@ func _ready() -> void:
 	Utils.load_config()
 	tutorial.pressed.connect(func(): scene_changer.transition_to("res://tutorial/tutorial_world.tscn"))
 	quit.pressed.connect(func(): get_tree().quit())
+
+	MusicPlayer.play_song_by_name("lost_in_the_desert.ogg")

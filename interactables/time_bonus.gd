@@ -2,6 +2,8 @@ extends Area2D
 
 
 @export var time_bonus := 15
+@export var sound: AudioStream
+
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var label_marker: Marker2D = $LabelMarker
 @onready var label := preload("res://levels/bonus_time_label.tscn")
@@ -9,6 +11,7 @@ extends Area2D
 
 func _on_area_entered(_area: Area2D) -> void:
 	Events.time_bonus_picked_up.emit(time_bonus)
+	SfxPlayer.play(sound)
 	var new_label := label.instantiate()
 	get_parent().add_child(new_label)
 	new_label.global_position = label_marker.global_position
