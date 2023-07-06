@@ -1,11 +1,13 @@
-[gd_resource type="Resource" script_class="HealthUpgrade" load_steps=2 format=3 uid="uid://bgb7rw8fbqirm"]
+[gd_resource type="Resource" script_class="HealthUpgrade" load_steps=3 format=3 uid="uid://bgb7rw8fbqirm"]
 
 [ext_resource type="Script" path="res://upgrades/scripts/health_upgrade.gd" id="1_1md13"]
+[ext_resource type="Texture2D" uid="uid://k5b21w3vcxwl" path="res://upgrades/ui/fullheal_upgrade.png" id="1_3m5up"]
 
 [resource]
 script = ExtResource("1_1md13")
 upgrade_type = 1
 value = 0
 name_key = "UPGRADE_T3_FULL_HEAL"
-one_time = null
+icon = ExtResource("1_3m5up")
+one_time = false
 stat_name = "health"

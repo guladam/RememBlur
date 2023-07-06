@@ -60,8 +60,16 @@ func get_helpfulness_of_hint(hint: Hint) -> int:
 func get_helpful_hint(available_hints: Array, helpfulness: int = 0) -> int:
 	for i in range(available_hints.size()):
 		var idx := hints.find(available_hints[i])
+		var anything_helpful := helpfulness == 0 and helpfulness_values[idx] > 0
 		if idx > -1:
-			if helpfulness == 0 or helpfulness_values[idx] == helpfulness:
+			if anything_helpful or helpfulness_values[idx] == helpfulness:
 				return i
 				
 	return -1
+
+
+func previous_hint_was_helpful() -> bool:
+	if seen_hints.size() < 1:
+		return false
+		
+	return get_helpfulness_of_hint(seen_hints[-1]) > 0

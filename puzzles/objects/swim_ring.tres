@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Puzzle" load_steps=2 format=3 uid="uid://bxj4clue3w500"]
+
+[ext_resource type="Script" path="res://puzzles/puzzle.gd" id="1_rupi1"]
+
+[resource]
+script = ExtResource("1_rupi1")
+solution_key = "PUZZLE_SWIM_RING"
+hints = Array[Resource("res://hints/hint.gd")]([])
+category = 3
+helpfulness_values = Array[int]([])

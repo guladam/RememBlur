@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Puzzle" load_steps=2 format=3 uid="uid://djbvm2qd6ogk"]
+
+[ext_resource type="Script" path="res://puzzles/puzzle.gd" id="1_fw5gg"]
+
+[resource]
+script = ExtResource("1_fw5gg")
+solution_key = "PUZZLE_SHOES"
+hints = Array[Resource("res://hints/hint.gd")]([])
+category = 3
+helpfulness_values = Array[int]([])

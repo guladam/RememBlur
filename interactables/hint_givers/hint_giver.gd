@@ -16,15 +16,15 @@ func setup(p: Puzzle) -> void:
 
 
 func get_hint(helpfulness := 0) -> Hint:
-	# TODO do we want a signal for that?
 	if hints.is_empty():
-		print("keine hints")
 		return null
 	
 	hints.shuffle()
 	var given_hint := -1
-	# TODO replace with actual logic
-	if randf() > 0.4:
+	var helpful_by_chance := randf() <= player_stats.helpful_hint_chance + player_stats.helpful_hint_chance
+	var helpful_because_prev := not _puzzle.previous_hint_was_helpful()
+	
+	if helpful_by_chance or helpful_because_prev:
 		given_hint = _puzzle.get_helpful_hint(hints, helpfulness)
 	
 	return hints.pop_at(given_hint)

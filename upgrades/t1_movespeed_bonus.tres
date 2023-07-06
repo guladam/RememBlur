@@ -1,5 +1,6 @@
-[gd_resource type="Resource" script_class="NumberUpgrade" load_steps=2 format=3 uid="uid://f60xi7p757ot"]
+[gd_resource type="Resource" script_class="NumberUpgrade" load_steps=3 format=3 uid="uid://f60xi7p757ot"]
 
+[ext_resource type="Texture2D" uid="uid://id572ovcyhgm" path="res://upgrades/ui/movement_upgrade.png" id="1_2wnwd"]
 [ext_resource type="Script" path="res://upgrades/scripts/number_upgrade.gd" id="1_ttr76"]
 
 [resource]
@@ -7,4 +8,6 @@ script = ExtResource("1_ttr76")
 upgrade_type = 2
 value = 100.0
 name_key = "UPGRADE_T1_MS_BONUS"
+icon = ExtResource("1_2wnwd")
+one_time = false
 stat_name = "move_speed_bonus"

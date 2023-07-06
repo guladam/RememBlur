@@ -474,12 +474,12 @@ target_scene = "res://menus/main_menu.tscn"
 fade_duration = 0.35
 
 [node name="MainMenuBrain" type="Sprite2D" parent="."]
-position = Vector2(512, 640)
+position = Vector2(512, 540)
 scale = Vector2(0.459424, 0.459424)
 texture = ExtResource("8_3qqe0")
 
 [node name="Neuron" parent="." instance=ExtResource("9_6w1wf")]
-position = Vector2(709, 931)
+position = Vector2(709, 831)
 
 [node name="Head" parent="Neuron/Visuals" index="0"]
 position = Vector2(0.000488281, 0)

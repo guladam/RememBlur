@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Puzzle" load_steps=2 format=3 uid="uid://c2hsnfgua5bnt"]
+
+[ext_resource type="Script" path="res://puzzles/puzzle.gd" id="1_33tl7"]
+
+[resource]
+script = ExtResource("1_33tl7")
+solution_key = "PUZZLE_ICE_CREAM"
+hints = Array[Resource("res://hints/hint.gd")]([])
+category = 4
+helpfulness_values = Array[int]([])

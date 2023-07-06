@@ -6,7 +6,8 @@ enum CATEGORIES {
 	Animals,
 	FruitsVeggies,
 	Plants,
-	Objects
+	Objects,
+	FoodDrink
 }
 
 const CATEGORY_NAMES = {
@@ -14,4 +15,5 @@ const CATEGORY_NAMES = {
 	CATEGORIES.FruitsVeggies: "CAT_FRUITVEG",
 	CATEGORIES.Plants: "CAT_PLANTS",
 	CATEGORIES.Objects: "CAT_OBJECTS",
+	CATEGORIES.FoodDrink: "CAT_FOOD_DRINK",
 }

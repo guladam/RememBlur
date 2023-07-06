@@ -24,4 +24,5 @@ taste_cd_bonus = 0
 taste_cd_multipliers = Array[float]([])
 touch_cd_bonus = 0
 touch_cd_multipliers = Array[float]([])
-blood_donation = false
+helpful_hint_chance = 0.1
+helpful_hint_bonus = 0.0

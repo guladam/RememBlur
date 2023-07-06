@@ -51,8 +51,9 @@ enum SIGN { NEGATIVE, POSITIVE }
 @export var touch_cd_bonus := 0
 @export var touch_cd_multipliers: Array[float]
 
-@export_group("Unlockables")
-@export var blood_donation := false
+@export_group("Helpfulness")
+@export var helpful_hint_chance := 0.1
+@export var helpful_hint_bonus := 0.0
 
 
 func get_multiplier(values: Array[float], _sign: SIGN) -> float:
@@ -83,3 +84,5 @@ func reset() -> void:
 	smell_cd_multipliers.clear()
 	taste_cd_multipliers.clear()
 	touch_cd_multipliers.clear()
+	helpful_hint_chance = 0.1
+	helpful_hint_bonus = 0.0

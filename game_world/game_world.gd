@@ -1,8 +1,9 @@
 extends Node2D
 
 @export_dir var puzzle_folder: String
-@export_file var player_stats_path: String
 @export var genres: Array[String]
+@export var first_level_time := 240
+@export var level_time_bonus := 120
 @export var levels_per_run := 5
 @export var game_state: GameState
 
@@ -42,11 +43,13 @@ func load_next_level() -> void:
 	if level_counter > levels.size() - 1:
 		return
 
+	var next_time_limit := _get_time_for_next_level()
+
 	for c in current_level.get_children():
 		c.queue_free()
 	
 	var new_level = level.instantiate()
-	new_level.time_limit = 240 # TODO define this on a run basis
+	new_level.time_limit = next_time_limit
 	new_level.puzzle = levels[level_counter]
 	new_level.player_stats = player_stats
 	new_level.game_state = game_state
@@ -77,6 +80,15 @@ func generate_run() -> void:
 	var all_puzzles: Array[Puzzle] = load_all_puzzles()
 	all_puzzles.shuffle()
 	levels = all_puzzles.slice(0, levels_per_run)
+
+
+func _get_time_for_next_level() -> float:
+	if level_counter == 0:
+		return first_level_time
+	else:
+		var time_left: float = current_level.get_child(0).get_time_left()
+		var time_total: float = time_left + level_time_bonus + player_stats.time_bonus
+		return time_total * player_stats.get_multiplier(player_stats.time_multipliers, player_stats.SIGN.POSITIVE)
 
 
 func _pause() -> void:

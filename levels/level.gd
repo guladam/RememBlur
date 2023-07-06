@@ -18,6 +18,7 @@ signal pause
 
 func _ready() -> void:
 	puzzle.reset()
+	print(puzzle.solution)
 	game_state.state = GameState.State.PLAYING
 	get_tree().call_group("puzzle_receiver", "setup", puzzle)
 	get_tree().call_group("stats_receiver", "set", "player_stats", player_stats)
@@ -59,7 +60,7 @@ func game_over() -> void:
 
 
 func level_won() -> void:
-	level_timer.stop()
+	level_timer.paused = true
 	won.emit()
 	game_state.state = GameState.State.PAUSED
 
@@ -70,3 +71,7 @@ func add_time(amount: int) -> void:
 
 func set_time(seconds: int) -> void:
 	level_timer.start(seconds)
+
+
+func get_time_left() -> float:
+	return level_timer.time_left

@@ -35,7 +35,6 @@ func _on_interactable_interacted(player: Area2D) -> void:
 		interactable.turn_off()
 		unlock_hint(h)
 	else:
-		# TODO give feedback to player (eg. camshake)
 		print("nothing left")
 
 
