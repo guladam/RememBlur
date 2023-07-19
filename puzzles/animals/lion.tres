@@ -1,7 +1,6 @@
-[gd_resource type="Resource" script_class="Puzzle" load_steps=6 format=3 uid="uid://dd72ddquqou52"]
+[gd_resource type="Resource" script_class="Puzzle" load_steps=5 format=3 uid="uid://dd72ddquqou52"]
 
 [ext_resource type="Script" path="res://puzzles/puzzle.gd" id="1_kntro"]
-[ext_resource type="Resource" uid="uid://dshcvovhxycwb" path="res://hints/hearing/lions_playing.tres" id="1_lqtnj"]
 [ext_resource type="Resource" uid="uid://cr4hds3nd38jb" path="res://hints/sight/c_brown.tres" id="2_r46w5"]
 [ext_resource type="Resource" uid="uid://87gsqhbh7ccp" path="res://hints/sight/s_oblong.tres" id="3_p3udl"]
 [ext_resource type="Resource" uid="uid://c686cfewumd3r" path="res://hints/touch/soft.tres" id="4_lbdra"]
@@ -9,6 +8,6 @@
 [resource]
 script = ExtResource("1_kntro")
 solution_key = "PUZZLE_LION"
-hints = Array[Resource("res://hints/hint.gd")]([ExtResource("1_lqtnj"), ExtResource("2_r46w5"), ExtResource("3_p3udl"), ExtResource("4_lbdra")])
+hints = Array[Resource("res://hints/hint.gd")]([ExtResource("2_r46w5"), ExtResource("3_p3udl"), ExtResource("4_lbdra")])
 category = 0
-helpfulness_values = Array[int]([2, 3, 1, 2])
+helpfulness_values = Array[int]([3, 1, 2])

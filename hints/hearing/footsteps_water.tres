@@ -1,10 +1,10 @@
-[gd_resource type="Resource" script_class="Sense" load_steps=3 format=3 uid="uid://ct156hkkys0me"]
+[gd_resource type="Resource" script_class="Hint" load_steps=3 format=3]
 
-[ext_resource type="Script" path="res://hints/hint.gd" id="1_3x62h"]
-[ext_resource type="AudioStream" uid="uid://cx6t40li8soxi" path="res://hints/hearing/footsteps_water.ogg" id="2_7vu4o"]
+[ext_resource type="Script" path="res://hints/hint.gd" id="1_ox00c"]
+[ext_resource type="AudioStream" path="res://hints/hearing/footsteps_water.ogg" id="2_7aup4"]
 
 [resource]
-script = ExtResource("1_3x62h")
+script = ExtResource("1_ox00c")
 type = 2
 text = ""
-sound = ExtResource("2_7vu4o")
+sound = ExtResource("2_7aup4")

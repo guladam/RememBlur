@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://bmli7rfhsg2ud"]
+
+[ext_resource type="Script" path="res://global/sound_hint_generator.gd" id="1_7wu75"]
+
+[node name="SoundHintGenerator" type="Node"]
+script = ExtResource("1_7wu75")

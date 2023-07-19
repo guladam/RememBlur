@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Hint" load_steps=3 format=3]
+
+[ext_resource type="Script" path="res://hints/hint.gd" id="1_br7mr"]
+[ext_resource type="AudioStream" path="res://hints/hearing/shaking_fries.ogg" id="2_dnlco"]
+
+[resource]
+script = ExtResource("1_br7mr")
+type = 2
+text = ""
+sound = ExtResource("2_dnlco")

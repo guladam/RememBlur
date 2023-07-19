@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Hint" load_steps=3 format=3]
+
+[ext_resource type="Script" path="res://hints/hint.gd" id="1_4hjgn"]
+[ext_resource type="AudioStream" path="res://hints/hearing/hammering_nail.ogg" id="2_aeeko"]
+
+[resource]
+script = ExtResource("1_4hjgn")
+type = 2
+text = ""
+sound = ExtResource("2_aeeko")

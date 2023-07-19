@@ -72,7 +72,8 @@ func get_helpful_hint(available_hints: Array, helpfulness: int = 0) -> int:
 
 
 func previous_hint_was_helpful() -> bool:
+	# if it's the first hint, you have a 50-50 chance
 	if seen_hints.size() < 1:
-		return true
+		return randf() > 0.5
 		
 	return get_helpfulness_of_hint(seen_hints[-1]) > 0

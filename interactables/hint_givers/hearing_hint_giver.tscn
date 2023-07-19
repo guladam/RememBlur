@@ -1,13 +1,6 @@
 [gd_scene load_steps=15 format=3 uid="uid://c826jg5vddi34"]
 
 [ext_resource type="Script" path="res://interactables/hint_givers/taste_hint_giver.gd" id="1_go32b"]
-[ext_resource type="Resource" uid="uid://dj0e65mmdtw0" path="res://hints/hearing/coin.tres" id="2_yiq72"]
-[ext_resource type="Resource" uid="uid://bdjw1mdenh47m" path="res://hints/hearing/footsteps.tres" id="3_j4n0r"]
-[ext_resource type="Resource" uid="uid://ct156hkkys0me" path="res://hints/hearing/footsteps_water.tres" id="4_uw3g3"]
-[ext_resource type="Resource" uid="uid://c8lvtudgw5erk" path="res://hints/hearing/fruit_bite.tres" id="5_mjqf1"]
-[ext_resource type="Resource" uid="uid://c5iisa26yn2pc" path="res://hints/hearing/fruit_falling.tres" id="6_bg515"]
-[ext_resource type="Resource" uid="uid://dshcvovhxycwb" path="res://hints/hearing/lions_playing.tres" id="7_hmgf1"]
-[ext_resource type="Resource" uid="uid://cn6ek1lcrkn6d" path="res://hints/hearing/wood_dropping.tres" id="8_wiy8h"]
 [ext_resource type="Material" uid="uid://dcf3p2j3frwt7" path="res://global/wobble_sense.tres" id="9_vs3vs"]
 [ext_resource type="PackedScene" uid="uid://cyhvse1bag8h2" path="res://interactables/hint_givers/cooldown.tscn" id="13_bs7sy"]
 [ext_resource type="Texture2D" uid="uid://ce7gb4l6g68j4" path="res://interactables/sensory_icons/ear.svg" id="21_5oklu"]
@@ -20,7 +13,7 @@ height = 214.0
 
 [node name="HearingHintGiver" type="Node2D" groups=["puzzle_receiver", "stats_receiver"]]
 script = ExtResource("1_go32b")
-hints = Array[Resource("res://hints/hint.gd")]([ExtResource("2_yiq72"), ExtResource("3_j4n0r"), ExtResource("4_uw3g3"), ExtResource("5_mjqf1"), ExtResource("6_bg515"), ExtResource("7_hmgf1"), ExtResource("8_wiy8h")])
+hints = Array[Resource("res://hints/hint.gd")]([])
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 material = ExtResource("9_vs3vs")

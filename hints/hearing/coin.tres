@@ -1,10 +1,10 @@
-[gd_resource type="Resource" script_class="Sense" load_steps=3 format=3 uid="uid://dj0e65mmdtw0"]
+[gd_resource type="Resource" script_class="Hint" load_steps=3 format=3]
 
-[ext_resource type="Script" path="res://hints/hint.gd" id="1_4a8q4"]
-[ext_resource type="AudioStream" uid="uid://db1dx54u4orcu" path="res://hints/hearing/coin.ogg" id="2_iihma"]
+[ext_resource type="Script" path="res://hints/hint.gd" id="1_52xfi"]
+[ext_resource type="AudioStream" path="res://hints/hearing/coin.ogg" id="2_sc75j"]
 
 [resource]
-script = ExtResource("1_4a8q4")
+script = ExtResource("1_52xfi")
 type = 2
 text = ""
-sound = ExtResource("2_iihma")
+sound = ExtResource("2_sc75j")

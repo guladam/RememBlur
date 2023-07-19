@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Hint" load_steps=3 format=3]
+
+[ext_resource type="Script" path="res://hints/hint.gd" id="1_4hqny"]
+[ext_resource type="AudioStream" path="res://hints/hearing/towel_drying.ogg" id="2_6m8hl"]
+
+[resource]
+script = ExtResource("1_4hqny")
+type = 2
+text = ""
+sound = ExtResource("2_6m8hl")

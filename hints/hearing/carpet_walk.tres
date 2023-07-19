@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Hint" load_steps=3 format=3]
+
+[ext_resource type="Script" path="res://hints/hint.gd" id="1_1b2be"]
+[ext_resource type="AudioStream" path="res://hints/hearing/carpet_walk.ogg" id="2_s2t2e"]
+
+[resource]
+script = ExtResource("1_1b2be")
+type = 2
+text = ""
+sound = ExtResource("2_s2t2e")

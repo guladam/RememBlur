@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Hint" load_steps=3 format=3]
+
+[ext_resource type="Script" path="res://hints/hint.gd" id="1_jlh6k"]
+[ext_resource type="AudioStream" path="res://hints/hearing/ketchup_open_close.ogg" id="2_oxjwm"]
+
+[resource]
+script = ExtResource("1_jlh6k")
+type = 2
+text = ""
+sound = ExtResource("2_oxjwm")
