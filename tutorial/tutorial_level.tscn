@@ -1,9 +1,9 @@
 [gd_scene load_steps=24 format=3 uid="uid://bej30ghplefsy"]
 
 [ext_resource type="Script" path="res://tutorial/tutorial_level.gd" id="1_bj7cd"]
-[ext_resource type="Resource" uid="uid://dd72ddquqou52" path="res://puzzles/animals/lion.tres" id="2_jlcsb"]
+[ext_resource type="Resource" uid="uid://3mq8k83gn7xs" path="res://tutorial/tutorial_apple.tres" id="2_1lq75"]
 [ext_resource type="Resource" uid="uid://dh3x1s6th3qwx" path="res://levels/game_state.tres" id="3_bvwhn"]
-[ext_resource type="Resource" uid="uid://bubc4po0y1ol8" path="res://stats/player_stats.tres" id="4_x1hh7"]
+[ext_resource type="Resource" uid="uid://1jgpucimohvy" path="res://stats/tutorial_stats.tres" id="4_mtwpi"]
 [ext_resource type="PackedScene" uid="uid://3qxqdcpjgqix" path="res://interactables/guesser/guesser.tscn" id="5_hwvp3"]
 [ext_resource type="PackedScene" uid="uid://c6x47bpav0hmj" path="res://tutorial/tutorial_obstacle.tscn" id="6_o33j1"]
 [ext_resource type="PackedScene" uid="uid://c15qhgoay4u16" path="res://interactables/gate/gate.tscn" id="7_5e0wl"]
@@ -33,9 +33,9 @@ script = ExtResource("1_bj7cd")
 tutorial_message_texts = Array[String](["TUTORIAL_STEP_1", "TUTORIAL_STEP_2_1", "TUTORIAL_STEP_2_2", "TUTORIAL_STEP_3", "TUTORIAL_STEP_4_1", "TUTORIAL_STEP_4_2", "TUTORIAL_STEP_4_3", "TUTORIAL_STEP_4_4", "TUTORIAL_STEP_5_1", "TUTORIAL_STEP_5_2", "TUTORIAL_STEP_6_1", "TUTORIAL_STEP_6_2", "TUTORIAL_STEP_6_3", "TUTORIAL_STEP_0"])
 tutorial_message_button_texts = Array[String](["UI_GOT_IT"])
 time_limit = 900.0
-puzzle = ExtResource("2_jlcsb")
+puzzle = ExtResource("2_1lq75")
 game_state = ExtResource("3_bvwhn")
-player_stats = ExtResource("4_x1hh7")
+player_stats = ExtResource("4_mtwpi")
 
 [node name="Guesser" parent="." instance=ExtResource("5_hwvp3")]
 game_state = ExtResource("3_bvwhn")

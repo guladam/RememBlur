@@ -1,10 +1,11 @@
-[gd_scene load_steps=30 format=3 uid="uid://ciy87g0165dyq"]
+[gd_scene load_steps=37 format=3 uid="uid://ciy87g0165dyq"]
 
 [ext_resource type="Script" path="res://interactables/hint_givers/sight_hint_giver.gd" id="1_svl6t"]
 [ext_resource type="Resource" uid="uid://boqx1r2s2yfp" path="res://hints/sight/c_black.tres" id="2_t8a4h"]
 [ext_resource type="Resource" uid="uid://cdw4cj7rth1ec" path="res://hints/sight/c_blue.tres" id="3_qp86l"]
 [ext_resource type="Resource" uid="uid://cr4hds3nd38jb" path="res://hints/sight/c_brown.tres" id="4_0m7tw"]
 [ext_resource type="Resource" uid="uid://dekuojdk0d3te" path="res://hints/sight/c_gray.tres" id="5_8a5qa"]
+[ext_resource type="Resource" uid="uid://cf1ip7p1t41jr" path="res://hints/sight/c_dark.tres" id="5_kj1x2"]
 [ext_resource type="Resource" uid="uid://b2unf64wp4k8a" path="res://hints/sight/c_green.tres" id="6_hl7aq"]
 [ext_resource type="Resource" uid="uid://y40sv6ulw3ga" path="res://hints/sight/c_multicolored.tres" id="7_mlvgs"]
 [ext_resource type="Resource" uid="uid://crk7drcn11ql1" path="res://hints/sight/c_orange.tres" id="8_3e3d2"]
@@ -18,13 +19,19 @@
 [ext_resource type="Texture2D" uid="uid://dgwn14djxwh3x" path="res://interactables/sensory_icons/eye.svg" id="15_qcpkd"]
 [ext_resource type="PackedScene" uid="uid://cqdd5ec3x03dr" path="res://interactables/interactable.tscn" id="16_6ao5i"]
 [ext_resource type="Resource" uid="uid://cn3hsqdhj4f3r" path="res://hints/sight/s_circle.tres" id="16_aqqes"]
+[ext_resource type="Resource" uid="uid://ctk44svmmsw8j" path="res://hints/sight/p_spotted.tres" id="17_i186n"]
 [ext_resource type="Resource" uid="uid://bwbb2dddpqt40" path="res://hints/sight/s_high.tres" id="17_jgdim"]
 [ext_resource type="PackedScene" uid="uid://b0lnbpich0nky" path="res://interactables/interaction_popup.tscn" id="17_wxyep"]
 [ext_resource type="Resource" uid="uid://87gsqhbh7ccp" path="res://hints/sight/s_oblong.tres" id="18_r2vja"]
+[ext_resource type="Resource" uid="uid://kmxqdt0dj7i8" path="res://hints/sight/size_big.tres" id="18_x1s5c"]
 [ext_resource type="Resource" uid="uid://bfqffit3npt8n" path="res://hints/sight/s_oval.tres" id="19_pog5q"]
+[ext_resource type="Resource" uid="uid://b8l05lsvlitu8" path="res://hints/sight/size_large.tres" id="19_yupkq"]
 [ext_resource type="Resource" uid="uid://pah7x7c7go5s" path="res://hints/sight/s_rectangle.tres" id="20_8xid1"]
+[ext_resource type="Resource" uid="uid://bdh7164qkaaff" path="res://hints/sight/size_medium.tres" id="20_f7763"]
+[ext_resource type="Resource" uid="uid://bbo67igexnhru" path="res://hints/sight/size_small.tres" id="21_b77pu"]
 [ext_resource type="Resource" uid="uid://dyitk5l15qagk" path="res://hints/sight/s_short.tres" id="21_yhk6g"]
 [ext_resource type="Resource" uid="uid://bopkkeo4uqs0d" path="res://hints/sight/s_square.tres" id="22_jjqcd"]
+[ext_resource type="Resource" uid="uid://c0yq22s62btgg" path="res://hints/sight/size_tiny.tres" id="22_xvhmx"]
 [ext_resource type="Resource" uid="uid://cjutahoisbdva" path="res://hints/sight/s_triangle.tres" id="23_lo2gr"]
 [ext_resource type="Material" uid="uid://dcf3p2j3frwt7" path="res://global/wobble_sense.tres" id="24_8ceun"]
 [ext_resource type="PackedScene" uid="uid://cyhvse1bag8h2" path="res://interactables/hint_givers/cooldown.tscn" id="28_opxv5"]
@@ -35,7 +42,7 @@ height = 214.0
 
 [node name="SightHintGiver" type="Node2D" groups=["puzzle_receiver", "stats_receiver"]]
 script = ExtResource("1_svl6t")
-hints = Array[Resource("res://hints/hint.gd")]([ExtResource("2_t8a4h"), ExtResource("3_qp86l"), ExtResource("4_0m7tw"), ExtResource("5_8a5qa"), ExtResource("6_hl7aq"), ExtResource("7_mlvgs"), ExtResource("8_3e3d2"), ExtResource("9_mllmm"), ExtResource("10_6a1n5"), ExtResource("11_ow7jd"), ExtResource("12_lefod"), ExtResource("13_u2nvb"), ExtResource("14_fhmue"), ExtResource("15_lgduh"), ExtResource("16_aqqes"), ExtResource("17_jgdim"), ExtResource("18_r2vja"), ExtResource("19_pog5q"), ExtResource("20_8xid1"), ExtResource("21_yhk6g"), ExtResource("22_jjqcd"), ExtResource("23_lo2gr")])
+hints = Array[Resource]([ExtResource("2_t8a4h"), ExtResource("3_qp86l"), ExtResource("4_0m7tw"), ExtResource("5_kj1x2"), ExtResource("5_8a5qa"), ExtResource("6_hl7aq"), ExtResource("7_mlvgs"), ExtResource("8_3e3d2"), ExtResource("9_mllmm"), ExtResource("10_6a1n5"), ExtResource("11_ow7jd"), ExtResource("12_lefod"), ExtResource("13_u2nvb"), ExtResource("14_fhmue"), ExtResource("15_lgduh"), ExtResource("17_i186n"), ExtResource("18_x1s5c"), ExtResource("19_yupkq"), ExtResource("20_f7763"), ExtResource("21_b77pu"), ExtResource("22_xvhmx"), ExtResource("16_aqqes"), ExtResource("17_jgdim"), ExtResource("18_r2vja"), ExtResource("19_pog5q"), ExtResource("20_8xid1"), ExtResource("21_yhk6g"), ExtResource("22_jjqcd"), ExtResource("23_lo2gr")])
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 material = ExtResource("24_8ceun")

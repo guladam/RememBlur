@@ -4,7 +4,7 @@ class_name HintGiver
 signal show_latest_hint_screen(hint: Hint)
 
 @export var game_state: GameState
-@export var hints: Array[Hint]
+@export var hints: Array[Resource]
 @export var player_stats: PlayerStats
 var cooldown: Timer
 var cooldown_progress: TextureProgressBar
@@ -21,7 +21,7 @@ func get_hint(helpfulness := 0) -> Hint:
 	
 	hints.shuffle()
 	var given_hint := -1
-	var helpful_by_chance := randf() <= player_stats.helpful_hint_chance + player_stats.helpful_hint_chance
+	var helpful_by_chance := randf() <= player_stats.helpful_hint_chance + player_stats.helpful_hint_bonus
 	var helpful_because_prev := not _puzzle.previous_hint_was_helpful()
 	
 	if helpful_by_chance or helpful_because_prev:
