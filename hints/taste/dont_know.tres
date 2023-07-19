@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="Hint" load_steps=2 format=3 uid="uid://chy7gyvc551li"]
+
+[ext_resource type="Script" path="res://hints/hint.gd" id="1_dl5rm"]
+
+[resource]
+script = ExtResource("1_dl5rm")
+type = 0
+text = "TASTE_DONT_KNOW"

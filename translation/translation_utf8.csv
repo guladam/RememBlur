@@ -13,6 +13,7 @@ COLOR_BLACK,black,fekete
 COLOR_WHITE,white,fehér
 COLOR_TRANS,transparent,átlátszó
 COLOR_MULTI,multicolored,többszínű
+COLOR_DARK,dark,sötét
 SHAPE_CIRCLE,circle,kör
 SHAPE_TRIANGLE,triangle,háromszög
 SHAPE_SQUARE,square,négyzet
@@ -21,6 +22,12 @@ SHAPE_OVAL,oval,ovális
 SHAPE_OBLONG,oblong,hosszúkás
 SHAPE_SHORT,short,rövid
 SHAPE_HIGH,high,magas
+SIZE_TINY,tiny,pici
+SIZE_SMALL,small,kicsi
+SIZE_MEDIUM,medium-sized,közepes méretű
+SIZE_BIG,big,nagy
+SIZE_LARGE,large,óriási
+PATTERN_SPOTTED,spotted,foltos
 SMELL_FRAGRANT,fragrant,kellemes
 SMELL_WOODY,woody,fa
 SMELL_MINTY,minty,menta
@@ -31,6 +38,12 @@ SMELL_LEMON,lemon,citrom
 SMELL_FRUITY,fruity,gyümölcsös
 SMELL_PUNGENT,pungent,"csípős, éles"
 SMELL_DECAYED,decayed,rohadás
+SMELL_NO_SMELL,no smell,szagtalan
+SMELL_SALTY,salty,sós
+SMELL_SMELLY,smelly,büdös
+SMELL_DUSTY,dusty,dohos
+SMELL_GRASSY,grassy,fű
+SMELL_IRONY,irony,vas
 TASTE_BITTER,bitter,keserű
 TASTE_SWEET,sweet,édes
 TASTE_SOUR,sour,savanyú
@@ -50,6 +63,11 @@ TASTE_CITRUSY,citrusy,citrusos
 TASTE_PEPPERY,peppery,borsos
 TASTE_ZESTY,zesty,frissítő
 TASTE_BUTTERY,buttery,vajas
+TASTE_NO_TASTE,no taste,ízetlen
+TASTE_DONT_KNIOW,we don't taste it,nem szoktuk kóstolgatni
+TASTE_OILY,oily,olajos
+TASTE_MEATY,meaty,húsos
+TASTE_JUICY,juicy,zamatos
 TOUCH_SOFT,soft,puha
 TOUCH_SMOOTH,smooth,sima
 TOUCH_PRICKLY,prickly,szúrós
@@ -63,6 +81,9 @@ TOUCH_COLD,cold,hideg
 TOUCH_WARM,warm,meleg
 TOUCH_SLIMY,slimy,nyálkás
 TOUCH_FUZZY,fuzzy,pelyhes
+TOUCH_NOTHING,nothing special,semmi különös
+TOUCH_HARD,hard,kemény
+TOUCH_HOT,hot,forró
 UPGRADE_T1_HEAL,+1 energy,+1 energia
 UPGRADE_T1_MS_BONUS,move faster,gyorsabb mozgás
 UPGRADE_T2_HEAL,+2 energy,+2 energia
@@ -87,6 +108,7 @@ MENU_OPTIONS,Options,Beállítások
 MENU_QUIT,Quit Game,Kilépés
 MENU_LANGUAGE,Language,Nyelv
 MENU_SAVE,Save,Mentés
+MENU_CREDITS,Credits,Stáblista
 BTN_GUESS,Guess (G),Tippelés (G)
 BTN_HINT,Hints (H),Tények (H)
 UI_GUESSER_PROMPT,"What do you think 
@@ -192,3 +214,4 @@ TUTORIAL_FINISHED,"That's the end of the tutorial.
 You're ready for some real remembering action.","Ezzel véget is ért a tutorial.
 Készen állsz a valódi visszaemlékezésre."
 TUTORIAL_GAME_OVER,Something went wrong. You might want to try again.,Valami félrement. Lehet érdemes lenne újra megpróbálni?
+CREDITS_SFX,"SFX are from freesound.org, from the following users:","A hangok a freesound.org oldalról vannak, a következő felhasználóktól:"

@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="Hint" load_steps=2 format=3 uid="uid://b0khrbimq76ce"]
+
+[ext_resource type="Script" path="res://hints/hint.gd" id="1_infpy"]
+
+[resource]
+script = ExtResource("1_infpy")
+type = 1
+text = "SMELL_NO_SMELL"

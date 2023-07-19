@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="Hint" load_steps=2 format=3 uid="uid://ctk44svmmsw8j"]
+
+[ext_resource type="Script" path="res://hints/hint.gd" id="1_6h1fe"]
+
+[resource]
+script = ExtResource("1_6h1fe")
+type = 4
+text = "PATTERN_SPOTTED"

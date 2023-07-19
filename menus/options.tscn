@@ -1,413 +1,34 @@
-[gd_scene load_steps=13 format=3 uid="uid://caajyg0wa5pjw"]
+[gd_scene load_steps=4 format=3 uid="uid://caajyg0wa5pjw"]
 
 [ext_resource type="Theme" uid="uid://cytrqyn3gsxmg" path="res://ui_theme.tres" id="1_2ahqc"]
 [ext_resource type="Script" path="res://menus/options.gd" id="2_hr2yx"]
-[ext_resource type="Shader" uid="uid://3vsvyhsbccay" path="res://menus/visuals/question_mark_shader.tres" id="3_s4x6r"]
-[ext_resource type="Texture2D" uid="uid://e8d266xb4o8t" path="res://menus/visuals/question_mark.png" id="4_yursn"]
 [ext_resource type="PackedScene" uid="uid://ge36ui6fwwft" path="res://menus/lang_selector.tscn" id="5_xu5th"]
-[ext_resource type="PackedScene" uid="uid://8d02qj7c0jr7" path="res://game_world/scene_changer.tscn" id="7_ijcbu"]
-[ext_resource type="Texture2D" uid="uid://bflijhemiptd6" path="res://menus/visuals/main_menu_brain.png" id="8_3qqe0"]
-[ext_resource type="PackedScene" uid="uid://d3bsx0tnsm5n8" path="res://menus/menu_neuron.tscn" id="9_6w1wf"]
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_4bt11"]
-shader = ExtResource("3_s4x6r")
-shader_parameter/direction = Vector2(-1, 1)
-shader_parameter/speed_scale = 0.15
-
-[sub_resource type="Animation" id="Animation_a8i5s"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Neuron:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(709, 931)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Neuron:modulate")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(1, 1, 1, 1)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("Neuron/Visuals/End:scale")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(0, 0)]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("Neuron/Visuals/Tail:scale")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(0, 0)]
-}
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("Neuron/Visuals/Head:scale")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(1, 1)]
-}
-tracks/5/type = "value"
-tracks/5/imported = false
-tracks/5/enabled = true
-tracks/5/path = NodePath("Neuron:scale")
-tracks/5/interp = 1
-tracks/5/loop_wrap = true
-tracks/5/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(1, 1)]
-}
-tracks/6/type = "value"
-tracks/6/imported = false
-tracks/6/enabled = true
-tracks/6/path = NodePath("Neuron/Visuals/Tail:modulate")
-tracks/6/interp = 1
-tracks/6/loop_wrap = true
-tracks/6/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(1, 1, 1, 1)]
-}
-tracks/7/type = "value"
-tracks/7/imported = false
-tracks/7/enabled = true
-tracks/7/path = NodePath("Neuron/Visuals/Head:rotation")
-tracks/7/interp = 1
-tracks/7/loop_wrap = true
-tracks/7/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [0.0]
-}
-tracks/8/type = "value"
-tracks/8/imported = false
-tracks/8/enabled = true
-tracks/8/path = NodePath("Neuron/Visuals/Head:modulate")
-tracks/8/interp = 1
-tracks/8/loop_wrap = true
-tracks/8/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(1, 1, 1, 1)]
-}
-tracks/9/type = "value"
-tracks/9/imported = false
-tracks/9/enabled = true
-tracks/9/path = NodePath("Neuron/Visuals/Tail:rotation")
-tracks/9/interp = 1
-tracks/9/loop_wrap = true
-tracks/9/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [0.0]
-}
-tracks/10/type = "value"
-tracks/10/imported = false
-tracks/10/enabled = true
-tracks/10/path = NodePath("Neuron/Visuals/End:position")
-tracks/10/interp = 1
-tracks/10/loop_wrap = true
-tracks/10/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(-645, 32)]
-}
-tracks/11/type = "value"
-tracks/11/imported = false
-tracks/11/enabled = true
-tracks/11/path = NodePath("Neuron:rotation")
-tracks/11/interp = 1
-tracks/11/loop_wrap = true
-tracks/11/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [0.0]
-}
-tracks/12/type = "value"
-tracks/12/imported = false
-tracks/12/enabled = true
-tracks/12/path = NodePath("Neuron/Visuals/Tail:position")
-tracks/12/interp = 1
-tracks/12/loop_wrap = true
-tracks/12/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(0, 0)]
-}
-
-[sub_resource type="Animation" id="Animation_i05bt"]
-resource_name = "animate_neuron"
-length = 15.0
-loop_mode = 1
-tracks/0/type = "animation"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Neuron/Visuals/AnimationPlayer")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"clips": PackedStringArray("walk"),
-"times": PackedFloat32Array(0)
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Neuron:position")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 1, 4.2, 6, 9.6, 11.2, 14.5),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
-"update": 0,
-"values": [Vector2(709, 931), Vector2(709, 931), Vector2(73, 670), Vector2(748, 212), Vector2(186, 1123), Vector2(967, 564), Vector2(85.9999, 408)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("Neuron:rotation")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0, 4.2, 6, 9.6, 11.2, 14.3),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
-"update": 0,
-"values": [-2.61799, -2.61799, -4.14612, -4.14612, -2.90183, -2.90248]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("Neuron:modulate")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0, 0.3, 14.3, 15),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 0,
-"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
-}
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("Neuron/Visuals/End:scale")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
-"times": PackedFloat32Array(0, 1.6, 1.8, 3.6, 3.9, 6.5, 6.8, 9.1, 9.3, 12.1, 12.4, 14, 14.2),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
-"update": 0,
-"values": [Vector2(0, 0), Vector2(0, 0), Vector2(1, 1), Vector2(1, 1), Vector2(0, 0), Vector2(0, 0), Vector2(1, 1), Vector2(1, 1), Vector2(0, 0), Vector2(0, 0), Vector2(1, 1), Vector2(1, 1), Vector2(0, 0)]
-}
-tracks/5/type = "value"
-tracks/5/imported = false
-tracks/5/enabled = true
-tracks/5/path = NodePath("Neuron/Visuals/Tail:scale")
-tracks/5/interp = 1
-tracks/5/loop_wrap = true
-tracks/5/keys = {
-"times": PackedFloat32Array(0, 1.1, 1.5, 3.6, 4, 6.2, 6.6, 9.1, 9.3, 11.8, 12.2, 14, 14.2),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
-"update": 0,
-"values": [Vector2(0, 0), Vector2(0, 0), Vector2(1, 1), Vector2(1, 1), Vector2(0, 0), Vector2(0, 0), Vector2(1, 1), Vector2(1, 1), Vector2(0, 0), Vector2(0, 0), Vector2(1, 1), Vector2(1, 1), Vector2(0, 0)]
-}
-tracks/6/type = "value"
-tracks/6/imported = false
-tracks/6/enabled = true
-tracks/6/path = NodePath("Neuron/Visuals/Head:scale")
-tracks/6/interp = 1
-tracks/6/loop_wrap = true
-tracks/6/keys = {
-"times": PackedFloat32Array(0, 0.9, 1.2, 3.5, 3.8, 6.2, 6.4, 8.9, 9.2, 11.8, 12, 13.8, 14.1),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
-"update": 0,
-"values": [Vector2(0, 0), Vector2(0, 0), Vector2(1, 1), Vector2(1, 1), Vector2(0, 0), Vector2(0, 0), Vector2(1, 1), Vector2(1, 1), Vector2(0, 0), Vector2(0, 0), Vector2(1, 1), Vector2(1, 1), Vector2(0, 0)]
-}
-tracks/7/type = "value"
-tracks/7/imported = false
-tracks/7/enabled = true
-tracks/7/path = NodePath("Neuron:scale")
-tracks/7/interp = 1
-tracks/7/loop_wrap = true
-tracks/7/keys = {
-"times": PackedFloat32Array(),
-"transitions": PackedFloat32Array(),
-"update": 0,
-"values": []
-}
-tracks/8/type = "value"
-tracks/8/imported = false
-tracks/8/enabled = true
-tracks/8/path = NodePath("Neuron/Visuals/Tail:modulate")
-tracks/8/interp = 1
-tracks/8/loop_wrap = true
-tracks/8/keys = {
-"times": PackedFloat32Array(0, 1.1, 1.5, 3.6, 4, 6.2, 6.6, 9, 9.3, 11.8, 12.2, 13.9, 14.2),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
-"update": 0,
-"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
-}
-tracks/9/type = "value"
-tracks/9/imported = false
-tracks/9/enabled = true
-tracks/9/path = NodePath("Neuron/Visuals/Head:rotation")
-tracks/9/interp = 1
-tracks/9/loop_wrap = true
-tracks/9/keys = {
-"times": PackedFloat32Array(5.6, 11.2),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [0.0, 0.0]
-}
-tracks/10/type = "value"
-tracks/10/imported = false
-tracks/10/enabled = true
-tracks/10/path = NodePath("Neuron/Visuals/Head:modulate")
-tracks/10/interp = 1
-tracks/10/loop_wrap = true
-tracks/10/keys = {
-"times": PackedFloat32Array(1, 1.3, 3.5, 3.8, 6.1, 6.3, 8.9, 9.2, 11.7, 11.9, 13.8, 14.1),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
-"update": 0,
-"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
-}
-tracks/11/type = "value"
-tracks/11/imported = false
-tracks/11/enabled = true
-tracks/11/path = NodePath("Neuron/Visuals/Tail:rotation")
-tracks/11/interp = 1
-tracks/11/loop_wrap = true
-tracks/11/keys = {
-"times": PackedFloat32Array(6.2, 11.8),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [0.0, 0.0]
-}
-tracks/12/type = "value"
-tracks/12/imported = false
-tracks/12/enabled = true
-tracks/12/path = NodePath("Neuron/Visuals/End:position")
-tracks/12/interp = 1
-tracks/12/loop_wrap = true
-tracks/12/keys = {
-"times": PackedFloat32Array(0, 1.8, 3.5, 3.6, 3.7, 3.8, 6.5, 8.9, 9, 9.2, 11.6, 13.8, 13.9, 14, 14.1),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
-"update": 0,
-"values": [Vector2(-620, 32), Vector2(-620, 32), Vector2(-601.878, 36.2695), Vector2(-568.247, 33.2705), Vector2(-408.192, 9.24219), Vector2(-249.298, 3.20508), Vector2(-620, 32), Vector2(-620, 32), Vector2(-561.109, 22.9441), Vector2(-302.731, -12.2817), Vector2(-620, 32), Vector2(-620, 32), Vector2(-561.109, 22.9441), Vector2(-490.471, 4.50195), Vector2(-174.471, -14.54)]
-}
-tracks/13/type = "value"
-tracks/13/imported = false
-tracks/13/enabled = true
-tracks/13/path = NodePath("Neuron/Visuals/Tail:position")
-tracks/13/interp = 1
-tracks/13/loop_wrap = true
-tracks/13/keys = {
-"times": PackedFloat32Array(0, 1.5, 3.5, 3.6, 8.9, 9, 11.8, 13.8, 13.9, 14),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
-"update": 0,
-"values": [Vector2(0, 0), Vector2(0, 0), Vector2(45.1892, -10.2279), Vector2(80.878, -12.415), Vector2(0, 0), Vector2(82.01, -18.5618), Vector2(0, 0), Vector2(0, 0), Vector2(82.01, -18.5618), Vector2(148.838, -33.0178)]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_eineu"]
-_data = {
-"RESET": SubResource("Animation_a8i5s"),
-"animate_neuron": SubResource("Animation_i05bt")
-}
-
-[node name="Options" type="ColorRect"]
+[node name="Options" type="VBoxContainer"]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-mouse_filter = 1
 theme = ExtResource("1_2ahqc")
-color = Color(0, 0, 0, 1)
+theme_override_constants/separation = 20
 script = ExtResource("2_hr2yx")
 
-[node name="QuestionMarks" type="TextureRect" parent="."]
-material = SubResource("ShaderMaterial_4bt11")
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-texture = ExtResource("4_yursn")
-stretch_mode = 1
-
 [node name="Title" type="Label" parent="."]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = 26.5
-offset_top = -415.0
-offset_right = 816.5
-offset_bottom = -267.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_font_sizes/font_size = 100
+layout_mode = 2
+theme_override_font_sizes/font_size = 72
 text = "MENU_OPTIONS"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Options" type="VBoxContainer" parent="."]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = 171.0
-offset_top = -214.0
-offset_right = 664.0
-offset_bottom = 391.0
-grow_horizontal = 2
-grow_vertical = 2
+[node name="VboxContainer" type="VBoxContainer" parent="."]
+layout_mode = 2
 theme_override_constants/separation = 30
 
-[node name="Video" type="OptionButton" parent="Options"]
+[node name="Video" type="OptionButton" parent="VboxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
+size_flags_horizontal = 0
 item_count = 3
 selected = 0
 popup/item_0/text = "OPTION_FULLSCREEN"
@@ -417,90 +38,63 @@ popup/item_1/id = 1
 popup/item_2/text = "OPTION_WINDOWED"
 popup/item_2/id = 2
 
-[node name="SoundContainer" type="HBoxContainer" parent="Options"]
+[node name="SoundContainer" type="HBoxContainer" parent="VboxContainer"]
 layout_mode = 2
 theme_override_constants/separation = 20
 
-[node name="Label" type="Label" parent="Options/SoundContainer"]
+[node name="Label" type="Label" parent="VboxContainer/SoundContainer"]
 custom_minimum_size = Vector2(150, 0)
 layout_mode = 2
 text = "OPTION_SFX"
 
-[node name="Sound" type="HSlider" parent="Options/SoundContainer"]
+[node name="Sound" type="HSlider" parent="VboxContainer/SoundContainer"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(225, 51)
 layout_mode = 2
 size_flags_horizontal = 3
 value = 100.0
 
-[node name="MusicContainer" type="HBoxContainer" parent="Options"]
+[node name="MusicContainer" type="HBoxContainer" parent="VboxContainer"]
 layout_mode = 2
 theme_override_constants/separation = 20
 
-[node name="Label" type="Label" parent="Options/MusicContainer"]
+[node name="Label" type="Label" parent="VboxContainer/MusicContainer"]
 custom_minimum_size = Vector2(150, 0)
 layout_mode = 2
 text = "OPTION_MUSIC"
 
-[node name="Music" type="HSlider" parent="Options/MusicContainer"]
+[node name="Music" type="HSlider" parent="VboxContainer/MusicContainer"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(225, 51)
 layout_mode = 2
 size_flags_horizontal = 3
 value = 100.0
 
-[node name="VSync" type="CheckButton" parent="Options"]
+[node name="VSync" type="CheckButton" parent="VboxContainer"]
 unique_name_in_owner = true
+custom_minimum_size = Vector2(300, 0)
 layout_mode = 2
+size_flags_horizontal = 0
 text = "V-Sync"
 
-[node name="LangSelector" parent="Options" instance=ExtResource("5_xu5th")]
+[node name="LangSelector" parent="VboxContainer" instance=ExtResource("5_xu5th")]
 unique_name_in_owner = true
 layout_mode = 2
 alignment = 1
 
-[node name="MarginContainer" type="MarginContainer" parent="Options"]
+[node name="MarginContainer" type="MarginContainer" parent="VboxContainer"]
 layout_mode = 2
 theme_override_constants/margin_top = 50
 
-[node name="Save" type="Button" parent="Options/MarginContainer"]
+[node name="Save" type="Button" parent="VboxContainer/MarginContainer"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(250, 0)
 layout_mode = 2
+size_flags_horizontal = 4
 text = "MENU_SAVE"
 
-[node name="SceneChanger" parent="." instance=ExtResource("7_ijcbu")]
-target_scene = "res://menus/main_menu.tscn"
-fade_duration = 0.35
-
-[node name="MainMenuBrain" type="Sprite2D" parent="."]
-position = Vector2(512, 540)
-scale = Vector2(0.459424, 0.459424)
-texture = ExtResource("8_3qqe0")
-
-[node name="Neuron" parent="." instance=ExtResource("9_6w1wf")]
-position = Vector2(709, 831)
-
-[node name="Head" parent="Neuron/Visuals" index="0"]
-position = Vector2(0.000488281, 0)
-
-[node name="End" parent="Neuron/Visuals" index="1"]
-position = Vector2(-645, 32)
-scale = Vector2(1e-05, 1e-05)
-
-[node name="Tail" parent="Neuron/Visuals" index="2"]
-scale = Vector2(1e-05, 1e-05)
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-autoplay = "animate_neuron"
-libraries = {
-"": SubResource("AnimationLibrary_eineu")
-}
-
-[connection signal="item_selected" from="Options/Video" to="." method="_on_Video_item_selected"]
-[connection signal="value_changed" from="Options/SoundContainer/Sound" to="." method="_on_Sound_value_changed"]
-[connection signal="value_changed" from="Options/MusicContainer/Music" to="." method="_on_Music_value_changed"]
-[connection signal="toggled" from="Options/VSync" to="." method="_on_VSync_toggled"]
-[connection signal="pressed" from="Options/MarginContainer/Save" to="." method="_on_Save_pressed"]
-
-[editable path="Neuron"]
+[connection signal="item_selected" from="VboxContainer/Video" to="." method="_on_Video_item_selected"]
+[connection signal="value_changed" from="VboxContainer/SoundContainer/Sound" to="." method="_on_Sound_value_changed"]
+[connection signal="value_changed" from="VboxContainer/MusicContainer/Music" to="." method="_on_Music_value_changed"]
+[connection signal="toggled" from="VboxContainer/VSync" to="." method="_on_VSync_toggled"]
+[connection signal="pressed" from="VboxContainer/MarginContainer/Save" to="." method="_on_Save_pressed"]

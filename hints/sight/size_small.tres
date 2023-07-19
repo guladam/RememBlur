@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="Hint" load_steps=2 format=3 uid="uid://bbo67igexnhru"]
+
+[ext_resource type="Script" path="res://hints/hint.gd" id="1_hki3o"]
+
+[resource]
+script = ExtResource("1_hki3o")
+type = 4
+text = "SIZE_SMALL"

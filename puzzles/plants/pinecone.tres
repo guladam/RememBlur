@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Puzzle" load_steps=2 format=3 uid="uid://di62janv4h2ie"]
+
+[ext_resource type="Script" path="res://puzzles/puzzle.gd" id="1_68vpb"]
+
+[resource]
+script = ExtResource("1_68vpb")
+solution_key = "PUZZLE_PINECONE"
+hints = Array[Resource("res://hints/hint.gd")]([])
+category = 2
+helpfulness_values = Array[int]([])

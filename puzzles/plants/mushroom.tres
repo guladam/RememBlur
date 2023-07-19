@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Puzzle" load_steps=2 format=3 uid="uid://bwnuc602wwmcj"]
+
+[ext_resource type="Script" path="res://puzzles/puzzle.gd" id="1_kd4pp"]
+
+[resource]
+script = ExtResource("1_kd4pp")
+solution_key = "PUZZLE_MUSHROOM"
+hints = Array[Resource("res://hints/hint.gd")]([])
+category = 2
+helpfulness_values = Array[int]([])

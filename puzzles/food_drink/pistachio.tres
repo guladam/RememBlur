@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Puzzle" load_steps=2 format=3 uid="uid://bpkqu3ep0dhw4"]
+
+[ext_resource type="Script" path="res://puzzles/puzzle.gd" id="1_amoav"]
+
+[resource]
+script = ExtResource("1_amoav")
+solution_key = "PUZZLE_PISTACHIO"
+hints = Array[Resource("res://hints/hint.gd")]([])
+category = 4
+helpfulness_values = Array[int]([])

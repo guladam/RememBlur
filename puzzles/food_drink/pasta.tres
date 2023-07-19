@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Puzzle" load_steps=2 format=3 uid="uid://deawm4kf22v5f"]
+
+[ext_resource type="Script" path="res://puzzles/puzzle.gd" id="1_heq3e"]
+
+[resource]
+script = ExtResource("1_heq3e")
+solution_key = "PUZZLE_PASTA"
+hints = Array[Resource("res://hints/hint.gd")]([])
+category = 4
+helpfulness_values = Array[int]([])

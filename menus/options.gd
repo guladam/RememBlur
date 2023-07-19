@@ -1,12 +1,12 @@
-extends ColorRect
+extends VBoxContainer
 
+signal back_to_main_menu
 
 @onready var video := %Video
 @onready var sound := %Sound
 @onready var music := %Music
 @onready var vsync := %VSync
 @onready var save_btn := %Save
-@onready var scene_changer: CanvasLayer = $SceneChanger
 @onready var lang_selector: VBoxContainer = %LangSelector
 
 var _settings: ConfigFile
@@ -86,4 +86,4 @@ func _on_VSync_toggled(button_pressed: bool):
 
 func _on_Save_pressed():
 	save()
-	scene_changer.transition_to()
+	back_to_main_menu.emit()

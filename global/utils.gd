@@ -13,6 +13,7 @@ static func load_config() -> void:
 	var err = _settings.load("user://settings.cfg")
 
 	if err != OK:
+		set_language("en")
 		return
 
 	for setting in _settings.get_sections():
