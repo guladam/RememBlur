@@ -25,7 +25,13 @@ func setup(puzzle: Puzzle) -> void:
 
 func setup_guesser() -> void:
 	guess.max_length = puzzle_length
-	guess.placeholder_text = "_".repeat(puzzle_length)
+	
+	var words := _puzzle.solution.split(" ")
+	var placeholder: PackedStringArray = []
+	for word in words:
+		placeholder.append("_".repeat(word.length()))
+	
+	guess.placeholder_text = " ".join(placeholder)
 
 
 func show_guesser() -> void:
@@ -56,7 +62,7 @@ func show_guesser() -> void:
 
 
 func submit_guess() -> void:
-	if guess.text.length() != puzzle_length:
+	if guess.text.length() != puzzle_length and guess.text.length() != _puzzle.solution_clean.length():
 		return
 	
 	close()

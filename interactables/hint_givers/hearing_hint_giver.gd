@@ -19,8 +19,8 @@ func _process(_delta: float) -> void:
 
 
 func set_cooldown() -> void:
-	var new_base := base_cd - player_stats.touch_cd_bonus - player_stats.universal_cd_bonus
-	var multipliers := player_stats.touch_cd_multipliers + player_stats.universal_cd_multipliers
+	var new_base := base_cd - player_stats.hearing_cd_bonus - player_stats.universal_cd_bonus
+	var multipliers := player_stats.hearing_cd_multipliers + player_stats.universal_cd_multipliers
 	cooldown.wait_time = new_base * player_stats.get_multiplier(multipliers, player_stats.SIGN.NEGATIVE)
 	
 

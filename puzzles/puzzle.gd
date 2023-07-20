@@ -11,29 +11,54 @@ signal hint_added_as_seen(hint: Hint)
 @export var helpfulness_values: Array[int]
 
 var solution: String
+var solution_clean: String
 var seen_hints: Array[Hint]
 var seen_letters: Array[String]
+var unique_letters: Dictionary
 
 
 func reset() -> void:
 	seen_hints.clear()
 	seen_letters.clear()
 	solution = tr(solution_key)
+	solution_clean = solution.replace(" ", "")
+	
+	for c in solution_clean:
+		unique_letters[c] = c
 
 
 func check_guess(guess: String) -> bool:
-	if solution.length() > 0 and guess.to_lower() == solution.to_lower():
+	var guess_clean := guess.replace(" ", "")
+	
+	if solution_clean.length() > 0 and guess_clean.to_lower() == solution_clean.to_lower():
 		return true
 	
-	if guess.length() != solution.length():
+	if guess_clean.length() != solution_clean.length():
 		return false
 	
-	for i in range(solution.length()):
-		if solution[i] == guess[i] and not seen_letters.has(guess[i]):
-			seen_letters.append(guess[i])
+	for i in range(solution_clean.length()):
+		if solution_clean[i] == guess_clean[i] and not seen_letters.has(guess_clean[i]):
+			seen_letters.append(guess_clean[i])
 	
 	emit_changed()
 	
+	return seen_letters.size() == unique_letters.size()
+
+
+# returns true if it's the last letter, false otherwise.
+func unlock_unseen_letters(amount: int) -> bool:
+	if seen_letters.size() == unique_letters.values().size() - 1:
+		return true
+	
+	for _i in range(amount):
+		var new_letter: String = unique_letters.values().pick_random()
+
+		while seen_letters.has(new_letter):
+			new_letter = unique_letters.values().pick_random()
+		
+		seen_letters.append(new_letter)
+	
+	emit_changed()
 	return false
 
 

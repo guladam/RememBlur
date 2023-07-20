@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://drkl3gmuqg8c7"]
+[gd_scene load_steps=6 format=3 uid="uid://drkl3gmuqg8c7"]
 
 [ext_resource type="Script" path="res://upgrades/ui/upgrade_card.gd" id="1_2g3qq"]
 [ext_resource type="Theme" uid="uid://cytrqyn3gsxmg" path="res://ui_theme.tres" id="1_fjt32"]
 [ext_resource type="Texture2D" uid="uid://d1ma7m7tncqin" path="res://icon.svg" id="2_1g6mj"]
 [ext_resource type="StyleBox" uid="uid://bo6qt3x381vqn" path="res://upgrades/ui/upgrade_card_stylebox.tres" id="2_3dg8e"]
+[ext_resource type="Texture2D" uid="uid://cm7yambyb6v45" path="res://interactables/hint_examiner/assets/star.png" id="4_cshe2"]
 
 [node name="UpgradeCard" type="PanelContainer"]
 anchors_preset = 8
@@ -20,6 +21,44 @@ grow_vertical = 2
 theme = ExtResource("1_fjt32")
 theme_override_styles/panel = ExtResource("2_3dg8e")
 script = ExtResource("1_2g3qq")
+
+[node name="Stars" type="Control" parent="."]
+unique_name_in_owner = true
+layout_mode = 2
+mouse_filter = 2
+
+[node name="Star1" type="TextureRect" parent="Stars"]
+layout_mode = 0
+offset_left = 35.0
+offset_top = -15.0
+offset_right = 83.0
+offset_bottom = 33.0
+mouse_filter = 2
+texture = ExtResource("4_cshe2")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Star2" type="TextureRect" parent="Stars"]
+layout_mode = 0
+offset_left = 83.0
+offset_top = -26.0
+offset_right = 131.0
+offset_bottom = 22.0
+mouse_filter = 2
+texture = ExtResource("4_cshe2")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Star3" type="TextureRect" parent="Stars"]
+layout_mode = 0
+offset_left = 131.0
+offset_top = -16.0
+offset_right = 179.0
+offset_bottom = 32.0
+mouse_filter = 2
+texture = ExtResource("4_cshe2")
+expand_mode = 1
+stretch_mode = 5
 
 [node name="Margin" type="MarginContainer" parent="."]
 custom_minimum_size = Vector2(200, 300)

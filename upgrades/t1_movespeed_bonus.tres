@@ -10,4 +10,5 @@ value = 100.0
 name_key = "UPGRADE_T1_MS_BONUS"
 icon = ExtResource("1_2wnwd")
 one_time = false
+tier = 1
 stat_name = "move_speed_bonus"

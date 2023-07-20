@@ -9,5 +9,6 @@ upgrade_type = 1
 value = 0
 name_key = "UPGRADE_T3_FULL_HEAL"
 icon = ExtResource("1_3m5up")
-one_time = false
+one_time = true
+tier = 3
 stat_name = "health"

@@ -5,6 +5,7 @@ class_name Upgrade
 @export var name_key: String
 @export var icon: Texture
 @export var one_time := false
+@export var tier := 1
 
 var stat_name: String
 var type := TYPE_NIL

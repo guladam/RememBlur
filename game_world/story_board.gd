@@ -15,7 +15,7 @@ func _ready() -> void:
 
 func show_story(words: Array, genre: String, run_name: String) -> void:
 	show()
-	var lang := TranslationServer.get_language_name(TranslationServer.get_locale())
+	var lang := TranslationServer.get_language_name(TranslationServer.get_locale().substr(0, 2))
 	var prompt_text := "Generate a short %s.
 Make sure your whole answer is in %s.
 Use 150-200 words.

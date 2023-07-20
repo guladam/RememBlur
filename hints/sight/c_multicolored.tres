@@ -1,8 +1,8 @@
-[gd_resource type="Resource" script_class="Sense" load_steps=2 format=3 uid="uid://y40sv6ulw3ga"]
+[gd_resource type="Resource" script_class="Hint" load_steps=2 format=3 uid="uid://y40sv6ulw3ga"]
 
 [ext_resource type="Script" path="res://hints/hint.gd" id="1_uugkj"]
 
 [resource]
 script = ExtResource("1_uugkj")
 type = 4
-text = "COLOR_MULTICOLORED"
+text = "COLOR_MULTI"

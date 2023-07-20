@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="NumberUpgrade" load_steps=3 format=3 uid="uid://b23m00lifkl8f"]
+
+[ext_resource type="Texture2D" uid="uid://e8d266xb4o8t" path="res://menus/visuals/question_mark.png" id="1_ddb14"]
+[ext_resource type="Script" path="res://upgrades/scripts/number_upgrade.gd" id="1_mok5p"]
+
+[resource]
+script = ExtResource("1_mok5p")
+upgrade_type = 2
+value = 1.0
+name_key = "UPGRADE_T2_UPGRADE_SLOT"
+icon = ExtResource("1_ddb14")
+one_time = false
+tier = 2
+stat_name = "upgrade_options"

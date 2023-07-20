@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://cv4jbed6nor"]
+
+[ext_resource type="Theme" uid="uid://cytrqyn3gsxmg" path="res://ui_theme.tres" id="1_e0hp7"]
+[ext_resource type="Script" path="res://levels/floating_label.gd" id="2_n6hqu"]
+
+[node name="FloatingLabel" type="Label"]
+offset_right = 100.0
+offset_bottom = 60.0
+theme = ExtResource("1_e0hp7")
+theme_override_font_sizes/font_size = 64
+text = "+15 s"
+horizontal_alignment = 1
+vertical_alignment = 1
+script = ExtResource("2_n6hqu")

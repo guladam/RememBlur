@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="NumberUpgrade" load_steps=3 format=3 uid="uid://bf4nv5nbu4wf6"]
+
+[ext_resource type="Texture2D" uid="uid://0il653hl72ts" path="res://levels/visuals/clock.png" id="1_7jhrd"]
+[ext_resource type="Script" path="res://upgrades/scripts/number_upgrade.gd" id="1_fjjrh"]
+
+[resource]
+script = ExtResource("1_fjjrh")
+upgrade_type = 2
+value = 90.0
+name_key = "UPGRADE_T3_TIME_BONUS"
+icon = ExtResource("1_7jhrd")
+one_time = false
+tier = 3
+stat_name = "time_bonus"

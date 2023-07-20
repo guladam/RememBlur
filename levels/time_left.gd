@@ -2,7 +2,7 @@ extends Control
 
 @onready var label: Label = $VboxContainer/Label
 @onready var bonus_marker: Marker2D = $BonusMarker
-@onready var time_label := preload("res://levels/bonus_time_label.tscn")
+@onready var time_label := preload("res://levels/floating_label.tscn")
 var timer: Timer
 
 
@@ -20,4 +20,4 @@ func add_time(amount: int) -> void:
 	var new_label := time_label.instantiate()
 	add_child(new_label)
 	new_label.position = bonus_marker.position
-	new_label.setup(amount)
+	new_label.setup("+%s s" % amount)

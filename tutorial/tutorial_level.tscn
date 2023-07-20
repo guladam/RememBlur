@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://bej30ghplefsy"]
+[gd_scene load_steps=25 format=3 uid="uid://bej30ghplefsy"]
 
 [ext_resource type="Script" path="res://tutorial/tutorial_level.gd" id="1_bj7cd"]
 [ext_resource type="Resource" uid="uid://3mq8k83gn7xs" path="res://tutorial/tutorial_apple.tres" id="2_1lq75"]
@@ -19,6 +19,7 @@
 [ext_resource type="PackedScene" uid="uid://b3o2wkh3qrpvd" path="res://interactables/guesser/guesser_ui.tscn" id="19_e15yd"]
 [ext_resource type="PackedScene" uid="uid://be0ehq5ccgvj5" path="res://levels/time_left.tscn" id="20_lme3s"]
 [ext_resource type="Theme" uid="uid://cytrqyn3gsxmg" path="res://ui_theme.tres" id="21_5o522"]
+[ext_resource type="PackedScene" uid="uid://caqahax4wf7bo" path="res://levels/helpful_hints.tscn" id="21_isokm"]
 [ext_resource type="PackedScene" uid="uid://blt5faaqq0dkj" path="res://stats/health_bar.tscn" id="22_co1ge"]
 [ext_resource type="Shader" path="res://levels/visuals/level_background.gdshader" id="23_gnkeu"]
 [ext_resource type="Texture2D" uid="uid://ckw7ak7x2t7id" path="res://levels/visuals/bg_texture.png" id="24_o6ucq"]
@@ -187,6 +188,9 @@ theme = ExtResource("21_5o522")
 text = "BTN_HINT"
 
 [node name="HealthBar" parent="UI" instance=ExtResource("22_co1ge")]
+
+[node name="HelpfulHints" parent="UI" instance=ExtResource("21_isokm")]
+visible = false
 
 [node name="BackgroundLayer" type="CanvasLayer" parent="."]
 layer = -1

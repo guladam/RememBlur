@@ -64,7 +64,7 @@ TASTE_PEPPERY,peppery,borsos
 TASTE_ZESTY,zesty,frissítő
 TASTE_BUTTERY,buttery,vajas
 TASTE_NO_TASTE,no taste,ízetlen
-TASTE_DONT_KNIOW,we don't taste it,nem szoktuk kóstolgatni
+TASTE_DONT_KNOW,we don't taste it,nem szoktuk kóstolgatni
 TASTE_OILY,oily,olajos
 TASTE_MEATY,meaty,húsos
 TASTE_JUICY,juicy,zamatos
@@ -87,10 +87,27 @@ TOUCH_HOT,hot,forró
 TOUCH_GRIPPY,grippy,tapadós
 UPGRADE_T1_HEAL,+1 energy,+1 energia
 UPGRADE_T1_MS_BONUS,move faster,gyorsabb mozgás
+UPGRADE_T1_HEARING_CD,-5% hearing ⏳,-5% hallás ⏳
+UPGRADE_T1_SIGHT_CD,-5% sight ⏳,-5% látás ⏳
+UPGRADE_T1_SMELL_CD,-5% smell ⏳,-5% szaglás ⏳
+UPGRADE_T1_TOUCH_CD,-5% touch ⏳,-5% érintés ⏳
+UPGRADE_T1_TASTE_CD,-5% taste ⏳,-5% ízlelés ⏳
+UPGRADE_T1_HINT_CHANCE,+2.5% chance for helpful hints,+2.5% esély hasznos tényekre
+UPGRADE_T1_TIME_BONUS,+30s time,+30 mp idő
+UPGRADE_T2_HEARING_CD,-7.5% hearing ⏳,-7.5% hallás ⏳
+UPGRADE_T2_SIGHT_CD,-7.5% sight ⏳,-7.5% látás ⏳
+UPGRADE_T2_SMELL_CD,-7.5% smell ⏳,-7.5% szaglás ⏳
+UPGRADE_T2_TOUCH_CD,-7.5% touch ⏳,-7.5% érintés ⏳
+UPGRADE_T2_TASTE_CD,-7.5% taste ⏳,-7.5% ízlelés ⏳
+UPGRADE_T2_HINT_CHANCE,+5% chance for helpful hints,+5% esély hasznos tényekre
+UPGRADE_T2_TIME_BONUS,+60s time,+60 mp idő
+UPGRADE_T2_UPGRADE_SLOT,+1 upgrade choice,+1 fejlesztési döntés
+UPGRADE_T2_ALL_CD,-5% ⏳ on all senses,-5% ⏳ az összes érzékre
 UPGRADE_T2_HEAL,+2 energy,+2 energia
 UPGRADE_T2_MAXHP,+1 max energy,+1 max energia
-UPGRADE_T3_BLOOD_DONATION,blood donation,véráldozat
 UPGRADE_T3_FULL_HEAL,restore energy,teljes feltöltés
+UPGRADE_T3_TIME_BONUS,+90s time,+90 mp idő
+UPGRADE_T3_ALL_CD,-7.5% ⏳ on all senses,-7.5% ⏳ az összes érzékre
 BRAIN_TOUCH,somatosensory cortex,szomatoszenzoros kéreg
 BRAIN_SIGHT,primary visual cortex,elsődleges látókéreg
 BRAIN_SMELL,olfactory bulb,szaglóhagyma
@@ -136,6 +153,7 @@ UI_UPGRADE_SELECTION,"The neuron evolves...
 Select an upgrade:","A neuron fejlődik...
 Válassz egy fejlesztést:"
 UI_PLAY,Play,Lejátszás
+UI_HINT_COUNTER,Helpful Hints:,Hasznos Tények:
 OPTION_FULLSCREEN,Fullscreen,Teljes képernyős
 OPTION_BORDERLESS,Borderless,Keret nélküli ablakos
 OPTION_WINDOWED,Windowed,Ablakos

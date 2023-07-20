@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://d3qvej762es6c"]
+[gd_scene load_steps=27 format=3 uid="uid://d3qvej762es6c"]
 
 [ext_resource type="Script" path="res://levels/level.gd" id="1_0xu8p"]
 [ext_resource type="Resource" uid="uid://dd72ddquqou52" path="res://puzzles/animals/lion.tres" id="2_ongqh"]
@@ -23,6 +23,7 @@
 [ext_resource type="PackedScene" uid="uid://blt5faaqq0dkj" path="res://stats/health_bar.tscn" id="17_4ton6"]
 [ext_resource type="Texture2D" uid="uid://ckw7ak7x2t7id" path="res://levels/visuals/bg_texture.png" id="18_o8lpy"]
 [ext_resource type="Theme" uid="uid://cytrqyn3gsxmg" path="res://ui_theme.tres" id="20_j22m6"]
+[ext_resource type="PackedScene" uid="uid://caqahax4wf7bo" path="res://levels/helpful_hints.tscn" id="23_th3ut"]
 [ext_resource type="PackedScene" uid="uid://dh4kcc77ubyq0" path="res://interactables/time_bonus.tscn" id="24_wng4p"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_umwio"]
@@ -305,6 +306,7 @@ visible = false
 game_state = ExtResource("6_p2gfj")
 
 [node name="PuzzleLetters" parent="UI" instance=ExtResource("11_vd0mw")]
+process_mode = 3
 
 [node name="GuesserUI" parent="UI" instance=ExtResource("13_x23yd")]
 visible = false
@@ -331,6 +333,12 @@ theme = ExtResource("20_j22m6")
 text = "BTN_HINT"
 
 [node name="HealthBar" parent="UI" instance=ExtResource("17_4ton6")]
+
+[node name="HelpfulHints" parent="UI" instance=ExtResource("23_th3ut")]
+offset_left = 35.0
+offset_top = 404.0
+offset_right = 345.0
+offset_bottom = 510.0
 
 [node name="BackgroundLayer" type="CanvasLayer" parent="."]
 layer = -1

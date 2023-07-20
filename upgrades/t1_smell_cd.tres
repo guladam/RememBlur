@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="NumberUpgrade" load_steps=3 format=3 uid="uid://cmec4bfgljrm0"]
+
+[ext_resource type="Script" path="res://upgrades/scripts/number_upgrade.gd" id="1_gy0n5"]
+[ext_resource type="Texture2D" uid="uid://cd4ptfulwr08b" path="res://interactables/hint_examiner/assets/nose_icon.png" id="1_xf3ul"]
+
+[resource]
+script = ExtResource("1_gy0n5")
+upgrade_type = 28
+value = 0.05
+name_key = "UPGRADE_T1_SMELL_CD"
+icon = ExtResource("1_xf3ul")
+one_time = true
+tier = 1
+stat_name = "smell_cd_multipliers"

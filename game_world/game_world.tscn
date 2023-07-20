@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://dx5x0f0t2l1ed"]
+[gd_scene load_steps=36 format=3 uid="uid://dx5x0f0t2l1ed"]
 
 [ext_resource type="Script" path="res://game_world/game_world.gd" id="1_blek8"]
 [ext_resource type="Resource" uid="uid://dh3x1s6th3qwx" path="res://levels/game_state.tres" id="2_mldso"]
@@ -11,13 +11,30 @@
 [ext_resource type="Resource" uid="uid://bubc4po0y1ol8" path="res://stats/player_stats.tres" id="8_2k8sd"]
 [ext_resource type="Resource" uid="uid://lqxutop8joug" path="res://upgrades/t1_heal1.tres" id="9_kmuup"]
 [ext_resource type="Resource" uid="uid://f60xi7p757ot" path="res://upgrades/t1_movespeed_bonus.tres" id="10_14fta"]
+[ext_resource type="Resource" uid="uid://jq3pndinuhsm" path="res://upgrades/t1_hearing_cd.tres" id="10_sh4iy"]
+[ext_resource type="Resource" uid="uid://bwlj18yseuh54" path="res://upgrades/t1_hint_chance.tres" id="11_g6rwg"]
 [ext_resource type="Resource" uid="uid://cchjjj47hp0ur" path="res://upgrades/t2_heal2.tres" id="11_jggr0"]
 [ext_resource type="Resource" uid="uid://c5e2nqw7voc27" path="res://upgrades/t2_max_hp1.tres" id="12_7q2bu"]
-[ext_resource type="Resource" uid="uid://dxpamy2bnd6s4" path="res://upgrades/t3_blood_donation.tres" id="13_f41wy"]
+[ext_resource type="Resource" uid="uid://2lpjqgelegg" path="res://upgrades/t1_sight_cd.tres" id="13_v2fmi"]
 [ext_resource type="Resource" uid="uid://bgb7rw8fbqirm" path="res://upgrades/t3_full_heal.tres" id="14_c3sqx"]
+[ext_resource type="Resource" uid="uid://cmec4bfgljrm0" path="res://upgrades/t1_smell_cd.tres" id="14_usagw"]
 [ext_resource type="PackedScene" uid="uid://bkeq3v7l38cvg" path="res://menus/pause.tscn" id="15_ea2i5"]
+[ext_resource type="Resource" uid="uid://bpd4ej1sc1vod" path="res://upgrades/t1_taste_cd.tres" id="15_jvd3q"]
+[ext_resource type="Resource" uid="uid://cchcek5r6mplc" path="res://upgrades/t1_time_bonus.tres" id="16_0mcbx"]
 [ext_resource type="PackedScene" path="res://game_world/story_board.tscn" id="16_ddi2q"]
 [ext_resource type="PackedScene" uid="uid://vuh81qvp3svb" path="res://game_world/name_setup.tscn" id="16_kygrd"]
+[ext_resource type="Resource" uid="uid://du5n0ruh6ha86" path="res://upgrades/t1_touch_cd.tres" id="17_ldubc"]
+[ext_resource type="Resource" uid="uid://dbj4wh6o65i3y" path="res://upgrades/t2_all_cd.tres" id="18_ikt0e"]
+[ext_resource type="Resource" uid="uid://0aa6xhgifxsl" path="res://upgrades/t2_hearing_cd.tres" id="20_eroha"]
+[ext_resource type="Resource" uid="uid://cq4sshma4mmkq" path="res://upgrades/t2_hint_chance.tres" id="21_8yfsc"]
+[ext_resource type="Resource" uid="uid://ddrue3ta30png" path="res://upgrades/t2_sight_cd.tres" id="23_d6pbp"]
+[ext_resource type="Resource" uid="uid://dasyx844hvhuy" path="res://upgrades/t2_smell_cd.tres" id="24_v04mm"]
+[ext_resource type="Resource" uid="uid://chnsumip4gruw" path="res://upgrades/t2_taste_cd.tres" id="25_s5a1w"]
+[ext_resource type="Resource" uid="uid://bdkeuhcfdre0h" path="res://upgrades/t2_time_bonus.tres" id="26_7pp0q"]
+[ext_resource type="Resource" uid="uid://bwg601onppec6" path="res://upgrades/t2_touch_cd.tres" id="27_re454"]
+[ext_resource type="Resource" uid="uid://b23m00lifkl8f" path="res://upgrades/t2_upgrade_slot.tres" id="28_48v7a"]
+[ext_resource type="Resource" uid="uid://cp6cn6v8yhtdp" path="res://upgrades/t3_all_cd.tres" id="29_gs0h6"]
+[ext_resource type="Resource" uid="uid://bf4nv5nbu4wf6" path="res://upgrades/t3_time_bonus.tres" id="31_nbwpq"]
 
 [node name="GameWorld" type="Node2D"]
 process_mode = 3
@@ -45,7 +62,7 @@ visible = false
 [node name="UpgradeSelector" parent="UI" instance=ExtResource("7_hk68d")]
 visible = false
 player_stats = ExtResource("8_2k8sd")
-all_upgrades = Array[Resource]([ExtResource("9_kmuup"), ExtResource("10_14fta"), ExtResource("11_jggr0"), ExtResource("12_7q2bu"), ExtResource("13_f41wy"), ExtResource("14_c3sqx")])
+all_upgrades = Array[Resource]([ExtResource("9_kmuup"), ExtResource("10_sh4iy"), ExtResource("11_g6rwg"), ExtResource("10_14fta"), ExtResource("13_v2fmi"), ExtResource("14_usagw"), ExtResource("15_jvd3q"), ExtResource("16_0mcbx"), ExtResource("17_ldubc"), ExtResource("18_ikt0e"), ExtResource("11_jggr0"), ExtResource("20_eroha"), ExtResource("21_8yfsc"), ExtResource("12_7q2bu"), ExtResource("23_d6pbp"), ExtResource("24_v04mm"), ExtResource("25_s5a1w"), ExtResource("26_7pp0q"), ExtResource("27_re454"), ExtResource("28_48v7a"), ExtResource("29_gs0h6"), ExtResource("14_c3sqx"), ExtResource("31_nbwpq")])
 
 [node name="Pause" parent="UI" instance=ExtResource("15_ea2i5")]
 visible = false

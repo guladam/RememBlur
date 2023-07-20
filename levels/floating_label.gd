@@ -1,11 +1,11 @@
 extends Label
 
 
-func setup(seconds: int) -> void:
+func setup(_text: String) -> void:
 	if not is_inside_tree():
 		await self.ready
 
-	text = "+%s s" % seconds
+	text = _text
 	animate()
 
 

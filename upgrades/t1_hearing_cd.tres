@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="NumberUpgrade" load_steps=3 format=3 uid="uid://jq3pndinuhsm"]
+
+[ext_resource type="Script" path="res://upgrades/scripts/number_upgrade.gd" id="1_3q2tw"]
+[ext_resource type="Texture2D" uid="uid://cq8c5qmjfn7an" path="res://interactables/hint_examiner/assets/ear_icon.png" id="1_n17mp"]
+
+[resource]
+script = ExtResource("1_3q2tw")
+upgrade_type = 28
+value = 0.05
+name_key = "UPGRADE_T1_HEARING_CD"
+icon = ExtResource("1_n17mp")
+one_time = true
+tier = 1
+stat_name = "hearing_cd_multipliers"

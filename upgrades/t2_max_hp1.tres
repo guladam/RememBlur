@@ -10,4 +10,5 @@ value = 1
 name_key = "UPGRADE_T2_MAXHP"
 icon = ExtResource("1_5jnja")
 one_time = false
+tier = 2
 stat_name = "max_health"

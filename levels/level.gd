@@ -14,6 +14,8 @@ signal pause
 @onready var hint_givers: Node2D = $HintGivers
 @onready var guesser: Node = $Guesser
 @onready var level_timer: Timer = $LevelTimer
+@onready var pick_ups: Node2D = $PickUps
+@onready var letter_bonus := preload("res://interactables/letter_bonus.tscn")
 
 
 func _ready() -> void:
@@ -25,9 +27,10 @@ func _ready() -> void:
 	
 	for hint_giver in hint_givers.get_children():
 		hint_giver.show_latest_hint_screen.connect(ui.show_latest_hint_screen)
-	
+		hint_giver.helpful_hint_unlocked.connect(ui.decrease_helpful_hints)
 	
 	Events.time_bonus_picked_up.connect(add_time)
+	Events.letter_bonus_picked_up.connect(add_letter)
 	guesser.show_guessing_screen.connect(ui.show_guesser_ui)
 	guesser.guessed_correctly.connect(ui.show_solution)
 	guesser.guessed_correctly.connect(level_won)
@@ -65,6 +68,14 @@ func level_won() -> void:
 	game_state.state = GameState.State.PAUSED
 
 
+func add_letter(amount: int) -> void:
+	var last_letter := puzzle.unlock_unseen_letters(amount)
+	
+	if last_letter:
+		ui.show_solution()
+		level_won()
+
+
 func add_time(amount: int) -> void:
 	level_timer.start(level_timer.time_left + amount)
 
@@ -75,3 +86,15 @@ func set_time(seconds: int) -> void:
 
 func get_time_left() -> float:
 	return level_timer.time_left
+
+
+func swap_random_time_bonus_for_letter_bonus() -> void:
+	if not pick_ups or pick_ups.get_child_count() == 0:
+		return
+	
+	var idx := randi_range(0, pick_ups.get_child_count() - 1)
+	var global_pos: Vector2 = pick_ups.get_child(idx).global_position
+	var new_letter_bonus := letter_bonus.instantiate()
+	pick_ups.add_child(new_letter_bonus)
+	new_letter_bonus.global_position = global_pos
+	pick_ups.get_child(idx).queue_free()

@@ -1,9 +1,9 @@
-[gd_scene load_steps=9 format=3 uid="uid://dh4kcc77ubyq0"]
+[gd_scene load_steps=9 format=3 uid="uid://dk0th4yhsicxo"]
 
-[ext_resource type="Script" path="res://interactables/time_bonus.gd" id="1_lo6r0"]
-[ext_resource type="AudioStream" uid="uid://byu6s4mg3o0es" path="res://interactables/pickup.ogg" id="2_rsysg"]
-[ext_resource type="Material" uid="uid://dkl8i0474rde7" path="res://levels/visuals/wobble_time_bonus.tres" id="2_wbppe"]
-[ext_resource type="Texture2D" uid="uid://0il653hl72ts" path="res://levels/visuals/clock.png" id="2_x2nfj"]
+[ext_resource type="Script" path="res://interactables/letter_bonus.gd" id="1_is4cy"]
+[ext_resource type="AudioStream" uid="uid://byu6s4mg3o0es" path="res://interactables/pickup.ogg" id="2_7cwot"]
+[ext_resource type="Material" uid="uid://dkl8i0474rde7" path="res://levels/visuals/wobble_time_bonus.tres" id="3_vc5dm"]
+[ext_resource type="Texture2D" uid="uid://iyxjld6y0eqt" path="res://levels/visuals/letter.png" id="4_5fd76"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_qegg7"]
 radius = 58.3095
@@ -83,18 +83,18 @@ _data = {
 "pickup": SubResource("Animation_0y3f1")
 }
 
-[node name="TimeBonus" type="Area2D"]
+[node name="LetterBonus" type="Area2D"]
 collision_layer = 0
 collision_mask = 2
-script = ExtResource("1_lo6r0")
-sound = ExtResource("2_rsysg")
+script = ExtResource("1_is4cy")
+sound = ExtResource("2_7cwot")
 
 [node name="CanvasGroup" type="CanvasGroup" parent="."]
 
 [node name="Sprite2D" type="Sprite2D" parent="CanvasGroup"]
-material = ExtResource("2_wbppe")
-scale = Vector2(0.2, 0.2)
-texture = ExtResource("2_x2nfj")
+material = ExtResource("3_vc5dm")
+scale = Vector2(0.25, 0.3)
+texture = ExtResource("4_5fd76")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_qegg7")

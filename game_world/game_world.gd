@@ -3,8 +3,8 @@ extends Node2D
 @export_dir var puzzle_folder: String
 @export var genres: Array[String]
 @export var first_level_time := 900
-@export var level_time_bonus := 120
-@export var levels_per_run := 5
+@export var level_time_bonus := 180
+@export var levels_per_run := 6
 @export var game_state: GameState
 
 @onready var current_level: Node = $CurrentLevel
@@ -57,7 +57,8 @@ func load_next_level() -> void:
 	new_level.won.connect(_on_level_won)
 	new_level.lost.connect(_on_level_lost)
 	new_level.pause.connect(_on_pause_requested)
-
+	new_level.swap_random_time_bonus_for_letter_bonus()
+	
 
 func load_all_puzzles() -> Array[Puzzle]:
 	var _levels: Array[Puzzle] = []

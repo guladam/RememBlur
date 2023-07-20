@@ -12,6 +12,7 @@ signal guess_entered(guess: String)
 @onready var health_bar: MarginContainer = $HealthBar
 @onready var guess_btn: Button = $Guess
 @onready var hints_btn: Button = $Hints
+@onready var helpful_hints: VBoxContainer = $HelpfulHints
 
 
 func _ready() -> void:
@@ -55,3 +56,7 @@ func show_solution() -> void:
 
 func show_guesser_ui() -> void:
 	guesser_ui.show_guesser()
+
+
+func decrease_helpful_hints() -> void:
+	helpful_hints.decrease_number(1)

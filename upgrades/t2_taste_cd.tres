@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="NumberUpgrade" load_steps=3 format=3 uid="uid://chnsumip4gruw"]
+
+[ext_resource type="Script" path="res://upgrades/scripts/number_upgrade.gd" id="1_m8ayj"]
+[ext_resource type="Texture2D" uid="uid://b64r3dgd2vo8e" path="res://interactables/hint_examiner/assets/taste_icon.png" id="1_nlbcs"]
+
+[resource]
+script = ExtResource("1_m8ayj")
+upgrade_type = 28
+value = 0.075
+name_key = "UPGRADE_T2_TASTE_CD"
+icon = ExtResource("1_nlbcs")
+one_time = true
+tier = 2
+stat_name = "taste_cd_multipliers"
