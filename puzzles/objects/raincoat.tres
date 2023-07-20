@@ -1,10 +1,20 @@
-[gd_resource type="Resource" script_class="Puzzle" load_steps=2 format=3 uid="uid://d1qlv0nthxdpj"]
+[gd_resource type="Resource" script_class="Puzzle" load_steps=12 format=3 uid="uid://d1qlv0nthxdpj"]
 
 [ext_resource type="Script" path="res://puzzles/puzzle.gd" id="1_4o84m"]
+[ext_resource type="Resource" uid="uid://y40sv6ulw3ga" path="res://hints/sight/c_multicolored.tres" id="1_smluj"]
+[ext_resource type="Resource" uid="uid://b0khrbimq76ce" path="res://hints/smell/no_smell.tres" id="2_f8156"]
+[ext_resource type="Resource" uid="uid://tyujjek6sn6u" path="res://hints/smell/dusty.tres" id="3_316eh"]
+[ext_resource type="Resource" uid="uid://cvihph24go05" path="res://hints/smell/chemical.tres" id="4_1qjn5"]
+[ext_resource type="Resource" uid="uid://chy7gyvc551li" path="res://hints/taste/dont_know.tres" id="5_045rn"]
+[ext_resource type="Resource" uid="uid://n0dqchyfcfw0" path="res://hints/touch/sticky.tres" id="6_ikmw3"]
+[ext_resource type="Resource" uid="uid://cuawj7xa0s5ah" path="res://hints/touch/wet.tres" id="7_k734m"]
+[ext_resource type="Resource" path="res://hints/hearing/raincoat1.tres" id="8_kf7q6"]
+[ext_resource type="Resource" path="res://hints/hearing/umbrella_shake.tres" id="9_e82jl"]
+[ext_resource type="Resource" uid="uid://rqe28xpjdvuo" path="res://hints/sight/c_transparent.tres" id="10_bib5g"]
 
 [resource]
 script = ExtResource("1_4o84m")
 solution_key = "PUZZLE_RAINCOAT"
-hints = Array[Resource("res://hints/hint.gd")]([])
+hints = Array[Resource("res://hints/hint.gd")]([ExtResource("1_smluj"), ExtResource("2_f8156"), ExtResource("3_316eh"), ExtResource("4_1qjn5"), ExtResource("5_045rn"), ExtResource("6_ikmw3"), ExtResource("7_k734m"), ExtResource("8_kf7q6"), ExtResource("9_e82jl"), ExtResource("10_bib5g")])
 category = 3
-helpfulness_values = Array[int]([])
+helpfulness_values = Array[int]([3, 2, 1, 1, 1, 2, 3, 3, 2, 2])

@@ -1,10 +1,17 @@
-[gd_resource type="Resource" script_class="Puzzle" load_steps=2 format=3 uid="uid://bsa7s2paldd7o"]
+[gd_resource type="Resource" script_class="Puzzle" load_steps=9 format=3 uid="uid://bsa7s2paldd7o"]
 
 [ext_resource type="Script" path="res://puzzles/puzzle.gd" id="1_idcln"]
+[ext_resource type="Resource" uid="uid://b2nn2eeuw6ou3" path="res://hints/sight/c_yellow.tres" id="1_j04ef"]
+[ext_resource type="Resource" uid="uid://bbo67igexnhru" path="res://hints/sight/size_small.tres" id="2_26a37"]
+[ext_resource type="Resource" uid="uid://c3ipta8nkneiq" path="res://hints/smell/salty.tres" id="3_7bhv6"]
+[ext_resource type="Resource" uid="uid://okcfv771cbkt" path="res://hints/taste/salty.tres" id="4_6sdjl"]
+[ext_resource type="Resource" uid="uid://b5ktavk35e86" path="res://hints/taste/spicy.tres" id="5_euhgl"]
+[ext_resource type="Resource" uid="uid://c2lc56rfet3m2" path="res://hints/touch/coarse.tres" id="6_8f5y8"]
+[ext_resource type="Resource" path="res://hints/hearing/eating_crunchy.tres" id="7_roerj"]
 
 [resource]
 script = ExtResource("1_idcln")
 solution_key = "PUZZLE_CHIPS"
-hints = Array[Resource("res://hints/hint.gd")]([])
+hints = Array[Resource("res://hints/hint.gd")]([ExtResource("1_j04ef"), ExtResource("2_26a37"), ExtResource("3_7bhv6"), ExtResource("4_6sdjl"), ExtResource("5_euhgl"), ExtResource("6_8f5y8"), ExtResource("7_roerj")])
 category = 4
-helpfulness_values = Array[int]([])
+helpfulness_values = Array[int]([3, 2, 3, 3, 2, 2, 3])

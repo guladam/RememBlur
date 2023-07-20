@@ -1,10 +1,19 @@
-[gd_resource type="Resource" script_class="Puzzle" load_steps=2 format=3 uid="uid://xirj8x5vdwb3"]
+[gd_resource type="Resource" script_class="Puzzle" load_steps=11 format=3 uid="uid://xirj8x5vdwb3"]
 
+[ext_resource type="Resource" uid="uid://bliffq4xf4xde" path="res://hints/sight/c_red.tres" id="1_ncya4"]
 [ext_resource type="Script" path="res://puzzles/puzzle.gd" id="1_rwt4r"]
+[ext_resource type="Resource" uid="uid://b2nn2eeuw6ou3" path="res://hints/sight/c_yellow.tres" id="2_q8kvb"]
+[ext_resource type="Resource" uid="uid://crk7drcn11ql1" path="res://hints/sight/c_orange.tres" id="3_nk7an"]
+[ext_resource type="Resource" uid="uid://bvg272giqme0s" path="res://hints/smell/woody.tres" id="4_u30fm"]
+[ext_resource type="Resource" uid="uid://com365x0cirv" path="res://hints/smell/pungent.tres" id="5_tbow0"]
+[ext_resource type="Resource" uid="uid://chy7gyvc551li" path="res://hints/taste/dont_know.tres" id="6_44hd6"]
+[ext_resource type="Resource" uid="uid://c8bvxoou2rg6l" path="res://hints/touch/hot.tres" id="7_0ihbq"]
+[ext_resource type="Resource" path="res://hints/hearing/fire.tres" id="8_3mb2s"]
+[ext_resource type="Resource" path="res://hints/hearing/fire2.tres" id="9_7na3l"]
 
 [resource]
 script = ExtResource("1_rwt4r")
 solution_key = "PUZZLE_FIRE"
-hints = Array[Resource("res://hints/hint.gd")]([])
+hints = Array[Resource("res://hints/hint.gd")]([ExtResource("1_ncya4"), ExtResource("2_q8kvb"), ExtResource("3_nk7an"), ExtResource("4_u30fm"), ExtResource("5_tbow0"), ExtResource("6_44hd6"), ExtResource("7_0ihbq"), ExtResource("8_3mb2s"), ExtResource("9_7na3l")])
 category = 3
-helpfulness_values = Array[int]([])
+helpfulness_values = Array[int]([3, 1, 2, 2, 2, 1, 3, 2, 3])

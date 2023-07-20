@@ -1,10 +1,19 @@
-[gd_resource type="Resource" script_class="Puzzle" load_steps=2 format=3 uid="uid://qteh4wmjusuj"]
+[gd_resource type="Resource" script_class="Puzzle" load_steps=11 format=3 uid="uid://qteh4wmjusuj"]
 
 [ext_resource type="Script" path="res://puzzles/puzzle.gd" id="1_dh3ai"]
+[ext_resource type="Resource" uid="uid://crk7drcn11ql1" path="res://hints/sight/c_orange.tres" id="1_jtuqd"]
+[ext_resource type="Resource" uid="uid://cr4hds3nd38jb" path="res://hints/sight/c_brown.tres" id="2_ia7s5"]
+[ext_resource type="Resource" uid="uid://bbo67igexnhru" path="res://hints/sight/size_small.tres" id="3_blkh2"]
+[ext_resource type="Resource" uid="uid://b0khrbimq76ce" path="res://hints/smell/no_smell.tres" id="4_ocymu"]
+[ext_resource type="Resource" uid="uid://chy7gyvc551li" path="res://hints/taste/dont_know.tres" id="5_iwbsj"]
+[ext_resource type="Resource" uid="uid://c686cfewumd3r" path="res://hints/touch/soft.tres" id="6_svvhv"]
+[ext_resource type="Resource" uid="uid://dsraw7q5yfpu1" path="res://hints/touch/fuzzy.tres" id="7_74yru"]
+[ext_resource type="Resource" path="res://hints/hearing/squirrel.tres" id="8_sx353"]
+[ext_resource type="Resource" path="res://hints/hearing/eating_nuts.tres" id="9_mkq4t"]
 
 [resource]
 script = ExtResource("1_dh3ai")
 solution_key = "PUZZLE_SQUIRREL"
-hints = Array[Resource("res://hints/hint.gd")]([])
+hints = Array[Resource("res://hints/hint.gd")]([ExtResource("1_jtuqd"), ExtResource("2_ia7s5"), ExtResource("3_blkh2"), ExtResource("4_ocymu"), ExtResource("5_iwbsj"), ExtResource("6_svvhv"), ExtResource("7_74yru"), ExtResource("8_sx353"), ExtResource("9_mkq4t")])
 category = 0
-helpfulness_values = Array[int]([])
+helpfulness_values = Array[int]([2, 3, 2, 1, 1, 2, 3, 3, 2])

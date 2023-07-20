@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="Puzzle" load_steps=11 format=3 uid="uid://bbjutrysiapqb"]
+
+[ext_resource type="Resource" uid="uid://y40sv6ulw3ga" path="res://hints/sight/c_multicolored.tres" id="1_0qocc"]
+[ext_resource type="Resource" uid="uid://bdh7164qkaaff" path="res://hints/sight/size_medium.tres" id="2_dvf1a"]
+[ext_resource type="Resource" uid="uid://b0khrbimq76ce" path="res://hints/smell/no_smell.tres" id="3_6gvg2"]
+[ext_resource type="Resource" uid="uid://tyujjek6sn6u" path="res://hints/smell/dusty.tres" id="4_knexw"]
+[ext_resource type="Resource" uid="uid://chy7gyvc551li" path="res://hints/taste/dont_know.tres" id="5_60sgg"]
+[ext_resource type="Resource" uid="uid://crl7l5lnf7q1f" path="res://hints/touch/hard.tres" id="6_2xcug"]
+[ext_resource type="Resource" uid="uid://brw0g4vjykvja" path="res://hints/touch/smooth.tres" id="7_lgsfn"]
+[ext_resource type="Resource" path="res://hints/hearing/vase_break.tres" id="8_lyo0g"]
+[ext_resource type="Resource" path="res://hints/hearing/vase_drop.tres" id="9_tjiw8"]
+[ext_resource type="Script" path="res://puzzles/puzzle.gd" id="10_hxqfn"]
+
+[resource]
+script = ExtResource("10_hxqfn")
+solution_key = "PUZZLE_VASE"
+hints = Array[Resource("res://hints/hint.gd")]([ExtResource("1_0qocc"), ExtResource("2_dvf1a"), ExtResource("3_6gvg2"), ExtResource("4_knexw"), ExtResource("5_60sgg"), ExtResource("6_2xcug"), ExtResource("7_lgsfn"), ExtResource("8_lyo0g"), ExtResource("9_tjiw8")])
+category = 3
+helpfulness_values = Array[int]([3, 2, 1, 1, 1, 3, 2, 3, 2])

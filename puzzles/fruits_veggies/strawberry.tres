@@ -1,10 +1,19 @@
-[gd_resource type="Resource" script_class="Puzzle" load_steps=2 format=3 uid="uid://bhiymg3uxjkb6"]
+[gd_resource type="Resource" script_class="Puzzle" load_steps=11 format=3 uid="uid://bhiymg3uxjkb6"]
 
 [ext_resource type="Script" path="res://puzzles/puzzle.gd" id="1_is6du"]
+[ext_resource type="Resource" uid="uid://bliffq4xf4xde" path="res://hints/sight/c_red.tres" id="1_oodx0"]
+[ext_resource type="Resource" uid="uid://bbo67igexnhru" path="res://hints/sight/size_small.tres" id="2_8eghu"]
+[ext_resource type="Resource" uid="uid://cmlds10apw6yw" path="res://hints/smell/fragrant.tres" id="3_2d7xc"]
+[ext_resource type="Resource" uid="uid://d2l3qvpdj21qj" path="res://hints/smell/fruity.tres" id="4_q0tvs"]
+[ext_resource type="Resource" uid="uid://c27h8ercww3fq" path="res://hints/taste/fruity.tres" id="5_re5ea"]
+[ext_resource type="Resource" uid="uid://cpw5fmdqh8ou1" path="res://hints/taste/sweet.tres" id="6_m03uf"]
+[ext_resource type="Resource" uid="uid://c686cfewumd3r" path="res://hints/touch/soft.tres" id="7_4busn"]
+[ext_resource type="Resource" uid="uid://du23bbcpxlxvc" path="res://hints/touch/spongy.tres" id="8_nm1f5"]
+[ext_resource type="Resource" path="res://hints/hearing/cutting_mushroom.tres" id="9_oaxs2"]
 
 [resource]
 script = ExtResource("1_is6du")
 solution_key = "PUZZLE_STRAWBERRY"
-hints = Array[Resource("res://hints/hint.gd")]([])
+hints = Array[Resource("res://hints/hint.gd")]([ExtResource("1_oodx0"), ExtResource("2_8eghu"), ExtResource("3_2d7xc"), ExtResource("4_q0tvs"), ExtResource("5_re5ea"), ExtResource("6_m03uf"), ExtResource("7_4busn"), ExtResource("8_nm1f5"), ExtResource("9_oaxs2")])
 category = 1
-helpfulness_values = Array[int]([])
+helpfulness_values = Array[int]([3, 2, 2, 3, 2, 3, 2, 1, 2])

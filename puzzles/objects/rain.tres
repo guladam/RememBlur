@@ -1,10 +1,18 @@
-[gd_resource type="Resource" script_class="Puzzle" load_steps=2 format=3 uid="uid://d4awm67l1xjfc"]
+[gd_resource type="Resource" script_class="Puzzle" load_steps=10 format=3 uid="uid://d4awm67l1xjfc"]
 
+[ext_resource type="Resource" uid="uid://rqe28xpjdvuo" path="res://hints/sight/c_transparent.tres" id="1_s8lw8"]
 [ext_resource type="Script" path="res://puzzles/puzzle.gd" id="1_y8s84"]
+[ext_resource type="Resource" uid="uid://b0khrbimq76ce" path="res://hints/smell/no_smell.tres" id="2_orfpf"]
+[ext_resource type="Resource" uid="uid://dvsfadfd7datv" path="res://hints/taste/no_taste.tres" id="3_llm3j"]
+[ext_resource type="Resource" uid="uid://cuawj7xa0s5ah" path="res://hints/touch/wet.tres" id="4_e55tw"]
+[ext_resource type="Resource" uid="uid://d3ye65m8jdqqk" path="res://hints/touch/cold.tres" id="5_e7edm"]
+[ext_resource type="Resource" uid="uid://dtn4f6p2grc0x" path="res://hints/touch/warm.tres" id="6_tkxqd"]
+[ext_resource type="Resource" path="res://hints/hearing/rain1.tres" id="7_ov8h8"]
+[ext_resource type="Resource" path="res://hints/hearing/rain2.tres" id="8_x1adx"]
 
 [resource]
 script = ExtResource("1_y8s84")
 solution_key = "PUZZLE_RAIN"
-hints = Array[Resource("res://hints/hint.gd")]([])
+hints = Array[Resource("res://hints/hint.gd")]([ExtResource("1_s8lw8"), ExtResource("2_orfpf"), ExtResource("3_llm3j"), ExtResource("4_e55tw"), ExtResource("5_e7edm"), ExtResource("6_tkxqd"), ExtResource("7_ov8h8"), ExtResource("8_x1adx")])
 category = 3
-helpfulness_values = Array[int]([])
+helpfulness_values = Array[int]([3, 2, 3, 3, 3, 1, 2, 3])

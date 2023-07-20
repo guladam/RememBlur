@@ -1,10 +1,20 @@
-[gd_resource type="Resource" script_class="Puzzle" load_steps=2 format=3 uid="uid://bblg3fvh2x705"]
+[gd_resource type="Resource" script_class="Puzzle" load_steps=12 format=3 uid="uid://bblg3fvh2x705"]
 
+[ext_resource type="Resource" uid="uid://bliffq4xf4xde" path="res://hints/sight/c_red.tres" id="1_7qkrw"]
 [ext_resource type="Script" path="res://puzzles/puzzle.gd" id="1_l2rnf"]
+[ext_resource type="Resource" uid="uid://cn3hsqdhj4f3r" path="res://hints/sight/s_circle.tres" id="2_64l3v"]
+[ext_resource type="Resource" uid="uid://d2l3qvpdj21qj" path="res://hints/smell/fruity.tres" id="3_8gp3b"]
+[ext_resource type="Resource" uid="uid://belslsuh1h0vx" path="res://hints/smell/sweet.tres" id="4_43xv6"]
+[ext_resource type="Resource" uid="uid://bjntdnutglvg3" path="res://hints/smell/decayed.tres" id="5_khodf"]
+[ext_resource type="Resource" uid="uid://c27h8ercww3fq" path="res://hints/taste/fruity.tres" id="6_5vv5c"]
+[ext_resource type="Resource" uid="uid://cpw5fmdqh8ou1" path="res://hints/taste/sweet.tres" id="7_sc4yt"]
+[ext_resource type="Resource" uid="uid://brw0g4vjykvja" path="res://hints/touch/smooth.tres" id="8_kppen"]
+[ext_resource type="Resource" path="res://hints/hearing/fruit_falling.tres" id="9_jxwfc"]
+[ext_resource type="Resource" path="res://hints/hearing/fruit_bite.tres" id="10_t4isf"]
 
 [resource]
 script = ExtResource("1_l2rnf")
 solution_key = "PUZZLE_APPLE"
-hints = Array[Resource("res://hints/hint.gd")]([])
+hints = Array[Resource("res://hints/hint.gd")]([ExtResource("1_7qkrw"), ExtResource("2_64l3v"), ExtResource("3_8gp3b"), ExtResource("4_43xv6"), ExtResource("5_khodf"), ExtResource("6_5vv5c"), ExtResource("7_sc4yt"), ExtResource("8_kppen"), ExtResource("9_jxwfc"), ExtResource("10_t4isf")])
 category = 1
-helpfulness_values = Array[int]([])
+helpfulness_values = Array[int]([3, 3, 3, 2, 1, 3, 2, 2, 2, 3])

@@ -1,10 +1,21 @@
-[gd_resource type="Resource" script_class="Puzzle" load_steps=2 format=3 uid="uid://bwnuc602wwmcj"]
+[gd_resource type="Resource" script_class="Puzzle" load_steps=13 format=3 uid="uid://bwnuc602wwmcj"]
 
 [ext_resource type="Script" path="res://puzzles/puzzle.gd" id="1_kd4pp"]
+[ext_resource type="Resource" uid="uid://cn3hsqdhj4f3r" path="res://hints/sight/s_circle.tres" id="1_wccb3"]
+[ext_resource type="Resource" uid="uid://87gsqhbh7ccp" path="res://hints/sight/s_oblong.tres" id="2_tceiv"]
+[ext_resource type="Resource" uid="uid://cf1ip7p1t41jr" path="res://hints/sight/c_dark.tres" id="3_5av63"]
+[ext_resource type="Resource" uid="uid://belslsuh1h0vx" path="res://hints/smell/sweet.tres" id="4_pjqms"]
+[ext_resource type="Resource" uid="uid://bvg272giqme0s" path="res://hints/smell/woody.tres" id="5_g3ve1"]
+[ext_resource type="Resource" uid="uid://okcfv771cbkt" path="res://hints/taste/salty.tres" id="6_cs7yw"]
+[ext_resource type="Resource" uid="uid://0w108bd5ihlm" path="res://hints/taste/meaty.tres" id="7_u8smv"]
+[ext_resource type="Resource" uid="uid://kkop1s8o57gk" path="res://hints/taste/earthy.tres" id="8_ifgnm"]
+[ext_resource type="Resource" uid="uid://du23bbcpxlxvc" path="res://hints/touch/spongy.tres" id="9_ugo10"]
+[ext_resource type="Resource" path="res://hints/hearing/cutting_mushroom.tres" id="10_088ie"]
+[ext_resource type="Resource" path="res://hints/hearing/frying.tres" id="11_engsd"]
 
 [resource]
 script = ExtResource("1_kd4pp")
 solution_key = "PUZZLE_MUSHROOM"
-hints = Array[Resource("res://hints/hint.gd")]([])
+hints = Array[Resource("res://hints/hint.gd")]([ExtResource("1_wccb3"), ExtResource("2_tceiv"), ExtResource("3_5av63"), ExtResource("4_pjqms"), ExtResource("5_g3ve1"), ExtResource("6_cs7yw"), ExtResource("7_u8smv"), ExtResource("8_ifgnm"), ExtResource("9_ugo10"), ExtResource("10_088ie"), ExtResource("11_engsd")])
 category = 2
-helpfulness_values = Array[int]([])
+helpfulness_values = Array[int]([2, 2, 2, 1, 1, 1, 3, 3, 3, 2, 1])

@@ -1,10 +1,20 @@
-[gd_resource type="Resource" script_class="Puzzle" load_steps=2 format=3 uid="uid://bpkqu3ep0dhw4"]
+[gd_resource type="Resource" script_class="Puzzle" load_steps=12 format=3 uid="uid://bpkqu3ep0dhw4"]
 
 [ext_resource type="Script" path="res://puzzles/puzzle.gd" id="1_amoav"]
+[ext_resource type="Resource" uid="uid://b2unf64wp4k8a" path="res://hints/sight/c_green.tres" id="1_v2h8e"]
+[ext_resource type="Resource" uid="uid://cr4hds3nd38jb" path="res://hints/sight/c_brown.tres" id="2_334yo"]
+[ext_resource type="Resource" uid="uid://cmlds10apw6yw" path="res://hints/smell/fragrant.tres" id="3_hj0gw"]
+[ext_resource type="Resource" uid="uid://c3ipta8nkneiq" path="res://hints/smell/salty.tres" id="4_ca13u"]
+[ext_resource type="Resource" uid="uid://d1wixd4sutll5" path="res://hints/taste/nutty.tres" id="5_nljdq"]
+[ext_resource type="Resource" uid="uid://cpw5fmdqh8ou1" path="res://hints/taste/sweet.tres" id="6_wyuxe"]
+[ext_resource type="Resource" uid="uid://crl7l5lnf7q1f" path="res://hints/touch/hard.tres" id="7_ajhro"]
+[ext_resource type="Resource" uid="uid://c45xnx226etp4" path="res://hints/touch/bumpy.tres" id="8_qudyx"]
+[ext_resource type="Resource" path="res://hints/hearing/eating_nuts.tres" id="9_hd0ug"]
+[ext_resource type="Resource" path="res://hints/hearing/pistachio_shell.tres" id="10_43nvd"]
 
 [resource]
 script = ExtResource("1_amoav")
 solution_key = "PUZZLE_PISTACHIO"
-hints = Array[Resource("res://hints/hint.gd")]([])
+hints = Array[Resource("res://hints/hint.gd")]([ExtResource("1_v2h8e"), ExtResource("2_334yo"), ExtResource("3_hj0gw"), ExtResource("4_ca13u"), ExtResource("5_nljdq"), ExtResource("6_wyuxe"), ExtResource("7_ajhro"), ExtResource("8_qudyx"), ExtResource("9_hd0ug"), ExtResource("10_43nvd")])
 category = 4
-helpfulness_values = Array[int]([])
+helpfulness_values = Array[int]([3, 2, 1, 2, 3, 2, 2, 1, 2, 3])

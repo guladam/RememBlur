@@ -1,10 +1,18 @@
-[gd_resource type="Resource" script_class="Puzzle" load_steps=2 format=3 uid="uid://dyfrkyphn77ji"]
+[gd_resource type="Resource" script_class="Puzzle" load_steps=10 format=3 uid="uid://dyfrkyphn77ji"]
 
+[ext_resource type="Resource" uid="uid://cn3hsqdhj4f3r" path="res://hints/sight/s_circle.tres" id="1_71wha"]
 [ext_resource type="Script" path="res://puzzles/puzzle.gd" id="1_gb4y3"]
+[ext_resource type="Resource" uid="uid://bdh7164qkaaff" path="res://hints/sight/size_medium.tres" id="2_awqco"]
+[ext_resource type="Resource" uid="uid://b0khrbimq76ce" path="res://hints/smell/no_smell.tres" id="3_8kijp"]
+[ext_resource type="Resource" uid="uid://tyujjek6sn6u" path="res://hints/smell/dusty.tres" id="4_e6w4t"]
+[ext_resource type="Resource" uid="uid://chy7gyvc551li" path="res://hints/taste/dont_know.tres" id="5_ihxhn"]
+[ext_resource type="Resource" uid="uid://crl7l5lnf7q1f" path="res://hints/touch/hard.tres" id="6_pr44t"]
+[ext_resource type="Resource" path="res://hints/hearing/clock_alarm.tres" id="7_wnlt1"]
+[ext_resource type="Resource" path="res://hints/hearing/clock_tick.tres" id="8_j2780"]
 
 [resource]
 script = ExtResource("1_gb4y3")
 solution_key = "PUZZLE_CLOCK"
-hints = Array[Resource("res://hints/hint.gd")]([])
+hints = Array[Resource("res://hints/hint.gd")]([ExtResource("1_71wha"), ExtResource("2_awqco"), ExtResource("3_8kijp"), ExtResource("4_e6w4t"), ExtResource("5_ihxhn"), ExtResource("6_pr44t"), ExtResource("7_wnlt1"), ExtResource("8_j2780")])
 category = 3
-helpfulness_values = Array[int]([])
+helpfulness_values = Array[int]([3, 2, 1, 2, 1, 2, 2, 3])

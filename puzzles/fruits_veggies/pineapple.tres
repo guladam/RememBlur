@@ -1,10 +1,22 @@
-[gd_resource type="Resource" script_class="Puzzle" load_steps=2 format=3 uid="uid://bugjo64l0exag"]
+[gd_resource type="Resource" script_class="Puzzle" load_steps=14 format=3 uid="uid://bugjo64l0exag"]
 
+[ext_resource type="Resource" uid="uid://b2nn2eeuw6ou3" path="res://hints/sight/c_yellow.tres" id="1_85dsl"]
 [ext_resource type="Script" path="res://puzzles/puzzle.gd" id="1_octdx"]
+[ext_resource type="Resource" uid="uid://cr4hds3nd38jb" path="res://hints/sight/c_brown.tres" id="2_h7pur"]
+[ext_resource type="Resource" uid="uid://b2unf64wp4k8a" path="res://hints/sight/c_green.tres" id="3_gudtt"]
+[ext_resource type="Resource" uid="uid://87gsqhbh7ccp" path="res://hints/sight/s_oblong.tres" id="4_5npno"]
+[ext_resource type="Resource" uid="uid://d2l3qvpdj21qj" path="res://hints/smell/fruity.tres" id="5_syl67"]
+[ext_resource type="Resource" uid="uid://belslsuh1h0vx" path="res://hints/smell/sweet.tres" id="6_qykh7"]
+[ext_resource type="Resource" uid="uid://c27h8ercww3fq" path="res://hints/taste/fruity.tres" id="7_yl2fc"]
+[ext_resource type="Resource" uid="uid://cpw5fmdqh8ou1" path="res://hints/taste/sweet.tres" id="8_2iipn"]
+[ext_resource type="Resource" uid="uid://c45xnx226etp4" path="res://hints/touch/bumpy.tres" id="9_2pcnq"]
+[ext_resource type="Resource" uid="uid://djgb07evvco12" path="res://hints/touch/prickly.tres" id="10_ip142"]
+[ext_resource type="Resource" path="res://hints/hearing/pineapple_break.tres" id="11_2gbt1"]
+[ext_resource type="Resource" path="res://hints/hearing/cutting_veg.tres" id="12_f14x6"]
 
 [resource]
 script = ExtResource("1_octdx")
 solution_key = "PUZZLE_PINEAPPLE"
-hints = Array[Resource("res://hints/hint.gd")]([])
+hints = Array[Resource("res://hints/hint.gd")]([ExtResource("1_85dsl"), ExtResource("2_h7pur"), ExtResource("3_gudtt"), ExtResource("4_5npno"), ExtResource("5_syl67"), ExtResource("6_qykh7"), ExtResource("7_yl2fc"), ExtResource("8_2iipn"), ExtResource("9_2pcnq"), ExtResource("10_ip142"), ExtResource("11_2gbt1"), ExtResource("12_f14x6")])
 category = 1
-helpfulness_values = Array[int]([])
+helpfulness_values = Array[int]([3, 2, 1, 1, 2, 3, 2, 3, 1, 2, 2, 1])

@@ -1,10 +1,20 @@
-[gd_resource type="Resource" script_class="Puzzle" load_steps=2 format=3 uid="uid://dr3qxa3ytxxgv"]
+[gd_resource type="Resource" script_class="Puzzle" load_steps=12 format=3 uid="uid://dr3qxa3ytxxgv"]
 
+[ext_resource type="Resource" uid="uid://cr4hds3nd38jb" path="res://hints/sight/c_brown.tres" id="1_pj2jw"]
 [ext_resource type="Script" path="res://puzzles/puzzle.gd" id="1_uwotu"]
+[ext_resource type="Resource" uid="uid://53217n4qrrot" path="res://hints/sight/c_white.tres" id="2_xaquo"]
+[ext_resource type="Resource" uid="uid://87gsqhbh7ccp" path="res://hints/sight/s_oblong.tres" id="3_3jkdp"]
+[ext_resource type="Resource" uid="uid://bdh7164qkaaff" path="res://hints/sight/size_medium.tres" id="4_hb665"]
+[ext_resource type="Resource" uid="uid://bcsu43ms7tegh" path="res://hints/smell/smelly.tres" id="5_jtqpj"]
+[ext_resource type="Resource" uid="uid://chy7gyvc551li" path="res://hints/taste/dont_know.tres" id="6_wyeq1"]
+[ext_resource type="Resource" uid="uid://c686cfewumd3r" path="res://hints/touch/soft.tres" id="7_wv4lb"]
+[ext_resource type="Resource" uid="uid://brw0g4vjykvja" path="res://hints/touch/smooth.tres" id="8_12k6r"]
+[ext_resource type="Resource" path="res://hints/hearing/owl.tres" id="9_e5bw0"]
+[ext_resource type="Resource" path="res://hints/hearing/wing_flap.tres" id="10_q6ty7"]
 
 [resource]
 script = ExtResource("1_uwotu")
 solution_key = "PUZZLE_OWL"
-hints = Array[Resource("res://hints/hint.gd")]([])
+hints = Array[Resource("res://hints/hint.gd")]([ExtResource("1_pj2jw"), ExtResource("2_xaquo"), ExtResource("3_3jkdp"), ExtResource("4_hb665"), ExtResource("5_jtqpj"), ExtResource("6_wyeq1"), ExtResource("7_wv4lb"), ExtResource("8_12k6r"), ExtResource("9_e5bw0"), ExtResource("10_q6ty7")])
 category = 0
-helpfulness_values = Array[int]([])
+helpfulness_values = Array[int]([3, 2, 2, 2, 1, 1, 2, 2, 3, 2])

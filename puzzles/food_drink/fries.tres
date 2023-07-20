@@ -1,10 +1,20 @@
-[gd_resource type="Resource" script_class="Puzzle" load_steps=2 format=3 uid="uid://dp7h5defakmp0"]
+[gd_resource type="Resource" script_class="Puzzle" load_steps=12 format=3 uid="uid://dp7h5defakmp0"]
 
+[ext_resource type="Resource" uid="uid://b2nn2eeuw6ou3" path="res://hints/sight/c_yellow.tres" id="1_ey1vl"]
 [ext_resource type="Script" path="res://puzzles/puzzle.gd" id="1_ooqhc"]
+[ext_resource type="Resource" uid="uid://cr4hds3nd38jb" path="res://hints/sight/c_brown.tres" id="2_0j655"]
+[ext_resource type="Resource" uid="uid://87gsqhbh7ccp" path="res://hints/sight/s_oblong.tres" id="3_scbsd"]
+[ext_resource type="Resource" uid="uid://c3ipta8nkneiq" path="res://hints/smell/salty.tres" id="4_1mke1"]
+[ext_resource type="Resource" uid="uid://kkop1s8o57gk" path="res://hints/taste/earthy.tres" id="5_q63rx"]
+[ext_resource type="Resource" uid="uid://okcfv771cbkt" path="res://hints/taste/salty.tres" id="6_6iwwx"]
+[ext_resource type="Resource" uid="uid://du23bbcpxlxvc" path="res://hints/touch/spongy.tres" id="7_updba"]
+[ext_resource type="Resource" uid="uid://c8bvxoou2rg6l" path="res://hints/touch/hot.tres" id="8_xownn"]
+[ext_resource type="Resource" path="res://hints/hearing/oil_fry.tres" id="9_rfgf0"]
+[ext_resource type="Resource" path="res://hints/hearing/shaking_fries.tres" id="10_jy7ha"]
 
 [resource]
 script = ExtResource("1_ooqhc")
 solution_key = "PUZZLE_FRIES"
-hints = Array[Resource("res://hints/hint.gd")]([])
+hints = Array[Resource("res://hints/hint.gd")]([ExtResource("1_ey1vl"), ExtResource("2_0j655"), ExtResource("3_scbsd"), ExtResource("4_1mke1"), ExtResource("5_q63rx"), ExtResource("6_6iwwx"), ExtResource("7_updba"), ExtResource("8_xownn"), ExtResource("9_rfgf0"), ExtResource("10_jy7ha")])
 category = 4
-helpfulness_values = Array[int]([])
+helpfulness_values = Array[int]([3, 2, 3, 3, 1, 3, 2, 3, 2, 3])

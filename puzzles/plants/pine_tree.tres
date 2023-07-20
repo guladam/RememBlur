@@ -1,10 +1,19 @@
-[gd_resource type="Resource" script_class="Puzzle" load_steps=2 format=3 uid="uid://btvbdw5pu4dh2"]
+[gd_resource type="Resource" script_class="Puzzle" load_steps=11 format=3 uid="uid://btvbdw5pu4dh2"]
 
+[ext_resource type="Resource" uid="uid://b2unf64wp4k8a" path="res://hints/sight/c_green.tres" id="1_aa2q5"]
 [ext_resource type="Script" path="res://puzzles/puzzle.gd" id="1_nyxg3"]
+[ext_resource type="Resource" uid="uid://cjutahoisbdva" path="res://hints/sight/s_triangle.tres" id="2_eebpy"]
+[ext_resource type="Resource" uid="uid://bwar81i36pwvk" path="res://hints/smell/minty.tres" id="3_gy6lf"]
+[ext_resource type="Resource" uid="uid://bvg272giqme0s" path="res://hints/smell/woody.tres" id="4_2up0t"]
+[ext_resource type="Resource" uid="uid://cmlds10apw6yw" path="res://hints/smell/fragrant.tres" id="5_ubjw8"]
+[ext_resource type="Resource" uid="uid://chy7gyvc551li" path="res://hints/taste/dont_know.tres" id="6_wlvdf"]
+[ext_resource type="Resource" uid="uid://djgb07evvco12" path="res://hints/touch/prickly.tres" id="7_5ivh4"]
+[ext_resource type="Resource" path="res://hints/hearing/pine_drop.tres" id="8_els6p"]
+[ext_resource type="Resource" path="res://hints/hearing/pine_walking.tres" id="9_arxm7"]
 
 [resource]
 script = ExtResource("1_nyxg3")
 solution_key = "PUZZLE_PINE_TREE"
-hints = Array[Resource("res://hints/hint.gd")]([])
+hints = Array[Resource("res://hints/hint.gd")]([ExtResource("1_aa2q5"), ExtResource("2_eebpy"), ExtResource("3_gy6lf"), ExtResource("4_2up0t"), ExtResource("5_ubjw8"), ExtResource("6_wlvdf"), ExtResource("7_5ivh4"), ExtResource("8_els6p"), ExtResource("9_arxm7")])
 category = 2
-helpfulness_values = Array[int]([])
+helpfulness_values = Array[int]([3, 3, 3, 3, 2, 1, 3, 1, 2])

@@ -1,10 +1,22 @@
-[gd_resource type="Resource" script_class="Puzzle" load_steps=2 format=3 uid="uid://3rygtab2ydqu"]
+[gd_resource type="Resource" script_class="Puzzle" load_steps=14 format=3 uid="uid://3rygtab2ydqu"]
 
+[ext_resource type="Resource" uid="uid://bfqffit3npt8n" path="res://hints/sight/s_oval.tres" id="1_lwhke"]
 [ext_resource type="Script" path="res://puzzles/puzzle.gd" id="1_ou6xq"]
+[ext_resource type="Resource" uid="uid://cr4hds3nd38jb" path="res://hints/sight/c_brown.tres" id="2_jpq7d"]
+[ext_resource type="Resource" uid="uid://b2nn2eeuw6ou3" path="res://hints/sight/c_yellow.tres" id="3_g8d64"]
+[ext_resource type="Resource" uid="uid://tyujjek6sn6u" path="res://hints/smell/dusty.tres" id="4_pvenn"]
+[ext_resource type="Resource" uid="uid://bjntdnutglvg3" path="res://hints/smell/decayed.tres" id="5_tb6bn"]
+[ext_resource type="Resource" uid="uid://kkop1s8o57gk" path="res://hints/taste/earthy.tres" id="6_t7x7x"]
+[ext_resource type="Resource" uid="uid://bra0faamco7cv" path="res://hints/taste/tart.tres" id="7_c76y6"]
+[ext_resource type="Resource" uid="uid://crl7l5lnf7q1f" path="res://hints/touch/hard.tres" id="8_4ao08"]
+[ext_resource type="Resource" uid="uid://c45xnx226etp4" path="res://hints/touch/bumpy.tres" id="9_qrqw4"]
+[ext_resource type="Resource" uid="uid://brw0g4vjykvja" path="res://hints/touch/smooth.tres" id="10_yq4n7"]
+[ext_resource type="Resource" path="res://hints/hearing/veg_peeling.tres" id="11_6458g"]
+[ext_resource type="Resource" path="res://hints/hearing/potato_chips.tres" id="12_k2njv"]
 
 [resource]
 script = ExtResource("1_ou6xq")
 solution_key = "PUZZLE_POTATO"
-hints = Array[Resource("res://hints/hint.gd")]([])
+hints = Array[Resource("res://hints/hint.gd")]([ExtResource("1_lwhke"), ExtResource("2_jpq7d"), ExtResource("3_g8d64"), ExtResource("4_pvenn"), ExtResource("5_tb6bn"), ExtResource("6_t7x7x"), ExtResource("7_c76y6"), ExtResource("8_4ao08"), ExtResource("9_qrqw4"), ExtResource("10_yq4n7"), ExtResource("11_6458g"), ExtResource("12_k2njv")])
 category = 1
-helpfulness_values = Array[int]([])
+helpfulness_values = Array[int]([2, 3, 2, 3, 2, 3, 1, 2, 1, 1, 3, 2])

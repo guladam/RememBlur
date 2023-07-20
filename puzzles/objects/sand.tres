@@ -1,10 +1,19 @@
-[gd_resource type="Resource" script_class="Puzzle" load_steps=2 format=3 uid="uid://bnmq0lg52j5ub"]
+[gd_resource type="Resource" script_class="Puzzle" load_steps=11 format=3 uid="uid://bnmq0lg52j5ub"]
 
 [ext_resource type="Script" path="res://puzzles/puzzle.gd" id="1_ewcf3"]
+[ext_resource type="Resource" uid="uid://cr4hds3nd38jb" path="res://hints/sight/c_brown.tres" id="1_sar0w"]
+[ext_resource type="Resource" uid="uid://b2nn2eeuw6ou3" path="res://hints/sight/c_yellow.tres" id="2_xg0fp"]
+[ext_resource type="Resource" uid="uid://b0khrbimq76ce" path="res://hints/smell/no_smell.tres" id="3_0iuy2"]
+[ext_resource type="Resource" uid="uid://dvsfadfd7datv" path="res://hints/taste/no_taste.tres" id="4_iq7do"]
+[ext_resource type="Resource" uid="uid://okcfv771cbkt" path="res://hints/taste/salty.tres" id="5_vw2ah"]
+[ext_resource type="Resource" uid="uid://brw0g4vjykvja" path="res://hints/touch/smooth.tres" id="6_7ajv0"]
+[ext_resource type="Resource" uid="uid://c686cfewumd3r" path="res://hints/touch/soft.tres" id="7_otsme"]
+[ext_resource type="Resource" path="res://hints/hearing/sand_shovel.tres" id="8_pr5fj"]
+[ext_resource type="Resource" path="res://hints/hearing/sand_walk.tres" id="9_xd2ry"]
 
 [resource]
 script = ExtResource("1_ewcf3")
 solution_key = "PUZZLE_SAND"
-hints = Array[Resource("res://hints/hint.gd")]([])
+hints = Array[Resource("res://hints/hint.gd")]([ExtResource("1_sar0w"), ExtResource("2_xg0fp"), ExtResource("3_0iuy2"), ExtResource("4_iq7do"), ExtResource("5_vw2ah"), ExtResource("6_7ajv0"), ExtResource("7_otsme"), ExtResource("8_pr5fj"), ExtResource("9_xd2ry")])
 category = 0
-helpfulness_values = Array[int]([])
+helpfulness_values = Array[int]([2, 2, 2, 3, 1, 3, 3, 2, 3])

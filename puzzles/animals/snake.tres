@@ -1,10 +1,19 @@
-[gd_resource type="Resource" script_class="Puzzle" load_steps=2 format=3 uid="uid://cqq7jfbdnlxal"]
+[gd_resource type="Resource" script_class="Puzzle" load_steps=11 format=3 uid="uid://cqq7jfbdnlxal"]
 
+[ext_resource type="Resource" uid="uid://cr4hds3nd38jb" path="res://hints/sight/c_brown.tres" id="1_60mv4"]
 [ext_resource type="Script" path="res://puzzles/puzzle.gd" id="1_sjb8l"]
+[ext_resource type="Resource" uid="uid://b2unf64wp4k8a" path="res://hints/sight/c_green.tres" id="2_6ib7v"]
+[ext_resource type="Resource" uid="uid://y40sv6ulw3ga" path="res://hints/sight/c_multicolored.tres" id="3_yc8b3"]
+[ext_resource type="Resource" uid="uid://b0khrbimq76ce" path="res://hints/smell/no_smell.tres" id="4_k2c15"]
+[ext_resource type="Resource" uid="uid://chy7gyvc551li" path="res://hints/taste/dont_know.tres" id="5_qsuk6"]
+[ext_resource type="Resource" uid="uid://dftcfnv2d72xn" path="res://hints/touch/slimy.tres" id="6_aovpd"]
+[ext_resource type="Resource" uid="uid://87gsqhbh7ccp" path="res://hints/sight/s_oblong.tres" id="7_o4iml"]
+[ext_resource type="Resource" path="res://hints/hearing/snake_hiss.tres" id="8_emija"]
+[ext_resource type="Resource" path="res://hints/hearing/snake_rattle.tres" id="9_wfbi7"]
 
 [resource]
 script = ExtResource("1_sjb8l")
 solution_key = "PUZZLE_SNAKE"
-hints = Array[Resource("res://hints/hint.gd")]([])
+hints = Array[Resource("res://hints/hint.gd")]([ExtResource("1_60mv4"), ExtResource("2_6ib7v"), ExtResource("3_yc8b3"), ExtResource("4_k2c15"), ExtResource("5_qsuk6"), ExtResource("6_aovpd"), ExtResource("7_o4iml"), ExtResource("8_emija"), ExtResource("9_wfbi7")])
 category = 0
-helpfulness_values = Array[int]([])
+helpfulness_values = Array[int]([2, 2, 1, 1, 1, 3, 3, 3, 2])

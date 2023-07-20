@@ -1,10 +1,20 @@
-[gd_resource type="Resource" script_class="Puzzle" load_steps=2 format=3 uid="uid://beplctgex8etu"]
+[gd_resource type="Resource" script_class="Puzzle" load_steps=12 format=3 uid="uid://beplctgex8etu"]
 
+[ext_resource type="Resource" uid="uid://y40sv6ulw3ga" path="res://hints/sight/c_multicolored.tres" id="1_d8lls"]
 [ext_resource type="Script" path="res://puzzles/puzzle.gd" id="1_mw0iw"]
+[ext_resource type="Resource" uid="uid://87gsqhbh7ccp" path="res://hints/sight/s_oblong.tres" id="2_p1cvl"]
+[ext_resource type="Resource" uid="uid://bcsu43ms7tegh" path="res://hints/smell/smelly.tres" id="3_y074y"]
+[ext_resource type="Resource" uid="uid://bjntdnutglvg3" path="res://hints/smell/decayed.tres" id="4_rw6of"]
+[ext_resource type="Resource" uid="uid://com365x0cirv" path="res://hints/smell/pungent.tres" id="5_0vfe0"]
+[ext_resource type="Resource" uid="uid://chy7gyvc551li" path="res://hints/taste/dont_know.tres" id="6_kaas7"]
+[ext_resource type="Resource" uid="uid://crl7l5lnf7q1f" path="res://hints/touch/hard.tres" id="7_rwxpe"]
+[ext_resource type="Resource" uid="uid://d3ye65m8jdqqk" path="res://hints/touch/cold.tres" id="8_qusc4"]
+[ext_resource type="Resource" path="res://hints/hearing/body_thud.tres" id="9_yatp1"]
+[ext_resource type="Resource" path="res://hints/hearing/corpse_drag.tres" id="10_i27m6"]
 
 [resource]
 script = ExtResource("1_mw0iw")
 solution_key = "PUZZLE_CORPSE"
-hints = Array[Resource("res://hints/hint.gd")]([])
+hints = Array[Resource("res://hints/hint.gd")]([ExtResource("1_d8lls"), ExtResource("2_p1cvl"), ExtResource("3_y074y"), ExtResource("4_rw6of"), ExtResource("5_0vfe0"), ExtResource("6_kaas7"), ExtResource("7_rwxpe"), ExtResource("8_qusc4"), ExtResource("9_yatp1"), ExtResource("10_i27m6")])
 category = 3
-helpfulness_values = Array[int]([])
+helpfulness_values = Array[int]([1, 2, 2, 3, 2, 1, 1, 2, 3, 2])

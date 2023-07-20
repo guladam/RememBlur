@@ -1,10 +1,18 @@
-[gd_resource type="Resource" script_class="Puzzle" load_steps=2 format=3 uid="uid://qnwygv5g2bwf"]
+[gd_resource type="Resource" script_class="Puzzle" load_steps=10 format=3 uid="uid://qnwygv5g2bwf"]
 
 [ext_resource type="Script" path="res://puzzles/puzzle.gd" id="1_7sjku"]
+[ext_resource type="Resource" uid="uid://bliffq4xf4xde" path="res://hints/sight/c_red.tres" id="1_tg5ff"]
+[ext_resource type="Resource" uid="uid://rm1v4ypf0ak3" path="res://hints/smell/irony.tres" id="2_0kqy0"]
+[ext_resource type="Resource" uid="uid://okcfv771cbkt" path="res://hints/taste/salty.tres" id="3_80n6l"]
+[ext_resource type="Resource" uid="uid://bra0faamco7cv" path="res://hints/taste/tart.tres" id="4_cfxyu"]
+[ext_resource type="Resource" uid="uid://cuawj7xa0s5ah" path="res://hints/touch/wet.tres" id="5_g7gtm"]
+[ext_resource type="Resource" uid="uid://dtn4f6p2grc0x" path="res://hints/touch/warm.tres" id="6_0g2mm"]
+[ext_resource type="Resource" path="res://hints/hearing/blood.tres" id="7_117ou"]
+[ext_resource type="Resource" path="res://hints/hearing/heartbeat.tres" id="8_etf5a"]
 
 [resource]
 script = ExtResource("1_7sjku")
 solution_key = "PUZZLE_BLOOD"
-hints = Array[Resource("res://hints/hint.gd")]([])
+hints = Array[Resource("res://hints/hint.gd")]([ExtResource("1_tg5ff"), ExtResource("2_0kqy0"), ExtResource("3_80n6l"), ExtResource("4_cfxyu"), ExtResource("5_g7gtm"), ExtResource("6_0g2mm"), ExtResource("7_117ou"), ExtResource("8_etf5a")])
 category = 3
-helpfulness_values = Array[int]([])
+helpfulness_values = Array[int]([3, 3, 2, 1, 2, 2, 3, 2])

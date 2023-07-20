@@ -1,10 +1,23 @@
-[gd_resource type="Resource" script_class="Puzzle" load_steps=2 format=3 uid="uid://btrihvbkjkad5"]
+[gd_resource type="Resource" script_class="Puzzle" load_steps=15 format=3 uid="uid://btrihvbkjkad5"]
 
+[ext_resource type="Resource" uid="uid://cn3hsqdhj4f3r" path="res://hints/sight/s_circle.tres" id="1_gv58d"]
 [ext_resource type="Script" path="res://puzzles/puzzle.gd" id="1_kvqt5"]
+[ext_resource type="Resource" uid="uid://y40sv6ulw3ga" path="res://hints/sight/c_multicolored.tres" id="2_yyum8"]
+[ext_resource type="Resource" uid="uid://c3ipta8nkneiq" path="res://hints/smell/salty.tres" id="3_pjg1y"]
+[ext_resource type="Resource" uid="uid://belslsuh1h0vx" path="res://hints/smell/sweet.tres" id="4_f06jw"]
+[ext_resource type="Resource" uid="uid://cpw5fmdqh8ou1" path="res://hints/taste/sweet.tres" id="5_gd040"]
+[ext_resource type="Resource" uid="uid://caivmuyukx2ag" path="res://hints/taste/juicy.tres" id="6_fmqcp"]
+[ext_resource type="Resource" uid="uid://okcfv771cbkt" path="res://hints/taste/salty.tres" id="7_rfuoh"]
+[ext_resource type="Resource" uid="uid://x1orfg4xpgfx" path="res://hints/taste/smoky.tres" id="8_ug7w0"]
+[ext_resource type="Resource" uid="uid://0w108bd5ihlm" path="res://hints/taste/meaty.tres" id="9_rgxju"]
+[ext_resource type="Resource" uid="uid://dtn4f6p2grc0x" path="res://hints/touch/warm.tres" id="10_66e60"]
+[ext_resource type="Resource" uid="uid://du23bbcpxlxvc" path="res://hints/touch/spongy.tres" id="11_sxylr"]
+[ext_resource type="Resource" path="res://hints/hearing/grill_ambience.tres" id="12_6vubk"]
+[ext_resource type="Resource" path="res://hints/hearing/frying.tres" id="13_1x7tf"]
 
 [resource]
 script = ExtResource("1_kvqt5")
 solution_key = "PUZZLE_HAMBURGER"
-hints = Array[Resource("res://hints/hint.gd")]([])
+hints = Array[Resource("res://hints/hint.gd")]([ExtResource("1_gv58d"), ExtResource("2_yyum8"), ExtResource("3_pjg1y"), ExtResource("4_f06jw"), ExtResource("5_gd040"), ExtResource("6_fmqcp"), ExtResource("7_rfuoh"), ExtResource("8_ug7w0"), ExtResource("9_rgxju"), ExtResource("10_66e60"), ExtResource("11_sxylr"), ExtResource("12_6vubk"), ExtResource("13_1x7tf")])
 category = 4
-helpfulness_values = Array[int]([])
+helpfulness_values = Array[int]([2, 1, 2, 1, 1, 2, 2, 3, 3, 2, 3, 1, 1])

@@ -1,10 +1,19 @@
-[gd_resource type="Resource" script_class="Puzzle" load_steps=2 format=3 uid="uid://b63htst6u01cn"]
+[gd_resource type="Resource" script_class="Puzzle" load_steps=11 format=3 uid="uid://b63htst6u01cn"]
 
 [ext_resource type="Script" path="res://puzzles/puzzle.gd" id="1_c7w0l"]
+[ext_resource type="Resource" uid="uid://b2nn2eeuw6ou3" path="res://hints/sight/c_yellow.tres" id="1_i8bn7"]
+[ext_resource type="Resource" uid="uid://cr4hds3nd38jb" path="res://hints/sight/c_brown.tres" id="2_0detc"]
+[ext_resource type="Resource" uid="uid://cn3hsqdhj4f3r" path="res://hints/sight/s_circle.tres" id="3_wpn72"]
+[ext_resource type="Resource" uid="uid://cr24pq72px0u4" path="res://hints/smell/grassy.tres" id="4_ts4v3"]
+[ext_resource type="Resource" uid="uid://cmlds10apw6yw" path="res://hints/smell/fragrant.tres" id="5_1bwy0"]
+[ext_resource type="Resource" uid="uid://chy7gyvc551li" path="res://hints/taste/dont_know.tres" id="6_0abpw"]
+[ext_resource type="Resource" uid="uid://brw0g4vjykvja" path="res://hints/touch/smooth.tres" id="7_c5t8a"]
+[ext_resource type="Resource" path="res://hints/hearing/sunflower_ambience.tres" id="8_wg0dm"]
+[ext_resource type="Resource" path="res://hints/hearing/sunflower_seed_pouring.tres" id="9_y7of3"]
 
 [resource]
 script = ExtResource("1_c7w0l")
 solution_key = "PUZZLE_SUNFLOWER"
-hints = Array[Resource("res://hints/hint.gd")]([])
+hints = Array[Resource("res://hints/hint.gd")]([ExtResource("1_i8bn7"), ExtResource("2_0detc"), ExtResource("3_wpn72"), ExtResource("4_ts4v3"), ExtResource("5_1bwy0"), ExtResource("6_0abpw"), ExtResource("7_c5t8a"), ExtResource("8_wg0dm"), ExtResource("9_y7of3")])
 category = 2
-helpfulness_values = Array[int]([])
+helpfulness_values = Array[int]([3, 2, 2, 2, 1, 1, 1, 2, 2])

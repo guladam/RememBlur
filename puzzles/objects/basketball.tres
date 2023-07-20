@@ -1,10 +1,20 @@
-[gd_resource type="Resource" script_class="Puzzle" load_steps=2 format=3 uid="uid://dmhnmr3hhismr"]
+[gd_resource type="Resource" script_class="Puzzle" load_steps=12 format=3 uid="uid://dmhnmr3hhismr"]
 
+[ext_resource type="Resource" uid="uid://cn3hsqdhj4f3r" path="res://hints/sight/s_circle.tres" id="1_mdh6j"]
 [ext_resource type="Script" path="res://puzzles/puzzle.gd" id="1_uoby2"]
+[ext_resource type="Resource" uid="uid://crk7drcn11ql1" path="res://hints/sight/c_orange.tres" id="2_3fpmj"]
+[ext_resource type="Resource" uid="uid://cr4hds3nd38jb" path="res://hints/sight/c_brown.tres" id="3_caldr"]
+[ext_resource type="Resource" uid="uid://b0khrbimq76ce" path="res://hints/smell/no_smell.tres" id="4_5nosh"]
+[ext_resource type="Resource" uid="uid://cvihph24go05" path="res://hints/smell/chemical.tres" id="5_ml73j"]
+[ext_resource type="Resource" uid="uid://chy7gyvc551li" path="res://hints/taste/dont_know.tres" id="6_77khl"]
+[ext_resource type="Resource" uid="uid://crl7l5lnf7q1f" path="res://hints/touch/hard.tres" id="7_u81jo"]
+[ext_resource type="Resource" uid="uid://cnu6hwgvcjss6" path="res://hints/touch/grippy.tres" id="8_f3c7m"]
+[ext_resource type="Resource" path="res://hints/hearing/referee_whistle.tres" id="9_7vufi"]
+[ext_resource type="Resource" path="res://hints/hearing/bastketball_dribble.tres" id="10_f2v3h"]
 
 [resource]
 script = ExtResource("1_uoby2")
 solution_key = "PUZZLE_BASKETBALL"
-hints = Array[Resource("res://hints/hint.gd")]([])
+hints = Array[Resource("res://hints/hint.gd")]([ExtResource("1_mdh6j"), ExtResource("2_3fpmj"), ExtResource("3_caldr"), ExtResource("4_5nosh"), ExtResource("5_ml73j"), ExtResource("6_77khl"), ExtResource("7_u81jo"), ExtResource("8_f3c7m"), ExtResource("9_7vufi"), ExtResource("10_f2v3h")])
 category = 3
-helpfulness_values = Array[int]([])
+helpfulness_values = Array[int]([3, 3, 2, 1, 1, 1, 2, 3, 1, 3])

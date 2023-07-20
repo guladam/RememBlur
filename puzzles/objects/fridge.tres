@@ -1,10 +1,20 @@
-[gd_resource type="Resource" script_class="Puzzle" load_steps=2 format=3 uid="uid://bkpgmftwwauty"]
+[gd_resource type="Resource" script_class="Puzzle" load_steps=12 format=3 uid="uid://bkpgmftwwauty"]
 
+[ext_resource type="Resource" uid="uid://53217n4qrrot" path="res://hints/sight/c_white.tres" id="1_2ls7q"]
 [ext_resource type="Script" path="res://puzzles/puzzle.gd" id="1_rvap0"]
+[ext_resource type="Resource" uid="uid://dekuojdk0d3te" path="res://hints/sight/c_gray.tres" id="2_1qdb2"]
+[ext_resource type="Resource" uid="uid://pah7x7c7go5s" path="res://hints/sight/s_rectangle.tres" id="3_cs8kx"]
+[ext_resource type="Resource" uid="uid://b0khrbimq76ce" path="res://hints/smell/no_smell.tres" id="4_60qf3"]
+[ext_resource type="Resource" uid="uid://cvihph24go05" path="res://hints/smell/chemical.tres" id="5_s47ja"]
+[ext_resource type="Resource" uid="uid://chy7gyvc551li" path="res://hints/taste/dont_know.tres" id="6_pe1ci"]
+[ext_resource type="Resource" uid="uid://crl7l5lnf7q1f" path="res://hints/touch/hard.tres" id="7_5fbxf"]
+[ext_resource type="Resource" uid="uid://d3ye65m8jdqqk" path="res://hints/touch/cold.tres" id="8_mqtoc"]
+[ext_resource type="Resource" path="res://hints/hearing/fridge_hum.tres" id="9_movcj"]
+[ext_resource type="Resource" path="res://hints/hearing/fridge_open_close.tres" id="10_yrrdq"]
 
 [resource]
 script = ExtResource("1_rvap0")
 solution_key = "PUZZLE_FRIDGE"
-hints = Array[Resource("res://hints/hint.gd")]([])
+hints = Array[Resource("res://hints/hint.gd")]([ExtResource("1_2ls7q"), ExtResource("2_1qdb2"), ExtResource("3_cs8kx"), ExtResource("4_60qf3"), ExtResource("5_s47ja"), ExtResource("6_pe1ci"), ExtResource("7_5fbxf"), ExtResource("8_mqtoc"), ExtResource("9_movcj"), ExtResource("10_yrrdq")])
 category = 3
-helpfulness_values = Array[int]([])
+helpfulness_values = Array[int]([2, 2, 2, 1, 1, 1, 2, 3, 2, 3])

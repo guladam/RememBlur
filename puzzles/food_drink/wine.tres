@@ -1,10 +1,21 @@
-[gd_resource type="Resource" script_class="Puzzle" load_steps=2 format=3 uid="uid://x3d0l0f0tbow"]
+[gd_resource type="Resource" script_class="Puzzle" load_steps=13 format=3 uid="uid://x3d0l0f0tbow"]
 
 [ext_resource type="Script" path="res://puzzles/puzzle.gd" id="1_17tki"]
+[ext_resource type="Resource" uid="uid://bliffq4xf4xde" path="res://hints/sight/c_red.tres" id="1_mpu2l"]
+[ext_resource type="Resource" uid="uid://b2nn2eeuw6ou3" path="res://hints/sight/c_yellow.tres" id="2_algkn"]
+[ext_resource type="Resource" uid="uid://cmlds10apw6yw" path="res://hints/smell/fragrant.tres" id="3_2cmsm"]
+[ext_resource type="Resource" uid="uid://d2l3qvpdj21qj" path="res://hints/smell/fruity.tres" id="4_57smd"]
+[ext_resource type="Resource" uid="uid://belslsuh1h0vx" path="res://hints/smell/sweet.tres" id="5_4q74e"]
+[ext_resource type="Resource" uid="uid://cpw5fmdqh8ou1" path="res://hints/taste/sweet.tres" id="6_grpne"]
+[ext_resource type="Resource" uid="uid://c27h8ercww3fq" path="res://hints/taste/fruity.tres" id="7_4oht8"]
+[ext_resource type="Resource" uid="uid://c2vfdp4yl4ogp" path="res://hints/taste/sour.tres" id="8_nghgi"]
+[ext_resource type="Resource" path="res://hints/hearing/wine_open.tres" id="9_syidb"]
+[ext_resource type="Resource" path="res://hints/hearing/wine_pour.tres" id="10_4518u"]
+[ext_resource type="Resource" uid="uid://cuawj7xa0s5ah" path="res://hints/touch/wet.tres" id="11_5f1g4"]
 
 [resource]
 script = ExtResource("1_17tki")
 solution_key = "PUZZLE_WINE"
-hints = Array[Resource("res://hints/hint.gd")]([])
+hints = Array[Resource("res://hints/hint.gd")]([ExtResource("1_mpu2l"), ExtResource("2_algkn"), ExtResource("3_2cmsm"), ExtResource("4_57smd"), ExtResource("5_4q74e"), ExtResource("6_grpne"), ExtResource("7_4oht8"), ExtResource("8_nghgi"), ExtResource("9_syidb"), ExtResource("10_4518u"), ExtResource("11_5f1g4")])
 category = 4
-helpfulness_values = Array[int]([])
+helpfulness_values = Array[int]([3, 2, 2, 3, 2, 2, 3, 2, 3, 2, 2])

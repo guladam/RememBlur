@@ -1,10 +1,19 @@
-[gd_resource type="Resource" script_class="Puzzle" load_steps=2 format=3 uid="uid://xu43d5kmce6o"]
+[gd_resource type="Resource" script_class="Puzzle" load_steps=11 format=3 uid="uid://xu43d5kmce6o"]
 
+[ext_resource type="Resource" uid="uid://y40sv6ulw3ga" path="res://hints/sight/c_multicolored.tres" id="1_d0sxm"]
 [ext_resource type="Script" path="res://puzzles/puzzle.gd" id="1_pfy1o"]
+[ext_resource type="Resource" uid="uid://kmxqdt0dj7i8" path="res://hints/sight/size_big.tres" id="2_qpc5r"]
+[ext_resource type="Resource" uid="uid://tyujjek6sn6u" path="res://hints/smell/dusty.tres" id="3_bpl86"]
+[ext_resource type="Resource" uid="uid://rm1v4ypf0ak3" path="res://hints/smell/irony.tres" id="4_8e5cj"]
+[ext_resource type="Resource" uid="uid://chy7gyvc551li" path="res://hints/taste/dont_know.tres" id="5_gwpc3"]
+[ext_resource type="Resource" uid="uid://crl7l5lnf7q1f" path="res://hints/touch/hard.tres" id="6_tm364"]
+[ext_resource type="Resource" uid="uid://c45xnx226etp4" path="res://hints/touch/bumpy.tres" id="7_31aer"]
+[ext_resource type="Resource" path="res://hints/hearing/bicycle_bell.tres" id="8_0s1bd"]
+[ext_resource type="Resource" path="res://hints/hearing/bicycle_paddle.tres" id="9_0y22g"]
 
 [resource]
 script = ExtResource("1_pfy1o")
 solution_key = "PUZZLE_BIKE"
-hints = Array[Resource("res://hints/hint.gd")]([])
+hints = Array[Resource("res://hints/hint.gd")]([ExtResource("1_d0sxm"), ExtResource("2_qpc5r"), ExtResource("3_bpl86"), ExtResource("4_8e5cj"), ExtResource("5_gwpc3"), ExtResource("6_tm364"), ExtResource("7_31aer"), ExtResource("8_0s1bd"), ExtResource("9_0y22g")])
 category = 3
-helpfulness_values = Array[int]([])
+helpfulness_values = Array[int]([2, 2, 1, 2, 1, 3, 2, 2, 3])

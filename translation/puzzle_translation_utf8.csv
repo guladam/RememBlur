@@ -41,7 +41,7 @@ PUZZLE_BOOK,book,könyv
 PUZZLE_TISSUE,tissue,zsebkendő
 PUZZLE_KEY,key,kulcs
 PUZZLE_FAN,fan,ventilátor
-PUZZLE_STREET LIGHT,street light,utcai lámpa
+PUZZLE_STREET_LIGHT,street light,utcai lámpa
 PUZZLE_WINE,wine,bor
 PUZZLE_BEER,beer,sör
 PUZZLE_PHONE,phone,telefon

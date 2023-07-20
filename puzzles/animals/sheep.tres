@@ -1,10 +1,20 @@
-[gd_resource type="Resource" script_class="Puzzle" load_steps=2 format=3 uid="uid://c6vvbwx2yt2gr"]
+[gd_resource type="Resource" script_class="Puzzle" load_steps=12 format=3 uid="uid://c6vvbwx2yt2gr"]
 
+[ext_resource type="Resource" uid="uid://53217n4qrrot" path="res://hints/sight/c_white.tres" id="1_0x8c3"]
 [ext_resource type="Script" path="res://puzzles/puzzle.gd" id="1_wrfho"]
+[ext_resource type="Resource" uid="uid://bdh7164qkaaff" path="res://hints/sight/size_medium.tres" id="2_o4l61"]
+[ext_resource type="Resource" uid="uid://b0khrbimq76ce" path="res://hints/smell/no_smell.tres" id="3_pscwh"]
+[ext_resource type="Resource" uid="uid://bcsu43ms7tegh" path="res://hints/smell/smelly.tres" id="4_rf42p"]
+[ext_resource type="Resource" uid="uid://chy7gyvc551li" path="res://hints/taste/dont_know.tres" id="5_k84do"]
+[ext_resource type="Resource" uid="uid://c686cfewumd3r" path="res://hints/touch/soft.tres" id="6_y733r"]
+[ext_resource type="Resource" uid="uid://dsraw7q5yfpu1" path="res://hints/touch/fuzzy.tres" id="7_f2wxf"]
+[ext_resource type="Resource" path="res://hints/hearing/sheep_bleat.tres" id="8_xsrfm"]
+[ext_resource type="Resource" path="res://hints/hearing/sheep_eating_grass.tres" id="9_o2a73"]
+[ext_resource type="Resource" uid="uid://0w108bd5ihlm" path="res://hints/taste/meaty.tres" id="10_l3dn7"]
 
 [resource]
 script = ExtResource("1_wrfho")
 solution_key = "PUZZLE_SHEEP"
-hints = Array[Resource("res://hints/hint.gd")]([])
+hints = Array[Resource("res://hints/hint.gd")]([ExtResource("1_0x8c3"), ExtResource("2_o4l61"), ExtResource("3_pscwh"), ExtResource("4_rf42p"), ExtResource("5_k84do"), ExtResource("6_y733r"), ExtResource("7_f2wxf"), ExtResource("8_xsrfm"), ExtResource("9_o2a73"), ExtResource("10_l3dn7")])
 category = 0
-helpfulness_values = Array[int]([])
+helpfulness_values = Array[int]([3, 2, 1, 2, 1, 3, 3, 3, 1, 1])

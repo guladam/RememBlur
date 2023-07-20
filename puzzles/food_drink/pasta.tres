@@ -1,10 +1,21 @@
-[gd_resource type="Resource" script_class="Puzzle" load_steps=2 format=3 uid="uid://deawm4kf22v5f"]
+[gd_resource type="Resource" script_class="Puzzle" load_steps=13 format=3 uid="uid://deawm4kf22v5f"]
 
 [ext_resource type="Script" path="res://puzzles/puzzle.gd" id="1_heq3e"]
+[ext_resource type="Resource" uid="uid://b2nn2eeuw6ou3" path="res://hints/sight/c_yellow.tres" id="1_vr878"]
+[ext_resource type="Resource" uid="uid://cr4hds3nd38jb" path="res://hints/sight/c_brown.tres" id="2_6y717"]
+[ext_resource type="Resource" uid="uid://c3ipta8nkneiq" path="res://hints/smell/salty.tres" id="3_cogn3"]
+[ext_resource type="Resource" uid="uid://daib0f7ogqm23" path="res://hints/taste/creamy.tres" id="4_cixyi"]
+[ext_resource type="Resource" uid="uid://okcfv771cbkt" path="res://hints/taste/salty.tres" id="5_05d6s"]
+[ext_resource type="Resource" uid="uid://d1few6xf4gfgp" path="res://hints/taste/peppery.tres" id="6_dbr6n"]
+[ext_resource type="Resource" uid="uid://du23bbcpxlxvc" path="res://hints/touch/spongy.tres" id="7_kbfl5"]
+[ext_resource type="Resource" uid="uid://cuawj7xa0s5ah" path="res://hints/touch/wet.tres" id="8_gr8ya"]
+[ext_resource type="Resource" uid="uid://c8bvxoou2rg6l" path="res://hints/touch/hot.tres" id="9_fcphv"]
+[ext_resource type="Resource" path="res://hints/hearing/pasta_box.tres" id="10_85dan"]
+[ext_resource type="Resource" path="res://hints/hearing/pasta_eating.tres" id="11_ocmqq"]
 
 [resource]
 script = ExtResource("1_heq3e")
 solution_key = "PUZZLE_PASTA"
-hints = Array[Resource("res://hints/hint.gd")]([])
+hints = Array[Resource("res://hints/hint.gd")]([ExtResource("1_vr878"), ExtResource("2_6y717"), ExtResource("3_cogn3"), ExtResource("4_cixyi"), ExtResource("5_05d6s"), ExtResource("6_dbr6n"), ExtResource("7_kbfl5"), ExtResource("8_gr8ya"), ExtResource("9_fcphv"), ExtResource("10_85dan"), ExtResource("11_ocmqq")])
 category = 4
-helpfulness_values = Array[int]([])
+helpfulness_values = Array[int]([3, 2, 1, 3, 2, 1, 3, 2, 3, 2, 2])

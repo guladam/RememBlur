@@ -1,10 +1,20 @@
-[gd_resource type="Resource" script_class="Puzzle" load_steps=2 format=3 uid="uid://cd0ib3vooht6p"]
+[gd_resource type="Resource" script_class="Puzzle" load_steps=12 format=3 uid="uid://cd0ib3vooht6p"]
 
 [ext_resource type="Script" path="res://puzzles/puzzle.gd" id="1_hwoar"]
+[ext_resource type="Resource" uid="uid://cn3hsqdhj4f3r" path="res://hints/sight/s_circle.tres" id="1_vggyw"]
+[ext_resource type="Resource" uid="uid://y40sv6ulw3ga" path="res://hints/sight/c_multicolored.tres" id="2_gn70p"]
+[ext_resource type="Resource" uid="uid://c3ipta8nkneiq" path="res://hints/smell/salty.tres" id="3_t24jv"]
+[ext_resource type="Resource" uid="uid://belslsuh1h0vx" path="res://hints/smell/sweet.tres" id="4_l3d7c"]
+[ext_resource type="Resource" uid="uid://okcfv771cbkt" path="res://hints/taste/salty.tres" id="5_drp0x"]
+[ext_resource type="Resource" uid="uid://cpw5fmdqh8ou1" path="res://hints/taste/sweet.tres" id="6_0pg0h"]
+[ext_resource type="Resource" uid="uid://b5ktavk35e86" path="res://hints/taste/spicy.tres" id="7_57dva"]
+[ext_resource type="Resource" uid="uid://dtn4f6p2grc0x" path="res://hints/touch/warm.tres" id="8_rotml"]
+[ext_resource type="Resource" path="res://hints/hearing/fire.tres" id="9_cl0ap"]
+[ext_resource type="Resource" path="res://hints/hearing/restaurant_ambience.tres" id="10_nnv6e"]
 
 [resource]
 script = ExtResource("1_hwoar")
 solution_key = "PUZZLE_PIZZA"
-hints = Array[Resource("res://hints/hint.gd")]([])
+hints = Array[Resource("res://hints/hint.gd")]([ExtResource("1_vggyw"), ExtResource("2_gn70p"), ExtResource("3_t24jv"), ExtResource("4_l3d7c"), ExtResource("5_drp0x"), ExtResource("6_0pg0h"), ExtResource("7_57dva"), ExtResource("8_rotml"), ExtResource("9_cl0ap"), ExtResource("10_nnv6e")])
 category = 4
-helpfulness_values = Array[int]([])
+helpfulness_values = Array[int]([3, 1, 2, 2, 2, 2, 2, 3, 2, 2])

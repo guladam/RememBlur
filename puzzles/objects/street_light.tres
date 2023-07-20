@@ -1,10 +1,20 @@
-[gd_resource type="Resource" script_class="Puzzle" load_steps=2 format=3 uid="uid://be1cb8jcowio2"]
+[gd_resource type="Resource" script_class="Puzzle" load_steps=12 format=3 uid="uid://be1cb8jcowio2"]
 
+[ext_resource type="Resource" uid="uid://dekuojdk0d3te" path="res://hints/sight/c_gray.tres" id="1_dwuvh"]
 [ext_resource type="Script" path="res://puzzles/puzzle.gd" id="1_e8iu8"]
+[ext_resource type="Resource" uid="uid://bfqffit3npt8n" path="res://hints/sight/s_oval.tres" id="2_xx1qd"]
+[ext_resource type="Resource" uid="uid://kmxqdt0dj7i8" path="res://hints/sight/size_big.tres" id="3_5vyxy"]
+[ext_resource type="Resource" uid="uid://b0khrbimq76ce" path="res://hints/smell/no_smell.tres" id="4_aqbx8"]
+[ext_resource type="Resource" uid="uid://rm1v4ypf0ak3" path="res://hints/smell/irony.tres" id="5_6lgdd"]
+[ext_resource type="Resource" uid="uid://chy7gyvc551li" path="res://hints/taste/dont_know.tres" id="6_jt1j6"]
+[ext_resource type="Resource" uid="uid://crl7l5lnf7q1f" path="res://hints/touch/hard.tres" id="7_j2w0e"]
+[ext_resource type="Resource" uid="uid://c45xnx226etp4" path="res://hints/touch/bumpy.tres" id="8_57mp5"]
+[ext_resource type="Resource" path="res://hints/hearing/street_lamp.tres" id="9_y4ki8"]
+[ext_resource type="Resource" path="res://hints/hearing/street_noise.tres" id="10_udxih"]
 
 [resource]
 script = ExtResource("1_e8iu8")
-solution_key = "PUZZLE_STREET LIGHT"
-hints = Array[Resource("res://hints/hint.gd")]([])
+solution_key = "PUZZLE_STREET_LIGHT"
+hints = Array[Resource("res://hints/hint.gd")]([ExtResource("1_dwuvh"), ExtResource("2_xx1qd"), ExtResource("3_5vyxy"), ExtResource("4_aqbx8"), ExtResource("5_6lgdd"), ExtResource("6_jt1j6"), ExtResource("7_j2w0e"), ExtResource("8_57mp5"), ExtResource("9_y4ki8"), ExtResource("10_udxih")])
 category = 3
-helpfulness_values = Array[int]([])
+helpfulness_values = Array[int]([2, 3, 2, 1, 1, 1, 2, 2, 3, 2])

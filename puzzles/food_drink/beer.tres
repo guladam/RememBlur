@@ -1,10 +1,20 @@
-[gd_resource type="Resource" script_class="Puzzle" load_steps=2 format=3 uid="uid://cpu5ykuetsvxx"]
+[gd_resource type="Resource" script_class="Puzzle" load_steps=12 format=3 uid="uid://cpu5ykuetsvxx"]
 
+[ext_resource type="Resource" uid="uid://b2nn2eeuw6ou3" path="res://hints/sight/c_yellow.tres" id="1_e8voq"]
 [ext_resource type="Script" path="res://puzzles/puzzle.gd" id="1_k7fn5"]
+[ext_resource type="Resource" uid="uid://cr4hds3nd38jb" path="res://hints/sight/c_brown.tres" id="2_vkbs2"]
+[ext_resource type="Resource" uid="uid://cmlds10apw6yw" path="res://hints/smell/fragrant.tres" id="3_hxu21"]
+[ext_resource type="Resource" uid="uid://belslsuh1h0vx" path="res://hints/smell/sweet.tres" id="4_pgpj8"]
+[ext_resource type="Resource" uid="uid://cpw5fmdqh8ou1" path="res://hints/taste/sweet.tres" id="5_di6hq"]
+[ext_resource type="Resource" uid="uid://d36k2n0ymobpp" path="res://hints/taste/bitter.tres" id="6_tmdgj"]
+[ext_resource type="Resource" uid="uid://bra0faamco7cv" path="res://hints/taste/tart.tres" id="7_0qsj7"]
+[ext_resource type="Resource" uid="uid://cuawj7xa0s5ah" path="res://hints/touch/wet.tres" id="8_k8pl7"]
+[ext_resource type="Resource" path="res://hints/hearing/beer_open.tres" id="9_2d7xi"]
+[ext_resource type="Resource" path="res://hints/hearing/beer_pour.tres" id="10_7useh"]
 
 [resource]
 script = ExtResource("1_k7fn5")
 solution_key = "PUZZLE_BEER"
-hints = Array[Resource("res://hints/hint.gd")]([])
+hints = Array[Resource("res://hints/hint.gd")]([ExtResource("1_e8voq"), ExtResource("2_vkbs2"), ExtResource("3_hxu21"), ExtResource("4_pgpj8"), ExtResource("5_di6hq"), ExtResource("6_tmdgj"), ExtResource("7_0qsj7"), ExtResource("8_k8pl7"), ExtResource("9_2d7xi"), ExtResource("10_7useh")])
 category = 4
-helpfulness_values = Array[int]([])
+helpfulness_values = Array[int]([3, 2, 2, 1, 1, 3, 2, 2, 3, 2])

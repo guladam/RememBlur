@@ -1,10 +1,19 @@
-[gd_resource type="Resource" script_class="Puzzle" load_steps=2 format=3 uid="uid://bguvd0yqgf5g5"]
+[gd_resource type="Resource" script_class="Puzzle" load_steps=11 format=3 uid="uid://bguvd0yqgf5g5"]
 
+[ext_resource type="Resource" uid="uid://y40sv6ulw3ga" path="res://hints/sight/c_multicolored.tres" id="1_dvfkx"]
 [ext_resource type="Script" path="res://puzzles/puzzle.gd" id="1_qmarh"]
+[ext_resource type="Resource" uid="uid://bdh7164qkaaff" path="res://hints/sight/size_medium.tres" id="2_40lgv"]
+[ext_resource type="Resource" uid="uid://tyujjek6sn6u" path="res://hints/smell/dusty.tres" id="3_y260l"]
+[ext_resource type="Resource" uid="uid://chy7gyvc551li" path="res://hints/taste/dont_know.tres" id="4_8wqh2"]
+[ext_resource type="Resource" uid="uid://crl7l5lnf7q1f" path="res://hints/touch/hard.tres" id="5_dicjy"]
+[ext_resource type="Resource" uid="uid://dtn4f6p2grc0x" path="res://hints/touch/warm.tres" id="6_bd5mu"]
+[ext_resource type="Resource" uid="uid://c45xnx226etp4" path="res://hints/touch/bumpy.tres" id="7_e6ss2"]
+[ext_resource type="Resource" path="res://hints/hearing/vacuum_off.tres" id="8_flgkr"]
+[ext_resource type="Resource" path="res://hints/hearing/vacuum_suck.tres" id="9_e4ex2"]
 
 [resource]
 script = ExtResource("1_qmarh")
 solution_key = "PUZZLE_VACUUM"
-hints = Array[Resource("res://hints/hint.gd")]([])
+hints = Array[Resource("res://hints/hint.gd")]([ExtResource("1_dvfkx"), ExtResource("2_40lgv"), ExtResource("3_y260l"), ExtResource("4_8wqh2"), ExtResource("5_dicjy"), ExtResource("6_bd5mu"), ExtResource("7_e6ss2"), ExtResource("8_flgkr"), ExtResource("9_e4ex2")])
 category = 3
-helpfulness_values = Array[int]([])
+helpfulness_values = Array[int]([1, 2, 3, 1, 3, 3, 2, 3, 3])

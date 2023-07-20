@@ -84,6 +84,7 @@ TOUCH_FUZZY,fuzzy,pelyhes
 TOUCH_NOTHING,nothing special,semmi különös
 TOUCH_HARD,hard,kemény
 TOUCH_HOT,hot,forró
+TOUCH_GRIPPY,grippy,tapadós
 UPGRADE_T1_HEAL,+1 energy,+1 energia
 UPGRADE_T1_MS_BONUS,move faster,gyorsabb mozgás
 UPGRADE_T2_HEAL,+2 energy,+2 energia

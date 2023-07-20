@@ -1,10 +1,19 @@
-[gd_resource type="Resource" script_class="Puzzle" load_steps=2 format=3 uid="uid://dnu35ojr2qgil"]
+[gd_resource type="Resource" script_class="Puzzle" load_steps=11 format=3 uid="uid://dnu35ojr2qgil"]
 
+[ext_resource type="Resource" uid="uid://rqe28xpjdvuo" path="res://hints/sight/c_transparent.tres" id="1_3e8ga"]
 [ext_resource type="Script" path="res://puzzles/puzzle.gd" id="1_ugbd8"]
+[ext_resource type="Resource" uid="uid://bfqffit3npt8n" path="res://hints/sight/s_oval.tres" id="2_8rbe5"]
+[ext_resource type="Resource" uid="uid://pah7x7c7go5s" path="res://hints/sight/s_rectangle.tres" id="3_0gn4d"]
+[ext_resource type="Resource" uid="uid://b0khrbimq76ce" path="res://hints/smell/no_smell.tres" id="4_pmsls"]
+[ext_resource type="Resource" uid="uid://cvihph24go05" path="res://hints/smell/chemical.tres" id="5_4filb"]
+[ext_resource type="Resource" uid="uid://chy7gyvc551li" path="res://hints/taste/dont_know.tres" id="6_ddce7"]
+[ext_resource type="Resource" uid="uid://crl7l5lnf7q1f" path="res://hints/touch/hard.tres" id="7_1a8xl"]
+[ext_resource type="Resource" path="res://hints/hearing/glass_break.tres" id="8_xqhr5"]
+[ext_resource type="Resource" path="res://hints/hearing/glass_wipe.tres" id="9_itg4w"]
 
 [resource]
 script = ExtResource("1_ugbd8")
 solution_key = "PUZZLE_MIRROR"
-hints = Array[Resource("res://hints/hint.gd")]([])
+hints = Array[Resource("res://hints/hint.gd")]([ExtResource("1_3e8ga"), ExtResource("2_8rbe5"), ExtResource("3_0gn4d"), ExtResource("4_pmsls"), ExtResource("5_4filb"), ExtResource("6_ddce7"), ExtResource("7_1a8xl"), ExtResource("8_xqhr5"), ExtResource("9_itg4w")])
 category = 3
-helpfulness_values = Array[int]([])
+helpfulness_values = Array[int]([3, 2, 2, 1, 1, 1, 2, 2, 3])

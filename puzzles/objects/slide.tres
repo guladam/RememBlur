@@ -1,10 +1,19 @@
-[gd_resource type="Resource" script_class="Puzzle" load_steps=2 format=3 uid="uid://cr668apiabm4j"]
+[gd_resource type="Resource" script_class="Puzzle" load_steps=11 format=3 uid="uid://cr668apiabm4j"]
 
+[ext_resource type="Resource" uid="uid://kmxqdt0dj7i8" path="res://hints/sight/size_big.tres" id="1_b0bwp"]
 [ext_resource type="Script" path="res://puzzles/puzzle.gd" id="1_jjgju"]
+[ext_resource type="Resource" uid="uid://y40sv6ulw3ga" path="res://hints/sight/c_multicolored.tres" id="2_kbokg"]
+[ext_resource type="Resource" uid="uid://b0khrbimq76ce" path="res://hints/smell/no_smell.tres" id="3_f8ylt"]
+[ext_resource type="Resource" uid="uid://chy7gyvc551li" path="res://hints/taste/dont_know.tres" id="4_cdnen"]
+[ext_resource type="Resource" uid="uid://crl7l5lnf7q1f" path="res://hints/touch/hard.tres" id="5_evo2o"]
+[ext_resource type="Resource" uid="uid://cvihph24go05" path="res://hints/smell/chemical.tres" id="6_5tpkb"]
+[ext_resource type="Resource" uid="uid://cuawj7xa0s5ah" path="res://hints/touch/wet.tres" id="7_8v8v5"]
+[ext_resource type="Resource" path="res://hints/hearing/slide.tres" id="8_5svqi"]
+[ext_resource type="Resource" path="res://hints/hearing/children_playing.tres" id="9_c65mp"]
 
 [resource]
 script = ExtResource("1_jjgju")
 solution_key = "PUZZLE_SLIDE"
-hints = Array[Resource("res://hints/hint.gd")]([])
+hints = Array[Resource("res://hints/hint.gd")]([ExtResource("1_b0bwp"), ExtResource("2_kbokg"), ExtResource("3_f8ylt"), ExtResource("4_cdnen"), ExtResource("5_evo2o"), ExtResource("6_5tpkb"), ExtResource("7_8v8v5"), ExtResource("8_5svqi"), ExtResource("9_c65mp")])
 category = 3
-helpfulness_values = Array[int]([])
+helpfulness_values = Array[int]([2, 3, 1, 1, 2, 1, 2, 2, 3])

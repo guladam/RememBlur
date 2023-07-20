@@ -1,10 +1,19 @@
-[gd_resource type="Resource" script_class="Puzzle" load_steps=2 format=3 uid="uid://cue0tlubrd3qo"]
+[gd_resource type="Resource" script_class="Puzzle" load_steps=11 format=3 uid="uid://cue0tlubrd3qo"]
 
+[ext_resource type="Resource" uid="uid://bliffq4xf4xde" path="res://hints/sight/c_red.tres" id="1_t8o5a"]
 [ext_resource type="Script" path="res://puzzles/puzzle.gd" id="1_yuonr"]
+[ext_resource type="Resource" uid="uid://belslsuh1h0vx" path="res://hints/smell/sweet.tres" id="2_e3ne8"]
+[ext_resource type="Resource" uid="uid://cpw5fmdqh8ou1" path="res://hints/taste/sweet.tres" id="3_43v6d"]
+[ext_resource type="Resource" uid="uid://c27h8ercww3fq" path="res://hints/taste/fruity.tres" id="4_g3dgg"]
+[ext_resource type="Resource" uid="uid://c2vfdp4yl4ogp" path="res://hints/taste/sour.tres" id="5_1fv08"]
+[ext_resource type="Resource" uid="uid://cuawj7xa0s5ah" path="res://hints/touch/wet.tres" id="6_edu5r"]
+[ext_resource type="Resource" uid="uid://n0dqchyfcfw0" path="res://hints/touch/sticky.tres" id="7_nj2jc"]
+[ext_resource type="Resource" path="res://hints/hearing/ketchup_bottle.tres" id="8_nilom"]
+[ext_resource type="Resource" path="res://hints/hearing/ketchup_open_close.tres" id="9_koncx"]
 
 [resource]
 script = ExtResource("1_yuonr")
 solution_key = "PUZZLE_KETCHUP"
-hints = Array[Resource("res://hints/hint.gd")]([])
+hints = Array[Resource("res://hints/hint.gd")]([ExtResource("1_t8o5a"), ExtResource("2_e3ne8"), ExtResource("3_43v6d"), ExtResource("4_g3dgg"), ExtResource("5_1fv08"), ExtResource("6_edu5r"), ExtResource("7_nj2jc"), ExtResource("8_nilom"), ExtResource("9_koncx")])
 category = 4
-helpfulness_values = Array[int]([])
+helpfulness_values = Array[int]([3, 2, 3, 1, 1, 2, 3, 2, 2])

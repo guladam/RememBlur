@@ -1,10 +1,19 @@
-[gd_resource type="Resource" script_class="Puzzle" load_steps=2 format=3 uid="uid://c6rv621cdfpp2"]
+[gd_resource type="Resource" script_class="Puzzle" load_steps=11 format=3 uid="uid://c6rv621cdfpp2"]
 
+[ext_resource type="Resource" uid="uid://y40sv6ulw3ga" path="res://hints/sight/c_multicolored.tres" id="1_jukkw"]
 [ext_resource type="Script" path="res://puzzles/puzzle.gd" id="1_jyty8"]
+[ext_resource type="Resource" uid="uid://87gsqhbh7ccp" path="res://hints/sight/s_oblong.tres" id="2_px6mb"]
+[ext_resource type="Resource" uid="uid://b0khrbimq76ce" path="res://hints/smell/no_smell.tres" id="3_8papt"]
+[ext_resource type="Resource" uid="uid://bcsu43ms7tegh" path="res://hints/smell/smelly.tres" id="4_bgycm"]
+[ext_resource type="Resource" uid="uid://chy7gyvc551li" path="res://hints/taste/dont_know.tres" id="5_5j5ki"]
+[ext_resource type="Resource" uid="uid://c686cfewumd3r" path="res://hints/touch/soft.tres" id="6_pifoa"]
+[ext_resource type="Resource" uid="uid://dsraw7q5yfpu1" path="res://hints/touch/fuzzy.tres" id="7_27ucu"]
+[ext_resource type="Resource" path="res://hints/hearing/dog_bark.tres" id="8_jnc43"]
+[ext_resource type="Resource" path="res://hints/hearing/dog_walk_vinyl.tres" id="9_nijd7"]
 
 [resource]
 script = ExtResource("1_jyty8")
 solution_key = "PUZZLE_DOG"
-hints = Array[Resource("res://hints/hint.gd")]([])
+hints = Array[Resource("res://hints/hint.gd")]([ExtResource("1_jukkw"), ExtResource("2_px6mb"), ExtResource("3_8papt"), ExtResource("4_bgycm"), ExtResource("5_5j5ki"), ExtResource("6_pifoa"), ExtResource("7_27ucu"), ExtResource("8_jnc43"), ExtResource("9_nijd7")])
 category = 0
-helpfulness_values = Array[int]([])
+helpfulness_values = Array[int]([2, 2, 1, 1, 1, 2, 3, 3, 2])

@@ -1,10 +1,19 @@
-[gd_resource type="Resource" script_class="Puzzle" load_steps=2 format=3 uid="uid://driqcikjc1ml1"]
+[gd_resource type="Resource" script_class="Puzzle" load_steps=11 format=3 uid="uid://driqcikjc1ml1"]
 
 [ext_resource type="Script" path="res://puzzles/puzzle.gd" id="1_jyi5a"]
+[ext_resource type="Resource" uid="uid://cdw4cj7rth1ec" path="res://hints/sight/c_blue.tres" id="1_te34i"]
+[ext_resource type="Resource" uid="uid://rqe28xpjdvuo" path="res://hints/sight/c_transparent.tres" id="2_vjbwj"]
+[ext_resource type="Resource" uid="uid://c3ipta8nkneiq" path="res://hints/smell/salty.tres" id="3_22s2g"]
+[ext_resource type="Resource" uid="uid://cvihph24go05" path="res://hints/smell/chemical.tres" id="4_ay5o4"]
+[ext_resource type="Resource" uid="uid://b0khrbimq76ce" path="res://hints/smell/no_smell.tres" id="5_6s15k"]
+[ext_resource type="Resource" uid="uid://dvsfadfd7datv" path="res://hints/taste/no_taste.tres" id="6_5n8q4"]
+[ext_resource type="Resource" uid="uid://cuawj7xa0s5ah" path="res://hints/touch/wet.tres" id="7_0esbj"]
+[ext_resource type="Resource" path="res://hints/hearing/boiling_water.tres" id="8_1qfoh"]
+[ext_resource type="Resource" path="res://hints/hearing/splash.tres" id="9_5db5i"]
 
 [resource]
 script = ExtResource("1_jyi5a")
 solution_key = "PUZZLE_WATER"
-hints = Array[Resource("res://hints/hint.gd")]([])
+hints = Array[Resource("res://hints/hint.gd")]([ExtResource("1_te34i"), ExtResource("2_vjbwj"), ExtResource("3_22s2g"), ExtResource("4_ay5o4"), ExtResource("5_6s15k"), ExtResource("6_5n8q4"), ExtResource("7_0esbj"), ExtResource("8_1qfoh"), ExtResource("9_5db5i")])
 category = 3
-helpfulness_values = Array[int]([])
+helpfulness_values = Array[int]([3, 2, 2, 1, 3, 3, 3, 2, 3])

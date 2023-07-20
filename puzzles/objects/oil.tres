@@ -1,10 +1,18 @@
-[gd_resource type="Resource" script_class="Puzzle" load_steps=2 format=3 uid="uid://bq23230e8wt10"]
+[gd_resource type="Resource" script_class="Puzzle" load_steps=10 format=3 uid="uid://bq23230e8wt10"]
 
+[ext_resource type="Resource" uid="uid://b2nn2eeuw6ou3" path="res://hints/sight/c_yellow.tres" id="1_al7rb"]
 [ext_resource type="Script" path="res://puzzles/puzzle.gd" id="1_ju4gl"]
+[ext_resource type="Resource" uid="uid://b0khrbimq76ce" path="res://hints/smell/no_smell.tres" id="2_hwev3"]
+[ext_resource type="Resource" uid="uid://dvsfadfd7datv" path="res://hints/taste/no_taste.tres" id="3_6yifo"]
+[ext_resource type="Resource" uid="uid://cuawj7xa0s5ah" path="res://hints/touch/wet.tres" id="4_ansqo"]
+[ext_resource type="Resource" uid="uid://c27h8ercww3fq" path="res://hints/taste/fruity.tres" id="5_17x23"]
+[ext_resource type="Resource" path="res://hints/hearing/oil_fry.tres" id="6_vpvf5"]
+[ext_resource type="Resource" path="res://hints/hearing/oil_pouring.tres" id="7_g1dli"]
+[ext_resource type="Resource" uid="uid://b2unf64wp4k8a" path="res://hints/sight/c_green.tres" id="8_3a5bv"]
 
 [resource]
 script = ExtResource("1_ju4gl")
 solution_key = "PUZZLE_OIL"
-hints = Array[Resource("res://hints/hint.gd")]([])
+hints = Array[Resource("res://hints/hint.gd")]([ExtResource("1_al7rb"), ExtResource("2_hwev3"), ExtResource("3_6yifo"), ExtResource("4_ansqo"), ExtResource("5_17x23"), ExtResource("6_vpvf5"), ExtResource("7_g1dli"), ExtResource("8_3a5bv")])
 category = 3
-helpfulness_values = Array[int]([])
+helpfulness_values = Array[int]([3, 2, 2, 3, 1, 3, 2, 1])

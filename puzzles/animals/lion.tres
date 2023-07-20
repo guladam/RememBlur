@@ -1,13 +1,23 @@
-[gd_resource type="Resource" script_class="Puzzle" load_steps=5 format=3 uid="uid://dd72ddquqou52"]
+[gd_resource type="Resource" script_class="Puzzle" load_steps=15 format=3 uid="uid://dd72ddquqou52"]
 
 [ext_resource type="Script" path="res://puzzles/puzzle.gd" id="1_kntro"]
+[ext_resource type="Resource" uid="uid://crk7drcn11ql1" path="res://hints/sight/c_orange.tres" id="1_ynyjc"]
 [ext_resource type="Resource" uid="uid://cr4hds3nd38jb" path="res://hints/sight/c_brown.tres" id="2_r46w5"]
+[ext_resource type="Resource" uid="uid://y40sv6ulw3ga" path="res://hints/sight/c_multicolored.tres" id="3_ca6l5"]
 [ext_resource type="Resource" uid="uid://87gsqhbh7ccp" path="res://hints/sight/s_oblong.tres" id="3_p3udl"]
 [ext_resource type="Resource" uid="uid://c686cfewumd3r" path="res://hints/touch/soft.tres" id="4_lbdra"]
+[ext_resource type="Resource" uid="uid://kmxqdt0dj7i8" path="res://hints/sight/size_big.tres" id="5_jvl0w"]
+[ext_resource type="Resource" uid="uid://bcsu43ms7tegh" path="res://hints/smell/smelly.tres" id="6_loqq7"]
+[ext_resource type="Resource" uid="uid://b0khrbimq76ce" path="res://hints/smell/no_smell.tres" id="7_yygp5"]
+[ext_resource type="Resource" uid="uid://chy7gyvc551li" path="res://hints/taste/dont_know.tres" id="8_1s1ia"]
+[ext_resource type="Resource" uid="uid://dtn4f6p2grc0x" path="res://hints/touch/warm.tres" id="10_my4d2"]
+[ext_resource type="Resource" uid="uid://dsraw7q5yfpu1" path="res://hints/touch/fuzzy.tres" id="11_lp86v"]
+[ext_resource type="Resource" path="res://hints/hearing/lions_playing.tres" id="12_u0psb"]
+[ext_resource type="Resource" path="res://hints/hearing/flash_bite.tres" id="13_tmtqk"]
 
 [resource]
 script = ExtResource("1_kntro")
 solution_key = "PUZZLE_LION"
-hints = Array[Resource("res://hints/hint.gd")]([ExtResource("2_r46w5"), ExtResource("3_p3udl"), ExtResource("4_lbdra")])
+hints = Array[Resource("res://hints/hint.gd")]([ExtResource("1_ynyjc"), ExtResource("2_r46w5"), ExtResource("3_ca6l5"), ExtResource("3_p3udl"), ExtResource("5_jvl0w"), ExtResource("6_loqq7"), ExtResource("7_yygp5"), ExtResource("8_1s1ia"), ExtResource("4_lbdra"), ExtResource("10_my4d2"), ExtResource("11_lp86v"), ExtResource("12_u0psb"), ExtResource("13_tmtqk")])
 category = 0
-helpfulness_values = Array[int]([3, 1, 2])
+helpfulness_values = Array[int]([3, 3, 2, 2, 2, 1, 1, 2, 3, 1, 3, 3, 2])

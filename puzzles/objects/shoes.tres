@@ -1,10 +1,20 @@
-[gd_resource type="Resource" script_class="Puzzle" load_steps=2 format=3 uid="uid://djbvm2qd6ogk"]
+[gd_resource type="Resource" script_class="Puzzle" load_steps=12 format=3 uid="uid://djbvm2qd6ogk"]
 
 [ext_resource type="Script" path="res://puzzles/puzzle.gd" id="1_fw5gg"]
+[ext_resource type="Resource" uid="uid://y40sv6ulw3ga" path="res://hints/sight/c_multicolored.tres" id="1_sav0p"]
+[ext_resource type="Resource" uid="uid://87gsqhbh7ccp" path="res://hints/sight/s_oblong.tres" id="2_n0w8p"]
+[ext_resource type="Resource" uid="uid://bcsu43ms7tegh" path="res://hints/smell/smelly.tres" id="3_a67xr"]
+[ext_resource type="Resource" uid="uid://cmlds10apw6yw" path="res://hints/smell/fragrant.tres" id="4_ysist"]
+[ext_resource type="Resource" uid="uid://cvihph24go05" path="res://hints/smell/chemical.tres" id="5_mfyxd"]
+[ext_resource type="Resource" uid="uid://chy7gyvc551li" path="res://hints/taste/dont_know.tres" id="6_j5yxb"]
+[ext_resource type="Resource" uid="uid://c686cfewumd3r" path="res://hints/touch/soft.tres" id="7_54b7s"]
+[ext_resource type="Resource" uid="uid://crl7l5lnf7q1f" path="res://hints/touch/hard.tres" id="8_sd03k"]
+[ext_resource type="Resource" path="res://hints/hearing/shoes1.tres" id="9_bdcag"]
+[ext_resource type="Resource" path="res://hints/hearing/shoes2.tres" id="10_nnr1i"]
 
 [resource]
 script = ExtResource("1_fw5gg")
 solution_key = "PUZZLE_SHOES"
-hints = Array[Resource("res://hints/hint.gd")]([])
+hints = Array[Resource("res://hints/hint.gd")]([ExtResource("1_sav0p"), ExtResource("2_n0w8p"), ExtResource("3_a67xr"), ExtResource("4_ysist"), ExtResource("5_mfyxd"), ExtResource("6_j5yxb"), ExtResource("7_54b7s"), ExtResource("8_sd03k"), ExtResource("9_bdcag"), ExtResource("10_nnr1i")])
 category = 3
-helpfulness_values = Array[int]([])
+helpfulness_values = Array[int]([3, 3, 3, 2, 1, 1, 2, 2, 2, 3])

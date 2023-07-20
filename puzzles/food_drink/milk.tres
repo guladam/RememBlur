@@ -1,10 +1,18 @@
-[gd_resource type="Resource" script_class="Puzzle" load_steps=2 format=3 uid="uid://c4axvts7sgjdp"]
+[gd_resource type="Resource" script_class="Puzzle" load_steps=10 format=3 uid="uid://c4axvts7sgjdp"]
 
 [ext_resource type="Script" path="res://puzzles/puzzle.gd" id="1_7jg8m"]
+[ext_resource type="Resource" uid="uid://53217n4qrrot" path="res://hints/sight/c_white.tres" id="1_ox816"]
+[ext_resource type="Resource" uid="uid://belslsuh1h0vx" path="res://hints/smell/sweet.tres" id="2_2vsio"]
+[ext_resource type="Resource" uid="uid://bcsu43ms7tegh" path="res://hints/smell/smelly.tres" id="3_qhnfe"]
+[ext_resource type="Resource" uid="uid://cpw5fmdqh8ou1" path="res://hints/taste/sweet.tres" id="4_606x0"]
+[ext_resource type="Resource" uid="uid://cuawj7xa0s5ah" path="res://hints/touch/wet.tres" id="5_mqce1"]
+[ext_resource type="Resource" uid="uid://d3ye65m8jdqqk" path="res://hints/touch/cold.tres" id="6_a3x8y"]
+[ext_resource type="Resource" path="res://hints/hearing/milking_cow.tres" id="7_n6bj3"]
+[ext_resource type="Resource" path="res://hints/hearing/pour_milk.tres" id="8_ukweo"]
 
 [resource]
 script = ExtResource("1_7jg8m")
 solution_key = "PUZZLE_MILK"
-hints = Array[Resource("res://hints/hint.gd")]([])
+hints = Array[Resource("res://hints/hint.gd")]([ExtResource("1_ox816"), ExtResource("2_2vsio"), ExtResource("3_qhnfe"), ExtResource("4_606x0"), ExtResource("5_mqce1"), ExtResource("6_a3x8y"), ExtResource("7_n6bj3"), ExtResource("8_ukweo")])
 category = 4
-helpfulness_values = Array[int]([])
+helpfulness_values = Array[int]([3, 1, 1, 2, 3, 2, 3, 2])

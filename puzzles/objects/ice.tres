@@ -1,10 +1,18 @@
-[gd_resource type="Resource" script_class="Puzzle" load_steps=2 format=3 uid="uid://iclkuvvl2y68"]
+[gd_resource type="Resource" script_class="Puzzle" load_steps=10 format=3 uid="uid://iclkuvvl2y68"]
 
 [ext_resource type="Script" path="res://puzzles/puzzle.gd" id="1_0utex"]
+[ext_resource type="Resource" uid="uid://53217n4qrrot" path="res://hints/sight/c_white.tres" id="1_epa3r"]
+[ext_resource type="Resource" uid="uid://rqe28xpjdvuo" path="res://hints/sight/c_transparent.tres" id="2_6htp2"]
+[ext_resource type="Resource" uid="uid://b0khrbimq76ce" path="res://hints/smell/no_smell.tres" id="3_x2srf"]
+[ext_resource type="Resource" uid="uid://dvsfadfd7datv" path="res://hints/taste/no_taste.tres" id="4_jj385"]
+[ext_resource type="Resource" uid="uid://cuawj7xa0s5ah" path="res://hints/touch/wet.tres" id="5_m7ch0"]
+[ext_resource type="Resource" uid="uid://d3ye65m8jdqqk" path="res://hints/touch/cold.tres" id="6_k440j"]
+[ext_resource type="Resource" path="res://hints/hearing/ice_break.tres" id="7_82nkt"]
+[ext_resource type="Resource" path="res://hints/hearing/ice_rattle.tres" id="8_higus"]
 
 [resource]
 script = ExtResource("1_0utex")
 solution_key = "PUZZLE_ICE"
-hints = Array[Resource("res://hints/hint.gd")]([])
+hints = Array[Resource("res://hints/hint.gd")]([ExtResource("1_epa3r"), ExtResource("2_6htp2"), ExtResource("3_x2srf"), ExtResource("4_jj385"), ExtResource("5_m7ch0"), ExtResource("6_k440j"), ExtResource("7_82nkt"), ExtResource("8_higus")])
 category = 3
-helpfulness_values = Array[int]([])
+helpfulness_values = Array[int]([2, 3, 3, 3, 2, 3, 2, 3])
