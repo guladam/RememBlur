@@ -12,7 +12,7 @@ signal back_to_main_menu
 var _settings: ConfigFile
 
 
-func _ready():
+func initialize():
 	load_settings()
 	setup()
 	lang_selector.setup()

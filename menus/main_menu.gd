@@ -36,6 +36,7 @@ func _show_options_screen() -> void:
 	main_screen.hide()
 	options_screen.show()
 	credits_screen.hide()
+	options_screen.initialize()
 
 
 func _show_credits_screen() -> void:

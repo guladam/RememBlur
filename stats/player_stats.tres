@@ -25,4 +25,4 @@ taste_cd_multipliers = Array[float]([])
 touch_cd_bonus = 0
 touch_cd_multipliers = Array[float]([])
 helpful_hint_chance = 0.1
-helpful_hint_bonus = 0.0
+helpful_hint_bonus = Array[float]([])

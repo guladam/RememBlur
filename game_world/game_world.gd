@@ -71,7 +71,7 @@ func load_all_puzzles() -> Array[Puzzle]:
 		dir.change_dir(inside_dir)
 		for file in dir.get_files():
 			var file_path := "%s/%s" % [dir.get_current_dir(), file]
-			_levels.append(load(file_path))
+			_levels.append(ResourceLoader.load(file_path))
 		dir.change_dir("../")
 	
 	return _levels

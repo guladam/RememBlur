@@ -159,12 +159,6 @@ OPTION_BORDERLESS,Borderless,Keret nélküli ablakos
 OPTION_WINDOWED,Windowed,Ablakos
 OPTION_SFX,SFX,Hang
 OPTION_MUSIC,Music,Zene
-UNHELPFUL,definitely not,"Az biztos, hogy nem"
-HELPFUL1,kind of,Nagyjából
-HELPFUL2,mostly,Leginkább
-HELPFUL3,definitely,Egyértelműen
-HINT_MESSAGE,It's %s %s.,%s %s.
-HINT_MESSAGE_HEARING,It sounds %s like this.,%s ilyen hangja van.
 MENU_NAME,Who is this story about?,Kiről szól a történet?
 MENU_NAME_PLACEHOLDER,name,név
 MENU_START,Start,Kezdés

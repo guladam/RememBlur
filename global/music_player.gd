@@ -16,7 +16,7 @@ func _ready() -> void:
 
 
 func play_song_by_name(filename: String, single=true) -> void:
-	var audio := load("res://music/" + filename)
+	var audio := ResourceLoader.load("res://music/" + filename)
 	if audio:
 		play_song(audio, single)
 
