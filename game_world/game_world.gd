@@ -23,6 +23,7 @@ var _prev_state: GameState.State
 func _ready() -> void:
 	randomize()
 	run_genre = genres.pick_random()
+	print(run_genre)
 	
 	ui.game_over.main_menu_requested.connect(scene_changer.transition_to)
 	ui.game_over.new_run_requested.connect(get_tree().reload_current_scene)
@@ -72,14 +73,13 @@ func load_all_puzzles() -> Array[Puzzle]:
 		for file in dir.get_files():
 			var file_path := "%s/%s" % [dir.get_current_dir(), file]
 			_levels.append(ResourceLoader.load(file_path))
-		dir.change_dir("../")
+		dir.change_dir(puzzle_folder)
 	
 	return _levels
 
 
 func generate_run() -> void:
 	var all_puzzles: Array[Puzzle] = load_all_puzzles()
-	randomize()
 	all_puzzles.shuffle()
 	levels = all_puzzles.slice(0, levels_per_run, 1, true)
 

@@ -13,7 +13,7 @@ func _init() -> void:
 
 
 func upgrade(stats: PlayerStats) -> void:
-	match type:
+	match upgrade_type:
 		Type.HEAL:
 			value = value + stats.health
 		Type.FULL_HEAL:

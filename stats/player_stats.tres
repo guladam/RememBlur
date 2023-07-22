@@ -9,6 +9,7 @@ default_max_health = 4
 health = 4
 max_health = 4
 upgrade_options = 3
+upgrade_options_bonus = 0
 move_speed_bonus = 0
 move_speed_multipliers = Array[float]([])
 time_bonus = 0
