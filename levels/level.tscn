@@ -288,6 +288,28 @@ position = Vector2(-166, -1093)
 position = Vector2(-859, 1684)
 time_bonus = 20
 
+[node name="LetterBonusSpawnPoints" type="Node2D" parent="."]
+
+[node name="SpawnPoint1" type="Marker2D" parent="LetterBonusSpawnPoints"]
+position = Vector2(131, 1854)
+gizmo_extents = 20.0
+
+[node name="SpawnPoint2" type="Marker2D" parent="LetterBonusSpawnPoints"]
+position = Vector2(-655, 247)
+gizmo_extents = 20.0
+
+[node name="SpawnPoint3" type="Marker2D" parent="LetterBonusSpawnPoints"]
+position = Vector2(-259, -1329)
+gizmo_extents = 20.0
+
+[node name="SpawnPoint4" type="Marker2D" parent="LetterBonusSpawnPoints"]
+position = Vector2(989, -152)
+gizmo_extents = 20.0
+
+[node name="SpawnPoint5" type="Marker2D" parent="LetterBonusSpawnPoints"]
+position = Vector2(444, 1431)
+gizmo_extents = 20.0
+
 [node name="Player" parent="." instance=ExtResource("3_5vla8")]
 position = Vector2(235, -159)
 

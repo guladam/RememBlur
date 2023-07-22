@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://bweu5f8t43e7m" path="res://logo.png" id="4_fnxd2"]
 
 [node name="UpgradeCard" type="PanelContainer"]
+custom_minimum_size = Vector2(0, 350)
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -52,8 +53,8 @@ unique_name_in_owner = true
 custom_minimum_size = Vector2(0, 105)
 layout_mode = 2
 size_flags_vertical = 1
-text = "TEST
-TEST"
+text = "+2.5% chance for helpful hints
+"
 horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 2

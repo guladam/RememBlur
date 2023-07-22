@@ -79,8 +79,9 @@ func load_all_puzzles() -> Array[Puzzle]:
 
 func generate_run() -> void:
 	var all_puzzles: Array[Puzzle] = load_all_puzzles()
+	randomize()
 	all_puzzles.shuffle()
-	levels = all_puzzles.slice(0, levels_per_run)
+	levels = all_puzzles.slice(0, levels_per_run, 1, true)
 
 
 func _get_time_for_next_level() -> float:

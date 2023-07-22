@@ -49,7 +49,7 @@ scale = Vector2(1, 1)
 text = "BRAIN_TOUCH"
 
 [node name="CooldownTimer" type="Timer" parent="."]
-wait_time = 90.0
+wait_time = 80.0
 one_shot = true
 
 [node name="Cooldown" parent="." instance=ExtResource("19_nt6sw")]

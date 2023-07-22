@@ -11,4 +11,4 @@ name_key = "UPGRADE_T2_UPGRADE_SLOT"
 icon = ExtResource("1_ddb14")
 one_time = false
 tier = 2
-stat_name = "upgrade_options"
+stat_name = "upgrade_options_bonus"

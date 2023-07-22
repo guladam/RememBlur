@@ -13,18 +13,18 @@ signal hint_added_as_seen(hint: Hint)
 var solution: String
 var solution_clean: String
 var seen_hints: Array[Hint]
-var seen_letters: Array[String]
+var seen_needed_letters: Array[String]
 var unique_letters: Dictionary
 
 
 func reset() -> void:
 	seen_hints.clear()
-	seen_letters.clear()
+	seen_needed_letters.clear()
 	solution = tr(solution_key)
 	solution_clean = solution.replace(" ", "")
 	
-	for c in solution_clean:
-		unique_letters[c] = c
+	for chr in solution_clean:
+		unique_letters[chr] = chr
 
 
 func check_guess(guess: String) -> bool:
@@ -37,26 +37,26 @@ func check_guess(guess: String) -> bool:
 		return false
 	
 	for i in range(solution_clean.length()):
-		if solution_clean[i] == guess_clean[i] and not seen_letters.has(guess_clean[i]):
-			seen_letters.append(guess_clean[i])
+		if solution_clean[i] == guess_clean[i] and not seen_needed_letters.has(guess_clean[i]):
+			seen_needed_letters.append(guess_clean[i])
 	
 	emit_changed()
 	
-	return seen_letters.size() == unique_letters.size()
+	return seen_needed_letters.size() == unique_letters.size()
 
 
 # returns true if it's the last letter, false otherwise.
 func unlock_unseen_letters(amount: int) -> bool:
-	if seen_letters.size() == unique_letters.values().size() - 1:
+	if seen_needed_letters.size() == unique_letters.values().size() - 1:
 		return true
 	
 	for _i in range(amount):
 		var new_letter: String = unique_letters.values().pick_random()
 
-		while seen_letters.has(new_letter):
+		while seen_needed_letters.has(new_letter):
 			new_letter = unique_letters.values().pick_random()
 		
-		seen_letters.append(new_letter)
+		seen_needed_letters.append(new_letter)
 	
 	emit_changed()
 	return false
@@ -100,5 +100,5 @@ func previous_hint_was_helpful() -> bool:
 	# if it's the first hint, you have a 50-50 chance
 	if seen_hints.size() < 1:
 		return randf() > 0.5
-		
+	
 	return get_helpfulness_of_hint(seen_hints[-1]) > 0

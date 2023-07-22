@@ -15,7 +15,7 @@ func show_upgrades() -> void:
 	for c in upgrades.get_children():
 		c.queue_free()
 	
-	for i in range(player_stats.upgrade_options):
+	for i in range(player_stats.upgrade_options + player_stats.upgrade_options_bonus):
 		var new_upgrade_card = upgrade_card.instantiate()
 		new_upgrade_card.upgrade = all_upgrades[i]
 		upgrades.add_child(new_upgrade_card)

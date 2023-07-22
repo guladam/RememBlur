@@ -3,13 +3,19 @@ extends PanelContainer
 signal guess_entered(guess: String)
 
 @export var game_state: GameState
+@export var helpful_letter_color: Color
+@export var unhelpful_letter_color: Color
+
 @onready var guess: LineEdit = %Guess
+@onready var guess_underline: Label = %GuessUnderline
+@onready var former_guesses: RichTextLabel = %FormerGuesses
 
 
 var _puzzle: Puzzle
 var _animating := false
 var puzzle_length: int
 var typing_enabled := false
+var guesses := []
 
 
 func _unhandled_input(event: InputEvent) -> void:
@@ -20,6 +26,7 @@ func _unhandled_input(event: InputEvent) -> void:
 func setup(puzzle: Puzzle) -> void:
 	_puzzle = puzzle
 	puzzle_length = _puzzle.solution.length()
+	guesses.clear()
 	setup_guesser()
 
 
@@ -31,7 +38,33 @@ func setup_guesser() -> void:
 	for word in words:
 		placeholder.append("_".repeat(word.length()))
 	
-	guess.placeholder_text = " ".join(placeholder)
+	guess_underline.text = " ".join(placeholder)
+	former_guesses.text = ""
+
+
+func add_latest_former_guess(latest_guess: String) -> void:
+	if guesses.is_empty():
+		former_guesses.text = ""
+		return
+
+	latest_guess = latest_guess.replace(" ", "")
+	var letter_bb_codes: PackedStringArray = []
+	var color_code: String
+	for i in range(_puzzle.solution_clean.length()):
+		if _puzzle.solution_clean[i] == latest_guess[i]:
+			color_code = helpful_letter_color.to_html()
+		else:
+			color_code = unhelpful_letter_color.to_html()
+		letter_bb_codes.append(
+			"[color=#%s]%s[/color]" % [color_code, latest_guess[i]]
+		)
+	
+	var space_in_puzzle := _puzzle.solution.find(" ")
+	if space_in_puzzle > -1:
+		letter_bb_codes.insert(space_in_puzzle, " ")
+	
+	var extra_chars := ", " if guesses.size() > 1 else ""	
+	former_guesses.text = former_guesses.text + extra_chars + "".join(letter_bb_codes)
 
 
 func show_guesser() -> void:
@@ -67,6 +100,8 @@ func submit_guess() -> void:
 	
 	close()
 	guess_entered.emit(guess.text)
+	guesses.append(guess.text)
+	add_latest_former_guess(guess.text)
 
 
 func close() -> void:
@@ -90,3 +125,17 @@ func _on_guess_text_submitted(_new_text: String) -> void:
 
 func _on_cancel_pressed() -> void:
 	close()
+
+
+func _on_guess_text_changed(new_text: String) -> void:
+	var placeholder: PackedStringArray = []
+	placeholder.resize(puzzle_length)
+	placeholder.fill("_")
+	
+	for i in range(_puzzle.solution.length()):
+		if _puzzle.solution[i] == " ":
+			placeholder[i] = " "
+		elif i < new_text.length() and new_text[i] != " ":
+			placeholder[i] = " "
+	
+	guess_underline.text = "".join(placeholder)

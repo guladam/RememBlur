@@ -141,6 +141,8 @@ points = PackedVector2Array(-1064, 1656, -592, 1552, -392, 1296, -160, 1064, 16,
 [node name="TutorialObstacle99" parent="Obstacles" instance=ExtResource("6_o33j1")]
 points = PackedVector2Array(-1528, -680, -1232, -712, -1000, -784, -736, -784, -496, -744, -256, -688, 0, -600)
 
+[node name="LetterBonusSpawnPoints" type="Node2D" parent="."]
+
 [node name="Player" parent="." instance=ExtResource("14_3rwob")]
 position = Vector2(-256, -1920)
 

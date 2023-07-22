@@ -7,6 +7,8 @@ signal max_health_changed
 
 enum SIGN { NEGATIVE, POSITIVE }
 
+@export var letter_bonus_spawn_rate := 5
+
 @export_group("Health")
 @export var default_max_health := 3
 @export var health := 3:
@@ -28,6 +30,7 @@ enum SIGN { NEGATIVE, POSITIVE }
 
 @export_group("Upgrades")
 @export var upgrade_options := 3
+@export var upgrade_options_bonus := 0
 
 @export_group("Movement")
 @export var move_speed_bonus := 0
@@ -68,6 +71,7 @@ func reset() -> void:
 	max_health = default_max_health
 	health = max_health
 	upgrade_options = 3
+	upgrade_options_bonus = 0
 	move_speed_bonus = 0
 	time_bonus = 0
 	universal_cd_bonus = 0

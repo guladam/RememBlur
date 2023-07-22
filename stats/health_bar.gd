@@ -2,7 +2,7 @@ extends MarginContainer
 
 @export var player_stats: PlayerStats
 
-@onready var lives: HBoxContainer = %Lives
+@onready var lives: GridContainer = %Lives
 @onready var health_icon = preload("res://stats/health_icon.tscn")
 @onready var icons := {
 	"full": preload("res://stats/energy.png"),

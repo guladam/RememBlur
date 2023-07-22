@@ -1,26 +1,31 @@
-[gd_scene load_steps=2 format=3 uid="uid://wfim02c132bf"]
+[gd_scene load_steps=3 format=3 uid="uid://wfim02c132bf"]
 
+[ext_resource type="Theme" uid="uid://cytrqyn3gsxmg" path="res://ui_theme.tres" id="1_eap4d"]
 [ext_resource type="Script" path="res://interactables/guesser/puzzle_letters.gd" id="1_qdwbu"]
 
-[node name="PuzzleLetters" type="Control" groups=["puzzle_receiver"]]
-layout_mode = 3
+[node name="PuzzleLetters" type="VBoxContainer" groups=["puzzle_receiver"]]
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_top = 25.0
-offset_bottom = 25.0
+offset_left = -250.0
+offset_top = 15.0
+offset_right = 250.0
+offset_bottom = 105.0
 grow_horizontal = 2
+theme = ExtResource("1_eap4d")
+theme_override_constants/separation = 15
+alignment = 1
 script = ExtResource("1_qdwbu")
 
 [node name="Letters" type="HBoxContainer" parent="."]
 unique_name_in_owner = true
-layout_mode = 1
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -257.5
-offset_right = 257.5
-offset_bottom = 108.0
-grow_horizontal = 2
+custom_minimum_size = Vector2(500, 0)
+layout_mode = 2
 theme_override_constants/separation = 50
 alignment = 1
+
+[node name="Category" type="Label" parent="."]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 48
+horizontal_alignment = 1

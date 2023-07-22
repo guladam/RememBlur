@@ -32,7 +32,7 @@ func _on_gui_input(event: InputEvent) -> void:
 
 func _on_mouse_entered() -> void:
 	set("theme_override_styles/panel", style_hovered)
-	custom_minimum_size.y = 350
+	custom_minimum_size.y = 360
 
 
 func _on_mouse_exited() -> void:

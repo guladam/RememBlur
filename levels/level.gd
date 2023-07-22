@@ -16,6 +16,8 @@ signal pause
 @onready var level_timer: Timer = $LevelTimer
 @onready var pick_ups: Node2D = $PickUps
 @onready var letter_bonus := preload("res://interactables/letter_bonus.tscn")
+@onready var helpful_hints_unlocked := 0
+@onready var letter_bonus_spawn_points: Node2D = $LetterBonusSpawnPoints
 
 
 func _ready() -> void:
@@ -28,6 +30,7 @@ func _ready() -> void:
 	for hint_giver in hint_givers.get_children():
 		hint_giver.show_latest_hint_screen.connect(ui.show_latest_hint_screen)
 		hint_giver.helpful_hint_unlocked.connect(ui.decrease_helpful_hints)
+		hint_giver.helpful_hint_unlocked.connect(spawn_letter_bonus_if_needed)
 	
 	Events.time_bonus_picked_up.connect(add_time)
 	Events.letter_bonus_picked_up.connect(add_letter)
@@ -47,6 +50,9 @@ func _ready() -> void:
 	MusicPlayer.play_song_by_name("game_music.ogg")
 
 func _input(event: InputEvent) -> void:
+	if game_state.state == GameState.State.IN_UI:
+		return
+
 	if event.is_action_pressed("pause"):
 		pause.emit(not get_tree().paused)
 		get_viewport().set_input_as_handled()
@@ -88,13 +94,25 @@ func get_time_left() -> float:
 	return level_timer.time_left
 
 
+func spawn_letter_bonus(pos: Vector2) -> void:
+	var new_letter_bonus := letter_bonus.instantiate()
+	pick_ups.add_child(new_letter_bonus)
+	new_letter_bonus.global_position = pos
+
+
 func swap_random_time_bonus_for_letter_bonus() -> void:
 	if not pick_ups or pick_ups.get_child_count() == 0:
 		return
 	
 	var idx := randi_range(0, pick_ups.get_child_count() - 1)
 	var global_pos: Vector2 = pick_ups.get_child(idx).global_position
-	var new_letter_bonus := letter_bonus.instantiate()
-	pick_ups.add_child(new_letter_bonus)
-	new_letter_bonus.global_position = global_pos
+	spawn_letter_bonus(global_pos)
 	pick_ups.get_child(idx).queue_free()
+
+
+func spawn_letter_bonus_if_needed() -> void:
+	helpful_hints_unlocked += 1
+	if helpful_hints_unlocked % player_stats.letter_bonus_spawn_rate == 0:
+		var idx := randi_range(0, letter_bonus_spawn_points.get_child_count() - 1)
+		var global_pos: Vector2 = letter_bonus_spawn_points.get_child(idx).global_position
+		spawn_letter_bonus(global_pos)

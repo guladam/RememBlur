@@ -1,9 +1,26 @@
-[gd_scene load_steps=3 format=3 uid="uid://b3o2wkh3qrpvd"]
+[gd_scene load_steps=10 format=3 uid="uid://b3o2wkh3qrpvd"]
 
 [ext_resource type="Script" path="res://interactables/guesser/guesser_ui.gd" id="1_swggk"]
 [ext_resource type="Theme" uid="uid://cytrqyn3gsxmg" path="res://ui_theme.tres" id="1_y3t5x"]
+[ext_resource type="FontVariation" uid="uid://h84bdxldrpc4" path="res://roboto_mono_spaced.tres" id="3_b4yhi"]
+[ext_resource type="FontFile" uid="uid://bicwepdla613v" path="res://roboto_mono.ttf" id="4_ag41w"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_7w650"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_i10ig"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_tsxlq"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_epktn"]
+
+[sub_resource type="FontVariation" id="FontVariation_vy77f"]
+base_font = ExtResource("4_ag41w")
+spacing_glyph = 10
+spacing_top = 8
+spacing_bottom = -8
 
 [node name="GuesserUI" type="PanelContainer" groups=["puzzle_receiver"]]
+custom_minimum_size = Vector2(500, 0)
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -17,6 +34,8 @@ grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("1_y3t5x")
 script = ExtResource("1_swggk")
+helpful_letter_color = Color(0.196078, 0.611765, 0.239216, 1)
+unhelpful_letter_color = Color(0.827451, 0.305882, 0.298039, 1)
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 2
@@ -34,17 +53,56 @@ layout_mode = 2
 text = "UI_GUESSER_PROMPT"
 horizontal_alignment = 1
 
-[node name="Guess" type="LineEdit" parent="MarginContainer/VBoxContainer"]
+[node name="GuessBox" type="PanelContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_styles/panel = SubResource("StyleBoxEmpty_7w650")
+
+[node name="Guess" type="LineEdit" parent="MarginContainer/VBoxContainer/GuessBox"]
 unique_name_in_owner = true
 layout_mode = 2
-placeholder_text = "solution"
-alignment = 1
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("3_b4yhi")
+theme_override_font_sizes/font_size = 54
+theme_override_styles/normal = SubResource("StyleBoxEmpty_i10ig")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_tsxlq")
+theme_override_styles/read_only = SubResource("StyleBoxEmpty_epktn")
+text = "pinecone"
+flat = true
 caret_blink = true
 caret_blink_interval = 0.5
+
+[node name="GuessUnderline" type="Label" parent="MarginContainer/VBoxContainer/GuessBox"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(0.792157, 0.792157, 0.792157, 0.827451)
+theme_override_fonts/font = SubResource("FontVariation_vy77f")
+theme_override_font_sizes/font_size = 54
+text = "________"
+vertical_alignment = 2
+
+[node name="FormerGuessBox" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/FormerGuessBox"]
+layout_mode = 2
+size_flags_vertical = 1
+text = "UI_GUESSES"
+
+[node name="FormerGuesses" type="RichTextLabel" parent="MarginContainer/VBoxContainer/FormerGuessBox"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+bbcode_enabled = true
+text = "apple, tomato, yikes"
+fit_content = true
+scroll_active = false
 
 [node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_constants/separation = 20
+alignment = 1
 
 [node name="Remember" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer"]
 layout_mode = 2
@@ -54,6 +112,7 @@ text = "UI_REMEMBER_BTN"
 layout_mode = 2
 text = "UI_CLOSE"
 
-[connection signal="text_submitted" from="MarginContainer/VBoxContainer/Guess" to="." method="_on_guess_text_submitted"]
+[connection signal="text_changed" from="MarginContainer/VBoxContainer/GuessBox/Guess" to="." method="_on_guess_text_changed"]
+[connection signal="text_submitted" from="MarginContainer/VBoxContainer/GuessBox/Guess" to="." method="_on_guess_text_submitted"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/HBoxContainer/Remember" to="." method="_on_remember_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/HBoxContainer/Cancel" to="." method="_on_cancel_pressed"]

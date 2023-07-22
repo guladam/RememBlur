@@ -22,9 +22,9 @@ func get_hint(helpfulness := 0) -> Hint:
 	
 	hints.shuffle()
 	var given_hint := -1
-	var helpful_by_chance := randf() <= player_stats.helpful_hint_chance + player_stats.get_multiplier(player_stats.helpful_hint_bonus, player_stats.SIGN.POSITIVE)
+	var helpful_by_chance := randf() <= player_stats.helpful_hint_chance * player_stats.get_multiplier(player_stats.helpful_hint_bonus, player_stats.SIGN.POSITIVE)
 	var helpful_because_prev := not _puzzle.previous_hint_was_helpful()
-	
+
 	if helpful_by_chance or helpful_because_prev:
 		given_hint = _puzzle.get_helpful_hint(hints, helpfulness)
 	

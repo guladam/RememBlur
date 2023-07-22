@@ -1,8 +1,9 @@
-extends Control
+extends VBoxContainer
 
 
 @onready var letters: HBoxContainer = %Letters
 @onready var letter := preload("res://interactables/guesser/letter.tscn")
+@onready var category: Label = %Category
 
 var _puzzle: Puzzle
 var puzzle_length: int
@@ -13,6 +14,7 @@ func setup(puzzle: Puzzle) -> void:
 	_puzzle.changed.connect(update_letters)
 	puzzle_length = _puzzle.solution.length()
 	setup_puzzle()
+	category.text = tr(Categories.CATEGORY_NAMES[puzzle.category])
 
 
 func setup_puzzle() -> void:
@@ -33,7 +35,7 @@ func update_letters() -> void:
 		
 		var current_letter: Label = letters.get_child(i)
 		
-		if _puzzle.seen_letters.has(_puzzle.solution[i]):
+		if _puzzle.seen_needed_letters.has(_puzzle.solution[i]):
 			current_letter.text = _puzzle.solution[i].to_upper()
 			current_letter.theme_type_variation = ""
 			current_letter.reveal()

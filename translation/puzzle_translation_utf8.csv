@@ -1,9 +1,9 @@
 ﻿keys,en,hu
-CAT_ANIMAL,animals,állatok
-CAT_FRUITVEG,fruits & veggies,zöldség-gyümölcs
-CAT_PLANTS,plants,növények
-CAT_OBJECTS,objects,tárgyak
-CAT_FOOD_DRINK,food & drink,étel-ital
+CAT_ANIMAL,animal,állat
+CAT_FRUITVEG,fruit / veggie,zöldség-gyümölcs
+CAT_PLANTS,plant,növény
+CAT_OBJECTS,object,tárgy
+CAT_FOOD_DRINK,food / drink,étel-ital
 PUZZLE_LION,lion,oroszlán
 PUZZLE_TOMATO,tomato,paradicsom
 PUZZLE_WATER,water,víz

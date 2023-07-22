@@ -4,6 +4,7 @@
 
 [resource]
 script = ExtResource("1_pq0dh")
+letter_bonus_spawn_rate = 5
 default_max_health = 3
 health = 3
 max_health = 3

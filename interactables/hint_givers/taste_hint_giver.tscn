@@ -56,7 +56,7 @@ offset_bottom = -57.0
 text = "BRAIN_TASTE"
 
 [node name="CooldownTimer" type="Timer" parent="."]
-wait_time = 90.0
+wait_time = 80.0
 one_shot = true
 
 [node name="Cooldown" parent="." instance=ExtResource("25_ob6yg")]
