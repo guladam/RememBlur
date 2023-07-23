@@ -34,8 +34,7 @@ grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("1_y3t5x")
 script = ExtResource("1_swggk")
-helpful_letter_color = Color(0.196078, 0.611765, 0.239216, 1)
-unhelpful_letter_color = Color(0.827451, 0.305882, 0.298039, 1)
+helpful_letter_color = Color(0.239216, 0.772549, 0.298039, 1)
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 2

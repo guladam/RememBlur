@@ -2,8 +2,8 @@ extends Node2D
 
 @export_dir var puzzle_folder: String
 @export var genres: Array[String]
-@export var first_level_time := 900
-@export var level_time_bonus := 180
+@export var first_level_time := 600
+@export var level_time_bonus := 150
 @export var levels_per_run := 6
 @export var game_state: GameState
 

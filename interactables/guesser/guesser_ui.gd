@@ -4,7 +4,6 @@ signal guess_entered(guess: String)
 
 @export var game_state: GameState
 @export var helpful_letter_color: Color
-@export var unhelpful_letter_color: Color
 
 @onready var guess: LineEdit = %Guess
 @onready var guess_underline: Label = %GuessUnderline
@@ -49,15 +48,16 @@ func add_latest_former_guess(latest_guess: String) -> void:
 
 	latest_guess = latest_guess.replace(" ", "")
 	var letter_bb_codes: PackedStringArray = []
-	var color_code: String
+	var code: String
 	for i in range(_puzzle.solution_clean.length()):
+		code = latest_guess[i]
+		
 		if _puzzle.solution_clean[i] == latest_guess[i]:
-			color_code = helpful_letter_color.to_html()
-		else:
-			color_code = unhelpful_letter_color.to_html()
-		letter_bb_codes.append(
-			"[color=#%s]%s[/color]" % [color_code, latest_guess[i]]
-		)
+			code =	"[color=#%s]%s[/color]" % [
+				helpful_letter_color.to_html(), 
+				latest_guess[i]
+			]
+		letter_bb_codes.append(code)
 	
 	var space_in_puzzle := _puzzle.solution.find(" ")
 	if space_in_puzzle > -1:
